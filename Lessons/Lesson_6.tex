@@ -1,0 +1,51 @@
+\section{Lezione 6}
+\subsection{Ripasso: derivabilità e differenziabilità}
+\begin{definition}
+    \label{def:6.1}
+    Sia $f\colon(a,b)\to\amsbb{R}$, e sia $x\in(a,b)$; definiamo il \emph{rapporto incrementale di $f$ in $x$} come la funzione $\phi_x \colon (a,b) \setminus \{x\} \to \amsbb{R}$,
+    \[
+    \phi_x(t) = \frac{f(t)-f(x)}{t-x}
+    \]
+    Diremo che $f$ è \emph{derivabile in $x$} se esiste finito
+    \[
+    \lim_{t\to x} \phi_x(t) = \lim_{t\to x} \frac{f(t)-f(x)}{t-x} = f'(x)
+    \]
+\end{definition}
+\begin{remark}
+    Detto $I\subseteq (a,b)$ l'insieme dei punti in cui $f$ è derivabile, possiamo definire una funzione $ I\ni x \mapsto f'(x)\in \amsbb{R}$, detta \emph{derivata prima} di $f$, che si indica con il simbolo $f'$.
+\end{remark}
+\begin{definition}
+    \label{def:6.2}
+    Dati $f\colon(a,b)\to\amsbb{R}$ e $x\in(a,b)$, diremo che $f$ è \emph{differenziabile in $x$} se esiste un'applicazione lineare $A_x\colon\amsbb{R}\to \amsbb{R}$ tale che
+    \begin{equation}
+        \label{eq:6.1}
+        \lim_{\abs{h}\to0}\frac{\abs{f(x+h)-f(x)-A_x h}}{\abs{h}}=0
+    \end{equation}
+\end{definition}
+\begin{remark}
+    Ricordiamo che vale il teorema \ref{th:4.6}, e che quindi $\abs{h}\to 0$ se e solo se $h\to0$ e $\abs{f(h)}\to0$ se e solo se $f(h)\to0$. Possiamo quindi riscrivere la (\ref{eq:6.1}) come
+    \[
+    \lim_{h\to 0} \frac{f(x+h)-f(x)-A_x h}{h}=0
+    \]
+    Per la definizione \ref{def:5.4} vale quindi che
+    \[
+    f(x+h)-f(x)-A_xh = o(h) \iff f(x+h) = f(x) + A_x h+o(h)
+    \]
+    ossia $f$ è differenziabile in $x$ se in un intorno di $h$ possiamo approssimare $f$ con un'applicazione lineare $A_x$ commettendo un errore contenuto ($o(h)$).
+\end{remark}
+\begin{remark}
+    Dai corsi di geometria sappiamo che, fissata una base di $\amsbb{R}$, esiste una corrispondenza biunivoca fra applicazioni lineari $A_x\in L(\amsbb{R}, \amsbb{R})$ e matrici $1\times 1$ a coefficienti reali, ossia numeri reali: in particolare, data l'applicazione lineare $A_x\colon \amsbb{R}\to\amsbb{R}$, esiste $m_{A_x}\in\amsbb{R}$ tale che
+    \[
+    A_x(h) = m_{A_x}h \ \text{per ogni} \ h\in\amsbb{R}
+    \]
+\end{remark}
+\begin{theorem}
+    \label{th:6.1}
+    Data $f\colon (a,b)\to\amsbb{R}$, $f$ è differenziabile in $x$ se e solo se $f$ è derivabile in $x$.
+\end{theorem}
+\begin{proof}
+    Dimostriamo le due implicazioni.
+    \begin{enumerate}[(i)]
+        \item 
+    \end{enumerate}
+\end{proof}

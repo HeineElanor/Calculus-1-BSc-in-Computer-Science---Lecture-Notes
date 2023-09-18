@@ -1,0 +1,389 @@
+\section{Lezione 1}
+\subsection{Polinomi: definizioni di base}
+\begin{definition}
+    \label{def:1.1}
+    Un \emph{polinomio} $P(x)$ nella variabile $x$ di grado $n$ a coefficienti nel campo $\amsbb{K}$ (nel nostro caso $\amsbb{R}$ o $\amsbb{C}$) è un'espressione algebrica del tipo
+    \[
+    P(x) = a_0 + \sum_{k=1}^n a_k x^k, \qquad a_n\ne 0, \ a_0, \dots, a_n\in\amsbb{K}
+    \]
+    Gli elementi $a_k x^k$ sono detti \emph{monomi}, e se $a_k\ne 0$ vengono chiamati anche \emph{termini}.
+\end{definition}
+\begin{remark}
+    Solitamente il grado di un polinomio $P(x)$ viene indicato con $\deg(P)$.\\
+    I coefficienti di un polinomio di grado $n$, $\{a_k\}_{0\le k\le n}$, possono anche essere scritti come, dato $m>n$,
+    \[
+    \{a_k\}_{0\le k \le m}, \qquad a_k = 0 \ \text{per ogni} \ n<k\le m
+    \]
+    I simboli $x^k$ sono, per l'appunto, simboli: non hanno, per ora, alcun significato particolare.
+\end{remark}
+\begin{example}
+    \[
+    \begin{split}
+    P(x) = a_5x^5+a_3x^3+a_0 &\qquad \deg(P) = 5\\
+    P(x) = 0x^b+a_1x^1, \ b>1 & \qquad \deg(P)=1\\
+    P(x) = a_0 = a_0x^0 &\qquad \deg(P)=0\\
+    P(x)=0 &\qquad \deg(P)=-\infty \ \text{per convenzione}
+    \end{split}
+    \]
+\end{example}
+\begin{definition}
+    \label{def:1.2}
+    Siano $P(x)$ un polinomio di grado $n$ i cui coefficienti sono $\{a_k\}_{0\le k \le n} = \{a_0, \dots, a_n\}$ e $Q(x)$ un polinomio di grado $m$ i cui coefficenti sono $\{b_i\}_{0\le i \le m} = \{b_0, \dots, b_m\}$. La \emph{somma algebrica} di $P$ e $Q$, indicata con $P+Q$, è il polinomio di grado $d \le \max\{n,m\}$
+    \[
+    (P+Q)(x) = c_0 + \sum_{k=1}^{d}c_k x^k
+    \]
+    i cui coefficienti $\{c_k\}_{0\le k \le d}$ sono dati da:
+    \begin{enumerate}[(i)]
+        \item nel caso $n=m$,  
+        \[
+        c_k = a_k + b_k \ \text{per ogni} \ 0\le k \le n 
+        \]
+        \item nel caso $n>m$, 
+        \[
+        c_k = \begin{dcases}
+            a_k + b_k\, & 0\le k \le m\\
+            a_k\, & m<k\le n
+        \end{dcases}
+        \]
+        \item nel caso $m>n$
+        \[
+        c_k = \begin{dcases}
+            a_k + b_k\, & 0\le k \le n\\
+            b_k\, & n<k\le m
+        \end{dcases}
+        \]
+    \end{enumerate}
+\end{definition}
+\begin{remark}
+    Può accadere che il grado $d$ di $P+Q$ sia minore di $\max\{n,m\}$, ad esempio se $n=m$ e $b_n = -a_n$.\\
+    Si può facilmente verificare che la somma algebrica così definita è commutativa, associativa e che il polinomio $P(x)=0$ è l'elemento neutro della somma algebrica. Inoltre, per ogni polinomio $P(x)$ esiste un polinomio $Q(x)$ tale che $(P+Q)(x)=0$.
+\end{remark}
+\begin{definition}
+    \label{def:1.3}
+    Dato un polinomio $P(x)$ di grado $n$ avente coefficienti $\{a_k\}_{0\le k \le n}$ e un numero (detto \emph{scalare}) $\lambda\in \amsbb{K}$, la \emph{moltiplicazione per scalare} di $\lambda$ e $P$ è il polinomio $\lambda P$ di grado $d\le n$ i cui coefficienti $\{c_k\}_{0\le k \le d}$ sono dati da
+    \[
+    c_k = \lambda a_k \ \text{per ogni} \ 0\le k \le n
+    \]
+\end{definition}
+\begin{remark}
+    Si può facilmente verificare che la moltiplicazione per scalare è distributiva rispetto alla somma algebrica di polinomi.
+\end{remark}
+In realtà, poiché possiamo intendere un elemento del campo $\amsbb{K}$ come un polinomio di grado $0$, la moltiplicazione per scalare è un caso particolare della moltiplicazione tra polinomi:
+\begin{definition}
+    \label{def:1.4}
+    Dati un polinomio $P(x)$ di grado $n$ e coefficienti $\{a_k\}_{0\le k \le n}$ e un polinomio $Q(x)$ di grado $m$ e coefficienti $\{b_k\}_{0\le k \le m}$, il \emph{prodotto di $P$ e $Q$}, indicato con $PQ$, è un polinomio di grado $n+m$ i cui coefficienti $\{c_k\}_{0\le k \le n+m}$ sono dati da
+    \[
+    c_k = \sum_{i+j=k} a_ib_j
+    \]
+    ossia
+    \[
+    c_0 = a_0b_0, \quad c_1 = a_0b_1 + a_1b_0, \quad c_2 = a_2b_0 + a_1 b_1 + a_0b_2 \ \dots
+    \]
+\end{definition}
+\begin{remark}
+    Si può verificare che il prodotto fra polinomi è associativo, commutativo e che è distributivo rispetto alla somma algebrica. Inoltre, il polinomio $P(x) = 1$ è l'elemento neutro del prodotto fra polinomi.\\
+    Le operazioni così definite fanno sì che i simboli $x^k$ soddisfino le usuali proprietà delle potenze: $x^kx^l = x^{k+l}$ etc.
+\end{remark}
+Sino ad ora, abbiamo parlato dei polinomi come oggetti astratti su cui abbiamo definito delle operazioni (che rendono l'insieme dei polinomi su un dato campo un anello commutativo, che si indica con $\amsbb{K}[x]$). Possiamo però pensare di \emph{valutare i polinomi sugli elementi del campo $\amsbb{K}$}: dati un numero $a\in\amsbb{K}$ e un polinomio $P(x)$, possiamo calcolare il numero $P(a)$ sostituendo alla $x$ il numero $a$, in simboli
+\[
+\amsbb{K}\ni a \overset{P(x)}{\mapsto} P(a)\in\amsbb{K}
+\]
+$P(x)$ quindi induce un modo per assegnare ad ogni elemento del campo $\amsbb{K}$ un elemento del campo $\amsbb{K}$, ossia $P(x)$ induce una \emph{funzione polinomiale}.
+\begin{example}
+    Questo modo di intendere i polinomi consente di visualizzare meglio le operazioni fra polinomi precedentemente definite in modo molto astratto, applicando ai vari termini dei polinomi (che risultano essere numeri nell'accezione illustrata) le solite manipolazioni algebriche; ad esempio,
+    \[
+    \begin{split}
+    (x^2+5x+2)(x^3+6x) &\overset{\text{prop. associativa}}{=} (x^2+5x+2)\left((x^3)+(6x)\right)\overset{\text{prop. distributiva}}{=}\\
+    & = (x^2+5x+2)x^3+(x^2 + 5x + 2)6x \overset{\text{prop. distributiva}}{=}\\
+    & = x^5+5x^4+2x^3+6x^3+30x^2+12x = \\
+    & = x^5+5x^4+8x^3+30x^2+12x
+    \end{split}
+    \]
+\end{example}
+\subsection{Divisione fra polinomi}
+\begin{theorem}
+    \label{th:1.1}
+    Siano $P_1(x)$ e $P_2(x)$ due polinomi di grado rispettivamente $n$ e $m$ con $n\ge m$, e $P_2(x)\not\equiv 0$ (ossia $P_2(x)$ diverso dal polinomio nullo). Esistono due polinomi $Q(x)$ (detto \emph{quoziente}) e $R(x)$ (detto \emph{resto}) tali che
+    \[
+    P_1(x) = P_2(x)Q(x)+R(x)
+    \]
+    con $\deg(Q) = \deg(P_1)-\deg(P_2)$ e $\deg(R)<m$.
+\end{theorem}
+\begin{example}
+    Esiste un algoritmo che consente di determinare agilmente i polinomi $Q(x)$ e $R(x)$. Lo illustriamo nel caso esempio
+    \[
+    P_1(x) = x^5+2x^3+x+3 \qquad P_2(x) = x^3+3
+    \]
+    \begin{enumerate}[(i)]
+        \item Scriviamo i polinomi mettendo i termini in ordine \emph{decrescente} e lasciando lo spazio per eventuali termini mancanti
+        \[
+        \polylongdiv[style=D, stage=0]{x^5+2x^3+x+3}{x^3+3}
+        \]
+        \item Effettuiamo la divisione fra i monomi di grado maggiore di $P_1(x)$ e $P_2(x)$, nel nostro caso $x^5$ e $x^3$, ottenendo $x^2$
+        \[
+        \polylongdiv[style=D, stage=2]{x^5+2x^3+x+3}{x^3+3}
+        \]
+        \item Moltiplichiamo il polinomio $P_2(x) = x^3+3$ per il risultato ottenuto e sottraiamolo a $P_1(x)$
+        \[
+        \polylongdiv[style=D,stage=4]{x^5+2x^3+x+3}{x^3+3}
+        \]
+        ottenendo il polinomio $R_1(x) = 2x^3-3x^2+x+3$;
+        \item poiché $\deg(R_1)\ge \deg(P_2)$, ripetiamo la procedura precedente per i polinomi $R_1(x)$ e $P_2(x)$: effettuiamo la divisione fra i termini di grado maggiore, $2x^3$ e $x^3$
+        \[
+        \polylongdiv[style=D,stage=5]{x^5+2x^3+x+3}{x^3+3}
+        \]
+        moltiplichiamo $P_2(x)$ per il risultato ottenuto e sottraiamolo al polinomio $R_1(x)$, 
+        \[
+        \polylongdiv[style=D,stage=7]{x^5+2x^3+x+3}{x^3+3}
+        \]
+        ottenendo così $R_2(x) = -3x^2+x-3$;
+        \item in questo caso $\deg(R_2)<\deg(P_2)$, e abbiamo quindi finito. Il polinomio $Q(x)$ sarà il polinomio ottenuto sommando i quozienti intermedi, nel nostro caso $Q(x) = x^2+2$, e il polinomio $R(x)$ sarà il polinomio ottenuto dall'ultima sottrazione, nel nostro caso $R(x)= R_2(x)$.
+    \end{enumerate}
+    Quindi 
+    \[
+    P_1(x) = P_2(x)(x^2+2)+(-3x^2+x-3)
+    \]
+\end{example}
+\begin{definition}
+    \label{def:1.5} 
+    Dati due polinomi $P_1(x)$ e $P_2(x)$ che soddisfano le ipotesi del teorema \ref{th:1.1}, diremo che $P_1(x)$ è \emph{divisibile} per $P_2(x)$ se il polinomio di resto $R(x)$ è il polinomio nullo, ossia se esiste un polinomio $Q(x)$ tale che
+    \[
+    P_1(x) = P_2(x)Q(x)
+    \]
+\end{definition}
+Nel caso in cui il polinomio divisore $P_2(x)$ sia un polinomio del tipo $P_2(x) = x-c$ con $c\in\amsbb{K}$, esiste un comodo criterio per determinare se $P_1(x)$ con $\deg(P_1)\ge1$ è divisibile per $P_2$:
+\begin{proposition}
+    \label{prop:1.1}
+    Dati due polinomi $P_1(x)$ e $P_2(x)$ con $P_2(x) = x-c$, $c\in\amsbb{K}$ e $\deg(P_1)\ge 1$, $P_1$ è divisibile per $P_2$ se e solo se $P_1(c)=0$.
+\end{proposition}
+\begin{proof}
+    Mostriamo le due implicazioni.
+    \begin{enumerate}[(i)]
+        \item Supponiamo che $P_1$ sia divisibile per $P_2$; allora per la definizione \ref{def:1.5} esiste un polinomio $Q(x)$ tale che
+        \[
+        P_1(x) = (x-c)Q(x)
+        \]
+        Se valutiamo ambo i membri dell'uguaglianza in $c$ otteniamo
+        \[
+        P_1(c) = (c-c)Q(x) = 0
+        \]
+        ossia $P_1(c)=0$.
+        \item Supponiamo ora che $P_1(c)=0$. Poiché $P_1$ e $P_2$ soddisfano le ipotesi del teorema \ref{th:1.1}, sappiamo che esistono due polinomi $Q(x)$ e $R(x)$ tali che
+        \[
+        P_1(x) = (x-c)Q(x)+R(x)
+        \]
+        con $\deg(R)<\deg(P_2) = 1$, ossia $R(x) = r_0$ per qualche $r_0\in\amsbb{K}$; quindi
+        \[
+        P_1(x) = (x-c)Q(x)+r_0
+        \]
+        Sappiamo che $P_1(c)=0$; valutando ambo i membri dell'espressione precedente in $x=c$ otteniamo
+        \[
+        0=P_1(c) = (c-c)Q(x)+r_0 = r_0
+        \]
+        ossia $0=r_0 = R(x)$. Quindi per la definizione \ref{def:1.5} $P_1$ è divisibile per $P_2(x) = x-c$.\qedhere
+    \end{enumerate}
+\end{proof}
+\begin{definition}
+    \label{def:1.6} Se $a\in\amsbb{K}$ è tale per cui $P(a)=0$, $a$ è detto \emph{radice} del polinomio $P$.
+\end{definition}
+\begin{proposition}
+    \label{prop:1.2}
+    Dato un polinomio $P(x)$ di grado $n$, questo ammette al massimo $n$ radici distinte.
+\end{proposition}
+\begin{proof}
+    Procediamo per induzione:
+    \begin{enumerate}[(i)]
+        \item \emph{Passo base $n=0$}: se $P(x)$ è un polinomio di grado $0$ allora $P(x) = a_0$ con $a_0\ne 0$; di conseguenza $P(x)$ non ammette radici, e il risultato è verificato.
+        \item \emph{Passo induttivo}: supponiamo che il risultato valga per polinomi di grado $n$, e dimostriamo che vale anche per polinomi di grado $n+1$. Sia $P(x)$ un polinomio di grado $n+1$. Esistono due possibilità: $P(x)$ può non ammettere radici, nel qual caso il risultato è verificato, oppure può ammettere almeno una radice, sia essa $a\in\amsbb{K}$. Per la definizione \ref{def:1.6}, sappiamo che $P(a) = 0$; per la proposizione \ref{prop:1.1} allora vale che $P(x)$ è divisibile per $(x-a)$, ossia
+        \[
+        P(x)=(x-a)Q(x)
+        \]
+        con $\deg(Q) = \deg(P)-1 = n$. Per ipotesi induttiva, sappiamo che $\deg(Q)$ ammette al massimo $n$ radici distinte; di conseguenza $P(x)$ ammette come radici le radici di $Q(x)$, al massimo $n$ distinte, e $a$, e quindi ammette al massimo $n+1$ radici distinte. \qedhere
+    \end{enumerate}
+\end{proof}
+\begin{example}
+    Nel caso della divisione fra polinomi in cui il divisore è della forma $P_1(x) = x-c$, esiste un altro algoritmo, più veloce, che consente di effettuare la divisione, l'\emph{algoritmo di Ruffini}. Consideriamo i polinomi
+    \[
+    P_1(x) = x^3+4x+1 \qquad P_2(x) = x-2
+    \]
+    \begin{enumerate}[(i)]
+        \item Scriviamo i polinomi mettendo i termini in ordine \emph{decrescente};
+        \item Inseriamo in uno schema simile a quello seguente i coefficienti $\{1, 0, 4, 1\}$ di $P_1(x)$, nella riga superiore, avendo cura di inserire degli zeri per i coefficienti dei termini mancanti, e la radice $x=2$ del polinomio $P_2(x)$ nella riga inferiore
+        \[
+        \polyhornerscheme[x=2, tutor=true, stage=1, resultleftrule=true]{x^3+4x+1}
+        \]
+        \item Abbassiamo il primo coefficiente, 1, sotto la riga orizzontale; questo sarà il coefficiente del termine di grado $\deg(P_1)-1$
+        \[
+        \polyhornerscheme[x=2, tutor=true, stage=2, resultleftrule=true]{x^3+4x+1}
+        \]
+        \item Moltiplichiamo il coefficiente, 1, ottenuto in questo modo per la radice di $P_1(x)$, 2, e scriviamo il risultato sopra la linea di demarcazione sotto il coefficiente successivo a quello precedentemente utilizzato, in questo caso lo 0.  
+        \[
+        \polyhornerscheme[x=2, tutor=true, stage=3, resultleftrule=true]{x^3+4x+1}
+        \]
+        \item Sommiamo i due numeri incolonnati, riportando il risultato sotto la linea di demarcazione orizzontale
+        \[
+        \polyhornerscheme[x=2, tutor=true, stage=4, resultleftrule=true]{x^3+4x+1}
+        \]
+        \item Ripetiamo la procedura precedente, ossia moltiplichiamo il numero ottenuto, 2,  per la radice di $P_2(x)$ 2, e riportiamo il risultato sotto il coefficiente successivo
+        \[
+        \polyhornerscheme[x=2, tutor=true, stage=5, resultleftrule=true]{x^3+4x+1}
+        \]
+        ed effettuiamo la somma dei numeri incolonnati
+        \[
+        \polyhornerscheme[x=2, tutor=true, stage=6, resultleftrule=true]{x^3+4x+1}
+        \]
+        finché non terminiamo lo scorrimento dei coefficienti superiori:
+        \[
+        \polyhornerscheme[x=2, tutor=true, stage=7, resultleftrule=true]{x^3+4x+1}
+        \]
+        e infine
+        \[
+        \polyhornerscheme[x=2, tutor=true, stage=8, resultleftrule=true]{x^3+4x+1}
+        \]
+        \item Il numero sotto la linea di demarcazione orizzontale a destra del separatore verticale è il resto $R(x)$ della divisione, nel nostro caso 17, mentre i numeri a sinistra del separatore verticale sono i coefficienti dei termini del quoziente $Q(x)$: quindi
+        \[
+        P_1(x) = P_2(x)(x^2 + 2x+8)+17
+        \]
+    \end{enumerate}
+\end{example}
+\subsection{Fattorizzazione dei polinomi}
+\begin{definition}
+    \label{def:1.7}
+    Un polinomio $P(x)$ di grado $n\ge 1$ è detto \emph{irriducibile} se non esiste un polinomio $D(x)$ di grado $m$ con $0<m<n$ che divide esattamente $P$.
+\end{definition}
+\begin{theorem}
+    \label{th:1.2}
+    Se $\amsbb{K}=\amsbb{R}$, ossia nel caso di polinomi a coefficienti reali, gli unici polinomi irriducibili sono i polinomi di grado 1 e i polinomi di grado 2 con discriminante\footnote{Ricordiamo che dato un polinomio di grado 2 $P(x) = a_2x^2 + a_1x+a_0$, il discriminante è definito essere $\Delta = a_1^2-4a_2a_0$} negativo.
+\end{theorem}
+Come possiamo fattorizzare un polinomio $P(x)$ a coefficienti reali? Idealmente, procediamo nel modo seguente: cerchiamo una radice $a\in\amsbb{R}$, dividiamo $P(x)$ per $x-a$ e ripetiamo il passaggio finché non otteniamo un polinomio irriducibile, ossia una delle due tipologie indicate dal teorema \ref{th:1.2}. Ci sono delle scorciatoie che agevolano il processo:
+\begin{enumerate}[(i)]
+    \item Se i coefficienti del polinomio sono numeri \emph{interi}, le radici \emph{intere}, \emph{se esistono}, sono da cercarsi fra i sottomultipli \emph{interi} del termine noto.
+    \begin{example}
+        Ad esempio, consideriamo il polinomio
+        \[
+        P(x) = x^3+3x^2-25x+21
+        \]
+        Tutti i coefficienti appartengono a $\amsbb{Z}$, e quindi le radici intere, se esistono, sono da cercarsi nell'insieme
+        \[
+        \{1, -1, 3, -3, 7, -7, 21, -21\}
+        \]
+        Per trovare le radici intere è quindi sufficiente valutare il polinomio $P(x)$ sui numeri dell'insieme precedente. Si verifica facilmente che
+        \[
+        P(1)=0, \qquad P(3)=0, \qquad P(-7)=0 
+        \]
+        Per la proposizione \ref{prop:1.2} possiamo quindi fermarci, poiché abbiamo trovato 3 radici distinte; abbiamo quindi che
+        \[
+        P(x) = (x-3)(x-1)(x+7)
+        \]
+    \end{example}
+    Questo è vero per il motivo seguente: supponiamo che $P(x)$ sia un polinomio a coefficienti interi $\{a_k\}_{0\le k \le n}$, e sia $r\in\amsbb{Z}$ una sua radice intera; vale che
+    \[
+    0=P(r) = a_n r^n + a_{n-1}r^{n-1}+\dots + a_1 r + a_0
+    \]
+    ossia
+    \[
+    -a_0 = a_nr^n+a_{n-1}r^{n-1}+\dots + a_1 r = \overbrace{r}^{\in\amsbb{Z}}\underbrace{(a_n r^{n-1}+a_{n-1}r^{n-1}+\dots + a_1)}_{\in \amsbb{Z}}
+    \]
+    Risulta quindi evidente che $r$ è un sottomultiplo intero di $a_0$.
+    \item Formule di calcolo di vario tipo:
+    \begin{tcolorbox}
+    \vspace{-0.3cm}
+        \[
+        \begin{split}
+            &(a+b)^2 = a^2 + 2ab+b^2 \\
+            &(a+b)^3 = a^3+3a^2b+3ab^2+b^3\\
+            &(a^2-b^2) = (a+b)(a-b)\\
+            &(a^3+b^3) = (a+b)(a^2-ab+b^2)\\
+            &(a^3-b^3) = (a-b)(a^2+ab+b^2)\\
+            &(a+b+c)^2 = a^2 + b^2 + c^2 +2ab+2bc + 2ac\\
+            &(x^2+sx+p) = (x+n_1)(x+n_2) \ \text{con} \ s=n_1 + n_2 \ \text{e} \ p=n_1n_2
+        \end{split}
+        \]
+    \end{tcolorbox}
+    \end{enumerate}
+    \begin{example}
+        Consideriamo il polinomio $P(x) = x^4+1$. Osserviamo che $P(x)>0$ per ogni $x\in\amsbb{R}$, e quindi non ammette radici; tuttavia per il teorema \ref{th:1.2} \emph{non} è irriducibile: infatti,
+        \[
+        \begin{split}
+                P(x) &= x^4+1 =x^4+1+\underbrace{2x^2-2x^2}_{\text{abbiamo aggiunto 0}} = \\
+                & = (x^4+2x^2+1)-2x^2 \overset{\text{quadrato di binomio}}{=} \\
+                &= (x^2+1)^2 - (\sqrt{2}x)^2 \overset{\text{differenza di quadrati}}{=} \\
+                & = (x^2 + 1 + \sqrt{2}x)(x^2 + 2 -\sqrt{2}x)
+        \end{split}
+        \]
+    \end{example}
+    \begin{example}
+        Consideriamo il polinomio $P(x) = x^3 -(a+b)x^2+(ab+b^2)x-ab^2$ ove $a,b$ sono due parametri reali. Vogliamo fattorizzarlo in funzione di $a,b$:
+        \begin{enumerate}[(i)]
+            \item se $a=b=0$ allora $P(x) = x^3$ ed è già fattorizzato;
+            \item se $a=0, \ b\ne 0$ allora $P(x) = x^3-bx^2+b^2x$;
+            \[
+            P(x) = x^3-bx^2+b^2x = x\underbrace{(x^2-bx+b^2)}_{\Delta<0}
+            \]
+            e quindi risulta fattorizzato;
+            \item se $a\ne0, \ b=0$ allora $P(x) = x^3-ax^2$, ossia 
+            \[
+            P(x) = x^2(x-a)
+            \]
+            e lo abbiamo fattorizzato;
+            \item infine, se $a\ne0, \ b\ne 0$. Notiamo che, poiché il termine $x^3$ ha come coefficiente $1$, se cerchiamo radici costituite da numeri o contenenti termini numerici non riusciamo più a cancellare gli elementi di $\amsbb{R}$; di conseguenza, cerchiamo radici contenenti solo i parametri: proviamo con
+            \[
+            P(b) = b^3-(a+b)b^2+(ab+b^2)b-ab^2 = -ab^2 + b^3 \ne 0
+            \]
+            \[
+            P(a) = a^3 -(a+b)a^2 +(ab+b^2)a -ab^2 = 0
+            \]
+            Quindi $(x-a)$ è divisore esatto di $P(x)$, ed effettuando la divisione con Ruffini otteniamo
+            \[
+            P(x) = (x-a)\underbrace{(x^2-bx+b^2)}_{\Delta<0}
+            \]
+        \end{enumerate}
+    \end{example}
+\subsection{Disequazioni con funzioni polinomiali e razionali}
+\begin{exercise}
+    \label{ex:1.1}
+    Determinare l'insieme delle soluzioni di 
+    \begin{equation}
+        \label{eq:1.1}
+        \frac{x^2-x+1}{x^3-1}\ge 0
+    \end{equation}
+\end{exercise}
+\begin{proof}[Soluzione]
+    Cerchiamo di fattorizzare il numeratore ed il denominatore della funzione razionale:
+    \begin{enumerate}[(i)]
+        \item notiamo che $P(x) = x^2-x+1$ è irriducibile per il teorema \ref{th:1.2}, infatti
+        \[
+        \Delta = 1-4 <-3
+        \]
+        Inoltre, $P(x)>0$ per ogni $x\in\amsbb{R}$;
+        \item $Q(x)=x^3-1$ è invece una differenza di cubi, che possiamo decomporre come
+        \[
+        Q(x) = (x-1)\underbrace{(x^2+x+1)}_{\Delta<0}
+        \]
+        Notiamo che, poiché $Q$ è a denominatore, le sue radici vanno escluse dal dominio di esistenza della funzione razionale, e quindi eventualmente dalle soluzioni della disequazione.
+    \end{enumerate}
+    Quindi la disequazione (\ref{eq:1.1}) risulta essere
+    \[
+    \frac{\overbrace{x^2-x+1}^{>0 \ \forall x\in\amsbb{R}}}{(x-1)(x^2+x+1)}\ge 0
+    \]
+    e la positività della funzione razionale dipende unicamente dalla quantità a denominatore; andiamo quindi a studiarne il segno:\\
+    
+    \begin{center}
+        \begin{tikzpicture}
+            \tikzset{h style/.style = {fill=black!30}}
+            \tkzTabInit[lgt=3,espcl=2,deltacl=0]
+            { /.8, $(x-1)$ /.8, $(x^2+x+1)$ /.8, $Q(x)$ /.8}
+            {,$1$, } % four main references
+            \tkzTabLine {,-,z,+,} % seven denotations
+            \tkzTabLine {,+,t,+,}
+            \tkzTabLine {,-,t,h,}
+            \path (N23) -- (N24) node[black,midway,inner sep=2pt,draw,circle,fill=white]{};
+            \path (M23) -- (M24) node[black,midway]{+};
+        \end{tikzpicture}
+    \end{center}
+    Di conseguenza l'insieme delle soluzioni di (\ref{eq:1.1}) è 
+    \[
+    \left\{x\in\amsbb{R} \ \colon \ x>1\right\}
+    \]
+\end{proof}
+\newpage

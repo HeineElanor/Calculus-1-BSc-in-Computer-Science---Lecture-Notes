@@ -1,0 +1,620 @@
+\section{Lezione 3}
+\subsection{Ripasso: i numeri complessi}
+\begin{definition}
+    \label{def:3.1}
+    Un \emph{numero complesso} $z$ è una coppia \textbf{ordinata} $(a,b)\in\amsbb{R}^2$. Diremo che $z_1 =(a_1, b_1)$ e $z_2 = (a_2, b_2)$ sono uguali se $a_1 = a_2$ e $b_1 = b_2$.
+\end{definition}
+\begin{remark}
+    Sembra un punto secondario, ma la definizione di uguaglianza riveste un'importanza cruciale. La cosa è apparente se consideriamo altri insiemi numerici. Ad esempio, i numeri interi $\amsbb{Z}$ si definiscono a partire da coppie ordinate $(n, m)\in\amsbb{N}^2$, e in questo caso la definizione di uguaglianza cambia: diremo infatti che $x_1 = (n_1, m_1)$ e $x_2=(n_2, m_2)$ sono uguali se
+    \[
+    n_1 +m_2 = n_2 + m_1
+    \]
+\end{remark}
+\begin{definition}
+    \label{def:3.2}
+    Su $\amsbb{R}^2$ definiamo due operazioni: la \emph{somma}
+    \[
+    \begin{split}
+        +\colon \qquad  \amsbb{R}^2 \times \amsbb{R}^2 \qquad &\to \qquad \quad \amsbb{R}^2 \\
+        \left((a_1, b_1), (a_2, b_2)\right)&\mapsto (a_1+a_2, b_1 + b_2)
+    \end{split}
+    \]
+    e il \emph{prodotto}
+    \[
+    \begin{split}
+        \cdot\colon \qquad  \amsbb{R}^2 \times \amsbb{R}^2 \qquad &\to \qquad \qquad \amsbb{R}^2 \\
+        \left((a_1, b_1), (a_2, b_2)\right)&\mapsto (a_1a_2-b_1b_2, a_1b_2 + a_2b_1)
+    \end{split}
+    \]
+\end{definition}
+\begin{theorem}
+    \label{th:3.1}
+    $(\amsbb{R}^2, +, \cdot)$ è un campo che indichiamo con $\amsbb{C}$, e chiamiamo \emph{campo dei numeri complessi}. $(0,0)$ è l'elemento neutro della somma e lo indichiamo con $0$, mentre $(1,0)$ è l'elemento neutro del prodotto e lo indichiamo con $1$.
+\end{theorem}
+\begin{remark}
+    Notiamo che l'insieme 
+    \[
+    S = \left\{ (a,0)\in \amsbb{R}^2, \ a\in\amsbb{R}\right\}
+    \]
+    è stabile sotto la somma e il prodotto: infatti
+    \[
+    (a,0)+(b,0) = (a+b, 0) \qquad (a,0)\cdot(b,0) = (ab, 0)
+    \]
+    Si può inoltre mostrare che la restrizione ad $S$ della somma e del prodotto così come definiti nella definizione \ref{def:3.2} soddisfano gli assiomi di campo; definendo pertanto una funzione
+    \[
+    \begin{split}
+        \phi\colon \amsbb{R} &\to \quad S\\
+        a &\mapsto(a,0)
+    \end{split}
+    \]
+    otteniamo un omomorfismo di campi che è anche biiettivo; possiamo pertanto identificare $\amsbb{R}$ e $S$, ossia scrivere $\amsbb{R}\subseteq \amsbb{C}$ e dire che $\amsbb{R}$ è un sottocampo di $\amsbb{C}$.
+\end{remark}
+\begin{definition}
+    \label{def:3.3}
+    Definiamo l'\emph{unità immaginaria} $i=(0,1)$, e notiamo che $i^2 = (0,1)\cdot(0,1) = (-1,0)$.
+\end{definition}
+\begin{remark}
+    Notiamo che, dato $b\in\amsbb{R}$ e identificandolo con $(b,0)\in\amsbb{C}$ vale che
+    \[
+    bi = (b,0)\cdot(0,1) = (0,b) = (0,1)\cdot(b,0) = ib
+    \]
+    Poiché la coppia $(a,b)\in\amsbb{C}$ può essere scritta come $(a,0) + (0,b)$, modulo identificazione di $(a,0)$ con $a$ possiamo scrivere
+    \[
+    (a,b) = a+ib
+    \]
+    Se indichiamo la coppia $(a,b)$ con $z$, il numero \textbf{reale} $a$ è detto \emph{parte reale} di $z$, $a=\text{Re}(z)$, mentre il numero \textbf{reale} $b$ è detto \emph{parte immaginaria} di $z$, $b=\text{Im}(z)$. La scrittura $z=a+ib$ viene detta \emph{rappresentazione algebrica} o \emph{cartesiana} di $z$; questo perché se pensiamo a $\amsbb{C}$ come alle coppie ordinate di $\amsbb{R}^2$, la scrittura $z=a+ib$ consente immediatamente di determinare le coordinate della coppia nel piano:
+    \begin{center}
+        \begin{tikzpicture}[scale=1]
+            % \tzhelplines(5,5)
+            \tzaxes(-.2,-.2)(5,5){$\text{Re}$}[b]{$\text{Im}$}[l]
+            \tzdot*(3.5, 3.8){$z=a+ib$}
+            %\txnode
+            %\tzfn[dashed,thick]"line"{\x}[-.2:5]{$y=x$}[l]
+            %\tzplotcurve[blue,thick]"curve"(.5,4.3)(1,4.2)(2.5,4.1)(4,.5){$y=g(x)$}[45]; % [ar] also works in version 2.0
+            % intersection and projection
+            %\tzXpoint{line}{curve}(X){$z$}
+            \tzproj(3.5, 3.8){$a$}{$b$}
+        \end{tikzpicture}
+    \end{center}
+    Un punto nel piano può essere descritto, oltre che tramite le coordinate rispetto ad un sistema di assi cartesiani (\emph{coordinate cartesiane}), anche con la distanza dall'origine del sistema di assi cartesiani $r$ e con l'angolo che la retta congiungente il punto e l'origine forma con una delle due rette del sistema di assi cartesiani $\theta$ (\emph{coordinate polari})\footnote{Notiamo che essendo $r$ una distanza deve essere un numero positivo o al più nullo, mentre essendo $\theta$ un angolo deve essere un numero compreso tra $-\pi$ e $\pi$.}, ossia
+    \begin{center}
+        \begin{tikzpicture}[scale=1]
+            % \tzhelplines(5,5)
+            \tzaxes(-.2,-.2)(5,5){$\text{Re}$}[b]{$\text{Im}$}[l]
+            \tzdot*(3.5, 3.8){$z=a+ib$}
+            \tzline[dashed, thick](0,0)(3.5, 3.8){$r$}[midway, a]
+            \tzarc(0,0)(0:47.35:2.5){$\theta$}[midway, r]
+            %\txnode
+            %\tzfn[dashed,thick]"line"{\x}[-.2:5]{$y=x$}[l]
+            %\tzplotcurve[blue,thick]"curve"(.5,4.3)(1,4.2)(2.5,4.1)(4,.5){$y=g(x)$}[45]; % [ar] also works in version 2.0
+            % intersection and projection
+            %\tzXpoint{line}{curve}(X){$z$}
+            %\tzproj(3.5, 3.8){$a$}{$b$}
+        \end{tikzpicture}
+    \end{center}
+\end{remark}
+Si può passare agilmente da un sistema di coordinate ad un altro: infatti, conoscendo la coppia $(r,\theta)\in[0, +\infty)\times (-\pi, \pi]$ che descrive un dato numero complesso $z$ si può ottenere la coppia $(a,b)\in\amsbb{R}^2$ considerando
+\begin{equation}
+    \label{eq:3.1}
+    a=r\cos(\theta) \qquad b= r\sin(\theta)
+\end{equation}
+Allo stesso modo, si può determinare la coppia $(r,\theta)\in[0, +\infty)\times (-\pi, \pi]$ a partire dalla coppia $(a,b)\in\amsbb{R}$:
+\begin{equation}
+    \label{eq:3.2}
+    \underbrace{\abs{z}}_{\text{modulo di} \ z} = r = \sqrt{a^2+b^2} \qquad \underbrace{\text{Arg}(z)}_{\text{argomento di} \ z} = \theta \simeq \arctan\left(\frac{b}{a}\right)
+\end{equation}
+Notiamo che nell'equazione in (\ref{eq:3.2}) per determinare l'argomento di $z$ non vi è il segno di uguaglianza; infatti, vale che
+\begin{enumerate}[(i)]
+    \item se $a=0$ il rapporto $\frac{b}{a}$ non è definito. In questo caso, se $b\ne 0$ si pone 
+    \[
+    \text{Arg}(z) = \pm \frac{\pi}{2}
+    \]
+    ove $\pm$ indica il segno di $b$ (se $b>0$ avremo $+\frac{\pi}{2}$, mentre se $b<0$ avremo $-\frac{\pi}{2}$), mentre se $b=0$ $\text{Arg}(z)$ non è ben definito;
+    \item poiché l'argomento di $\arctan$ nella seconda equazione in (\ref{eq:3.2}) è il rapporto di $b$ e $a$, l'arctangente non riesce a distinguere fra \uppercase\expandafter{\romannumeral 1\relax} e \uppercase\expandafter{\romannumeral 3\relax} quadrante e fra \uppercase\expandafter{\romannumeral 2\relax} e \uppercase\expandafter{\romannumeral 4\relax} quadrante. Di conseguenza, dato che l'immagine di $\amsbb{R}\ni x \mapsto \arctan(x)$ è $\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$, un'applicazione bovina della formula restituirà sempre un angolo che descriverà un numero nel \uppercase\expandafter{\romannumeral 1\relax} o nel \uppercase\expandafter{\romannumeral 4\relax} quadrante. Si può però operare la seguente correzione:
+    \[
+    \text{Arg}(z) = \begin{dcases}
+        \arctan\left(\frac{b}{a}\right)\, & a>0, \ b\ge 0\\
+        \arctan\left(\frac{b}{a}\right)+\pi\, & a<0, \ b\ge 0\\
+        \arctan\left(\frac{b}{a}\right)-\pi\, & a<0, \ b< 0\\
+        \arctan\left(\frac{b}{a}\right)\, & a>0, \ b< 0
+        \end{dcases}
+    \]
+\end{enumerate}
+Usando la formula (\ref{eq:3.1}) è possibile scrivere $z=a+ib$ come
+\[
+z=r\cos(\theta) + ir\sin(\theta) = r(\cos(\theta)+i\sin(\theta))
+\]
+\begin{theorem}[Formula di Eulero]
+    \label{th:3.2}
+    Per ogni $\theta\in\amsbb{R}$ vale che
+    \[
+    e^{i\theta} = \cos(\theta) + i\sin(\theta)
+    \]
+\end{theorem}
+Alla luce del teorema \ref{th:3.2} possiamo quindi scrivere, dato un numero complesso $z\in\amsbb{C}$
+\begin{equation}
+    \label{eq:3.3}
+    z=re^{i\theta}
+\end{equation}
+ove $(r,\theta)$ sono dati o sono calcolati tramite (\ref{eq:3.2}). Questa notazione è detta \emph{rappresentazione polare} o \emph{esponenziale} di $z$.
+\begin{definition}
+    \label{def:3.}
+    Dato un numero complesso $z=a+bi$, il suo \emph{coniugato} è il numero
+    \[
+    \overline{z} = a-ib
+    \]
+\end{definition}
+\begin{remark}
+    Notiamo che
+    \[
+    z\overline{z} = (a+ib)(a-ib) = a^2+b^2
+    \]
+    e quindi $r=\sqrt{z\overline{z}}$. In particolare, se $z=a$ vale che $r = \sqrt{z\overline{z}} = \sqrt{z^2}=\sqrt{a^2}=\abs{a}$; per questo $r$ viene detto modulo di $z$.\\
+    Cosa accade alla rappresentazione polare di $\overline{z}$? Notiamo che
+    \[
+    \abs{\overline{z}} = \sqrt{a^2+(-b)^2} = \sqrt{a^2+b^2} = \abs{z}
+    \]
+    e che
+    \[
+    \text{Arg}(\overline{z}) = \begin{dcases}
+        \arctan\left(\frac{-b}{a}\right)\, & a>0, \ b\le 0\\
+        \arctan\left(\frac{-b}{a}\right)+\pi\, & a<0, \ b\le 0\\
+        \arctan\left(\frac{-b}{a}\right)-\pi\, & a<0, \ b> 0\\
+        \arctan\left(\frac{-b}{a}\right)\, & a>0, \ b> 0
+        \end{dcases} = \begin{dcases}
+        -\arctan\left(\frac{b}{a}\right)\, & a>0, \ b\le 0\\
+        -\arctan\left(\frac{b}{a}\right)-\pi+2\pi\, & a<0, \ b\le 0\\
+        -\arctan\left(\frac{b}{a}\right)-2\pi+\pi\, & a<0, \ b> 0\\
+        -\arctan\left(\frac{b}{a}\right)\, & a>0, \ b> 0
+        \end{dcases}
+    \]
+    ossia
+    \[
+    \text{Arg}(\overline{z}) = -\text{Arg}(z)
+    \]
+    Infine, si può facilmente mostrare che
+    \[
+    \overline{z_1 z_2} = \overline{z_1} \cdot \overline{z_2}\qquad \overline{z_1 + z_2 } = \overline{z_1}+\overline{z_2} \ \text{per ogni} \ z_1, z_2\in\amsbb{C}
+    \]
+\end{remark}
+\subsection{Esercizi: esercizi di base sui numeri complessi}
+\begin{exercise}
+    \label{ex:3.1}
+    Calcolare $i^i$.
+\end{exercise}
+\begin{proof}[Soluzione]
+    In generale, sappiamo che quando abbiamo a che fare con elevamenti a potenza conviene maneggiare gli esponenziali; scriviamo quindi $i$ in rappresentazione polare. Ricordiamo che $i=(0,1)$; pertanto
+    \[
+    \abs{i} = \sqrt{0^2 + 1^2} = 1 \qquad \text{Arg}(z) \overset{\text{Punto (i) osservazione }}{=} \frac{\pi}{2}
+    \]
+    ossia $i=e^{i\frac{\pi}{2}}$. Per calcolare $i^i$, ricordiamo il seguente risultato:
+    \begin{tcolorbox}
+        \begin{theorem}
+            \label{th:3.3}
+            Siano $z, z_1, z_2\in\amsbb{C}$; vale che 
+            \[
+            e^{z}\in\amsbb{C}\setminus\{0\} \qquad e^{z_1}e^{z_2} = e^{z_1+z_2} \qquad \frac{1}{e^{z}} = e^{-z} \qquad e^{z+i2k\pi} = e^{z} \ \forall k\in\amsbb{Z}
+            \]
+            Inoltre, per ogni numero intero $n\in\amsbb{Z}$, $z^n$ è ben definito e unico, mentre se consideriamo numeri $z_1, z_2\in\amsbb{C}$ tali che $\mathrm{Arg}(z_1), \mathrm{Arg}(z_2)\in(-\pi, \pi]$ e che $\mathrm{Arg}(z_1)+\mathrm{Arg}(z_2)\in(-\pi, \pi]$ definiamo
+            \begin{equation}
+                \label{eq:3.4}
+                (z_1)^{z_2} = e^{z_2\left(\log\abs{z_1}+i\mathrm{Arg}(z_1)\right)}
+            \end{equation}
+            \begin{equation}
+                \label{eq:3.5}
+                (z_1 z_2)^z = z_1^z z_2^z
+            \end{equation}
+            Se $\mathrm{Arg}(z_1)+\mathrm{Arg}(z_2)\notin(-\pi, \pi]$, avremo che
+            \begin{equation}
+                \label{eq:3.6}
+                (z_1 z_2)^z = z_1^z z_2^z e^{z(i2k\pi)}, \ k\in\amsbb{Z} \ \text{tale che} \ \mathrm{Arg}(z_1)+\mathrm{Arg}(z_2) + 2k\pi \in (-\pi, \pi]
+            \end{equation}
+        \end{theorem}
+    \end{tcolorbox}
+    Nel nostro caso, vale l'equazione (\ref{eq:3.4}): quindi
+    \[
+    i^i = e^{i\left(\log\abs{i} + i \mathrm{Arg}(i)\right)} = e^{i\left(\log(1) + i \frac{\pi}{2}\right)} = e^{-\frac{\pi}{2}}
+    \]
+\end{proof}
+\begin{exercise}
+    \label{ex:3.2}
+    Calcolare
+    \[
+    \mathrm{Re}\left(\frac{(1-i)^2-(1+2i)^2}{(2+3i)^2+(1+i)^3}\right)
+    \]
+\end{exercise}
+\begin{proof}[Soluzione]
+    In questo caso il metodo più conveniente è effettuare i conti:
+    \[
+    \frac{(1-i)^2-(1+2i)^2}{(2+3i)^2+(1+i)^2} = \frac{(1-1-2i)-(1-4+4i)}{(4-9+12i)+(1-i+3i-3)} = \frac{3-6i}{-7+14i} = -\frac{3}{7}\frac{1-2i}{1-2i} = -\frac{3}{7}
+    \]
+    Quindi
+    \[
+    \mathrm{Re}\left(\frac{(1-i)^2-(1+2i)^2}{(2+3i)^2+(1+i)^3}\right) = \frac{(1-i)^2-(1+2i)^2}{(2+3i)^2+(1+i)^3} = -\frac{3}{7}
+    \]
+\end{proof}
+\subsection{Ripasso: polinomi a coefficienti in \texorpdfstring{$\mathbb{C}$}{C}}
+\begin{theorem}[Teorema fondamentale dell'algebra]
+    \label{th:3.4}
+    Dato un polinomio $P(x)$ a coefficienti in $\amsbb{C}$ di grado $n\ge 1$, questo ammette sempre una radice in $\amsbb{C}$. 
+\end{theorem}
+\begin{corollary}
+    \label{cor:3.1}
+    Un polinomio $P(x)$ a coefficienti complessi di grado $n$ ammette $n$ radici in $\amsbb{C}$, contate con la loro molteplicità algebrica.
+\end{corollary}
+\begin{remark}
+    Poiché abbiamo visto che $\amsbb{R}$ è un sottocampo di $\amsbb{C}$, possiamo considerare un polinomio a coefficienti reali come un polinomio a coefficienti complessi, e cercarne le radici in $\amsbb{C}$. In particolare, se $\alpha\in\amsbb{C}$ è una radice del polinomio $P(x)$ a coefficienti reali, allora $\overline{\alpha}$ è anch'esso radice di $P(x)$: infatti, notiamo che se 
+    \[
+    P(x) = a_0 + \sum_{k=1}^n a_k x^k
+    \]
+    allora $0 = P(\alpha) = a_0 + \sum_{k=1}^n a_k\alpha^k$; ma
+    \[
+    0 = \overline{0} = \overline{P(\alpha)} = \overline{a_0}+\sum_{k=1}^n \overline{a_k}\overline{\alpha}^k = a_0 + \sum_{k=1}^n a_k \overline{\alpha}^k
+    \]
+    dato che $\{a_0, \dots, a_n\}\subset\amsbb{R}$.
+\end{remark}
+\begin{example}
+    Consideriamo ad esempio il polinomio $P(x) = x^4+2x^2+1$; ispezionando il polinomio si vede che $z_1 =i$ è radice di $P$, e per l'osservazione precedente anche $z_1 = -i$ è soluzione di $P$. Quindi per la proposizione \ref{prop:1.1} e per la definizione \ref{def:1.5} vale che
+    \[
+    P(x) = Q(x)(x-i)(x+i) = Q(x)(x^2+1)
+    \]
+    Il polinomio $Q(x)$ può essere ottenuto effettuando la divisione fra polinomi:
+    \[
+        \polylongdiv[style=D]{x^4+2x^2+1}{x^2+1}
+    \]
+    Quindi
+    \[
+    P(x) = (x^2+1)^2
+    \]
+    e $P(x)$, come polinomio a coefficienti complessi, ammette due radici, $i$ e $-i$, ciascuna con molteplicità due.
+\end{example}
+\subsection{Esercizi: polinomi ed equazioni in \texorpdfstring{$\mathbb{C}$}{C}}
+\begin{exercise}
+    \label{ex:3.3}
+    Scomporre il polinomio $P(x) = x^9+a^9$, $a\in\amsbb{R}$, in fattori irriducibili (cfr. teorema \ref{th:1.2}).
+\end{exercise}
+\begin{proof}[Soluzione]
+    Supponiamo $a\ne 0$, altrimenti il polinomio è già scomposto. Possiamo scrivere in maniera semplice
+    \[
+    \begin{split}
+         P(x) & = x^9 + a^9 = (x^3)^3 + (a^3)^3 = (x^3+a^3)(x^6-a^3x^3+a^6) \\
+         & = \underbrace{(x+a)(x^2-ax+a^2)}_{\text{irriducibili}}(x^6-a^3x^3+a^6)
+    \end{split}
+    \]
+    Il problema è scomporre il polinomio $Q(x) = (x^6-a^3x^3+a^6)$ in fattori irriducibili. Per farlo, conviene considerare $Q(x)$ come un polinomio a coefficienti complessi, cercare le 6 radici complesse di $Q$ e, con opportune manipolazioni algebriche, ottenere i polinomi a coefficienti reali. Per cercare le radici di $Q$, effettuiamo la sostituzione $x^3 = t$, e riscriviamo $Q(x)$ come 
+    \[
+    Q(t) = t^2 -a^3t +a^6
+    \]
+    Le sue radici sono date da
+    \[
+    t_{1,2} = \frac{a^3\pm \sqrt{a^6-4a^6}}{2} = \frac{a^3\pm \abs{a}^3\sqrt{1-4}}{2} = a^3\left(\frac{1}{2}\pm i\frac{\sqrt{3}}{2}\right)
+    \]
+    Per trovare le radici di $Q(x)$, dobbiamo risolvere
+    \begin{equation}
+        \label{eq:3.7}
+        x^3 = \underbrace{a^3\left(\frac{1}{2}+i\frac{\sqrt{3}}{2}\right)}_{z_1} \qquad 
+        x^3 = \underbrace{a^3\left(\frac{1}{2}-i\frac{\sqrt{3}}{2}\right)}_{z_2}
+    \end{equation}
+    Come prima, quando si ha a che fare con elevamenti a potenza conviene usare la notazione polare:
+    \[
+    \abs{z_1} = \sqrt{a^6\frac{1}{4} + a^6 \frac{3}{4}} = \abs{a}^3 \qquad \abs{z_2} = \sqrt{a^6\frac{1}{4} + a^6 \frac{3}{4}} = \abs{a}^3 
+    \]
+    \[
+    \mathrm{Arg}(z_1) =\begin{dcases}
+        \frac{\pi}{3}\, & a>0 \\
+         \frac{\pi}{3}+\pi\, & a<0
+    \end{dcases}\qquad 
+    \mathrm{Arg}(z_2) = \begin{dcases}
+         -\frac{\pi}{3}\, & a>0\\
+         -\frac{\pi}{3}+\pi\, & a<0
+    \end{dcases}
+    \]
+    Quindi, riscrivendo la (\ref{eq:3.7}), dobbiamo cercare le radici di
+    \[
+    \underbrace{x^3 = \abs{a}^3 e^{i\frac{\pi}{3}}}_{\stepcounter{equation}\mbox{(\theequation)}} \nonumber \qquad \underbrace{x^3 = \abs{a}^3 e^{-i\frac{\pi}{3}}}_{\stepcounter{equation}\mbox{(\theequation)}} \nonumber
+    \]
+    \addtocounter{equation}{-2}\refstepcounter{equation}\label{eq:3.8}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:3.9}
+    se $a>0$ e di 
+    \[
+    \underbrace{x^3 = \abs{a}^3 e^{i\frac{4}{3}\pi}}_{\stepcounter{equation}\mbox{(\theequation)}} \nonumber \qquad \underbrace{x^3 = \abs{a}^3 e^{i\frac{2}{3}\pi}}_{\stepcounter{equation}\mbox{(\theequation)}} \nonumber
+    \]
+    \addtocounter{equation}{-2}\refstepcounter{equation}\label{eq:3.10}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:3.11}
+    se $a<0$.
+    \begin{tcolorbox}
+        Ricordiamo che le soluzioni di
+        \[
+        w = z^{\frac{1}{n}}, \ n\in\amsbb{N}
+        \]
+        in generale sono date da
+        \[
+        w_k = \abs{z}^{\frac{1}{n}} e^{i\frac{\mathrm{Arg}(z)}{n}+i2\frac{k}{n}\pi}, \ k\in\amsbb{Z} 
+        \]
+        Notiamo che è sufficiente considerare $k\in\{0, 1, \dots, n-2, n-2\}$.
+    \end{tcolorbox}
+    \begin{enumerate}[(i)]
+        \item Caso $a>0$: le soluzioni di (\ref{eq:3.8}) sono
+    \[
+    x_1 = {a} e^{i\frac{\pi}{9}} \qquad x_2 ={a}e^{i\frac{\pi}{9}+i\frac{2}{3}\pi} = {a} e^{i\frac{7}{9}\pi} \qquad x_3 = {a}e^{i\frac{\pi}{9}+i\frac{4}{3}\pi} = {a} e^{-i\frac{5}{9}\pi}
+    \]
+    mentre le soluzioni di (\ref{eq:3.9}) sono
+    \[
+    x_4 = {a} e^{-i\frac{\pi}{9}} \qquad x_5 ={a}e^{-i\frac{\pi}{9}+i\frac{2}{3}\pi} = {a}e^{i\frac{5}{9}\pi} \qquad x_6 = {a}e^{-i\frac{\pi}{9}+i\frac{4}{3}\pi} = {a} e^{-i\frac{7}{9}\pi}
+    \]
+    Notiamo che $x_4 = \overline{x_1}$, $x_6 = \overline{x_2}$ e $x_3 = \overline{x_5}$; possiamo scrivere
+    \[
+    P(x) = (x+a)(x^2-ax+a^2)\underbrace{(x-x_1)(x-\overline{x_1})(x-x_2)(x-\overline{x_2})(x-x_5)(x-\overline{x_5})}_{Q(x)}
+    \]
+    Ora,
+    \[
+    \begin{split}
+        (x-x_1)(x-\overline{x_1}) &= x^2 + x_1 \overline{x_1}-x(x_1 + \overline{x_1}) = x^2 + \abs{x_1}^2 -2\mathrm{Re}(x_1)x = \\
+        & = \underbrace{ x^2 + a^2 -2{a}x\cos\left(\frac{\pi}{9}\right)}_{\text{irriducibile}}
+    \end{split}
+    \]
+    Lo stesso vale per gli altri prodotti di monomi; abbiamo quindi
+    \[
+    Q(x) = (x^2 -2{a}x\cos\left(\frac{\pi}{9}\right)+a^2)(x^2 -2{a}x\cos\left(\frac{5}{9}\pi\right) + a^2)(x^2 -2{a}x\cos\left(\frac{7}{9}\pi\right) + a^2)
+    \]
+    \item Caso $a<0$: le soluzioni di (\ref{eq:3.10}) sono
+    \[
+    x_1 = \abs{a} e^{i\frac{4}{9}\pi} = a e^{-i\frac{5}{9}\pi} \qquad x_2 =\abs{a}e^{i\frac{4}{9}\pi+i\frac{2}{3}\pi} = a e^{i\frac{\pi}{9}} \qquad x_3 = \abs{a}e^{i\frac{4}{9}\pi+i\frac{4}{3}\pi} = {a} e^{i\frac{7}{9}\pi}
+    \]
+    mentre le soluzioni di (\ref{eq:3.11}) sono
+    \[
+    x_4 = \abs{a} e^{i\frac{2}{9}\pi} = ae^{-i\frac{7}{9}\pi} \qquad x_5 =\abs{a}e^{i\frac{2}{9}+i\frac{2}{3}\pi} = {a}e^{-i\frac{\pi}{9}} \qquad x_6 = \abs{a}e^{i\frac{2}{9}\pi+i\frac{4}{3}\pi} = {a} e^{i\frac{5}{9}\pi}
+    \]
+    Notiamo che in questo caso $x_5 = \overline{x_2}$, $x_1 = \overline{x_6}$ e $x_4 = \overline{x_3}$; possiamo anche in questo caso scrivere
+    \[
+    P(x) = (x+a)(x^2-ax+a^2)\underbrace{(x-x_1)(x-\overline{x_1})(x-x_2)(x-\overline{x_2})(x-x_5)(x-\overline{x_5})}_{Q(x)}
+    \]
+    Ora,
+    \[
+    \begin{split}
+        (x-x_1)(x-\overline{x_1}) &= x^2 + x_1 \overline{x_1}-x(x_1 + \overline{x_1}) = x^2 + \abs{x_1}^2 -2\mathrm{Re}(x_1)x = \\
+        & ={ x^2 + a^2 -2{a}x\cos\left(\frac{\pi}{9}\right)}
+    \end{split}
+    \]
+    Lo stesso vale per gli altri prodotti di monomi; abbiamo quindi, anche nel caso $a<0$,
+    \[
+    Q(x) = (x^2 -2{a}x\cos\left(\frac{\pi}{9}\right)+a^2)(x^2 -2{a}x\cos\left(\frac{5}{9}\pi\right) + a^2)(x^2 -2{a}x\cos\left(\frac{7}{9}\pi\right) + a^2)
+    \]
+    \end{enumerate}
+\end{proof}
+\begin{exercise}
+    \label{ex:3.4}
+    Risolvere l'equazione $z^2+i\overline{z} = 1$.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Ricordiamo (cfr. definizione \ref{def:3.1}) che due numeri complessi $z_1, z_2 \in\amsbb{C}$ sono uguali se
+    \[
+    \mathrm{Re}(z_1) = \mathrm{Re}(z_2) \qquad \mathrm{Im}(z_1) = \mathrm{Im}(z_2) 
+    \]
+    Di conseguenza, nel nostro caso l'equazione $z^2+i\overline{z}=1$ è equivalente al sistema
+    \begin{equation}
+        \label{eq:3.12}
+        \begin{dcases}
+        \mathrm{Re}(z^2+i\overline{z})= 1&\\
+        \mathrm{Im}(z^2+i\overline{z})= 0&  
+    \end{dcases}
+    \end{equation}
+    Per scrivere i membri di sinistra delle due equazioni, conviene rappresentare $z$ in forma cartesiana, $z=a+ib$, ed espandere i prodotti:
+    \[
+    z^2 + i \overline{z} = (a+ib)^2 + i(a-ib) = a^2-b^2 + i2ab +ia+b = a^2-b^2+b + i(a+2ab)
+    \]
+    Il sistema in (\ref{eq:3.12}) risulta quindi essere
+    \begin{equation}
+        \label{eq:3.13}
+        \begin{dcases}
+        a^2-b^2+b= 1&\\
+        a(1+2b)= 0
+    \end{dcases}
+    \end{equation}
+    Le soluzioni della seconda equazione in (\ref{eq:3.13}) sono $a=0$ e $b=-\frac{1}{2}$; consideriamo quindi i due casi:
+    \begin{enumerate}[(i)]
+        \item $a=0$: la prima equazione diventa $-b^2 +b-1=0$, che non ammette soluzioni reali in quanto $\Delta = 1-4<0$; quindi non esistono soluzioni dell'equazione con parte reale nulla;
+        \item $b=-\frac{1}{2}$: la prima equazione diventa $a^2 =\frac{7}{4}$, che ha come soluzioni
+        \[
+        a_1 = \frac{\sqrt{7}}{2} \qquad a_2 = -\frac{\sqrt{7}}{2}
+        \]
+    \end{enumerate}
+    Le soluzioni dell'equazione sono quindi
+    \[
+    \left\{\frac{\sqrt{7}}{2}-i\frac{1}{2}, -\frac{\sqrt{7}}{2}-i\frac{1}{2}\right\}
+    \]
+\end{proof}
+\begin{exercise}
+    \label{ex:3.5}
+    Determinare l'insieme
+    \[
+    \left\{z\in\amsbb{C} \colon 5z^2+5\overline{z}^2-6z\overline{z}+8i(\overline{z}-z) = 4\right\}
+    \]
+\end{exercise}
+\begin{proof}[Soluzione]
+    Anche in questo caso conviene riscrivere l'equazione che descrive l'insieme esprimendo $z$ in forma cartesiana, $z=a+ib$:
+    \[
+    \begin{split}
+    &5(a+ib)^2+5(a-ib)^2-6(a^2+b^2)+8i(a-ib-a-ib )= \\
+    & = 5(a^2-b^2+i2ab)+5(a^2-b^2-i2ab)-6(a^2+b^2)+16b = 4a^2 -16b^2 +16 b 
+    \end{split}
+    \]
+    L'equazione è quindi
+    \[
+    4a^2-16b^2+16b -4 = 0 \iff a^2-4b^2+4b-1 = 0
+    \]
+    L'equazione può essere riscritta come 
+    \[
+    (a+2b-1)(a-2b+1)=0
+    \]
+    le cui soluzioni se rappresentate graficamente sono
+    \begin{center}
+        \begin{tikzpicture}[scale=1]
+            % \tzhelplines(5,5)
+            \tzaxes(-3,-1.3)(3,3){$\text{Re}$}[b]{$\text{Im}$}[l]
+            \tzticks{ -2, -1, 1, 2}{-1, 1, 2}
+            %\tzdot*(3.5, 3.8){$z=a+ib$}
+            %\txnode
+            \tzfn[blue,thick]"line"{-.5*\x+.5}[-3:3]{$\mathrm{Im}(z)=-\frac{1}{2}\mathrm{Re}(z)+\frac{1}{2}$}[br]
+            \tzfn[red,thick]"line"{.5*\x+.5}[-3:3]{$\mathrm{Im}(z)=\frac{1}{2}\mathrm{Re}(z)+\frac{1}{2}$}[ar]
+            %\tzplotcurve[blue,thick]"curve"(.5,4.3)(1,4.2)(2.5,4.1)(4,.5){$y=g(x)$}[45]; % [ar] also works in version 2.0
+            % intersection and projection
+            %\tzXpoint{line}{curve}(X){$z$}
+            %\tzproj(3.5, 3.8){$a$}{$b$}
+        \end{tikzpicture}
+    \end{center}
+    L'insieme descritto è quindi costituito da due rette intersecantisi (un cono nel piano complesso).
+\end{proof}
+\begin{exercise}
+    \label{ex:3.6}
+    Determinare l'insieme
+    \[
+    \left\{z\in\amsbb{C}\colon \abs{z-1}\le \abs{z+i}\right\}\cap\left\{ z\in\amsbb{C}\colon \abs{z-2i}\ge 1\right\}
+    \]
+\end{exercise}
+\begin{proof}[Soluzione]
+    Anche in questo caso scriviamo $z$ in forma algebrica come $z=a+ib$; consideriamo quindi $\abs{z-1}\le \abs{z+i}$:
+    \[
+    \abs{z-1} = \abs{(a-1)+ib} = \sqrt{(a-1)^2 + b^2} \qquad \abs{z+i} = \abs{a+i(b+1)} = \sqrt{a^2+(b+1)^2}
+    \] 
+    e quindi la disequazione risulta essere
+    \[
+    \sqrt{(a-1)^2+b^2}\le \sqrt{a^2+(b+1)^2}
+    \]
+    \begin{tcolorbox}
+        Ricordiamo che la funzione $\sqrt{\cdot}\colon \amsbb{R}^+ \to \amsbb{R}^+$ è monotona strettamente crescente, ossia
+        \[
+        x > y \implies \sqrt{x}>\sqrt{y}
+        \]
+        Di conseguenza, se $\sqrt{x}\le \sqrt{y}$, allora $x\le y$.
+    \end{tcolorbox}
+    Quindi la procedente disequazione è equivalente a
+    \[
+    (a-1)^2+b^2\le a^2+(b+1)^2 \iff -2a \le 2b \iff b \ge -a
+    \]
+    Di conseguenza il primo insieme è il semipiano generato dalla retta $\mathrm{Im}(z) = -\mathrm{Re}(z)$, ossia
+    \begin{center}
+        \begin{tikzpicture}
+        \begin{axis}[y=7mm, ymin=-4.5, samples=101]
+        \addplot [name path=A, blue] coordinates { (\Xmin, -\Xmin) (\Xmax,-\Xmax) };
+        \path [name path=B] (\Xmax,\Ymax)
+        node[below left, font=\footnotesize, text=black] {$\mathrm{Im}(z)\ge -\mathrm{Re}(z)$}
+                                  -- (\Xmin,\Ymax);
+        \addplot [blue!30] fill between [of=A and B];
+        \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    Consideriamo ora il secondo insieme, e operiamo come prima: la disequazione risulta essere
+    \[
+    \abs{a+i(b-2)}\ge 1 \iff \sqrt{a^2+(b-2)^2}\ge 1 \iff a^2 +(b-2)^2\ge 1
+    \]
+    Ricordiamo che $(a-a_0)^2+(b-b_0)^2 \le 1$ descrive un cerchio di raggio $1$ e centro $(a_0, b_0)$; pertanto la disequazione descrive la regione di piano esterna ad una circonferenza di raggio $1$ e cento $(0,2)\in\amsbb{C}$, circonferenza inclusa, ossia
+    \begin{center}
+        \begin{tikzpicture}
+        \pgfsetlayers{pre main,main}
+        \begin{axis}[y=7mm,       % <--
+             ymin=-4.5,   % <--
+             samples=201]
+
+        \addplot [name path=A, domain=-1:1, red] {+sqrt(1-x^2)+2};
+        \addplot [name path=B, domain=-1:1, red] {-sqrt(1-x^2)+2};
+
+        \pgfonlayer{pre main}
+        % coloring of plane
+        \fill[red!30]  (\Xmin,\Ymax) -| (\Xmax,\Ymin)
+        node[above left, text=black, font = \footnotesize] {$\mathrm{Re}(z)^2 + (\mathrm{Im}(z)-2)^2 \ge 1$} 
+                              -| cycle;
+        % coloring of circle
+        \addplot [white] fill between [of=A and B];
+        \endpgfonlayer
+        \end{axis}
+    \end{tikzpicture}
+    \end{center}
+    La retta e la circonferenza sembrerebbero non intersecarsi; per verificare che sia effettivamente così, consideriamo il sistema
+    \[
+    \begin{dcases}
+        b=-a\\
+        a^2+(b-2)^2 = 1
+    \end{dcases}
+    \]
+    La seconda equazione diventa $a^2+(a+2)^2 = 2a^2 +4a+3=0$ che non ammette soluzioni reali, in quanto $\Delta = 16-24<0$. A questo punto, l'intersezione dei due insiemi risulta essere
+    \begin{center}
+        \begin{tikzpicture}
+        \begin{axis}[y=7mm, ymin=-4.5, samples=201]
+        \addplot [name path=A, teal] coordinates { (\Xmin, -\Xmin) (\Xmax,-\Xmax) };
+        \path [name path=B] (\Xmax,\Ymax)--(\Xmin,\Ymax);
+        
+
+        \addplot [name path=C, domain=-1:1, teal] {+sqrt(1-x^2)+2};
+        \addplot [name path=D, domain=-1:1, teal] {-sqrt(1-x^2)+2};
+        \addplot [teal!30] fill between [of=A and B];
+        \addplot [white] fill between [of=C and D];
+        %\endpgfonlayer
+        \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    Di conseguenza l'insieme è un semipiano meno un disco aperto.
+\end{proof}
+\begin{exercise}
+    \label{ex:3.7}
+    Determinare l'insieme
+    \[
+    \left\{z\in\amsbb{C}\colon \abs{\frac{z-1}{z+1}}\le 1\right\}
+    \]
+\end{exercise}
+\begin{proof}[Soluzione]
+    Innanzitutto, notiamo che necessariamente $z\ne -1$; inoltre, possiamo scrivere
+    \[
+    \abs{\frac{z-1}{z+1}} \le 1
+    \]
+    Poiché $\abs{z+1}\ge 0$ e l'uguaglianza vale solo se $z+1=0$, caso escluso, possiamo moltiplicare ambo i membri della disuguaglianza per $\abs{z+1}$, ottenendo così
+    \[
+    \abs{z-1}\le \abs{z+1}
+    \]
+    Scriviamo ora $z$ in forma algebrica come $z=a+ib$, ottenendo
+    \[
+    \begin{split}
+        \abs{(a-1)+ib}\le \abs{(a+1)+ib}& \iff \sqrt{(a-1)^2+b^2}\le \sqrt{(a+1)^2+b^2} \\
+        &\iff (a-1)^2+b^2 \le (a+1)^2+b^2\\
+        & \iff -2a \le 2a \iff a\ge 0
+    \end{split}
+    \]
+    L'insieme è quindi
+    \begin{center}
+        \begin{tikzpicture}
+        \begin{axis}[y=7mm, ymin=-4.5, samples=201]
+        \addplot [name path=A, red] coordinates { (0,\Ymin) (0,\Ymax) };
+        \path [name path=B] (\Xmax,\Ymin) -- (\Xmax,\Ymax)
+    node[above left, font=\footnotesize, text=black] {$\mathrm{Re}(z) \ge 0$};
+\addplot [red!30] fill between [of=A and B];
+\end{axis}
+    \end{tikzpicture}
+    \end{center}
+    ossia un sempiano.
+\end{proof}
+\begin{exercise}
+    \label{ex:3.8}
+    Sia $P(z)$ un polinomio a coefficienti reali tale che 
+    \begin{enumerate}[(i)]
+        \item $a_0=0$, ossia $P(z) = \sum_{k=1}^n a_k z^k$;
+        \item $z_0 = a+ib$, $b\ne 0$ è radice di $P$ con molteplicità 2.
+    \end{enumerate}
+    Cosa possiamo concludere di $P$?
+\end{exercise}
+\begin{proof}[Soluzione]
+    Sappiamo che $P$ ha coefficienti reali; di conseguenza se $z_0$ è radice di $P$ lo è anche $\overline{z_0}$. Inoltre, poiché $z_0$ ha molteplicità algebrica 2, anche $\overline{z_0}$ ha molteplicità algebrica 2. Di conseguenza,
+    \[
+    P(z) = (z-z_0)^2(z-\overline{z_0})^2 Q(z)
+    \]
+    Inoltre, poiché $a_0=0$, vale che
+    \[
+    P(z) = a_1 z + a_2 z^2 + \dots + a_{n-1}z^{n-1}+a_n z^n = z(a_1 + a_2 z + \dots + a_{n-1}z^{n-2} + a_n z^{n-1})
+    \]
+    ossia $P(z)$ è divisibile per $z$. Poiché $\mathrm{Im}(z_0)\ne 0$ sicuramente $(z-z_0)^2$ e $(z-\overline{z_0})^2$ non sono divisibili per $z$; di conseguenza $Q(z)$ è divisibile per $z$, i.e. per la definizione \ref{def:1.5} $Q(z) = zT(z)$;
+    quindi
+    \[
+    P(z) = z(z-z_0)^2(z-\overline{z_0})^2 T(z)
+    \]
+    ossia $\deg(P)\ge 5$.
+\end{proof}
+\newpage

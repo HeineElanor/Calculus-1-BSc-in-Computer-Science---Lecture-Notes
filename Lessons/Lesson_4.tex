@@ -1,0 +1,570 @@
+\section{Lezione 4}
+\subsection{Ripasso: successioni}
+\begin{definition}
+    \label{def:4.1}
+    Una \emph{successione} è una funzione $s\colon \mathbb{N}\to\mathbb{R}$. Denoteremo con $s_n$ il numero reale $s(n)$, $n\in\mathbb{N}$, e indicheremo la mappa $s\colon \mathbb{N}\to \mathbb{R}$ con $(s_n)_n$. L'immagine della successione verrà indicata con $\left\{s_n, \ n\in\mathbb{N}\right\}\subseteq \mathbb{R}$.
+\end{definition}
+\begin{remark}
+    Data una successione $(s_n)_n$, se la sua immagine $\{s_n, \ n\in\amsbb{N}\}$ è limitata come sottinsieme di $\amsbb{R}$, diremo che $(s_n)_n$ è limitata.
+\end{remark}
+\begin{definition}
+    \label{def:4.2}
+    Diremo che $(s_n)_n$ \emph{converge a $s\in\mathbb{R}$} se per ogni $\varepsilon>0$ esiste $n_\varepsilon\in\amsbb{N}$ tale che
+    \[
+    \abs{s_n-s}<\varepsilon \ \text{per ogni}\ n>n_\varepsilon
+    \]
+    In caso contrario, diremo che $(s_n)_n$ diverge. Se $s_n$ converge a $s$, scriveremo
+    \[
+    \lim_{n\to\infty} s_n = s \quad \text{o} \quad s_n \to s
+    \]
+\end{definition}
+\begin{remark}
+    Nel caso in cui $(s_n)_n$ diverge, possiamo isolare due casi particolari:
+    \begin{enumerate}[(i)]
+        \item \emph{$(s_n)_n$ tende a $+\infty$}:
+        \begin{equation}
+            \label{eq:4.1}
+            \text{per ogni} \ M \in\amsbb{N} \ \text{esiste} \ n_M\in \amsbb{N} \ \colon s_n >M \ \text{per ogni} \ n>n_M
+        \end{equation}
+        \item \emph{$(s_n)_n$ tende a $-\infty$}:
+        \begin{equation}
+            \label{eq:4.2}
+            \text{per ogni} \ M \in\amsbb{N} \ \text{esiste} \ n_M\in \amsbb{N} \ \colon s_n <-M \ \text{per ogni} \ n>n_M
+        \end{equation}
+    \end{enumerate}
+\end{remark}
+\begin{theorem}
+    \label{th:4.1}
+    Data una successione $(s_n)_n$, consideriamo il sottoinsieme illimitato dei naturali $\{n_k\}_{k\in\amsbb{N}}\subseteq \amsbb{N}$, con $n_0<n_1<\dots < n_k < \dots$. Questo insieme è in biiezione con $\amsbb{N}$, ossia esiste una funzione iniettiva e suriettiva $\amsbb{N}\ni k \mapsto n_k$; possiamo quindi considerare la composizione $\amsbb{N}\ni k \mapsto s_{n_k}\in\amsbb{R}$; questa è detta essere una \emph{sottosuccessione} di $(s_n)_n$, e viene indicata con $(s_{n_k})_k$.\\
+    $(s_n)_n$ converge a $s\in\amsbb{R}$ se e solo se ogni sua sottosuccessione $(s_{n_k})_k$ converge a $s$ 
+\end{theorem}
+\begin{proof}
+    Mostriamo le due implicazioni:
+    \begin{enumerate}[(i)]
+        \item data una successione $(s_n)_n$, questa è una sottosuccessione di se stessa: infatti, se consideriamo l'insieme $\{n_k\}_{k\in\amsbb{N}}$ con $n_k = k$, allora $(s_{n_k})_k = (s_n)_n$. Di conseguenza, se ogni sottosuccessione di $(s_n)_n$ converge a $s$, anche la sottosuccessione $(s_{n_k})_{k}$ sopra descritta converge a $s$; ma poiché questa coincide con $(s_n)_n$, abbiamo l'asserto;
+        \item supponiamo ora che $(s_n)_n$ converga ad $s$; per la definizione \ref{def:4.2}, per ogni scelta di $\varepsilon>0$ esiste $n_\varepsilon\in\amsbb{N}$ tale che $\abs{s_n-s}<\varepsilon$ per ogni $n\in\amsbb{N}$.\\
+        Sia $(s_{n_k})_k$ una sottosuccessione di $(s_n)_n$; vale quindi che $n_0 < n_1 < \dots < n_k < \dots$. Per quanto detto antecedentemente, fissato un $\varepsilon>0$ esiste $n_\varepsilon$ tale che
+        \[
+        \abs{s_{n_k} - s}<\varepsilon \ \text{se} \ n_k > n_\varepsilon
+        \]
+        Poiché l'insieme $\{n_k\}_{k\in\amsbb{N}}$ è illimitato ed è crescente in $k$, esiste sicuramente un $k_\varepsilon$ tale che
+        \[
+        n_{k_\varepsilon}\ge n_\varepsilon \quad \text{e} \quad n_k > n_{k_\varepsilon} \ \text{per ogni} \ k>k_\varepsilon
+        \]
+        Di conseguenza, dato un qualsiasi $\varepsilon>0$, esiste $k_\varepsilon\in\amsbb{N}$ tale che
+        \[
+        \abs{s_{n_k}-s}<\varepsilon \ \text{per ogni} \ k>k_\varepsilon
+        \]
+        ossia $(s_{n_k})_k$ converge ad $s$.
+    \end{enumerate}
+\end{proof}
+\subsection{Esercizi: convergenza di successioni, aritmetica dei limiti}
+\begin{exercise}
+    \label{ex:4.1}
+    Determinare se la successione $(s_n)_n$ con
+    \[
+    s_n = (-1)^n \frac{n}{n+1}
+    \]
+    converge o meno.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Per cercare di stimare il comportamento della successione, scriviamo esplicitamente i primi termini:
+    \[
+    s_0 = 0 \quad s_1 = -\frac{1}{2} \quad s_2 = \frac{2}{3} \quad s_3 = -\frac{3}{4} \quad s_4 = \frac{4}{5} \ \dots
+    \]
+    Notiamo quindi che sembrerebbero esistere due tendenze: $s_n$ tende a $1$ per $n$ pari e $s_n$ tende a $-1$ per $n$ dispari. Se riusciamo a mostrare che questo accade effettivamente, grazie al teorema \ref{th:4.1} potremmo affermare che la successione $(s_n)_n$ non converge.\\
+    Consideriamo quindi i sottoinsiemi di $\amsbb{N}$
+    \[
+    \left\{n_k = 2k, \ k\in\amsbb{N}\right\} \qquad \left\{n_l = 2l+1, \ l\in\amsbb{N}\right\}
+    \]
+    e le relative sottosuccessioni $(s_{n_k})_k$ e $(s_{n_l})_l$. I termini della successione $(s_{n_k})_k$ sono dati da
+        \[
+        s_{n_k} = (-1)^{2k} \frac{2k}{2k+1} = \frac{2k}{2k+1} = \frac{2k+1}{2k+1}-\frac{1}{2k+1} = 1-\frac{1}{2k+1}
+        \]
+    mentre i termini della successione $(s_{n_l})_l$ sono dati da
+    \[
+    s_{n_l} = (-1)^{2l+1}\frac{2l+1}{2l+2} = -\frac{2l+1}{2l+2} = -\frac{2l+2}{2l+2} + \frac{1}{2l+2} = -1 + \frac{1}{2l+2}
+    \]
+    Ricordiamo che
+    \begin{tcolorbox}
+        \begin{theorem}
+            \label{th:4.2}
+            Date due successioni $(a_n)_n$ e $(b_n)_n$ tali che $a_n \to a$ e $b_n \to b$, allora
+            \[
+            a_n \pm b_n \to a \pm b
+            \]
+        \end{theorem}
+    \end{tcolorbox}
+    Pertanto se la successione $\left(b_k = \frac{1}{2k+1}\right)_k$ converge a qualche numero reale $b$, allora $s_{n_k} \to 1-b$. In particolare, vale che $b_k \to 0$: infatti, fissato $\varepsilon>0$, se prendiamo
+    \begin{equation}
+        \label{eq:4.3}
+        k_\varepsilon = \max\left\{ \left\lfloor\frac{1}{2\varepsilon}-\frac{1}{2} \right\rfloor+1, 0\right\}
+    \end{equation}
+    e consideriamo $k>k_\varepsilon$, vale che $k>\frac{1}{2\varepsilon}-\frac{1}{2}$; ma allora $2k+1 >\varepsilon$, ossia $\frac{1}{2k+1}<\varepsilon$. Di conseguenza, per ogni $\epsilon>0$ esiste $k_\varepsilon$, dato da (\ref{eq:4.3}), tale che $b_k<\varepsilon$ per ogni $k>k_\varepsilon$; quindi $b_k\to 0$, e per il teorema \ref{th:4.2} $s_{n_k}\to 1$. Allo stesso modo si può dimostrare che $s_{n_l}\to -1$.\\
+    Esistono quindi due sottosuccessioni di $(s_n)_n$ che convergono a due limiti distinti; pertanto per il teorema \ref{th:4.1} $(s_n)_n$ non converge.\\
+    Notiamo infine che 
+    \[
+    \abs{s_n} = \abs{(-1)^n \frac{n}{n+1}} = \frac{n}{n+1}\le 1 \ \text{per ogni} \ n\in\amsbb{N}
+    \]
+    pertanto $(s_n)$ non può divergere a $\pm \infty$.
+\end{proof}
+\begin{exercise}
+    \label{ex:4.2}
+    Determinare se la successione $(s_n)_n$ con
+    \[
+    s_n = n^2\cos\left(\frac{\pi}{2}(2n+1)\right)-\frac{1}{n}\sin\left(\frac{\pi}{2}(2n+1)\right)
+    \]
+    converge o meno.
+\end{exercise}
+\begin{proof}[Soluzione]
+    In questo caso, la successione $s_n$ è data dalla differenza di due successioni 
+    \[
+    {a_n = n^2 \cos\left(\frac{\pi}{2}(2n+1)\right)}\qquad {b_n = \frac{1}{n}\sin\left(\frac{\pi}{2}(2n+1)\right)}
+    \]
+    Per applicare il teorema \ref{th:4.2}, verifichiamo se $(a_n)_n$ e $(b_n)_n$ convergono separatamente ad $a$ e $b$.
+    \begin{enumerate}[(i)]
+        \item Notiamo che 
+        \[
+        \cos\left(\frac{\pi}{2}(2n+1)\right) = 0 \ \text{per ogni} \ n\in\amsbb{N}
+        \]
+        Quindi $a_n = 0$ per ogni $n\in\amsbb{N}$, e di conseguenza $a_n \to 0$.
+        \item Nel caso di $b_n$ invece
+        \[
+            \sin\left(\frac{\pi}{2}(2n+1)\right) = \sin\left(n\pi + \frac{\pi}{2}\right) = (-1)\sin\left((n-1)\pi + \frac{\pi}{2}\right) = \dots = (-1)^n
+        \]
+        e quindi $b_n = (-1)^n \frac{1}{n}$. Procediamo come prima per mostrare che $b_n\to 0$: fissiamo $\varepsilon>0$, e cerchiamo di trovare $n_\varepsilon$ tale che $\abs{b_n}<\varepsilon $ se $n>n_\varepsilon$.
+        \[
+        \varepsilon> \abs{(-1)^n\frac{1}{n}} = \frac{1}{n} \iff n > \frac{1}{\varepsilon}
+        \]
+        Se fissiamo $n_\varepsilon = \left \lfloor \frac{1}{\varepsilon} \right \rfloor+1$ e consideriamo $n>n_\varepsilon$ vale che 
+        \[
+        n>\frac{1}{\varepsilon} \iff \varepsilon>\frac{1}{n} = \abs{b_n}
+        \]
+    \end{enumerate}
+    Di conseguenza $a_n \to 0 $ e $b_n \to 0$, e quindi $s_n = a_n - b_n \to 0$.
+\end{proof}
+\begin{exercise}
+    \label{ex:4.3}
+    Determinare se la successione $(s_n)_n$ con
+    \[
+    s_n = \sqrt{n+1}-\sqrt{n}
+    \]
+    converge o meno.
+\end{exercise}
+\begin{proof}[Soluzione]
+    In questo caso il teorema \ref{th:4.2} non aiuta, in quanto le successioni $a_n = \sqrt{n+1}$ e $b_n = \sqrt{n}$ divergono entrambe a $+\infty$. Possiamo però riscrivere $s_n$ tramite manipolazioni algebriche:
+    \[
+    \begin{split}
+        s_n & = \sqrt{n+1}-\sqrt{n} = \frac{\sqrt{n+1}-\sqrt{n}}{\sqrt{n+1}+\sqrt{n}}(\sqrt{n+1}+\sqrt{n}) = \frac{(\sqrt{n+1})^2 - (\sqrt{n})^2}{\sqrt{n+1}+\sqrt{n}} = \\
+        & = \frac{1}{\sqrt{n+1}+\sqrt{n}} = \frac{1}{\sqrt{n}\left(1+\sqrt{1+\frac{1}{n}}\right)} = \frac{1}{\sqrt{n}}\frac{1}{1+\sqrt{1+\frac{1}{n}}}
+    \end{split}
+    \]
+    A questo punto, ricordiamo i seguenti risultati:
+    \begin{tcolorbox}
+        \begin{theorem}
+            \label{th:4.3}
+            Date due successioni $(a_n)_n$ e $(b_n)_n$ tali che $a_n \to a$ e $b_n\to b$, allora
+            \[
+            a_nb_n \to ab
+            \]
+        \end{theorem}
+    \end{tcolorbox}
+    \begin{tcolorbox}
+        \begin{theorem}
+            \label{th:4.4}
+            Date due successioni $(a_n)_n$ e $(b_n)$ tali che $a_n \to a$ e $b_n\to b\ne 0$, con $b_n \ne 0$ per ogni $n\in\amsbb{N}$, vale che
+            \[
+            \frac{a_n}{b_n}\to \frac{a}{b}
+            \]
+        \end{theorem}
+    \end{tcolorbox}
+    Consideriamo quindi
+    \[
+    a_n = \frac{1}{\sqrt{n}} \qquad b_n=\frac{1}{1+\sqrt{1+\frac{1}{n}}}
+    \]
+    Ragionando come prima si dimostra agilmente che $a_n\to 0$, mentre per $b_n$ si può dimostrare che 
+    \[
+    1+\sqrt{1+\frac{1}{n}}\to 2
+    \]
+    e quindi $b_n \to \frac{1}{2}$ per il teorema \ref{th:4.4}. Di conseguenza grazie al teorema \ref{th:4.3} possiamo dire che $s_n \to 0$.
+\end{proof}
+\begin{remark}
+    Quando $s_n \to s$, ci possono essere due casi particolari:
+    \[
+    s_n \to s^+ \ \text{se} \ s_n>s \ \text{per ogni} \ n\in\amsbb{N}
+    \]
+    e
+    \[
+    s_n \to s^- \ \text{se} \ s_n<s \ \text{per ogni} \ n\in\amsbb{N}
+    \]
+    Ci chiediamo se nel caso dell'esercizio \ref{ex:4.3} vale che $s_n \to 0^\pm$, ossia bisogna verificare se
+    \[
+    \sqrt{n+1}-\sqrt{n}>0 \ \text{oppure} \ \sqrt{n+1}-\sqrt{n}<0 \ \text{per ogni} \ n\in\amsbb{N}
+    \]
+    Avevamo già ricordato che $\sqrt{\cdot}\colon\amsbb{R}^+ \to \amsbb{R}^+$ è monotona strettamente crescente; quindi, dato che $n+1>n$, $\sqrt{n+1}>\sqrt{n}$, e quindi $s_n \to 0^+$.
+\end{remark}
+\begin{exercise}
+    \label{ex:4.4}
+    Determinare se la successione $(s_n)_n$ con
+    \[
+    s_n = \frac{\sqrt[3]{n}\sin(n)}{n+1}
+    \]
+    converge o meno.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Anche in questo caso proviamo a calcolare i primi termini della successione:
+    \[
+    s_0 = 0 \quad s_1 = \frac{\sin(1)}{2} \quad s_2 = \frac{\sqrt[3]{2}\sin(2)}{3} \quad s_3 = \frac{\sqrt[3]{3}\sin(3)}{4}\ \dots
+    \]
+    Ricordiamo che $\abs{\sin(x)}\le 1$ per ogni $x\in\amsbb{R}$; di conseguenza, vale che
+    \[
+    \abs{s_n} = \abs{\frac{\sqrt[3]{n}\sin(n)}{n+1}}\le \underbrace{\frac{\sqrt[3]{n}}{n+1}}_{a_n}
+    \]
+    Consideriamo la successione $(a_n)_n$; vale che
+    \[
+    a_n = \frac{\sqrt[3]{n}}{n+1} = \sqrt[3]{n}\frac{1}{n\left(1+\frac{1}{n}\right)} = \frac{1}{n^{\frac{2}{3}}}\frac{1}{1+\frac{1}{n}}
+    \]
+    Come nei casi precedenti, usando la definizione \ref{def:4.2} e il teorema \ref{th:4.4} si dimostra che
+    \[
+    \frac{1}{n^{\frac{2}{3}}}\to 0 \qquad \frac{1}{1+\frac{1}{n}}\to 1
+    \]
+    e quindi per il teorema \ref{th:4.3} vale che $a_n \to 0$. Possiamo quindi applicare il teorema del confronto:
+    \begin{tcolorbox}
+        \begin{theorem}
+            \label{th:4.5}
+            Date tre successioni $(a_n)_n$, $(b_n)_n$ e $(c_n)_n$ tali che $a_n \le b_n \le c_n$ per ogni $n\in\amsbb{N}$ e che $a_n \to l$, $c_n \to l$, allora $b_n \to l$.
+        \end{theorem}
+    \end{tcolorbox}
+    Infatti, $0\le \abs{s_n}\le a_n$, e $a_n \to 0$; di conseguenza $\abs{s_n}\to 0$. Cosa possiamo dire di $(s_n)_n$? 
+    \begin{tcolorbox}
+        \begin{theorem}
+            \label{th:4.6}
+            Data una successione $(a_n)_n$, $a_n \to 0$ se e solo se $\abs{a_n}\to 0$.
+        \end{theorem}
+        \begin{proof}
+            \begin{enumerate}[(i)]
+                \item Supponiamo che $a_n \to 0$; per la definizione \ref{def:4.2} sappiamo che per ogni $\varepsilon>0$ esiste $n_\varepsilon$ tale che
+                \[
+                \varepsilon>\abs{a_n} = \abs{\abs{a_n}} \ \text{per ogni} \ n>n_\varepsilon
+                \]
+                ossia $\abs{a_n}\to 0$.
+                \item Supponiamo ora che $\abs{a_n}\to 0$. Chiaramente vale che $\abs{a_n}\ge a_n$ per ogni $n\in\amsbb{N}$; di conseguenza, per il teorema del confronto a due, sappiamo che, se $a_n$ ammette limite $l$, allora $l\le 0$. Allo stesso modo, $\abs{a_n}\ge -a_n$, ossia $a_n \ge -\abs{a_n}$, e sempre grazie al teorema del confronto a due possiamo dire che se $a_n$ ammette limite $l$, vale che $l\ge 0$; di conseguenza $0\le l \le 0$, e quindi $l=0$, se esiste.\\
+                A questo punto mostriamo che $a_n \to 0$: fissato $\varepsilon>0$, sappiamo che esiste $n_\varepsilon\in\amsbb{N}$ tale che $\abs{a_n}<\varepsilon$ per ogni $n>n_\varepsilon$, dato che $\abs{a_n}\to 0$. Di conseguenza
+                \[
+                \abs{a_n - 0} = \abs{a_n}<\varepsilon
+                \]
+                se $n>n_\varepsilon$, e quindi $a_n \to 0$.
+            \end{enumerate}
+        \end{proof}
+    \end{tcolorbox}
+    Per il teorema \ref{th:4.6} abbiamo quindi che $s_n \to 0$.
+\end{proof}
+\begin{remark}
+    Il teorema \ref{th:4.6} funziona solamente nel caso in cui $\abs{a_n} \to 0$: infatti, se consideriamo $a_n = (-1)^n$, vale che $\abs{a_n}\to 1$, ma chiaramente $a_n \not\to 1$.
+\end{remark}
+\begin{exercise}
+    \label{ex:4.5}
+    Determinare se la successione $(s_n)_n$ con
+    \[
+    s_n = \frac{n\sin(n)}{\sqrt{n^2+1}}
+    \]
+    converge o meno.
+\end{exercise}
+\begin{proof}[Soluzione]
+    In questo caso non riusciamo a determinare il limite della successione $\abs{s_n}$, in quanto 
+    \[
+    0\le \abs{s_n}\le \underbrace{\frac{n}{\sqrt{n^2+1}}}_{\text{converge a 1}} \ \text{per ogni} \ n\in\amsbb{N}
+    \]
+    e non possiamo quindi sfruttare il teorema \ref{th:4.6}. Facciamo però la seguente osservazione: sappiamo che $\sin(x)> 0$ se $x\in(2k\pi, \pi + 2k\pi)$, $k\in\amsbb{N}$, mentre $\sin(x)<0$ se $x\in(\pi + 2k\pi, 2\pi + 2k\pi)$, $k\in\amsbb{N}$. Questi intervalli sono sufficientemente ampi per contenere degli interi; consideriamo quindi i seguenti sottoinsiemi illimitati di $\amsbb{N}$:
+    \[
+    \left\{ n_k, \ n_k \in(2k\pi, \pi + 2k\pi) \cap \amsbb{N}, k \in\amsbb{N}\right\} \qquad \left\{ n_l, \ n_l \in(\pi + 2k\pi, 2\pi + 2k\pi) \cap \amsbb{N}, l \in\amsbb{N}\right\} 
+    \]
+    e le sottosuccessioni $(s_{n_l})_l$ e $(s_{n_k})_k$; per la proprietà di $\amsbb{R}\ni x \mapsto \sin(x)$ enunciata prima vale che $\sin(n_k)>0$ per ogni $k\in\amsbb{N}$, e $\sin(n_l)<0$ per ogni $l\in\amsbb{N}$. Quindi
+    \[
+    s_{n_k}>0 \ \text{per ogni} \ k\in\amsbb{N} \qquad s_{n_l}<0 \ \text{per ogni} \ l\in\amsbb{N}
+    \]
+    Di conseguenza per il teorema del confronto a due vale che, se i limiti esistono,
+    \[
+    \lim_{k\to\infty} s_{n_k}\ge 0 \qquad \lim_{l\to\infty} s_{n_l} \le 0
+    \]
+    e quindi se il limite $l$ di $(s_n)_n$ esiste questo deve necessariamente essere $0$.\\
+    Supponiamo quindi che $s_n \to 0$; se consideriamo la successione $(a_n)_n$ con
+    \[
+    a_n = \frac{n}{\sqrt{n^2+1}}
+    \]
+    vale che $a_n \to 1$, e di conseguenza per il teorema \ref{th:4.4}
+    \[
+    \sin(n) = \frac{s_n}{a_n} \to 0
+    \]
+    ove la successione $\frac{s_n}{a_n}$ è definita su $\amsbb{N}\setminus \{0\}$. Per il teorema \ref{th:4.1}, ogni sottosuccessione di $(\sin(n))_n$ converge quindi a 0; in particolare vale per $\sin(n+1)$ e $\sin(n-1)$; ma
+    \[
+    \begin{split}
+        \sin(n+1)-\sin(n-1) & = \sin(n)\cos(1) + \cos(n)\sin(1) - \sin(n)\cos(1)+\cos(n)\sin(1) = \\
+        & = 2\cos(n)\sin(1)
+    \end{split}
+    \]
+    Ma questo è impossibile: infatti sappiamo che $\cos^2(n) + \sin^2(n) = 1$ per ogni $n\in\amsbb{N}$, e chiaramente se $\sin(n)\to 0 $ e $\cos(n) \to 0$ abbiamo un assurdo. Quindi $(s_n)_n$ non converge a 0 e di conseguenza non converge.
+\end{proof}
+\begin{exercise}
+    \label{ex:4.6}
+    Determinare se la successione $(s_n)_n$ con
+    \[
+    s_n = n \log\left(1+\frac{3}{n}\right)
+    \]
+    converge o meno.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Possiamo sfruttare le proprietà del logaritmo per scrivere
+    \[
+    s_n = n\log\left(1+\frac{3}{n}\right) =\log\left(\left(1+\frac{3}{n}\right)^n\right)
+    \]
+    Ricordiamo che
+    \begin{tcolorbox}
+        \begin{definition}
+            \label{def:4.3}
+            Il numero di Nepero $e$ è definito essere
+            \[
+            e = \lim_{n\to\infty}\left(1+\frac{1}{n}\right)^n
+            \]
+        \end{definition}
+    \end{tcolorbox}
+    e l'argomento del logaritmo nel nostro caso ci assomiglia molto; infatti,
+    \[
+    e = \lim_{n\to\infty} \left(1+\frac{1}{n}\right)^n = \lim_{n\to\infty} \left(1+\frac{3}{3n}\right)^\frac{3n}{3}
+    \]
+    Se definiamo $m= 3n$ abbiamo che $m\to \infty$ se $n\to\infty$, e
+    \[
+    e = \lim_{m\to\infty}\left(1+\frac{3}{m}\right)^\frac{m}{3}
+    \]
+    Manipolando l'argomento del logaritmo otteniamo
+    \[
+    s_n = \log\left(\left(1+\frac{3}{n}\right)^n\right) = \log\left(\left(1+\frac{3}{n}\right)^{n\frac{3}{3}}\right) = 3\log\left(\left(1+\frac{3}{n}\right)^{\frac{n}{3}}\right)
+    \]
+    Quindi
+    \[
+    \lim_{n\to \infty} s_n = \lim_{n\to\infty} 3 \log\left(\left(1+\frac{3}{n}\right)^{\frac{n}{3}}\right) = 3 \log(e) = 3
+    \]
+\end{proof}
+\begin{remark}
+    Nell'ultimo passaggio del precedente esercizio abbiamo in qualche modo scambiato limite e logaritmo; ci è consentito farlo?\\
+    Innanzitutto, notiamo che è sufficiente mostrare che se $a_n \to 1$, allora $\log(a_n) \to 0$: infatti se $a_n \to a$, $a>0$, allora $\frac{a}{a_n}\to 1$, e 
+    \[
+    \log\left(\frac{a}{a_n}\right)\to 0 \iff \log(a)-\log(a_n) \to 0 \iff \log(a_n)\to \log(a)
+    \]
+    Consideriamo quindi $a_n \to 1$; per la definizione \ref{def:4.2} vale che per ogni $\varepsilon>0$ esiste $n_\varepsilon$ tale che
+    \[
+    1-\varepsilon < a_n < 1+\varepsilon \ \text{per ogni} \ n>n_\varepsilon
+    \]
+    Poiché $\log(\cdot) \colon \amsbb{R}^+\to\amsbb{R}$ è monotona strettamente crescente, vale che
+    \[
+    \log(1-\varepsilon) < \log(a_n) <\log(1+\varepsilon) \ \text{per ogni} \ n>n_\varepsilon
+    \]
+    Fissiamo ora $\delta>0$, e definiamo $\varepsilon_1 = 1-e^{-\delta}$; dato che $\delta>0$ vale che $\varepsilon_1>0$, e per quanto detto prima esiste $n_1$ tale che
+    \[
+    \log(1-\varepsilon_1) = \log(e^{-\delta}) = -\delta < \log(a_n) \ \text{per ogni} \ n>n_1
+    \]
+    Allo stesso modo, se definiamo $\varepsilon_2 = e^{\delta}-1$, $\varepsilon_2>0$ ed esiste $n_2$ tale che
+    \[
+    \log(a_n)<\log(1+\varepsilon_2) = \log(e^\delta) = \delta \ \text{per ogni} \ n>n_2
+    \]
+    Se definiamo $n_\delta = \max\{n_1, n_2\}$ abbiamo che
+    \[
+    -\delta < \log(a_n) < \delta \iff \abs{\log(a_n)}<\delta \ \text{per ogni} \ n>n_\delta
+    \]
+    ossia $\log(a_n)\to 0$. Abbiamo essenzialmente dimostrato che $\log(\cdot)\colon \amsbb{R}^+\to \amsbb{R}$ è continua.
+\end{remark}
+\begin{exercise}
+    \label{ex:4.7}
+    Determinare se la successione $(s_n)_n$ con
+    \[
+    s_n = \frac{1}{\sqrt{n^2}}+\frac{1}{\sqrt{n^2+1}} + \frac{1}{\sqrt{n^2+2}} + \dots + \frac{1}{\sqrt{n^2+2n}}, \qquad n\ge 1
+    \]
+    converge o meno.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Questa è una successione particolare: infatti al crescere di $n$ i termini che sommati danno $s_n$ decrescono e tendono a $0$, però il loro numero aumenta; di conseguenza non possiamo appellarci al teorema \ref{th:4.2}.\\
+    Osserviamo però la cosa seguente: sappiamo che $\sqrt{\cdot}\colon \amsbb{R}^+ \to \amsbb{R}^+$ è monotona crescente, e di conseguenza
+    \[
+    \sqrt{n^2 + m} \ge \sqrt{n^2}\ \text{per ogni} \ m\in\amsbb{N}
+    \]
+    ossia
+    \[
+    \frac{1}{\sqrt{n^2+m}}\le \frac{1}{\sqrt{n^2}} \ \text{per ogni} \ m\in\amsbb{N}, \ n\ge 1
+    \]
+    Allo stesso modo, $n^2 + 2n \ge n^2 +2n -m$ per ogni $m\in\amsbb{N}$, e quindi $\sqrt{n^2+2n}\ge \sqrt{n^2+2n-m}$; ragionando allo stesso modo di prima possiamo scrivere
+    \[
+    \frac{1}{\sqrt{n^2+2n}}\le \frac{1}{\sqrt{n^2+2n-m}} \ \text{per ogni} \ m\in\amsbb{N}, \ m>n^2+2n, n \ge 1 
+    \]
+    Di conseguenza possiamo stimare dall'alto nel modo seguente:
+    \[
+    \underbrace{\frac{1}{\sqrt{n^2}}}_{\le \frac{1}{\sqrt{n^2}}}+\overbrace{\frac{1}{\sqrt{n^2+1}}}^{\le \frac{1}{\sqrt{n^2}}} + \underbrace{\frac{1}{\sqrt{n^2+2}}}_{\le \frac{1}{\sqrt{n^2}}} + \dots + \overbrace{\frac{1}{\sqrt{n^2+2n}}}^{\le \frac{1}{\sqrt{n^2}}}
+    \]
+    ossia
+    \[
+    s_n \le \underbrace{\frac{1}{\sqrt{n^2}} + \frac{1}{\sqrt{n^2}} + \dots + \frac{1}{\sqrt{n^2}}}_{2n+1 \ \text{termini}} = \frac{2n+1}{\sqrt{n^2}}
+    \]
+    Allo stesso modo, possiamo stimare dal basso:
+    \[
+    \underbrace{\frac{1}{\sqrt{n^2}}}_{\ge \frac{1}{\sqrt{n^2+2n}}}+\overbrace{\frac{1}{\sqrt{n^2+1}}}^{\ge \frac{1}{\sqrt{n^2+2n}}} + \underbrace{\frac{1}{\sqrt{n^2+2}}}_{\ge \frac{1}{\sqrt{n^2+2n}}} + \dots + \overbrace{\frac{1}{\sqrt{n^2+2n}}}^{\ge \frac{1}{\sqrt{n^2+2n}}}
+    \]
+    ossia
+    \[
+    s_n \ge \underbrace{\frac{1}{\sqrt{n^2+2n}} + \frac{1}{\sqrt{n^2+2n}} + \dots + \frac{1}{\sqrt{n^2+2n}}}_{2n+1 \ \text{termini}} = \frac{2n+1}{\sqrt{n^2+2n}}
+    \]
+    Quindi abbiamo
+    \[
+    \frac{2n+1}{\sqrt{n^2+2n}} \le s_n \le \frac{2n+1}{\sqrt{n^2}} \ \text{per ogni} \ n\ge 1
+    \]
+    Consideriamo ora le successioni
+    \[
+    a_n = \frac{2n+1}{\sqrt{n^2+2n}} \qquad b_n = \frac{2n+1}{\sqrt{n^2}}
+    \]
+    e verifichiamo se convergono. Vale che
+    \[
+    a_n = \frac{2n+1}{\sqrt{n^2+2n}} = \frac{2n\left(1+\frac{1}{2n}\right)}{n\sqrt{1+\frac{2}{n}}} = 2 \frac{\overbrace{1+\frac{1}{2n}}^{\to 1}}{\underbrace{\sqrt{1+\frac{2}{n}}}_{\to 1}} \overset{\text{Th. \ref{th:4.4}}}{\longrightarrow} 2
+    \]
+    e allo stesso modo
+    \[
+    b_n = \frac{2n+1}{\sqrt{n^2}} = \frac{2n\left(1+\frac{1}{2n}\right)}{n} = 2 \overbrace{\left(1+\frac{1}{2n}\right)}^{\to 1}{\longrightarrow} 2
+    \]
+    Possiamo quindi applicare il teorema \ref{th:4.5}, e concludere che $s_n \to 2$.
+\end{proof}
+\begin{exercise}
+    \label{ex:4.8}
+    Determinare se la successione $(s_n)_n$ con
+    \[
+    s_n = \begin{dcases}
+        1\, & n=0\\
+        1+\sqrt{s_{n-1}}\, & n\ge 1
+    \end{dcases}
+    \]
+    converge o meno.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Scriviamo i primi termini della successione per cercare di capirne l'andamento:
+    \[
+    s_0 = 1 \quad s_1 = 2 \quad s_2 = 1+\sqrt{2} \quad s_3 = 1+ \sqrt{1+\sqrt{2}} \ \dots
+    \]
+    Sembrerebbe che la successione sia monotona crescente; vale in generale che
+    \[
+    s_{n-1}\le s_n \ \text{per ogni} \ n\in\amsbb{N} \text{?}
+    \]
+    Notiamo che nel nostro caso vale che per $n\ge 1$
+    \[
+    s_n = 1 +\sqrt{s_{n-1}} \iff s_n-1 = \sqrt{s_{n-1}} \iff (s_n-1)^2 = s_{n-1}
+    \]
+    Vogliamo capire quindi se $(s_n-1)^2 \le s_n$ per ogni $n\in\amsbb{N}$; la disequazione risulta essere
+    \[
+    s_n^2 -3s_n +1 \le 0
+    \]
+    il cui segno è dato da
+    \begin{center}
+            \begin{tikzpicture}
+                \tikzset{h style/.style = {fill=black!30}}
+                \tkzTabInit[lgt=4,espcl=2,deltacl=0]
+                { /.8, $(s_n-\frac{3-\sqrt{5}}{2})$ /.8, $(s_n-\frac{3+\sqrt{5}}{2})$ /.8, ${s_n^2 -3s_n+1}$ /.8}
+                {,$\frac{3-\sqrt{5}}{2}$, $\frac{3+\sqrt{5}}{2}$, } % four main references
+                \tkzTabLine {,-,z,+, t, +, } % seven denotations
+                \tkzTabLine {,-,t,-, z, +, }
+                \tkzTabLine{, +, z, h, z, +,  }
+                \path (M23) -- (M24) node[black,midway]{$-$};
+            \end{tikzpicture}
+        \end{center}
+        Di conseguenza la successione $(s_n)_n$ è monotona crescente finché $s_n\in\left[\frac{3-\sqrt{5}}{2}, \frac{3+\sqrt{5}}{2}\right]$. Ora, $s_0 = 1 > \frac{3-\sqrt{5}}{2}$, e quindi la successione è effettivamente monotona decrescente se $s_n\le \frac{3+\sqrt{5}}{2}$ per ogni $n\in\amsbb{N}$. Per dimostrarlo, procediamo per induzione:
+        \begin{enumerate}[(i)]
+            \item caso base $n=0$: banalmente verificato dato che $s_0 = 1 < \frac{3+\sqrt{5}}{2}$.
+            \item supponiamo che $s_k\le \frac{3+\sqrt{5}}{2}$ per ogni $0\le k \le n-1$, e mostriamo che vale per $n$: sappiamo che 
+            \[
+            (s_n-1)^2 = s_{n-1} \le \frac{3+\sqrt{5}}{2}
+            \]
+            Per la monotonia della radice quadrata vale che
+            \[
+            \abs{s_n-1}\le \sqrt{\frac{3+\sqrt{5}}{2}}
+            \]
+            E poiché $s_n = 1+\sqrt{s_{n-1}}$ abbiamo che $s_{n}-1\ge 0$, quindi possiamo scrivere
+            \[
+            s_n-1\le \sqrt{\frac{3+\sqrt{5}}{2}} \iff s_n\le 1+\sqrt{\frac{3+\sqrt{5}}{2}}
+            \]
+            Vale che
+            \[
+            1+\sqrt{\frac{3+\sqrt{5}}{2}}\le \frac{3+\sqrt{5}}{2}?
+            \]
+            Per farlo, capiamo quando vale la disuguaglianza $1+\sqrt{t}\le t$, che possiamo riscrivere, per $t\ge 1$ (come nel caso che ci interessa), come $t\le (t-1)^2$, ossia $t^2-3t+1\ge 0$:
+            \begin{center}
+            \begin{tikzpicture}
+                \tikzset{h style/.style = {fill=black!30}}
+                \tkzTabInit[lgt=4,espcl=2,deltacl=0]
+                { /.8, $(t-\frac{3-\sqrt{5}}{2})$ /.8, $(t-\frac{3+\sqrt{5}}{2})$ /.8, ${t^2 -3t+1}$ /.8}
+                {,$\frac{3-\sqrt{5}}{2}$, $\frac{3+\sqrt{5}}{2}$, } % four main references
+                \tkzTabLine {,-,z,+, t, +, } % seven denotations
+                \tkzTabLine {,-,t,-, z, +, }
+                \tkzTabLine{, h, z, -, z, h,  }
+                \path (M13) -- (M14) node[black,midway]{$+$};
+                \path (M33) -- (M34) node[black,midway]{$+$};
+            \end{tikzpicture}
+        \end{center}
+        La disuguaglianza $1+\sqrt{t}\le t$ vale quindi per $t\ge \frac{3+\sqrt{5}}{2}$; di conseguenza abbiamo che
+        \[
+        s_n \le 1+\sqrt{\frac{3+\sqrt{5}}{2}}\le \frac{3+\sqrt{5}}{2}
+        \]
+        \end{enumerate}
+        Abbiamo quindi che
+        \[
+        s_n\in \left[\frac{3-\sqrt{5}}{2}, \frac{3+\sqrt{5}}{2}\right]\ \text{per ogni} \ n\in\amsbb{N}
+        \]
+        e di conseguenza $(s_n)_n$ è monotona crescente ed è anche limitata. Ricordiamo il seguente teorema:
+        \begin{tcolorbox}
+            \begin{theorem}
+                \label{th:4.7}
+                Sia $(s_n)_n$ una successione monotona; questa converge se e solo se è limitata.
+            \end{theorem}
+        \end{tcolorbox}
+        Di conseguenza sappiamo che $\lim_{n\to\infty} s_n$ esiste, ed è uguale ad $s\in\amsbb{R}$. Per determinarne il valore, notiamo che
+        \[
+        s = \lim_{n\to\infty} s_n = \lim_{n\to\infty} \left(1+\sqrt{s_{n-1}}\right) = 1+\lim_{n\to\infty}\sqrt{s_{n-1}} = 1+\sqrt{s}
+        \]
+        Risolvendo l'equazione $s=1+\sqrt{s}$ possiamo quindi trovare il valore del limite: in particolare risulta che l'equazione ha due soluzioni
+        \[
+        \xi_1 = \frac{3+ \sqrt{5}}{2} \qquad \xi_2 = \frac{3-\sqrt{5}}{2}
+        \]
+        ma la seconda è da scartare in quanto $s_0>\xi_1$ e $(s_n)_n$ è monotona crescente; quindi
+        \[
+        \lim_{n\to\infty} s_n = \frac{3+\sqrt{5}}{2}
+        \]
+\end{proof}
+\begin{remark}
+    Questo problema ammette un'interessante rappresentazione grafica:
+    \begin{center}
+        \begin{tikzpicture}[scale=1.8, font=\footnotesize]
+            % \tzhelplines(5,5)
+            \tzaxes(-.2,-.2)(3,3){$x$}[b]{$y$}[l]
+            %\tzdot*(3.5, 3.8){$z=a+ib$}
+            %\tzline[dashed, thick](0,0)(3.5, 3.8){$r$}[midway, a]
+            %\tzarc(0,0)(0:47.35:2.5){$\theta$}[midway, r]
+            %\txnode
+            \tzfn[blue, thick]"curve"{1+sqrt(\x)}[0:3]{$y=1+\sqrt{x}$}[b]
+            \tzfn[dashed,thick]"line"{\x}[0:3]{$y=x$}[l]
+            \tzdot*[red](0, 1){$s_0$}[l]
+            \tzfn[red, dashed]{1}[0:1]
+            \tzvfnat[red, dashed]{1}[1:2]
+            \tzprojy[draw=red](1, 2){$s_1$}
+            \tzdot*[red](0, 2)
+            \tzfn[red, dashed]{2}[1:2]
+            \tzvfnat[red, dashed]{2}[2:2.4142]
+            \tzprojy[draw=red](2, 2.4142){$s_2$}
+            \tzdot*[red](0, 2.4142)
+            \tzfn[red, dashed]{{1+sqrt(2)}}[2:{1+sqrt(2)}]
+            \tzvfnat[red, dashed]{2.4142}[2.4142:2.5537]
+            \tzprojy[draw=red](2.4142, 2.5537){$s_3$}
+            \tzdot*[red](0, 2.5537)
+            %\tzplotcurve[blue,thick]"curve"(.5,4.3)(1,4.2)(2.5,4.1)(4,.5){$y=g(x)$}[45]; % [ar] also works in version 2.0
+            % intersection and projection
+            \tzXpoint{line}{curve}(Y)
+            \tzprojy[draw=red](Y){$s$}[al]
+            \tzdot*[red](0, 2.6180)
+            %\tzproj(3.5, 3.8){$a$}{$b$}
+        \end{tikzpicture}
+    \end{center}
+    ossia la successione tende verso la coordinata $y$ (equivalentemente $x$) del \emph{punto fisso} di $f(x) = 1+\sqrt{x}$.
+\end{remark}
+\newpage

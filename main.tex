@@ -1,0 +1,219 @@
+\pdfobjcompresslevel=0
+\documentclass[a4paper, 11pt, twoside]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsthm}
+\usepackage{verbatim}
+\usepackage{blindtext}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{amsmath}
+\newcommand{\tens}[1]{%
+  \mathbin{\mathop{\otimes}\displaylimits_{#1}}%
+}
+\usepackage{mathrsfs}
+\makeatletter
+\def\amsbb{\use@mathgroup \M@U \symAMSb}
+\makeatother
+\DeclareFontFamily{U}{bbold}{}
+\DeclareFontShape{U}{bbold}{m}{n}
+{  <5> <6> bbold5
+   <7> <8> bbold7
+   <9> <10> <10.95> <12> <14.4> <17.28> <20.74> <24.88> bbold10
+}{}
+%\usepackage{bbold}
+
+\usepackage{commath}
+\usepackage{enumerate}
+\usepackage{setspace}
+\usepackage{braket}
+\usepackage{dsfont}
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+\usepackage{graphicx}
+\usepackage[nottoc]{tocbibind}
+\usepackage[headheight= 14pt,lmargin=1.2in, rmargin=1.2in]{geometry}
+\usepackage{blindtext}
+\usepackage{fancyhdr}
+
+\fancypagestyle{style1}{
+\fancyhf{}
+\fancyhead{}% clear header
+\fancyfoot{} % clear footer
+\fancyhead[R]{\thesection.\ \Sectionname}
+\fancyfoot[R]{\thepage} % page at left on even and right on odd pages
+}
+
+\pagestyle{fancy}
+\let\Sectionmark\sectionmark
+\def\sectionmark#1{\def\Sectionname{#1}\Sectionmark{#1}}
+\let\Subsectionmark\subsectionmark
+\def\subsectionmark#1{\def\Subsectionname{#1}\Subsectionmark{#1}}
+\let\Subsubsectionmark\subsubsectionmark
+\def\subsubsectionmark#1{\def\Subsubsectionname{#1}\Subsubsectionmark{#1}}
+\renewcommand\headrulewidth{0.5pt} % no line between document and header 
+\fancyhf{}
+\fancyhead{}% clear header
+\fancyfoot{} % clear footer
+\fancyhead[R]{\thesubsection.\ \Subsectionname}
+\fancyfoot[R]{\thepage} % page at left on even and right on odd pages
+
+\fancypagestyle{style3}{
+\fancyhf{}
+\fancyhead{}% clear header
+\fancyfoot{} % clear footer
+\fancyhead[OR, EL]{\thesection.\ \Sectionname}
+\fancyfoot[OR, EL]{\thepage} % page at left on even and right on odd pages
+
+}
+
+\fancypagestyle{style2}{
+\fancyhf{}
+\fancyhead{}% clear header
+\fancyfoot{} % clear footer % page at left on even and right on odd pages
+}
+\usepackage{polynom}
+\usepackage{textcomp}
+\usepackage{tikz-cd}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+
+% tkz-tab hardcodes $0$ for the zeros
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
+% we want solid lines
+\tikzset{t style/.style={style=solid}}
+\usepackage{mathtools}
+\usepackage{accents}
+\newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
+\newcommand{\ut}[1]{\underaccent{\tilde}{#1}}
+\renewcommand{\vec}[1]{\ut{#1}}
+\usepackage{tzplot}
+\usepackage{chngcntr}
+\usepackage{apptools}
+\usepackage{afterpage}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+\numberwithin{equation}{section}
+\AtAppendix{\counterwithin{Lemma}{section}}
+\AtAppendix{\counterwithin{Theorem}{section}}
+\AtAppendix{\counterwithin{Corollary}{section}}
+\AtAppendix{\counterwithin{Proposition}{section}}
+\AtAppendix{\counterwithin{Definition}{section}}
+\newcommand{\deq}{\overset{\cdot}{=}}
+\newcommand{\cl}{\mathscr{C}\hspace{-1.5pt}\ell}
+\newcommand{\scl}{c\hspace{-0.5pt}\ell}
+\newcommand{\froo}{\text{Fr}_{\text{oo}}}
+\newcommand{\ccl}{\amsbb{C}\hspace{-1.5pt}\ell}
+\newcommand{\diro}{\mathbf{D}}
+\newcommand{\wcon}{\overset{\text{weakly}}{\to}}
+\newcommand{\spinro}{{S_{\amsbb{C}}}_{\rho}(M)}
+\newcommand{\spinrod}{{S_{\amsbb{C}}}_{\rho}^\ast(M)}
+\newcommand{\spinrop}{{S_{\amsbb{C}}}_{\rho}^\oplus(M)}
+\newcommand{\id}{\text{id}}
+\newcommand{\Gal}{\text{Gal}}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\rank}{rank} 
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\theoremstyle{definition}
+\newtheorem{definition}{Definizione}[section]
+\theoremstyle{plain}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{exercise}{Esercizio}[section]
+\newtheorem{corollary}{Corollario}[section]
+\newtheorem{proposition}{Proposizione}[section]
+\newtheorem{axiom}{Assioma}
+\counterwithout{axiom}{section}
+\theoremstyle{remark}
+\newtheorem*{remark}{Osservazione}
+\newtheorem*{example}{Esempio}
+
+\title{Analisi Matematica 1, Corso di Laurea in Informatica - Appunti delle Esercitazioni}
+\author{Valentino Abram}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17, 
+     %%%% common settings
+     axis lines=middle,  
+     axis line style= {-Straight Barb},
+     axis on top,
+     x=7mm, y=3.5mm, % <---
+     %
+     xlabel=$\mathrm{Re}$,
+     xlabel style=below,
+     xmin=-4.5, xmax=4.5,
+     xtick={-4,-3,...,\Xmax}, % <---
+     %
+     ylabel=$\mathrm{Im}$,
+     ylabel style=left,     
+     ymin=-8.5, ymax=4.5,
+     ytick={-8,-7,...,8},
+     %
+     tick style=black,
+     tick label style = {inner sep=1pt, font=\tiny},
+     %
+     no marks,
+     every axis plot post/.append style={very thick}
+             }
+\newcommand\Xmin{\pgfkeysvalueof{/pgfplots/xmin}}
+     \newcommand\Xmax{\pgfkeysvalueof{/pgfplots/xmax}}
+     \newcommand\Ymin{\pgfkeysvalueof{/pgfplots/ymin}}
+     \newcommand\Ymax{\pgfkeysvalueof{/pgfplots/ymax}}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{external}
+\tikzexternalize[prefix = Graphs/]
+\usepackage[backend=biber]{biblatex}
+\addbibresource{biblio.bib}
+\usepackage{csquotes}
+\usepackage[a-1b]{pdfx}
+\usepackage[pdfa]{hyperref}
+
+\begin{document}
+\pagenumbering{gobble}
+\afterpage{\blankpage}
+\pagestyle{empty}
+\begin{titlepage}
+    \centering
+    \vspace*{\baselineskip}
+    \rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+    \rule{\textwidth}{0.4pt}\\[\baselineskip]
+    {\LARGE ANALISI MATEMATICA 1\\
+    [0.2\baselineskip]
+    ESERCITAZIONI}\\[0.2\baselineskip]
+    \rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
+    \rule{\textwidth}{1.6pt}\\[\baselineskip]
+    \scshape
+    Appunti del Corso \\
+    Analisi Matematica 1, Corso di Laurea in Informatica
+    \vfill
+    {\scshape Anno Accademico 2023 - 2024}
+  \end{titlepage}
+ % \doclicenseThis
+\newpage
+\tableofcontents
+\clearpage
+\blankpage
+\pagestyle{style3}
+\pagenumbering{arabic}
+\input{Lessons/Lesson_1}
+\input{Lessons/Lesson_2}
+\input{Lessons/Lesson_3}
+\input{Lessons/Lesson_4}
+\input{Lessons/Lesson_5}
+\input{Lessons/Lesson_6}
+\clearpage
+\pagestyle{empty}
+\phantomsection
+\addcontentsline{toc}{section}{Riferimenti bibliografici}
+\printbibliography
+\nocite{rudin1976principles}
+\end{document}

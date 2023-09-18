@@ -1,0 +1,496 @@
+\section{Lezione 5}
+\subsection{Ripasso: limiti di funzioni}
+\begin{definition}
+    \label{def:5.1}
+    Data una funzione $f\colon I\subseteq \amsbb{R}\to\amsbb{R}$ e dato $y$ un punto di accumulazione\footnote{Un punto di accumulazione per $I\subseteq \amsbb{R}$ è un punto $y\in\amsbb{R}$ tale che per ogni $\delta>0$ esiste $x_\delta\in I$ tale che $x_\delta \in (y-\delta, y+ \delta)$. In questo modo possiamo dare senso al tendere ad $y0$ tramite elementi di $I$.} di $I$, diremo che
+    \[
+    \lim_{x\to y}f(x) = q
+    \]
+    se per ogni $\varepsilon>0$ esiste $\delta_\varepsilon>0$ tale che $\abs{f(x)-q}\varepsilon$ se $\abs{x-y}<\delta_{\varepsilon}$.
+\end{definition}
+\begin{theorem}
+    \label{th:5.1}
+    Data una funzione $f\colon I \to\amsbb{R}$, vale che
+    \[
+    \lim_{x\to y} f(x) = q
+    \]
+    se e solo se \textbf{per ogni} successione $(x_n)_n$ con $\{x_n, \ n\in\amsbb{N}\}\subseteq I$, $x_n\ne y$ per ogni $n\in\amsbb{N}$ e $x_n \to y$ vale che la successione $(f(x_n))_n$ converge a $q$.
+\end{theorem}
+\begin{definition}
+    \label{def:5.2}
+    Data una funzione $f\colon(a,b)\to \amsbb{R}$ e $y\in[a,b)$, diremo che
+    \[
+    \lim_{x\to y^+} f(x) = q
+    \]
+    se per ogni successione $(x_n)_n$ tale che $\{x_n, \ n\in\amsbb{N}\}\subseteq (y,b)$ e $x_n \to y$ la successione $(f(x_n))_n $ tende a $q$.\\
+    Dato $y\in(a,b]$, diremo invece che
+    \[
+    \lim_{x\to y^-} f(x) = q
+    \]
+    se per ogni successione $(x_n)_n$ tale che $\{x_n, \ n\in\amsbb{N}\}\subseteq (a,y)$ e $x_n \to y$ la successione $(f(x_n))_n $ tende a $q$.\\
+\end{definition}
+\begin{theorem}
+    \label{th:5.2}
+    Dato $y\in(a,b)$, $\lim_{x\to y} f(x) =q$ se e solo se 
+    \[
+    \lim_{x\to y^+}f(x) = \lim_{x\to y^-}f(x) = q
+    \]
+\end{theorem}
+\subsection{Esercizi: limiti di funzioni}
+\begin{exercise}
+    \label{ex:5.1}
+    Calcolare, se esiste
+    \[
+    \lim_{x\to 1} \left(\frac{1}{2}\right)^{\frac{1}{x-1}}
+    \]
+\end{exercise}
+\begin{proof}[Soluzione]
+    Notiamo che per $x>1$ e $x$ prossimo a $1$ la funzione $\frac{1}{x-1}$ assume valori molto grandi e positivi, e di conseguenza $\left(\frac{1}{2}\right)^{\frac{1}{x-1}}$ tende ad essere molto piccolo; invece per $x<1$ e $x$ prossimo a $1$ la funzione $\frac{1}{x-1}$ assume valori molto grandi (in modulo) e negativi, e di conseguenza $\left(\frac{1}{2}\right)^{\frac{1}{x-1}}$ tende ad essere molto grande. Questo ragionamento euristico ci porta a dire che il limite non esiste. \\
+    Per dimostrare che effettivamente è così, possiamo sfruttare il teorema \ref{th:5.1}: consideriamo quindi due successioni,
+    \[
+    a_n = 1+\frac{1}{n} \qquad b_n = 1-\frac{1}{n}
+    \]
+    notiamo che $a_n \to 1$ e $b_n \to 1$, e che $\{a_n, \ n\in\amsbb{N}\}\subseteq (1,+\infty)$ e $\{b_n, \ n\in\amsbb{N}\}\subseteq (-\infty, 1)$; calcoliamo quindi
+    \[
+    \lim_{n\to\infty} \left(\frac{1}{2}\right)^{\frac{1}{a_n-1}} = \lim_{n\to\infty} \left(\frac{1}{2}\right)^{\frac{1}{\frac{1}{n}}} = \lim_{n\to\infty}\left(\frac{1}{2}\right)^n = 0
+    \]
+    e 
+    \[
+    \lim_{n\to\infty} \left(\frac{1}{2}\right)^{\frac{1}{b_n-1}} = \lim_{n\to\infty} \left(\frac{1}{2}\right)^{\frac{1}{-\frac{1}{n}}} = \lim_{n\to\infty}\left(\frac{1}{2}\right)^{-n} = +\infty
+    \]
+    Abbiamo trovato quindi due successioni $(a_n)_n$ e $(b_n)_n$ con $a_n\to 1$ e $b_n\to 1$ tali che
+    \[
+    \lim_{n\to\infty}\left(\frac{1}{2}\right)^{\frac{1}{a_n-1}} \ne 
+    \lim_{n\to\infty}\left(\frac{1}{2}\right)^{\frac{1}{b_n-1}}
+    \]
+    e di conseguenza per il teorema \ref{th:5.1} il limite non esiste.
+\end{proof}
+\begin{exercise}
+    \label{ex:5.2}
+    Calcolare
+    \[
+    \lim_{x\to 0}\frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^\alpha))}
+    \]
+    al variare di $\alpha\in\amsbb{R}$.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Per calcolare il limite, cerchiamo di ricondurci ai limiti notevoli
+    \begin{tcolorbox}
+        \[
+        \underbrace{\lim_{x\to 0} \frac{e^x-1}{x} = 1}_{\stepcounter{equation}\mbox{(\theequation)}} \quad \underbrace{\lim_{x\to 0} \frac{1-\cos(x)}{x^2} = \frac{1}{2}}_{\stepcounter{equation}\mbox{(\theequation)}} \quad \underbrace{\lim_{x\to 0} \frac{\log(1+x)}{x} = 1}_{\stepcounter{equation}\mbox{(\theequation)}}
+        \quad \underbrace{\lim_{x\to 0}  \frac{\sin(x)}{x} = 1}_{\stepcounter{equation}\mbox{(\theequation)}}
+        \]
+        \addtocounter{equation}{-3}\refstepcounter{equation}\label{eq:5.1}
+        \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:5.2}
+        \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:5.3}
+        \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:5.4}
+    \end{tcolorbox}
+    Per procedere, conviene separare due casi: $\alpha\ge 0$ e $\alpha<0$.
+    \begin{enumerate}[(i)]
+        \item se $\alpha=0$, vale che $x^0=1$ per ogni $x\in\amsbb{R}$, e quindi $\log(1+\sin(1))> 0$; bisogna quindi calcolare
+        \[
+        \lim_{x\to 0}e^{3x^4}-\cos(x^2)
+        \]
+        Notiamo che, grazie al teorema \ref{th:5.1}, le regole aritmetiche per i limiti di successioni (teoremi \ref{th:4.2}, \ref{th:4.3} e \ref{th:4.4}) valgono anche per i limiti di funzioni. Di conseguenza possiamo calcolare separatamente 
+        \[
+        \lim_{x\to0}e^{3x^4} = 1 \qquad \lim_{x\to 0}\cos(x^2) = 1
+        \]
+        ove i risultati sono dovuti alla continuità delle funzioni esponenziale, coseno ed elevamento a potenza.\\
+        Quindi se $\alpha=0$
+        \[
+        \lim_{x\to 0}\frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^\alpha))} = 0
+        \]
+        \item Supponiamo quindi $\alpha>0$; notiamo che se $\alpha\notin \amsbb{N}$ la funzione è definita solamente sui numeri reali positivi, e di conseguenza il limite sarà in realtà un limite destro. Per ricondurci ai limiti (\ref{eq:5.1}) e (\ref{eq:5.2}), aggiungiamo e sottraiamo 1 a numeratore:
+        \[
+        \frac{e^{3x^4}-1+1-\cos(x^2)}{\log(1+\sin(x^\alpha))} = \frac{e^{3x^4}-1}{\log(1+\sin(x^\alpha))}+\frac{1-\cos(x^2)}{\log(1+\sin(x^\alpha))}
+        \]
+        e moltiplichiamo in entrambi i casi numeratore e denominatore per $\sin(x^\alpha)$:
+        \[
+        \frac{e^{3x^4}-1}{\log(1+\sin(x^\alpha))}+\frac{1-\cos(x^2)}{\log(1+\sin(x^\alpha))} = \frac{(e^{3x^4}-1)\sin(x^\alpha)}{\log(1+\sin(x^\alpha))\sin(x^\alpha)}+\frac{(1-\cos(x^2))\sin(x^\alpha)}{\log(1+\sin(x^\alpha))\sin(x^\alpha)}
+        \]
+        Poi nella prima frazione moltiplichiamo e dividiamo per $3x^4$, e nella seconda per $x^4$:
+        \[
+        \begin{split}
+           & \frac{(e^{3x^4}-1)\sin(x^\alpha)}{\log(1+\sin(x^\alpha))\sin(x^\alpha)}+\frac{(1-\cos(x^2))\sin(x^\alpha)}{\log(1+\sin(x^\alpha))\sin(x^\alpha)} = \\
+            & = \frac{(e^{3x^4}-1)\sin(x^\alpha)3x^4}{\log(1+\sin(x^\alpha))\sin(x^\alpha)3x^4}+\frac{(1-\cos(x^2))\sin(x^\alpha)x^4}{\log(1+\sin(x^\alpha))\sin(x^\alpha)x^4}
+        \end{split}
+        \]
+        e infine moltiplichiamo e dividiamo per $x^\alpha$ ambo le frazioni:
+        \[
+        \begin{split}
+            & \frac{(e^{3x^4}-1)\sin(x^\alpha)3x^4}{\log(1+\sin(x^\alpha))\sin(x^\alpha)3x^4}+\frac{(1-\cos(x^2))\sin(x^\alpha)x^4}{\log(1+\sin(x^\alpha))\sin(x^\alpha)x^4} = \\
+            & \frac{(e^{3x^4}-1)\sin(x^\alpha)3x^{4}x^\alpha}{\log(1+\sin(x^\alpha))\sin(x^\alpha)3x^4 x^\alpha}+\frac{(1-\cos(x^2))\sin(x^\alpha)x^4x^\alpha}{\log(1+\sin(x^\alpha))\sin(x^\alpha)x^4x^\alpha}
+        \end{split}
+        \]
+        Notiamo ora che se $\alpha>0$, per $x\to 0$ la funzione $\sin(x^\alpha)\to 0$; di conseguenza possiamo considerare
+        \[
+        \lim_{x\to 0} \frac{\log(1+\sin(x^\alpha))}{\sin(x^\alpha)} \overset{y = \sin(x^\alpha)}{=} \lim_{y\to 0} \frac{\log(1+y)}{y} \overset{(\ref{eq:5.3})}{=} 1
+        \]
+        allo stesso modo $3x^4\to 0$, $x^6\to 0$ e $x^\alpha\to0$per $x\to 0$, e quindi
+        \[
+        \lim_{x\to 0} \frac{e^{3x^4}-1}{3x^4} \overset{y = 3x^4}{=} \lim_{y\to 0} \frac{e^y-1}{y}\overset{(\ref{eq:5.1})}{=} 1
+        \]
+        \[
+        \lim_{x\to 0} \frac{1-\cos(x^2)}{x^4} \overset{y = x^2}{=} \lim_{y\to 0} \frac{1-\cos(y)}{y^2} \overset{(\ref{eq:5.2})}{=} \frac{1}{2}
+        \]
+        \[
+        \lim_{x\to 0} \frac{\sin(x^\alpha)}{x^\alpha} \overset{y = x^\alpha}{=} \lim_{y\to 0} \frac{\sin(y)}{y} \overset{(\ref{eq:5.4})}{=} 1
+        \]
+        Quindi
+        \[
+        \begin{split}
+            & \frac{(e^{3x^4}-1)\sin(x^\alpha)3x^4x^\alpha}{\log(1+\sin(x^\alpha))\sin(x^\alpha)3x^4x^\alpha}+\frac{(1-\cos(x^2))\sin(x^\alpha)x^4x^\alpha}{\log(1+\sin(x^\alpha))\sin(x^\alpha)x^4x^\alpha} = \\
+            & = \frac{e^{3x^4}-1}{3x^4}\frac{\sin(x^\alpha)}{\log(1+\sin(x^\alpha))}\frac{x^\alpha}{\sin(x^\alpha)}3x^{4-\alpha}+\frac{1-\cos(x^2)}{x^4}\frac{\sin(x^\alpha)}{\log(1+\sin(x^\alpha)}\frac{x^\alpha}{\sin(x^\alpha)}x^{4-\alpha}
+        \end{split}
+        \]
+        Per applicare il teorema \ref{th:4.3} per i limiti dobbiamo solamente determinare il valore di
+        \[
+        \lim_{x\to 0} 3x^{4-\alpha} \qquad \lim_{x\to 0} x^{4-\alpha}
+        \]
+        Chiaramente se $4-\alpha>0$ le due funzioni tendono a 0 per la continuità dell'elevamento a potenza, e di conseguenza sempre per il teorema \ref{th:4.3} e \ref{th:4.2} abbiamo
+        \[
+        \begin{split}
+            &\lim_{x\to 0} \frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^\alpha))} = \lim_{x\to 0} \overbrace{\frac{e^{3x^4}-1}{3x^4}}^{\to 1}\overbrace{\frac{\sin(x^\alpha)}{\log(1+\sin(x^\alpha))}}^{\to 1}\overbrace{\frac{x^\alpha}{\sin(x^\alpha)}}^{\to 1} \overbrace{3x^{4-\alpha}}^{\to 0} + \\
+            & + \lim_{x\to 0}\underbrace{ \frac{1-\cos(x^2)}{x^4}}_{\to \frac{1}{2}}\underbrace{\frac{\sin(x^\alpha)}{\log(1+\sin(x^\alpha)}}_{\to1}\underbrace{\frac{x^\alpha}{\sin(x^\alpha)}}_{\to 1}\underbrace{x^{4-\alpha}}_{\to 0} = 0
+        \end{split}
+        \]
+        se invece $4-\alpha=0$ le funzioni tendono a 3 e 1 rispettivamente, e di conseguenza
+        \[
+        \begin{split}
+            &\lim_{x\to 0} \frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^\alpha))} = \lim_{x\to 0} \overbrace{\frac{e^{3x^4}-1}{3x^4}}^{\to 1}\overbrace{\frac{\sin(x^\alpha)}{\log(1+\sin(x^\alpha))}}^{\to 1}\overbrace{\frac{x^\alpha}{\sin(x^\alpha)}}^{\to 1} \overbrace{3x^{4-\alpha}}^{\to 3} + \\
+            & + \lim_{x\to 0}\underbrace{ \frac{1-\cos(x^2)}{x^4}}_{\to \frac{1}{2}}\underbrace{\frac{\sin(x^\alpha)}{\log(1+\sin(x^\alpha)}}_{\to1}\underbrace{\frac{x^\alpha}{\sin(x^\alpha)}}_{\to 1}\underbrace{x^{4-\alpha}}_{\to 1} = 3 + \frac{1}{2} = \frac{7}{2}
+        \end{split}
+        \]
+        Infine, se $4-\alpha<0$ dobbiamo considerare separatamente il caso $4-\alpha\in\amsbb{R}\setminus \amsbb{Z}$ e $4-\alpha\in \amsbb{Z}$. Nel primo caso la funzione è definita su $\amsbb{R}^+$ e
+        \[
+        \lim_{x\to 0} \frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^\alpha))} = \lim_{x\to 0^+}\frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^\alpha))}
+        \]
+        In questo caso ($4-\alpha<0$, $4-\alpha\in\amsbb{R}\setminus \amsbb{Z}$)
+        \[
+        \lim_{x\to 0^+} 3x^{4-\alpha} = \lim_{x\to 0^+} x^{4-\alpha} = +\infty
+        \]
+        e di conseguenza
+        \[
+        \lim_{x\to 0} \frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^\alpha))} = +\infty
+        \]
+        Altrimenti, ossia nel caso $4-\alpha\in\amsbb{Z}$, se $\abs{4-\alpha}$ è pari vale che
+        \[
+        \lim_{x\to 0} 3x^{4-\alpha} = \lim_{x\to 0} x^{4-\alpha} = +\infty
+        \]
+        altrimenti se $\abs{4-\alpha}$ è dispari le funzioni $3x^{4-\alpha}$ e $x^{4-\alpha}$ non hanno limite per $x\to 0$. Quindi possiamo concludere il caso $\alpha\ge 0$ dicendo che
+        \[
+        \lim_{x\to 0} \frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^\alpha))} = \begin{dcases}
+            0\, & 0\le \alpha<4\\
+            \frac{7}{2}\, & \alpha=4 \\
+            +\infty\, & \alpha>4, \ \alpha\in\amsbb{R}\setminus \amsbb{N} \lor \alpha\in\amsbb{N}, \ \alpha \ \text{pari} \\
+            \text{non esiste}\, & \alpha>4, \ \alpha\in\amsbb{N}, \ \alpha \ \text{dispari} 
+        \end{dcases}
+        \]
+        \item nel caso $\alpha<0$, la funzione ha \emph{molti} problemi (vi invito ad utilizzare Desmos per capire meglio la gravità della situazione).
+        Infatti,
+        \begin{enumerate}[(a)]
+            \item la funzione non è definita se $\sin(x^\alpha) = 0$, ossia se 
+            \[
+            x^{\alpha} = k\pi, \ k\in\amsbb{Z} \iff x_k = \sqrt[\abs{\alpha}]{\left(\frac{1}{k\pi}\right)}
+            \]
+            (eventualmente con $k\in\amsbb{N}$ se $\alpha$ è un numero reale non intero);
+            \item la funzione non è definita se $\sin(x^\alpha)=-1$, ossia se
+            \[
+            x^\alpha = \frac{3}{2}\pi + 2k\pi, \ k\in\amsbb{Z} \iff \hat{x}_k =\sqrt[\abs{\alpha}]{\frac{1}{\frac{3}{2}\pi + 2k\pi}}
+            \]
+            (anche in questo caso con $k\in\amsbb{N}$ se $\alpha\in\amsbb{R}\setminus \amsbb{Z}$).
+        \end{enumerate}
+        ossia man mano che ci avviciniamo all'origine troviamo sempre più punti in cui la funzione non è definita. Concentriamoci ora su $\{x\in\amsbb{R}\colon x>0\}$; vale che
+        \begin{enumerate}[(a)]
+            \item $e^{3x^4}-\cos(x^2)>0$ per ogni $x>0$: infatti $e^{3x^4}>1$ se $x>0$, e $\abs{\cos(x^2)}\le 1$; di conseguenza $-\cos(x)\ge -1$, e 
+            \[
+            e^{3x^4}-\cos(x)\ge e^{3x^4}-1 >0
+            \]
+            \item fissato $k\in\amsbb{N}$,
+            \[
+            2k\pi + \pi  < 2k\pi + \frac{3}{2}\pi < 2k\pi + 2\pi \iff \frac{1}{2k\pi + \pi}> \frac{1}{2k\pi + \frac{3}{2}\pi}>\frac{1}{2k\pi + 2\pi}
+            \]
+            e per la monotonia di $\sqrt[\abs{\alpha}]{\cdot}\colon \amsbb{R}^+\to\amsbb{R}^+$ vale che
+            \[
+            \sqrt[\abs{\alpha}]{\frac{1}{2k\pi + \pi}}> \sqrt[\abs{\alpha}]{\frac{1}{2k\pi + \frac{3}{2}\pi}}>\sqrt[\abs{\alpha}]{\frac{1}{2k\pi + 2\pi}}
+            \]
+            ossia
+            \[
+            x_{2k+1}>\hat{x}_{k}>x_{2k+2}
+            \]
+            \item $\sin(x^\alpha)$ è positivo per $x\in (x_{2k+1}, x_{2k})$ e negativo per $x\in (x_{2k+2}, x_{2k})$; quindi
+            \[
+            \frac{1}{\log(1+\sin(x^\alpha))}>0 \ \text{per} \ x\in(x_{2k+1}, x_{2k}) \  \forall k\in\amsbb{N}\setminus\{0\}
+            \]
+            e
+            \[
+            \frac{1}{\log(1+\sin(x^\alpha))}<0 \ \text{per} \ x\in(x_{2k+2}, x_{2k+1}) \  \forall k\in\amsbb{N}
+            \]
+            Questo significa che
+            \[
+            \lim_{x\to x_{2k+1}^+} \frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^\alpha))} = +\infty \qquad \lim_{x\to x_{2k+2}^-} \frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^\alpha))} = +\infty
+            \]
+            e 
+            \[
+            \lim_{x\to x_{2k+1}^-} \frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^\alpha))} = -\infty \qquad \lim_{x\to x_{2k+2}^+} \frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^\alpha))} = -\infty
+            \]
+            in quanto il denominatore tende a $0^\pm$; inoltre, dato che per $x\to \hat{x}_k$ il denominatore tende a $-\infty$ abbiamo che
+            \[
+            \lim_{x\to \hat{x}_k} \frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^\alpha))} = 0^-
+            \]
+        \end{enumerate}
+        \begin{center}
+        \begin{tikzpicture}[xscale=800, yscale = .25, font=\tiny]
+            \tzaxes(0, -8)(0.01,15){$x$}[b]{$y$}[l]
+            \tzticks{0.0056/$\frac{1}{(2k+1)\pi}$}[br]
+            \tzticks{ 0.0018/$\frac{1}{(2k+3)\pi}$}[bl]
+            \tzticks{0.0028/$\frac{1}{(2k+2)\pi}$}[ar]
+            \tzfn[blue, thick, samples = 39]"curve"{exp(3*\x^4-cos(\x^2))/(ln(1+sin(1/\x)))}[0.0056:0.01]{$\frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^{-1}))}$}[a]
+            \tzfn[blue, thick, samples = 25]"curve"{exp(2*\x^4-cos(\x^2))/(ln(1+sin(1/\x)))}[0.0028:0.0055]
+            \tzfn[blue, thick, samples = 9]"curve"{4*exp(3*\x^4-cos(\x^2))/(ln(1+sin(1/\x)))}[0.00187:0.00276]
+            \tzvfnat[dashed]{0.0056}[-8:15]
+            \tzvfnat[dashed]{0.0028}[-8:15]
+            \tzvfnat[dashed]{0.0018}[-8:15]
+        \end{tikzpicture}
+    \end{center}
+        Abbiamo tutti gli strumenti per dimostrare che la funzione non ammette limite per $x\to 0$ se $\alpha<0$; per farlo, notiamo che la funzione
+        \[
+        (x_{2k+2}, \hat{x}_k) \ni x\mapsto \frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^\alpha))}
+        \]
+        è continua, essendo composizione di funzioni continue; pertanto per ogni $y\in(-\infty, 0)$ esiste $\xi_k\in(x_{2k+2}, \hat{x}_k)$ tale che
+        \[
+        \frac{e^{3\xi_k^4}-\cos(\xi_k^2)}{\log(1+\sin(\xi_k^\alpha))} = y
+        \]
+        Fissiamo quindi $y_1$ e $y_2$ in $(-\infty, 0$, con $y_1 \ne y_2$. Possiamo quindi associare ad ogni intervallo $(x_{2k+2}, \hat{x}_k)$ uno $\xi_k$ e uno $\zeta_k$ tali che la funzione se valutata in $\xi_k$ dia sempre $y_1$ e se valutata in $\zeta_k$ dia sempre $y_2$. Notiamo che, poiché
+        \[
+        \sqrt[\abs{\alpha}]{\frac{1}{(2k+2)\pi}} = x_{2k+1}<\xi_k<\hat{x}_k =\sqrt[\alpha]{\frac{1}{\frac{3}{2}\pi + 2k\pi}}
+        \]
+        e sia $x_{2k+1}$, sia $\hat{x}_k$ tendono a 0 per $k\to \infty$ per il teorema \ref{th:4.5} vale che $\xi_k \to 0$ per $k\to\infty$, e lo stesso vale per $\zeta_k$. Abbiamo quindi due successioni, $(\xi_k)_k$ e $(\zeta_k)_k$, tali che
+        \[
+        \frac{e^{3\xi_k^4}-\cos(\xi_k^2)}{\log(1+\sin(\xi_k^\alpha))} \to y_1 \qquad \frac{e^{3\zeta_k^4}-\cos(\zeta_k^2)}{\log(1+\sin(\zeta_k^\alpha))} \to y_2
+        \]
+        essendo le due successioni costanti. Di conseguenza per la definizione \ref{def:5.2} il limite 
+        \[
+        \lim_{x\to 0^+} \frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^\alpha))}
+        \]
+        non esiste se $\alpha<0$, e di conseguenza per il teorema \ref{th:5.2} non esiste nemmeno
+        \[
+        \lim_{x\to 0} \frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^\alpha))}
+        \]
+        se $\alpha\in\amsbb{Z}$.
+    \end{enumerate}
+\end{proof}
+\subsection{Ripasso: continuità}
+\begin{definition}
+    \label{def:5.3}
+    Data una funzione $f\colon I \to \amsbb{R}$, diremo che $f$ è \emph{continua} in $x_0\in I$ se
+    \[
+    \lim_{x\to x_0} f(x) = f(x_0)
+    \]
+\end{definition}
+\begin{remark}
+    Notiamo che affinché la definizione abbia senso, la funzione $f$ deve essere definita in $x_0$.\\
+    $f\colon I \to \amsbb{R}$ si dirà continua su $I$ se $f$ è continua in ogni punto di $I$.
+\end{remark}
+\begin{example}
+    Vogliamo mostrare che $\exp(\cdot)\colon \amsbb{R}\to\amsbb{R}^+$ è continua in $\amsbb{R}$. Notiamo che è sufficiente dimostrare la continuità in $x=0$; infatti, dato $x\ne 0$, se consideriamo una successione $(x_n)_n$ con $x_n\to x$, definendo la successione $(\hat{x}_n = x_n -x)_n$ abbiamo che $\hat{x}_n\to 0$ e, se $\exp$ è continua in 0, per il teorema \ref{th:5.1}
+    \[
+    1=\lim_{n\to\infty} e^{\hat{x}_n}=\lim_{n\to\infty}e^{x_n-x} \iff \lim_{n\to\infty} e^{x_n} = e^x
+    \]
+    Consideriamo quindi, sempre per il teorema \ref{th:5.1}, una generica successione $(x_n)_n$ tale che $x_n\to 0$; per la definizione \ref{def:4.2} sappiamo che per ogni $\varepsilon>0$ esiste $n_\varepsilon$ tale che
+    \[
+    \abs{x_n}<\varepsilon \iff -\varepsilon<x_n < \varepsilon \ \text{se} \ n>n_\varepsilon
+    \]
+    Fissiamo ora $\delta>0$, e consideriamo $\varepsilon_1 = \log(1+\delta)$; notiamo che $\varepsilon_1>0$ in quanto $\delta>0$, e di conseguenza per quanto detto prima esiste $n_{\varepsilon_1}$ tale che
+    \[
+    -\varepsilon_1 < x_n < \varepsilon_1 \ \text{se} \ n>n_{\varepsilon_1}
+    \]
+    In particolare, poiché $\exp(\cdot)\colon \amsbb{R}\to \amsbb{R}^+$ è monotona strettamente crescente, vale che
+    \begin{equation}
+        \label{eq:5.6}
+        e^{x_n}<e^{\varepsilon_1} = 1+\delta \ \text{se} \ n>n_{\varepsilon_1}
+    \end{equation}
+    Allo stesso modo, se fissiamo $\varepsilon_2 = -\log(1-\delta)$; anche in questo caso $\varepsilon_2>0$, in quanto $\log(1-\delta)<0$ per $\delta>0$; anche in questo caso quindi possiamo trovare $n_{\varepsilon_2}$ tale che
+    \[
+    -\varepsilon_2 < x_n < \varepsilon_2 \ \text{se} \ n>n_{\varepsilon_2}
+    \]
+    Sempre sfruttando la monotonia di $\exp(\cdot)$ possiamo quindi scrivere
+    \begin{equation}
+        \label{eq:5.7}
+        e^{x_n}>e^{-\varepsilon_2} = e^{-(-\log(1-\delta))} = 1-\delta \ \text{se} \ n>n_{\varepsilon_2}
+    \end{equation}
+    Definiamo ora $n_\delta = \max\{n_{\varepsilon_1}, n_{\varepsilon_2}\}$; per (\ref{eq:5.6}) e (\ref{eq:5.7}) vale che, se prendiamo $n>n_\delta$,
+    \[
+    1-\delta < e^{x_n} < 1+\delta
+    \]
+    ossia dato un generico $\delta>0$ abbiamo trovato $n_\delta$ tale che $\abs{e^{x_n}-1}<\delta$ se $n>n_\delta$; quindi $e^{x_n}\to 1$. Poiché la successione che abbiamo considerato è generica abbiamo che
+    \[
+    \lim_{x\to 0} e^x = 1 = e^0
+    \]
+    e quindi $\exp(\cdot)\colon \amsbb{R}\to \amsbb{R}^+$ è continua in 0.
+\end{example}
+\subsection{Esercizi: continuità}
+\begin{exercise}
+    \label{ex:5.3}
+    Determinare per quali valori dei parametri $\alpha, \beta\in\amsbb{R}$ la funzione
+    \[
+    f(x) = \begin{dcases}
+        x^\alpha\sin^2(x)\, & 0<x<1\\
+        0\, & x=0\\
+        \abs{x}^\beta \arctan(x)\, & -1<x<0
+    \end{dcases}
+    \]
+\end{exercise}
+\begin{proof}[Soluzione]
+    Notiamo innanzitutto che $(0,1)\ni x \mapsto x^\alpha \sin^2(x)$ è continua, essendo composizione e prodotto di funzioni continue. Allo stesso modo, $(-1, 0)\ni x \mapsto \abs{x}^\beta \arctan(x)$ è continua, per lo stesso motivo. L'unico punto problematico può quindi essere $x=0$. Per la definizione \ref{def:5.3} e per il teorema \ref{th:5.2}, $f$ è continua in $x=0$ se
+    \[
+    \underbrace{\lim_{x\to 0^+} f(x)}_{\stepcounter{equation}\mbox{(\theequation)}} = \underbrace{\lim_{x\to 0^-} f(x)}_{\stepcounter{equation}\mbox{(\theequation)}} = f(0) = 0
+    \]
+    \addtocounter{equation}{-2}\refstepcounter{equation}\label{eq:5.8}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:5.9}
+    Calcoliamo quindi i due limiti, sfruttando il teorema \ref{th:4.3}:
+    \begin{enumerate}[(i)]
+        \item per quanto riguarda (\ref{eq:5.8}), sappiamo che in $(0,1)$ la funzione è definita da $x^\alpha\sin^2(x)$; quindi
+        \[
+        \lim_{x\to 0^+}f(x) = \lim_{x\to 0^+} x^\alpha \sin^2(x) = \lim_{x\to 0^+} x^{\alpha +2} \frac{\sin^2(x)}{x^2} = \begin{dcases}
+            0\, & \alpha>-2\\
+            1\, & \alpha = -2\\
+            +\infty\, & \alpha<-2
+        \end{dcases}
+        \]
+        \item per (\ref{eq:5.9}) vale invece che, essendo $f$ definita come $\abs{x}^\beta \arctan(x)$ in $(-1,0)$,
+        \[
+        \lim_{x\to 0^-} f(x) = \lim_{x\to 0^-} \abs{x}^\beta \arctan(x) = \lim_{x\to 0^-} -(-x)^{\beta+1} \frac{\arctan(x)}{x}= \begin{dcases}
+            0\, & \beta>-1\\
+            -1\, & \beta=-1\\
+            -\infty\, & \beta<-1
+        \end{dcases}
+        \]
+    \end{enumerate}
+    Di conseguenza la funzione $f$ è continua in $x=0$ (e quindi è continua sul suo insieme di definizione) se $\alpha>-1$ e $\beta>-1$.
+\end{proof}
+\subsection{Ripasso: simboli di Landau (\texorpdfstring{$o$}{o}-piccolo)}
+\begin{definition}
+    \label{def:5.4}
+    Date $f\colon I \to \amsbb{R}$ e $g\colon I \to \amsbb{R}$ e $x_0\in\amsbb{R}$ un punto di accumulazione per $I$ (o eventualmente $+\infty$), diremo che $f$ \emph{è un $o$-piccolo di $g$ per $x\to x_0$}, scritto $f=o(g)$, se
+    \[
+    \lim_{x\to x_0} \frac{f(x)}{g(x)} = 0
+    \]
+\end{definition}
+\subsection{Esercizi: limiti con i simboli di Landau}
+\begin{exercise}
+    \label{ex:5.4}
+    Calcolare, se esiste,
+    \[
+    \lim_{x\to +\infty} \left(\sqrt[4]{1+   \arctan\left(\frac{5}{x^2}\right)}-\cos\left(\frac{3}{x}\right)\right)x^2
+    \]
+\end{exercise}
+\begin{proof}[Soluzione]
+    Notiamo che se definiamo $y = \frac{5}{x^2}$, abbiamo che $y\to 0$ in quanto $x\to +\infty$; di conseguenza, ricordando che, per $\xi\to 0$,
+    \begin{tcolorbox}
+    \[
+    \underbrace{\arctan(\xi) = \xi+o(\xi)}_{\stepcounter{equation}\mbox{(\theequation)}} \qquad \underbrace{\sqrt[4]{1+\xi} = 1+\frac{\xi}{4}+o(\xi)}_{\stepcounter{equation}\mbox{(\theequation)}} \qquad \underbrace{\cos(\xi) = 1-\frac{\xi^2}{2}+o(\xi^2)}_{\stepcounter{equation}\mbox{(\theequation)}}
+    \]
+    \addtocounter{equation}{-3}\refstepcounter{equation}\label{eq:5.10}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:5.11}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:5.12}
+    \end{tcolorbox}
+    possiamo scrivere
+    \[
+    \begin{split}
+        \sqrt[4]{1+\arctan\left(\frac{5}{x^2}\right)} & = \sqrt[4]{1+\arctan(y)} \overset{(\ref{eq:5.11})}{=} 1+\frac{\arctan(y)}{4}+o(\arctan(y)) \overset{(\ref{eq:5.10})}{=} \\
+        & = 1 + \frac{y+o(y)}{4} + o(y+o(y)) = 1 + \frac{y}{4}+o(y)
+    \end{split} 
+    \]
+    ove abbiamo usato il fatto che $\arctan(y)\to 0$ per $y\to 0$ e le proprietà dei simboli di Landau
+    \[
+    o(y+o(y)) = o(y) \qquad o(y)+o(y) = o(y)
+    \]
+    Riscrivendo in funzione di $x$ abbiamo che per $x\to +\infty$
+    \[
+    \sqrt[4]{1+\arctan\left(\frac{5}{x^2}\right)} = 1 + \frac{5}{4}\frac{1}{x^2} + o\left(\frac{1}{x^2}\right)
+    \]
+    Allo stesso modo, definendo $y=\frac{3}{y}$ abbiamo
+    \[
+    \cos\left(\frac{3}{x}\right) = \cos(y) \overset{(\ref{eq:5.12})}{=} 1-\frac{y^2}{2} + o(y^2)
+    \]
+    che riscritta in funzione di $x$ diventa
+    \[
+    \cos\left(\frac{3}{x}\right) = 1-\frac{9}{2}\frac{1}{x^2} + o\left(\frac{1}{x^2}\right) \ \text{per} \ x\to+\infty 
+    \]
+    Il limite diventa quindi
+    \[
+    \begin{split}
+        & \lim_{x\to+\infty} \left(\sqrt[4]{1+   \arctan\left(\frac{5}{x^2}\right)}-\cos\left(\frac{3}{x}\right)\right)x^2 = \\
+        & =  \lim_{x\to+\infty}\left(1+\frac{5}{4}\frac{1}{x^2} + o\left(\frac{1}{x^2}\right)-1+\frac{9}{2}\frac{1}{x^2}+o\left(\frac{1}{x^2}\right)\right)x^2 = \\
+        & = \lim_{x\to+\infty}\left(\frac{5}{4}\frac{1}{x^2}+\frac{9}{2}\frac{1}{x^2} + o\left(\frac{1}{x^2}\right)\right)x^2 = \lim_{x\to+\infty} \frac{23}{4}+o\left(\frac{1}{x^2}\right)x^2
+    \end{split}
+    \]
+    Ricordiamo che, per la definizione \ref{def:5.4}, una funzione $f$ è $o\left(\frac{1}{x^2}\right)$ per $x\to+\infty$ se
+    \[
+    \lim_{x\to+\infty}\frac{f(x)}{\frac{1}{x^2}} = \lim_{x\to+\infty}x^2 f(x) = 0
+    \]
+    Quindi 
+    \[
+    \lim_{x\to+\infty} o\left(\frac{1}{x^2}\right)x^2 = 0
+    \]
+    e di conseguenza
+    \[
+    \lim_{x\to +\infty} \left(\sqrt[4]{1+   \arctan\left(\frac{5}{x^2}\right)}-\cos\left(\frac{3}{x}\right)\right)x^2 = \frac{23}{4}
+    \]
+\end{proof}
+\begin{exercise}
+    \label{ex:5.5}
+    Calcolare, se esiste,
+    \[
+    \lim_{x\to 0} \frac{1-e^{\cos(x)-1}}{\sqrt{\cos(\log(1+\sin(x)))}-1}
+    \]
+\end{exercise}
+\begin{proof}[Soluzione]
+    Per svolgere l'esercizio, consideriamo i seguenti sviluppi in termini di simboli di Landau per $\xi \to 0$: 
+    \begin{tcolorbox}
+    \[
+    \!\!\!
+    \underbrace{e^\xi= 1+\xi+o(\xi)}_{\stepcounter{equation}\mbox{(\theequation)}} \quad \underbrace{\log(1+\xi) = \xi + o(\xi)}_{\stepcounter{equation}\mbox{(\theequation)}} \quad \underbrace{\sin(\xi) = \xi + o(\xi)}_{\stepcounter{equation}\mbox{(\theequation)}} \quad \underbrace{\sqrt{1+\xi} = 1 + \frac{\xi}{2}+o(\xi)}_{\stepcounter{equation}\mbox{(\theequation)}}
+    \]
+    \addtocounter{equation}{-4}\refstepcounter{equation}\label{eq:5.13}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:5.14}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:5.15}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:5.16}
+    \end{tcolorbox}
+    Consideriamo separatamente numeratore e denominatore:
+    \begin{enumerate}[(i)]
+        \item Per il numeratore, notiamo che se definiamo $y= \cos(x)-1$ vale che $y\to 0$ per $x\to 0$; quindi
+        \[
+        \begin{split}
+            e^{\cos(x)-1} & = e^y \overset{(\ref{eq:5.13})}{=} 1+y+o(y) = 1 + (\cos(x)-1) + o(\cos(x)-1) = \\
+            & = \cos(x)+o(\cos(x)-1) \overset{(\ref{eq:5.12})}{=} 1-\frac{x^2}{2}+o(x^2) + o\left(1-\frac{x^2}{2}-1\right) = \\
+            & = 1-\frac{x^2}{2}+o(x^2)
+        \end{split}
+        \]
+        e di conseguenza per $x\to 0$ il numeratore è
+        \[
+        1-e^{\cos(x)-1} = 1-\left(1-\frac{x^2}{2}+o(x^2)\right) = \frac{x^2}{2} + o(x^2)
+        \]
+        \item Notiamo che $y=\sin(x)\to0$ per $x\to 0$, che $z = \log(1+y)\to 0$ per $y\to 0$ e che $\xi = \cos(z)-1\to 0$ per $z\to 0$; quindi
+        \[
+        \begin{split}
+            & \sqrt{\cos(\log(1+\sin(x)))}-1 = \sqrt{1+(\cos(z)-1)}-1 = \sqrt{1+\xi} -1\overset{(\ref{eq:5.16})}{=}\\
+            & = 1+\frac{\xi}{2} + o(\xi) -1 = \frac{\cos(z)-1}{2} + o(\cos(z)-1) \overset{(\ref{eq:5.12})}{=} \\
+            & = \frac{1}{2}\left(1-\frac{z^2}{2}+o(z^2)-1\right)+o\left(\frac{z^2}{2}+o(z^2)\right) = -\frac{z^2}{4}+o(z^2) =\\
+            & = -\frac{\log^2(1+y)}{4}+o(\log^2(1+y)) \overset{(\ref{eq:5.14})}{=} -\frac{(y+o(y))^2}{4} +o((y+o(y))^2) =  \\
+            & = -\frac{y^2 +2yo(y)+o(y)^2}{4}+o(y^2 +2yo(y)+o(y)^2) = -\frac{y^2}{4}+o(y^2) = \\
+            & = -\frac{\sin^2(x)}{4}+o(\sin^2(x)) \overset{(\ref{eq:5.15})}{=} -\frac{(x+o(x))^2}{4} + o((x+o(x))^2) = -\frac{x^2}{4}+o(x^2)
+        \end{split}
+        \]
+    \end{enumerate}
+    Quindi per $x\to 0$
+    \[
+    \frac{1-e^{\cos(x)-1}}{\sqrt{\cos(\log(1+\sin(x)))}-1} = \frac{\frac{x^2}{2}+o(x^2)}{-\frac{x^2}{4}+o(x^2)} = -\frac{\frac{x^2}{2}}{\frac{x^2}{4}}\frac{\left(1+2\frac{o(x^2)}{x^2}\right)}{\left(1-4\frac{o(x^2)}{x^2}\right)} = -2\frac{\left(1+2\frac{o(x^2)}{x^2}\right)}{\left(1-4\frac{o(x^2)}{x^2}\right)}
+    \]
+    Come prima, per definizione di $o$-piccolo, $\lim_{x\to 0} \frac{o(x^2)}{x^2} = 0$; di conseguenza, sfruttando i teoremi \ref{th:4.2}, \ref{th:4.3} e \ref{th:4.4} vale che
+    \[
+    \lim_{x\to 0} \frac{1-e^{\cos(x)-1}}{\sqrt{\cos(\log(1+\sin(x)))}-1} = \lim_{x\to 0}-2\frac{\left(1+2\frac{o(x^2)}{x^2}\right)}{\left(1-4\frac{o(x^2)}{x^2}\right)} = -2
+    \]
+\end{proof}
+\newpage
