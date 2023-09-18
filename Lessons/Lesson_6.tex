@@ -7,9 +7,10 @@
     \phi_x(t) = \frac{f(t)-f(x)}{t-x}
     \]
     Diremo che $f$ è \emph{derivabile in $x$} se esiste finito
-    \[
-    \lim_{t\to x} \phi_x(t) = \lim_{t\to x} \frac{f(t)-f(x)}{t-x} = f'(x)
-    \]
+    \begin{equation}
+        \label{eq:6.1}
+        \lim_{t\to x} \phi_x(t) = \lim_{t\to x} \frac{f(t)-f(x)}{t-x} = f'(x)
+    \end{equation}
 \end{definition}
 \begin{remark}
     Detto $I\subseteq (a,b)$ l'insieme dei punti in cui $f$ è derivabile, possiamo definire una funzione $ I\ni x \mapsto f'(x)\in \amsbb{R}$, detta \emph{derivata prima} di $f$, che si indica con il simbolo $f'$.
@@ -18,7 +19,7 @@
     \label{def:6.2}
     Dati $f\colon(a,b)\to\amsbb{R}$ e $x\in(a,b)$, diremo che $f$ è \emph{differenziabile in $x$} se esiste un'applicazione lineare $A_x\colon\amsbb{R}\to \amsbb{R}$ tale che
     \begin{equation}
-        \label{eq:6.1}
+        \label{eq:6.2}
         \lim_{\abs{h}\to0}\frac{\abs{f(x+h)-f(x)-A_x h}}{\abs{h}}=0
     \end{equation}
 \end{definition}
@@ -46,6 +47,56 @@
 \begin{proof}
     Dimostriamo le due implicazioni.
     \begin{enumerate}[(i)]
-        \item 
+        \item Supponiamo che $f$ sia differenziabile in $x$, e mostriamo che $f$ è derivabile in $x$. Sappiamo che
+        \[
+        f(x+h)=f(x)+A_x h +o(h) = f(x)+m_{A_x}h +o(h)
+        \]
+        e di conseguenza
+        \[
+        \lim_{h\to 0} \frac{f(x+h)-f(x)}{h} = \lim_{h\to 0} \frac{f(x)+m_{A_x}h+o(h)-f(x)}{h} = m_{A_x}+\lim_{h\to 0} \frac{o(h)}{h} = m_{A_x} 
+        \]
+        Notiamo che il limite in (\ref{eq:6.1}) può essere scritto come
+        \[
+        \lim_{t\to x} \frac{f(t)-f(x)}{t-x} = \lim_{t\to x} \frac{f(t-x+x)-f(x)}{t-x}\overset{h=t-x}{=} \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}
+        \]
+        in quanto $h\to 0$ se $t\to x$. Abbiamo quindi che il limite (\ref{eq:6.1}) esiste finito, e che $f'(x) = m_{A_x}$.
+        \item Supponiamo ora che $f$ sia derivabile in $x$ e mostriamo che $f$ è differenziabile in x. Per definizione vale che
+        \[
+        \lim_{t\to x}\frac{f(t)-f(x)}{t-x} = \lim_{h\to 0}\frac{f(x+h)-f(x)}{h} = f'(x)
+        \]
+        ossia
+        \[
+        \lim_{h\to 0}\frac{f(x+h)-f(x)}{h}-f'(x) = 0
+        \]
+        Possiamo riscrivere il precedente limite come
+        \[
+        0=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}-f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)-f'(x)h}{h}
+        \]
+        Per il teorema \ref{th:4.6} sappiamo che 
+        \[
+        \lim_{h\to 0}\abs{\frac{f(x+h)-f(x)-f'(x)h}{h}} = \lim_{h\to 0} \frac{\abs{f(x+h)-f(x)-f'(x)h}}{\abs{h}}=0
+        \]
+        e di conseguenza l'applicazione lineare $\amsbb{R}\ni h \mapsto f'(x)h$ indotta da $f'(x)\in\amsbb{R}$ soddisfa la definizione \ref{def:6.2}.
     \end{enumerate}
 \end{proof}
+\begin{remark}
+    Questo teorema ci dice che per funzioni $f\colon \amsbb{R}\to \amsbb{R}$ differenziabilità e derivabilità sono due concetti equivalenti. Non è così per funzioni $f\colon \amsbb{R}^n\to \amsbb{R}$! Ci sono esempi\footnote{Ad esempio, la funzione $\amsbb{R}^2\ni (x,y)\mapsto \frac{x^2y}{x^2+y^2}$ per $(x,y)\ne (0,0)$ e $f(0,0)=0$ è derivabile (direzionalmente) in $(0,0)$ ma non è differenziabile.} di funzioni derivabili ma non differenziabili.
+\end{remark}
+\begin{theorem}
+    \label{th:6.2}
+    Siano $f,g\colon (a,b)\to \amsbb{R}$ due funzioni differenziabili in $x\in(a,b)$; allora
+    \begin{enumerate}[(i)]
+        \item $(f+g)'(x) = f'(x) + g'(x)$;
+        \item $(\lambda f)'(x) = \lambda f'(x)$;
+        \item (Regola di Leibniz)
+        \begin{equation}
+            \label{eq:6.3}
+            (fg)'(x) = f'(x)g(x) + f(x)g'(x)
+        \end{equation}
+    \end{enumerate}
+    Inoltre, se $g\colon (c,d) \to \amsbb{R}$ è tale per cui $f((a,b))\subseteq (c,d)$ e $g$ è differenziabile in $f(x)\in(c,d)$, allora $g\circ f \colon (a,b) \to \amsbb{R}$ è differenziabile in $x$ e vale la regola della catena
+    \begin{equation}
+        \label{eq:6.4}
+        (g\circ f)'(x) = g'(f(x))f'(x)
+    \end{equation}
+\end{theorem}
