@@ -174,8 +174,31 @@
 \usepackage[backend=biber]{biblatex}
 \addbibresource{biblio.bib}
 \usepackage{csquotes}
-\usepackage[a-1b]{pdfx}
+%\usepackage[a-1b]{pdfx}
 \usepackage[pdfa]{hyperref}
+\usepackage{hyperxmp}[2020/03/01]
+\usepackage{embedfile}[2020/04/01]
+\hypersetup{%
+    pdflang=it,
+    pdfapart=1, %set to 1 for PDF/A-1
+    pdfaconformance=B
+}
+
+\embedfile[afrelationship={/Source},ucfilespec={\jobname.tex},mimetype={application/x-tex}]{\jobname.tex}
+
+%Create an OutputIntent in order to correctly specify colours
+\immediate\pdfobj stream attr{/N 3} file{sRGB.icc}
+\pdfcatalog{%
+  /OutputIntents [
+    <<
+      /Type /OutputIntent
+      /S /GTS_PDFA1
+      /DestOutputProfile \the\pdflastobj\space 0 R
+      /OutputConditionIdentifier (sRGB)
+      /Info (sRGB)
+    >>
+  ]
+}
 
 \begin{document}
 \pagenumbering{gobble}
