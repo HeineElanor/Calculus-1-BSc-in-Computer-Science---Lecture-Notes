@@ -9,7 +9,9 @@ Lecture notes for the exercise sessions of the course “Calculus 1” for the B
 >pdflatex -synctex=1 -interaction=nonstopmode --shell-escape %.tex
 >```
 >in
+>
 >>Options>Configure TeXStudio>Commands
+>
 >while on TeXWorks you need to pass 
 >```
 >--tex-option=--shell-escape
