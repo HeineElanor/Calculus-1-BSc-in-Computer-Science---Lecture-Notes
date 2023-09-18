@@ -4,7 +4,7 @@ Lecture notes for the exercise sessions of the course “Calculus 1” for the B
 >[!IMPORTANT]
 >As the TikZ figures are externalizd into the Graphs folder, you need to run `pdfLaTeX` with `--shell-escape` enabled
 >
->on TeXStudio this can be done by modifying the pdfLaTeX options to
+>On TeXStudio this can be done by modifying the pdfLaTeX options to
 >```
 >pdflatex -synctex=1 -interaction=nonstopmode --shell-escape %.tex
 >```
