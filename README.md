@@ -1,4 +1,4 @@
-# Calculus 1, BSc in Computer Science, University of Trento - Lecture-Notes
+# Calculus 1, BSc in Computer Science, University of Trento - Lecture Notes
 Lecture notes for the exercise sessions of the course “Calculus 1” for the Bachelor Degree in Computer Science held at the University of Trento.
 
 >[!IMPORTANT]
