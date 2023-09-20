@@ -240,24 +240,33 @@
             \]
         \end{enumerate}
         \begin{center}
-        \begin{tikzpicture}[xscale=800, yscale = .25, font=\tiny]
-            \tzaxes(0, -8)(0.01,15){$x$}[b]{$y$}[l]
-            \tzticks{0.0056/$\frac{1}{(2k+1)\pi}$}[br]
-            \tzticks{ 0.0018/$\frac{1}{(2k+3)\pi}$}[bl]
-            \tzticks{0.0028/$\frac{1}{(2k+2)\pi}$}[ar]
-            \tzfn[blue, thick, samples = 39]"curve"{exp(3*\x^4-cos(\x^2))/(ln(1+sin(1/\x)))}[0.0056:0.01]{$\frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^{-1}))}$}[a]
-            \tzfn[blue, thick, samples = 25]"curve"{exp(2*\x^4-cos(\x^2))/(ln(1+sin(1/\x)))}[0.0028:0.0055]
-            \tzfn[blue, thick, samples = 9]"curve"{4*exp(3*\x^4-cos(\x^2))/(ln(1+sin(1/\x)))}[0.00187:0.00276]
-            \tzvfnat[dashed]{0.0056}[-8:15]
-            \tzvfnat[dashed]{0.0028}[-8:15]
-            \tzvfnat[dashed]{0.0018}[-8:15]
+        \begin{tikzpicture}[xscale=18, yscale = .25, font=\tiny]
+            \tzaxes(0, -8)(0.7,15){$x$}[b]{$y$}[l]
+            \tzticks{0.3183/$\frac{1}{(2k+1)\pi}$}[br]
+            \tzticks{ 0.1063/$\frac{1}{(2k+3)\pi}$}[bl]
+            \tzticks{0.1592/$\frac{1}{(2k+2)\pi}$}[ar]
+            \tzfn[blue, thick, samples = 151]"curve"{exp(3*\x^4-cos(deg(\x^2)))/(ln(1+sin(deg(1/\x))))}[0.3215:0.6]{$\frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^{-1}))}$}[a]
+            \tzfn[blue, thick, samples = 101]"curve"{exp(3*\x^4-cos(deg(\x^2)))/(ln(1+sin(deg(1/\x))))}[0.1603:0.3140]
+            \tzfn[blue, thick, samples = 59]"curve"{exp(3*\x^4-cos(deg(\x^2)))/(ln(1+sin(deg(1/\x))))}[0.1065:0.1582]
+            \tzvfnat[dashed]{0.3183}[-8:15]
+            \tzvfnat[dashed]{0.1591}[-8:15]
+            \tzvfnat[dashed]{0.1063}[-8:15]
+            \tzdot*[red](0.2122, 0)
+            \tznode[red](0.2122, 0){$2k\pi + \frac{3}{2}\pi$}[below, red]
         \end{tikzpicture}
     \end{center}
         Abbiamo tutti gli strumenti per dimostrare che la funzione non ammette limite per $x\to 0$ se $\alpha<0$; per farlo, notiamo che la funzione
         \[
         (x_{2k+2}, \hat{x}_k) \ni x\mapsto \frac{e^{3x^4}-\cos(x^2)}{\log(1+\sin(x^\alpha))}
         \]
-        è continua, essendo composizione di funzioni continue; pertanto per ogni $y\in(-\infty, 0)$ esiste $\xi_k\in(x_{2k+2}, \hat{x}_k)$ tale che
+        è continua, essendo composizione di funzioni continue; vale pertanto il teorema dei valori intermedi
+        \begin{tcolorbox}
+            \begin{theorem}
+                \label{th:5.3}
+                Sia $f\colon [a,b]\to \amsbb{R}$ una funzione continua tale che $f(a)<f(b)$ (vale un risultato analogo se $f(a)>f(b)$). Se $c\in(f(a), f(b))$ allora esiste $x\in(a,b)$ tale che $f(x)=c$.
+            \end{theorem}
+        \end{tcolorbox}
+        Quindi per ogni $y\in(-\infty, 0)$ esiste $\xi_k\in(x_{2k+2}, \hat{x}_k)$ tale che
         \[
         \frac{e^{3\xi_k^4}-\cos(\xi_k^2)}{\log(1+\sin(\xi_k^\alpha))} = y
         \]

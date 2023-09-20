@@ -137,9 +137,6 @@
 \newtheorem*{remark}{Osservazione}
 \newtheorem*{example}{Esempio}
 
-\title{Analisi Matematica 1, Corso di Laurea in Informatica - Appunti delle Esercitazioni}
-\author{Valentino Abram}
-
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.17, 
      %%%% common settings
@@ -174,9 +171,45 @@
 \usepackage[backend=biber]{biblatex}
 \addbibresource{biblio.bib}
 \usepackage{csquotes}
-\usepackage[a-1b]{pdfx}
 \usepackage[pdfa]{hyperref}
-
+\usepackage{hyperxmp}
+%% Color profile
+\immediate\pdfobj stream attr{/N 3}  file{eciRGB_v2.icc}
+    \pdfcatalog{%
+        /OutputIntents [ <<
+            /Type /OutputIntent
+            /S/GTS_PDFA1
+            /DestOutputProfile \the\pdflastobj\space 0 R
+            /OutputConditionIdentifier (eciRGB v2)
+            /Info(eciRGB v2)
+        >> ]
+    }
+%%PDF metadata
+\title{Analisi Matematica 1, Corso di Laurea in Informatica - Appunti delle Esercitazioni}
+\author{Valentino Abram}
+\hypersetup{%
+            pdftitle={\xmpquote{Analisi Matematica 1\xmpcomma\ Corso di Laurea in Informatica\xmpcomma\ Appunti delle Esercitazioni}},
+            pdfauthor={Valentino Abram},
+             pdfcopyright={This work is licensed under a Creative Commons Attribution ShareAlike 4.0 International license},
+             pdfsubject={Mathematical analysis},
+             pdfkeywords={Lecture notes, Calculus 1},
+             pdflicenseurl={https://creativecommons.org/licenses/by-sa/4.0/legalcode},
+             pdfcontactaddress={Via Sommarive 14},
+             pdfcontactcity={\xmpquote{Povo\xmpcomma\ Trento}},
+             pdfcontactpostcode={38123},
+             pdfcontactcountry={Italy},
+             pdfcontactemail={valentino.abram@unitn.it},
+             pdflang={it},
+             pdfmetalang={en},
+             pdfapart=1,
+             pdfaconformance=B,
+             bookmarksopen=true,
+             bookmarksopenlevel=3,
+             hypertexnames=false,
+                 linktocpage=true,
+                 plainpages=false,
+                 breaklinks
+}
 \begin{document}
 \pagenumbering{gobble}
 \afterpage{\blankpage}
