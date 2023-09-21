@@ -599,4 +599,134 @@ ossia per calcolare $f'(x_0)$ stiamo considerando il coefficiente angolare della
     \[
     P(x) = \sum_{k=0}^n \frac{1}{k!} \sinh^{(k)}(0)x^k + o(x^k)
     \]
+    Dobbiamo quindi calcolare $\sinh^{(k)}(0)$ per $k=0, \dots, 4$. Ricordiamo che 
+    \[
+    \sinh(x) = \frac{e^x-e^{-x}}{2}
+    \]
+    e quindi
+    \[
+    \sinh(0) = 0 \quad \frac{d}{dx}\sinh(x)\bigg|_{x=0} = \frac{d}{dx}\left(\frac{e^x-e^{-x}}{2}\right)\bigg|_{x=0} = \frac{e^x+e^{-x}}{2}\bigg|_{x=0} = \cosh(0) = 1
+    \]
+    Notiamo che
+    \[
+    \frac{d}{dx}\sinh(x) = \cosh(x) \qquad \frac{d}{dx}\cosh(x) = \sinh(x)
+    \]
+    Di conseguenza
+    \[
+    \sinh(0) = 0 \quad \sinh'(0) = 1 \quad \sinh^{(2)}(0) = 0 \quad \sinh^{(3)}(0) = 1 \quad \sinh^{(4)}(0) = 0
+    \]
+    e il polinomio di Taylor di $\sinh(x)$ di ordine 4 è dato da
+    \[
+    P(x) = 0+x+0\frac{1}{2}x^2 + \frac{1}{6}x^3 + 0\frac{1}{24}x^4
+    \]
+    Concludiamo che
+    \[
+    \sinh(x) = x+\frac{x^3}{6} + o(x^4)
+    \]
 \end{proof}
+\begin{exercise}
+    \label{ex:6.5}
+    Calcolare lo sviluppo di Taylor centrato in $0$ di 
+    \[
+    f(x) = \log(1+\sinh(x))-x
+    \]
+    fino al quarto ordine.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Notiamo che $\sinh(0) = 0$; di conseguenza, se effettuiamo la sostituzione $\xi = \sinh(x)$, la funzione $f$ sarà data da
+    \[
+    f(\xi) = \log(1+\xi)-x(\xi)
+    \]
+    Possiamo quindi considerare lo sviluppo di Taylor di $\log(1+\xi)$ centrato in $0$: questo sarà dato fino al quarto ordine da
+    \[
+    \begin{split}
+        P(\xi) & = \log(1+0) + (\log(1+\xi))'\Big|_{\xi=0} \xi + (\log(1+\xi))^{(2)}\Big|_{\xi=0}\frac{\xi^2}{2} + (\log(1+\xi))^{(3)}\Big|_{\xi=0}\frac{\xi^3}{6} + \\
+        & + (\log(1+\xi))^{(4)}\Big|_{\xi=0}\frac{\xi^4}{24} + o(\xi^4) = 0 + \frac{1}{1+\xi}\bigg|_{\xi=0} \xi - \frac{1}{(1+\xi)^2}\bigg|_{\xi=0}\frac{\xi^2}{2} + \\
+        & + \frac{2}{(1+\xi)^3}\bigg|_{\xi=0}\frac{\xi^3}{6}-\frac{6}{(1+\xi)^4}\bigg|_{\xi=0}\frac{\xi^4}{24} +o(\xi^4) = \\
+        & = \xi -\frac{\xi^2}{2} + \frac{\xi^3}{3}-\frac{\xi^4}{4}+o(\xi^4)
+    \end{split}
+    \]
+    Quindi
+    \[
+    \log(1+\sinh(x))= \sinh(x)-\frac{\sinh^2(x)}{2}+\frac{\sinh^3(x)}{3}-\frac{\sinh^4(x)}{4}+o(\sinh^4(x))
+    \]
+    Possiamo ora usare l'esercizio \ref{ex:6.4} per sviluppare $\sinh(x)$ fino al quarto ordine all'interno dell'espressione precedente
+    \[
+    \begin{split}
+        \log(1+\sinh(x)) & = x + \frac{x^3}{6}+o(x^4)-\frac{1}{2}\left(x+\frac{x^3}{6}+o(x^4)\right)^2 + \frac{1}{3}\left(x+\frac{x^3}{6}+o(x^4)\right)^3-\\
+        & -\frac{1}{4}\left(x+\frac{x^3}{6}+o(x^4)\right)^4 + o\left(\left(x+\frac{x^3}{6}+o(x^4)\right)^4\right)
+    \end{split}
+    \]
+    Espandendo le potenze di trinomio otteniamo, sfruttando le proprietà dei simboli di Landau,
+    \[
+    \left(x+\frac{x^3}{6}+o(x^4)\right)^2 = x^2 + \frac{x^6}{36}+o(x^8) + \frac{x^4}{3} + o(x^5) + o(x^7) = x^2 + \frac{x^4}{3} + o(x^4)
+    \]
+    \[
+    \begin{split}
+        \left(x+\frac{x^3}{6}+o(x^4)\right)^3 & = (x+o(x^4))^3 + \frac{x^9}{6^3} + \frac{x^6}{12}(x+o(x^4))+\frac{x^3}{2}(x+o(x^4))^2 = \\
+        & = x^3 + o(x^{12}) + o(x^9)+o(x^6) + \frac{x^9}{6^3} +o(x^7) +o(x^{10}) + \frac{x^5}{2} + \\
+        & + o(x^{11}) + o(x^8) = x^3 + o(x^4)
+    \end{split}
+    \]
+    e infine 
+    \[
+        \left(x+\frac{x^3}{6}+o(x^4)\right)^4= x^4 +o(x^4)
+    \]
+    Quindi
+    \[
+    \begin{split}
+        \log(1+\sinh(x))& = x +\frac{x^3}{6}+o(x^4) -\frac{x^2}{2}-\frac{x^4}{6} +o(x^4)+\frac{x^3}{3}+o(x^4)-\frac{x^4}{4}+o(x^4) = \\
+        & = x -\frac{x^2}{2} +\frac{x^3}{2}-\frac{5}{12}x^4 +o(x^4)
+    \end{split} 
+    \]
+    Quindi
+    \[
+    \begin{split}
+        f(x) & = \log(1+\sinh(x))-x = x -\frac{x^2}{2} +\frac{x^3}{2}-\frac{5}{12}x^4 +o(x^4) -x = \\
+        & = -\frac{x^2}{2} +\frac{x^3}{2}-\frac{5}{12}x^4 +o(x^4)
+    \end{split}
+    \]
+\end{proof}
+\begin{exercise}
+    \label{ex:6.6}
+    Calcolare il limite
+    \[
+    \lim_{x\to 0}\frac{e^x\arctan(x)-x\sqrt[3]{1+3x}}{x^3}
+    \]
+\end{exercise}
+\begin{proof}[Soluzione]
+    In questo caso utilizziamo lo sviluppo di Taylor per calcolare il limite, in quanto ci consentono di stimare il comportamento di una funzione in un intorno di un punto (in questo caso di 0) con polinomi, che sono semplici da maneggiare.\\
+    Poiché a denominatore abbiamo il monomio $x^3$, a numeratore andremo a sviluppare con Taylor fino al terzo ordine: infatti, gli ordini superiori a 3 una volta divisi per $x^3$ tenderanno a $0$ per $x\to 0$, e quindi non influiranno sul limite. Ci ricordiamo quindi che 
+    \[
+    e^x = 1 + x + \frac{x^2}{2}+\frac{x^3}{6}+o(x^3)
+    \]
+    e calcoliamo gli altri sviluppi:
+    \[
+    \begin{split}
+        \arctan(x) & = \arctan(0)+\frac{1}{1+x^2}\bigg|_{x=0}x -\frac{2x}{(1+x^2)^2}\bigg|_{x=0}\frac{x^2}{2}-\\
+        & - \left(\frac{2}{(1+x^2)^2}-2\frac{(2x)^2}{(1+x^2)^3}\right)\bigg|_{x=0}\frac{x^3}{6}+o(x^3) = \\
+        & = x-\frac{x^3}{3}+o(x^3)
+    \end{split}
+    \]
+    \[
+    \begin{split}
+        \sqrt[3]{1+3x} & = \sqrt[3]{1+0}+\frac{1}{3}3(1+3x)^{-\frac{2}{3}}\bigg|_{x=0}x -\frac{2}{3}3(1+3x)^{-\frac{5}{3}}\bigg|_{x=0}\frac{x^2}{2}+\\
+        & + 2\frac{5}{3}3(1+3x)^{-\frac{8}{3}}\frac{x^3}{6}+o(x^3) = \\
+        & = 1 + x-x^2 + \frac{5}{3}x^3+o(x^3)
+    \end{split}
+    \]
+    A questo punto possiamo calcolare lo sviluppo di Taylor del numeratore semplicemente effettuando i prodotti:
+    \[
+    \begin{split}
+        e^x\arctan(x)-x\sqrt[3]{1+3x} & = \left(1+x+\frac{x^2}{2}+\frac{x^3}{6}+o(x^3)\right)\left(x-\frac{x^3}{3}+o(x^3)\right)-\\
+        & - x\left(1+x-x^2+\frac{5}{3}x^3+o(x^3)\right) = \\
+        & = x-\frac{x^3}{3}+x^2 + \frac{x^3}{2} + o(x^3)-x-x^2+x^3+o(x^3) =\\
+        & = \frac{7}{6}x^3+o(x^3)
+    \end{split}
+    \]
+    Di conseguenza
+    \[
+    \lim_{x\to 0} \frac{e^x\arctan(x)-x\sqrt[3]{1+3x}}{x^3} = \lim_{x\to 0} \frac{1}{x^3}\left(\frac{7}{6}x^3 +o(x^3)\right) = \frac{7}{6} +\lim_{x\to 0}\frac{o(x^3)}{x^3} = \frac{7}{6}
+    \]
+\end{proof}
+\newpage

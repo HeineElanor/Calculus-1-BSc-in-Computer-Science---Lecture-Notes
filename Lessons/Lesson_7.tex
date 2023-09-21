@@ -1,0 +1,426 @@
+\section{Lezione 7}
+\subsection{Ripasso: massimi e minimi locali, punti stazionari}
+\begin{definition}
+    \label{def:7.1}
+    Sia $f\colon[a,b]\to\amsbb{R}$; $x\in[a,b]$ è un punto di \emph{minimo locale} per $f$ se esiste $\delta>0$ tale che
+    \[
+    f(x)\le f(t) \ \text{per ogni} \ t\in(x-\delta, x+\delta)\cap [a,b]
+    \]
+    Analogamente, diremo che $x$ è un punto di \emph{massimo locale} per $f$ se esiste $\delta>0$ tale che
+    \[
+    f(x)\ge f(t) \ \text{per ogni} \ t\in(x-\delta, x+\delta)\cap [a,b]
+    \]
+\end{definition}
+\begin{theorem}[di Fermat]
+    \label{th:7.1}
+    Se $f\colon [a,b]\to\amsbb{R}$ ha un punto di minimo o massimo locale in $x$ e $f$ è derivabile in $x$, allora $x$ è un \emph{punto stazionario}, ossia $f'(x) = 0$.
+\end{theorem}
+\begin{remark}
+    Osserviamo che l'enunciato del teorema è il seguente:
+    \begin{tcolorbox}
+        $x$ punto di minimo o massimo per $f$ e $f$ derivabile in $x$ $\implies$ $f'(x) = 0$
+    \end{tcolorbox}
+    che è equivalente a
+    \begin{tcolorbox}
+        $f$ derivabile in $x$ e $f'(x)\ne 0$ $\implies$ $x$ non è punto di minimo o massimo locale per $f$
+    \end{tcolorbox}
+    Questo significa che
+    \begin{enumerate}[(i)]
+        \item \emph{se $f$ non è derivabile in $x$ allora $f$ potrebbe avere un minimo o massimo locale in $x$}: consideriamo ad esempio la funzione $\amsbb{R}\ni x\mapsto \abs{x}$, che possiamo scrivere come
+        \[
+        f({x}) = \begin{dcases}
+            x\, & x\ge 0\\
+            -x\, & x<0
+        \end{dcases}
+        \]
+        Osserviamo che $f$ è continua su $\amsbb{R}$ e derivabile in $\amsbb{R}\setminus\{0\}$, con 
+        \[
+        f'({x}) = \begin{dcases}
+            1\, & x> 0\\
+            -1\, & x<0
+        \end{dcases}
+        \]
+        Per il teorema \ref{th:7.1} vale dunque che nessun punto di $\amsbb{R}\setminus\{0\}$ può essere un punto di minimo/massimo locale. Consideriamo quindi $x=0$: sappiamo che
+        \[
+        f(x) = \abs{x}\ge 0=\abs{0}=f(0) \ \text{per ogni} \ x\in\amsbb{R}
+        \]
+        ossia $f(x)\ge f(0)$ per ogni $x\in\amsbb{R}$. $0$ è quindi un punto di minimo \emph{globale} per $f$ (e di conseguenza locale).
+        \item \emph{Se $f$ è derivabile in $x$, $f'(x)=0$ è condizione necessaria ma non sufficiente affinché $x$ sia un punto di massimo/minimo globale}: consideriamo ad esempio $f(x) = x^3$; vale che $f$ è derivabile in tutto $\amsbb{R}$, e che $f'(x) = 3x^2$. Di conseguenza $f'(x)\ge 0$ per ogni $x\in\amsbb{R}$, con l'uguaglianza verificata se e solo se $x=0$. Di conseguenza l'unico punto che può essere massimo o minimo locale è $x=0$. Consideriamo quindi un generico $\delta>0$, e consideriamo l'intervallo $(-\delta, \delta)$: esistono due punti, $-\frac{\delta}{2}$ e $\frac{\delta}{2}$, tali che
+        \[
+        f\left(-\frac{\delta}{2}\right)=-\left(\frac{\delta}{2}\right)^3<f(0) \qquad f\left(\frac{\delta}{2}\right)=\left(\frac{\delta}{2}\right)^3>f(0)
+        \]
+        Di conseguenza $x$ non è né un punto di minimo, né un punto di massimo locale.
+    \end{enumerate}
+\end{remark}
+\begin{theorem}[di Lagrange]
+    \label{th:7.2}
+    Sia $f\colon[a,b]\to\amsbb{R}$ una funzione continua in $[a,b]$ e differenziabile in $(a,b)$; allora esiste $\xi\in(a,b)$ tale che
+    \[
+    f(b)-f(a) = f'(\xi)(b-a)
+    \]
+\end{theorem}
+\begin{corollary}
+    \label{cor:7.1}
+    Sia $f\colon [a,b]\to \amsbb{R}$ continua in $[a,b]$ e differenziabile in $(a,b)$, tale che $f'(x) = 0$ per ogni $x\in(a,b)$. Allora $f$ è costante su $[a,b]$.
+\end{corollary}
+\begin{proof}
+    Consideriamo $x\in(a,b]$, e consideriamo la restrizione della funzione $f$ all'intervallo $[a,x]$:
+    \[
+    f|_{[a,x]} \colon [a,x]\to \amsbb{R}
+    \]
+    Dato che $f$ è continua in $[a,b]$ allora $f|_{[a,x]}$ è continua in $[a,x]$, e dato che $f$ è differenziabile in $(a,b)$ allora $f|_{[a,x]}$ è differenziabile in $(a,x)$. Possiamo quindi applicare il teorema di Lagrange \ref{th:7.2}: esiste $\xi\in(a,x)$ tale che
+    \[
+    f(x)-f(a) = f'(\xi)(x-a)
+    \]
+    Ma per ipotesi $f'(\xi) = 0$ per ogni $\xi\in(a,b)$; quindi in conclusione abbiamo che
+    \[
+    f(x)-f(a) = 0 \iff f(x)=f(a)
+    \]
+    Poiché $x\in(a,b]$ è generico, vale che $f(x)=f(a)$ per ogni $x\in[a,b]$, ossia $f$ è costante su $[a,b]$.
+\end{proof}
+\begin{remark}
+    Attenzione alle ipotesi del teorema: chiediamo che $f$ sia definita su di un intervallo, ossia un insieme connesso. Infatti, in generale se $f'\equiv 0$ diremo che $f$ è localmente costante.\\
+    Consideriamo ad esempio la funzione $f(x)=\arctan(x)-\arctan\left(\frac{x-1}{x+1}\right)$ definita su $\amsbb{R}\setminus\{-1\}$; vogliamo capire se $f$ sia o meno costante.\\
+    Notiamo che $f$ è derivabile in $\amsbb{R}\setminus\{-1\}$, con
+    \[
+    \begin{split}
+        f'(x) &= \frac{1}{1+x^2}-\frac{1}{1+\left(\frac{x-1}{x+1}\right)^2}\left(\frac{1}{x+1}-\frac{x-1}{(x+1)^2}\right) = \\
+        & = \frac{1}{1+x^2}-\frac{(x+1)^2}{(x+1)^2+(x-1)^2}\left(\frac{x+1-(x-1)}{(x+1)^2}\right) = \\
+        & = \frac{1}{1+x^2}-\frac{2}{2x^2+2} = 0
+    \end{split}
+    \]
+    Quindi $f'(x)=0$ per ogni $x\in\amsbb{R}\setminus\{-1\}$. Possiamo concludere che $f$ è costante? No, perché l'insieme di definizione di $f$ non è un intervallo! Il suo dominio è dato da $(-\infty, -1)\cup(-1, +\infty)$, ossia è l'unione di due intervalli aperti (connessi).\\
+    Infatti, se consideriamo 
+    \[
+    \lim_{x\to -1^-} f(x) \qquad \lim_{x\to -1^+} f(x) 
+    \]
+    e teniamo a mente che
+    \[
+    \lim_{x\to-1^-} \arctan\left(\frac{x-1}{x+1}\right) \overset{t=x+1}{=} \lim_{t\to 0^-} \arctan\left(\frac{-2+t}{t}\right) = \lim_{t\to 0^-}\arctan\left(1-\frac{2}{t}\right) = \frac{\pi}{2}
+    \]
+    e che
+    \[
+    \lim_{x\to-1^+} \arctan\left(\frac{x-1}{x+1}\right) \overset{t=x+1}{=} \lim_{t\to 0^+} \arctan\left(\frac{-2+t}{t}\right) = \lim_{t\to 0^+}\arctan\left(1-\frac{2}{t}\right) = -\frac{\pi}{2}
+    \]
+    otteniamo che i due limiti precedenti valgono
+    \[
+    \lim_{x\to -1^-} f(x) = \lim_{x\to -1^-} \arctan(x)-\arctan\left(\frac{x-1}{x+1}\right) \overset{\text{Th.} \ \ref{th:4.2}}{=} -\frac{\pi}{4}-\frac{\pi}{2} = -\frac{3}{4}\pi
+    \]
+    \[
+    \lim_{x\to -1^+} f(x) = \lim_{x\to -1^+} \arctan(x)-\arctan\left(\frac{x-1}{x+1}\right) \overset{\text{Th.} \ \ref{th:4.2}}{=} -\frac{\pi}{4}+\frac{\pi}{2} = \frac{\pi}{4}
+    \]
+    A questo punto, se definiamo la funzione
+    \[
+    \widehat{f}(x)=\begin{cases}
+        \arctan(x)-\arctan\left(\frac{x-1}{x+1}\right)\, & x>-1\\
+        \frac{\pi}{4}\, & x=-1
+    \end{cases}
+    \]
+    otteniamo una funzione definita su $[1,+\infty)$ che è continua in $[1, +\infty)$ e differenziabile in $(1, +\infty)$. Se consideriamo un qualsiasi $x\in(1,+\infty)$ e consideriamo la restrizione $\widehat{f}\colon [-1, x]\to \amsbb{R}$ abbiamo che questa funzione soddisfa le ipotesi del corollario \ref{cor:7.1}; pertanto $\widehat{f}$ è costante su $[-1, x]$, e quindi $f(x) = \widehat{f}(x) = \frac{\pi}{4}$. Poiché $x\in(-1, +\infty)$ è generico vale che $f(x) = \frac{\pi}{4}$ per ogni $x>-1$. Allo stesso modo, se consideriamo l'estensione
+    \[
+    \widehat{f}(x) = \begin{dcases}
+        \arctan(x)-\arctan\left(\frac{x-1}{x+1}\right)\, & x<-1\\
+        -\frac{3}{4}\pi\, & x=-1
+    \end{dcases}
+    \]
+    otteniamo che $f(x)=-\frac{3}{4}\pi$ per ogni $x<-1$. Quindi $f$ è separatamente costante su $(-\infty, -1)$ e $(-1, +\infty)$.
+\end{remark}
+\subsection{Ripasso: teorema di \texorpdfstring{Weierstra{\ss}}{Weierstraß}}
+\begin{theorem}
+    \label{th:7.3}
+    Data $f\colon[a,b]\to \amsbb{R}$ continua in $[a,b]$, allora $f$ ammette massimo e minimo globali in $[a,b]$.
+\end{theorem}
+\begin{remark}
+    \`E fondamentale che l'insieme di definizione della funzione sia un intervallo chiuso oppure un unione finita di intervalli chiusi.
+\end{remark}
+\subsection{Esercizi: teoremi di \texorpdfstring{Weierstra{\ss}}{Weierstraß} e di Lagrange}
+\begin{exercise}
+    \label{ex:7.1}
+    Sia $F\colon [-1, 1]\to \amsbb{R}$ una funzione continua in $\{-1, 1\}$ e tale che
+    \begin{equation}
+        \label{eq:7.1}
+        F'(x) = \frac{1}{\sqrt{1+x^2}}\left(-\frac{1}{\sqrt{1-x^2}}\right)
+    \end{equation}
+    Determinare il comportamento di $F$ su $[-1, 1]$ (i.e. trovare, se esistono, massimi e minimi, locali o globali).
+\end{exercise}
+\begin{proof}[Soluzione]
+    Osserviamo innanzitutto che le ipotesi implicano che $F$ sia continua in $[-1, 1]$: infatti $F$ è derivabile in $(-1, 1)$, come si evince dalla (\ref{eq:7.1}), e per il teorema \ref{th:6.3} vale quindi che $F$ è continua in $(-1, 1)$. Dato che per ipotesi $F$ è anche continua in $\{-1, 1\}$ allora $F$ è continua in $[-1, 1]$. Per il teorema di Weierstra{\ss} $F$ ammette quindi massimo e minimo globali in $[-1, 1]$. Per capire quali punti siano massimo e minimo globali, dobbiamo studiare la derivata prima (\ref{eq:7.1}). Notiamo che $F'(x)<0$ per ogni $x\in(-1,1)$; pertanto per il teorema di Fermat \ref{th:7.1} abbiamo che nessun punto in $(-1,1)$ può essere un punto di minimo/massimo locale (e quindi globale), e di conseguenza questi sono da cercarsi fra gli estremi $\{-1, 1\}$. Per capire quale dei due sia il massimo e quale sia il minimo, notiamo che dato che $F'(x)<0$ in $(-1, 1)$, e quindi $F$ è monotona decrescente in $(-1,1)$; la nostra ipotesi è quindi che $-1$ sia punto di massimo globale e $1$ sia punto di minimo globale. \\
+    Per dimostrarlo, operiamo nel modo seguente: consideriamo un generico $x\in(-1,1]$, e consideriamo la restrizione
+    \[
+    F|_{[-1,x]}\colon [-1,x]\to \amsbb{R}
+    \]
+    Poiché $F$ è continua in $[-1, 1]$ e differenziabile in $(-1, 1)$, $F|_{[-1, x]}$ è continua in $[-1, x]$ e differenziabile in $(-1, x)$: vale pertanto il teorema di Lagrange \ref{th:7.2}, ossia esiste $\xi\in(-1, x)$ tale che
+    \[
+    F(x)-F(-1) = \overbrace{F'(\xi)}^{<0 \ \text{per} \ (\ref{eq:7.1})}\underbrace{(x+1)}_{x\in(-1, 1] \implies x>-1 \iff x+1>0 }
+    \]
+    Come indicato, $F'(\xi)<0$, dato che dall'espressione della derivata prima (\ref{eq:7.1}) vediamo che $F'(x)<0$ per ogni $x\in(-1,1)$, e $x+1>0$ dato che $x\in(-1, 1]$. Di conseguenza
+    \[
+    F(x)-F(-1)<0 \iff F(x)<F(-1)
+    \]
+    Poiché $x\in(-1,1]$ è generico vale che $F(x)\le F(-1)$ per ogni $x\in[-1,1]$, ossia $-1$ è punto di massimo globale per $F$. Quindi $1$ è invece punto di minimo globale per $F$.
+\end{proof}
+\begin{exercise}
+    \label{ex:7.2}
+    Data $f(x) = 3x-1-\cos(x)$, determinare il numero di zeri di $f$.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Notiamo innanzitutto che $f$ ammette almeno uno zero: infatti $f$ è somma di funzioni continue, ed è pertanto continua; inoltre,
+    \[
+    \lim_{x\to+\infty}f(x) = \lim_{x\to +\infty}(3x-1-\cos(x)) = +\infty 
+    \]
+    in quanto $3x-1-\cos(x)\ge 3x-2$ per ogni $x\in \amsbb{R}$ e dato che $3x-2\to +\infty$ allora $3x-1-\cos(x)\to+\infty$ per il teorema del confronto, e
+    \[
+    \lim_{x\to-\infty}f(x) = \lim_{x\to -\infty}(3x-1-\cos(x)) = -\infty 
+    \]
+    per un ragionamento analogo. Per il teorema dei valori intermedi \ref{th:5.3} vale quindi che esiste almeno un $x_0\in\amsbb{R}$ tale che $f(x_0) = 0$. Dimostriamo che è unico.\\
+    Supponiamo per assurdo che esista $x_1\in\amsbb{R}$, $x_1 \ne x_0$ tale che $f(x_1)=0$. Possiamo supporre che $x_0<x_1$; se consideriamo $f|_{[x_0, x_1]}\colon [x_0, x_1]\to\amsbb{R}$, questa è una funzione continua in $[x_0, x_1]$, essendo restrizione di una funzione continua su tutto $\amsbb{R}$, e differenziabile in $(x_0, x_1)$, essendo restrizione di una funzione differenziabile su tutto $\amsbb{R}$. Possiamo quindi applicare il teorema di Lagrange \ref{th:7.2}: esiste $\xi\in(x_0, x_1)$ tale che
+    \[
+    f'(\xi)(x_1 - x_0) = f(x_1)-f(x_0) = 0
+    \]
+    Notiamo che $x_1-x_0\ne0$ visto che abbiamo supposto $x_1 \ne 0$; di conseguenza abbiamo concluso che esiste $\xi\in(x_0, x_1)$ tale che $f'(\xi) = 0$. Calcoliamo quindi $f'$:
+    \[
+    f'(x) = 3+\sin(x) \ge 2 \ \text{per ogni} \ x\in\amsbb{R}
+    \]
+    Di conseguenza abbiamo un assurdo: concludiamo quindi che l'ipotesi iniziale, ovvero l'esistenza di $x_1\ne x_0$ tale che $f(x_1)=0$, è errata, e quindi $f$ ammette un unico zero.
+\end{proof}
+\subsection{Ripasso: funzioni Lipschitz continue}
+\begin{definition}
+    \label{def:7.2}
+    Data $f\colon[a,b]\to \amsbb{R}$, diremo che $f$ è \emph{Lipschitz (continua)} se esiste una costante $L>0$ tale che
+    \[
+    \abs{f(x)-f(y)}\le L \abs{x-y} \ \text{per ogni} \ x,y\in[a,b]
+    \]
+\end{definition}
+\begin{remark}
+    Notiamo che se una funzione è Lipschitz continua, allora è continua: infatti fissiamo $x_0\in[a,b]$ e consideriamo il limite 
+    \[
+    \lim_{x\to x_0} f(x)
+    \]
+    Fissiamo $\varepsilon>0$, e consideriamo
+    \[
+    \abs{f(x)-f(x_0)}\overset{\text{Def.} \ \ref{def:7.2}}{\le}  L\abs{x-x_0}
+    \]
+    Se consideriamo quindi $\delta_\varepsilon = \frac{\varepsilon}{L}$ abbiamo che
+    \[
+    \abs{f(x)-f(x_0)}\le L \abs{x-x_0}<\varepsilon
+    \]
+    se $\abs{x-x_0}<\delta_\varepsilon$, ossia 
+    \[
+    \lim_{x\to x_0} f(x) = f(x_0)
+    \]
+    Poiché $x_0\in[a,b]$ è generico vale che $f$ è continua in $[a,b]$.
+\end{remark}
+\begin{theorem}
+    \label{th:7.4}
+    Se $f\colon[a,b]\to \amsbb{R}$ è differenziabile in $(a,b)$ e se esiste $M> 0$ tale che $\abs{f'(x)}\le M$ per ogni $x\in(a,b)$, allora $f$ è Lipschitz continua.
+\end{theorem}
+\begin{remark}
+    Notiamo che vale anche l'implicazione seguente: se $f\colon[a,b]\to \amsbb{R}$ è differenziabile in $(a,b)$ ed è Lipschitz continua, allora esiste $L>0$ tale che $\abs{f'(x)}\le L$ per ogni $x\in(a,b)$: infatti fissato $x\in(a,b)$ sappiamo che
+    \[
+    0\le \abs{\phi_x(t)} = \abs{\frac{f(t)-f(x)}{t-x}} \overset{\text{Def.} \ \ref{def:7.2}}{\le } L \frac{\abs{t-x}}{\abs{t-x}} = L
+    \]
+    Per il teorema del confronto \ref{th:4.5} vale quindi che
+    \[
+    \abs{f'(x)}\le L
+    \]
+    Poiché $x\in(a,b)$ è generico l'asserto vale.
+\end{remark}
+\subsection{Esercizi: funzioni Lipschitz continue}
+\begin{exercise}
+    \label{ex:7.3}
+    Dimostrare che la funzione
+    \[
+    f(x) = \begin{dcases}
+        x^2\sin\left(\frac{1}{x}\right)\, & x\ne 0\\
+        0\, & x=0
+    \end{dcases}
+    \]
+    è Lipschitz continua. 
+\end{exercise}
+\begin{proof}
+    Dall'esempio successivo al teorema \ref{th:6.2} sappiamo che $f$ è derivabile su tutto $\amsbb{R}$, e che 
+    \[
+    f'(x) = \begin{dcases}
+        2x\sin\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right)\, & x\ne 0\\
+        0\, & x=0
+    \end{dcases}
+    \]
+    Per provare che $f$ è Lipschitz possiamo quindi sfruttare il teorema \ref{th:7.4}, e mostrare che 
+    \[
+    \abs{f'(x)}\le M \ \text{per ogni} \ x\in\amsbb{R}
+    \]
+    Concentriamoci sul caso $x\ne 0$. Dobbiamo mostrare che esiste $M\in\amsbb{R}$ tale che
+    \[
+    \abs{2x\sin\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right)}\le M \ \text{per ogni} \ x\in \amsbb{R}
+    \]
+    A questo scopo, consideriamo l'espressione a sinistra del segno di disuguaglianza: vale che
+    \[
+    \abs{2x\sin\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right)}\le 2\abs{x\sin\left(\frac{1}{x}\right)}+\abs{\cos\left(\frac{1}{x}\right)}\le 2\underbrace{\abs{x\sin\left(\frac{1}{x}\right)}}_{g(x)}+1
+    \]
+    Concentriamoci sulla funzione $g(x)$: notiamo innanzitutto che è pari, e di conseguenza possiamo restringerci allo studio del suo comportamento in $\amsbb{R}^+$. Vale che
+    \[
+    0\le \abs{x\sin\left(\frac{1}{x}\right)}\le \abs{x}
+    \]
+    e per il teoremi \ref{th:4.6} e \ref{th:4.5} abbiamo che
+    \begin{equation}
+        \label{eq:7.2}
+        \lim_{x\to 0^+} g(x) = \lim_{x\to 0^+} x\sin\left(\frac{1}{x}\right) = 0
+    \end{equation}
+    Per quanto riguarda invece il comportamento asintotico, vale che
+    \begin{equation}
+        \label{eq:7.3}
+        \lim_{x\to +\infty} g(x) = \lim_{x\to +\infty} x \sin\left(\frac{1}{x}\right) = \lim_{x\to +\infty} \frac{\sin\left(\frac{1}{x}\right)}{\frac{1}{x}} \overset{t=\frac{1}{x}}{=}\lim_{t\to 0^+} \frac{\sin(t)}{t} = 1
+    \end{equation}
+    Consideriamo la definizione di limite \ref{def:5.1} per (\ref{eq:7.2}): vale che per ogni $\varepsilon>0$ esiste $\delta_\varepsilon>0$ tale che
+    \[
+    \abs{x\sin\left(\frac{1}{x}\right)}<\epsilon \ \text{se} \ \abs{x}<\delta_\varepsilon
+    \]
+    Allo stesso modo, se consideriamo (\ref{eq:7.3}) vale che per ogni $\varepsilon>0$ esiste $N_\varepsilon\in\amsbb{N}$ tale che
+    \[
+    \abs{x\sin\left(\frac{1}{x}\right)}<1-\varepsilon \ \text{se} \ x>N_\varepsilon
+    \]
+    Fissiamo quindi $\varepsilon>0$, ad esempio $\varepsilon=\frac{1}{2}$ e consideriamo l'intervallo chiuso $[\delta_\varepsilon, N_\varepsilon]$; poiché $g$ è continua su $\amsbb{R}\setminus\{0\}$, allora la restrizione di $g$ a tale intervallo sarà continua, e per il teorema di Weierstra{\ss} $g$ ammette massimo $M$ e minimo $m$ globali in $[\delta_\varepsilon, N_\varepsilon]$. Quindi abbiamo che
+    \[
+    \abs{x\sin\left(\frac{1}{x}\right)}\le \begin{dcases}
+        \frac{1}{2}\, & x\in(0, \delta_\varepsilon)\\
+        \max\left\{\abs{M}, \abs{m}\right\}\, & x\in[\delta_\varepsilon, N_\varepsilon]\\
+        \frac{1}{2}\, & x>N_\varepsilon
+    \end{dcases}
+    \]
+    Di conseguenza se scegliamo
+    \[
+    L = \max\left\{\frac{1}{2}, \abs{M}, \abs{m}\right\}
+    \]
+    abbiamo che
+    \[
+    \abs{x\sin\left(\frac{1}{x}\right)}\le L \ \text{per ogni} \ x\in\amsbb{R}^+
+    \]
+    e per parità la maggiorazione vale per ogni $x\in\amsbb{R}\setminus\{0\}$. Quindi
+    \[
+    \abs{f'(x)}=\abs{2x\sin\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right)}\le 2 L +1
+    \]
+    per ogni $x\in\amsbb{R}$, e per il teorema \ref{th:7.4} possiamo concludere che $f$ è Lipschitz.
+\end{proof}
+\begin{exercise}
+    \label{ex:7.4}
+    Dimostrare che la funzione 
+    \[
+    f(x) = \begin{dcases}
+        x^2 \sin\left(\frac{1}{x^2}\right)\, & x\ne 0\\
+        0\, & x=0
+    \end{dcases}
+    \]
+    non è Lipschitz continua.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Innanzitutto mostriamo che $f$ è derivabile su $\amsbb{R}$. Chiaramente $f$ è derivabile in $\amsbb{R}\setminus\{0\}$, essendo prodotto e composizione di funzioni differenziabili, e la sua derivata prima in $\amsbb{R}\setminus\{0\}$ è data da
+    \[
+    f'(x) = 2x\sin\left(\frac{1}{x^2}\right)-2\cos\left(\frac{1}{x^2}\right)\frac{1}{x}
+    \]
+    Per quanto riguarda la differenziabilità in $0$, come nel caso della funzione dell'esercizio \ref{ex:7.3} consideriamo il rapporto incrementale
+    \[
+    \phi_0(t) = \frac{t^2\sin\left(\frac{1}{t^2}\right)}{t} = t\sin\left(\frac{1}{t^2}\right)
+    \]
+    e osserviamo che
+    \[
+    0\le \abs{t\sin\left(\frac{1}{t^2}\right)}\le \abs{t}  \ \text{per ogni}\ t\in\amsbb{R}\setminus\{0\}
+    \]
+    e di conseguenza per i teoremi \ref{th:4.6} e \ref{th:4.5} vale che
+    \[
+    \lim_{t\to 0} \phi_0(t) = 0
+    \]
+    Di conseguenza $f$ è differenziabile su $\amsbb{R}$ e
+    \[
+    f'(x) = \begin{dcases}
+        2x\sin\left(\frac{1}{x^2}\right)-2\cos\left(\frac{1}{x^2}\right)\frac{1}{x}\, & x\ne 0\\
+        0\, & x=0
+    \end{dcases}
+    \]
+    Vogliamo ora capire il comportamento di $f'(x)$ in prossimità di $0$. Notiamo che se consideriamo la successione
+    \[
+    a_n = \sqrt{\frac{1}{(2k+1)\pi}}
+    \]
+    e valutiamo $f'(a_n)$ otteniamo
+    \[
+    f'(a_n) = 2\sqrt{\frac{1}{(2k+1)\pi}}\sin((2k+1)\pi)-2\cos((2k+1)\pi)\sqrt{(2k+1)\pi} = 2\sqrt{(2k+1)\pi}
+    \]
+    Ciò significa che avvicinandoci all'origine riusciamo a trovare dei punti in cui $f$ è derivabile e in cui la sua derivata prima assume valori arbitrariamente grandi; di conseguenza non esiste $M\in\amsbb{R}$ tale che
+    \[
+    \abs{f'(x)}\le M \ \text{per ogni} \ x\in\amsbb{R}
+    \]
+    Di conseguenza per l'osservazione in seguito al teorema \ref{th:7.4} $f$ non è Lipschitz continua.
+\end{proof}
+\subsection{Applicazione: regressione lineare}
+La ricerca di minimi e massimi globali o locali di funzioni (un processo detto \emph{ottimizzazione}) ha numerose applicazioni in scienze più applicative, come ad esempio l'ingegneria, la chimica, e anche l'informatica: ad esempio in machine learning i parametri delle reti neurali sono ottenuti minimizzando delle funzioni, dette \emph{loss functions}.\\
+Come esempio di un processo di ottimizzazione, presentiamo la cosiddetta \emph{regressione lineare}.\\
+Supponiamo di fare un qualche esperimento, per esempio di voler misurare una grandezza fisica $y$ che dipende da un'altra grandezza fisica $x$; noi variamo $x$ in un insieme finito e discreto di valori $\{x_1, \dots, x_i, \dots, x_n\}$ e misuriamo i valori $\{y_1, \dots, y_i, \dots, y_n\}$ della grandezza fisica $y$. Possiamo costruire delle coppie $(x_i, y_i)$ che associano ad ogni valore della grandezza $x$ su cui abbiamo controllo il corrispettivo valore della grandezza $y$, e possiamo poi rappresentare le coppie ottenute nel piano cartesiano, ottenendo il grafico seguente:
+\begin{center}
+    \begin{tikzpicture}
+\begin{axis}[
+    xtick={-2,0, 2,...,12},
+  ytick={-5,0,5,...,45},
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={below},
+  ylabel style={left},
+  xmin=-1, ymin=-5, xmax=13, ymax=47, yscale=0.4, xscale = 1.3,legend cell align=left,
+    legend style={at={(axis cs: 1,40)},anchor=west}
+]
+\addplot+[
+    only marks,
+    mark=*,
+    mark size=.2pt, mark options={fill=blue}]
+table
+{Data/datafile_lin_reg.txt};
+\addlegendentry{$(x_i, y_i)$}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+Sembrerebbe che i punti siano disposti, modulo fluttuazioni, linearmente; possiamo quindi ipotizzare che la grandezza $y$ dipenda linearmente dalla grandezza $x$, ossia $y=ax$ per qualche $a\in\amsbb{R}$. Come facciamo a trovare, dati i nostri punti sperimentali $\{(x_i, y_i)\}_{1\le i\le n}$ il valore di $a$ ``ottimale''? \\
+Possiamo agire nel modo seguente: se supponiamo che la relazione lineare sia vera, allora il valore predetto per un valore $x_i$ risulta essere $ax_i$, e il valore che invece noi abbiamo misurato è $y_i$. Possiamo quindi considerare la ``distanza'' fra il valore misurato e il valore predetto
+\[
+y_i - ax_i
+\]
+e sommare tutte queste distanze, ottenendo una funzione del parametro che cerchiamo:
+\[
+f(a) = \sum_{i=1}^n (y_i-ax_i)
+\]
+Il problema di questa funzione però è che tiene conto del segno della distanza, e quindi ci potrebbero essere cancellazioni di varia natura che alterano il comportamento di $f$ desiderato. Per mantenere la differenziabilità consideriamo quindi
+\[
+f(a) = \sum_{i=1}^n(y_i-a x_i)^2
+\]
+Questa funzione risolve il problema delle cancellazioni, è differenziabile su tutto $\amsbb{R}$ ed inoltre ha il beneficio di ``pesare'' in modo diverso le distanze.\\
+Vogliamo ora trovare il valore di $a$ che minimizza questa funzione, ossia che minimizza la somma degli scarti quadratici fra i valori misurati e i valori predetti da un dato modello. Poiché $f$ è differenziabile su tutto $\amsbb{R}$ possiamo applicare il teorema di Fermat \ref{th:7.1}: sappiamo che affinché un punto sia un minimo è necessario che questo sia un punto stazionario di $f$: consideriamo quindi
+\[
+f'(a) = \sum_{i=1}^n 2(y_i-ax_i)x_i = 2\left(\sum_{i=1}^n y_i x_i -a\sum_{i=1}^n x_i^2\right)
+\]
+e vediamo che l'unico zero della derivata prima è dato da
+\[
+a = \frac{\sum_{i=1}^n y_i x_i}{\sum_{i=1}^n x_i^2}
+\]
+\`E facile verificare che $a$ è effettivamente un punto di minimo; nel caso della point cloud nella figura precedente la retta di regressione ottenuta è la seguente:
+\begin{center}
+    \begin{tikzpicture}
+\begin{axis}[
+    xtick={-2,0, 2,...,12},
+  ytick={-5,0,5,...,45},
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={below},
+  ylabel style={left},
+  xmin=-1, ymin=-5, xmax=13, ymax=47, yscale=0.4, xscale = 1.3,legend cell align=left,
+    legend style={at={(axis cs: 1,40)},anchor=west}
+]
+\addplot+[
+    only marks,
+    mark=*,
+    mark size=.2pt, mark options={fill=blue}]
+table
+{Data/datafile_lin_reg.txt};
+\addlegendentry{$(x_i, y_i)$}
+\addplot[domain=-.5:10, color=red]{4.0179*x};
+\addlegendentry{\(y=4.0179x\)}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\newpage
