@@ -186,14 +186,14 @@
     \]
     Consideriamo quindi
     \[
-    \frac{n^2-5}{n^2+2}-1 = \frac{n^2-5-n^2+2}{n^2+2} = -\frac{3}{\underbrace{n^2+2}_{>0 \ \forall n\in\amsbb{N}}}
+    \frac{n^2-5}{n^2+2}-1 = \frac{n^2-5-n^2-2}{n^2+2} = -\frac{7}{\underbrace{n^2+2}_{>0 \ \forall n\in\amsbb{N}}}
     \]
     che effettivamente è minore di 0 per ogni $n\in\amsbb{N}$. Quindi abbiamo che $A\subseteq\left[-\frac{5}{2}, 1\right)$, e di conseguenza $A$ è anche limitato superiormente; per il teorema \ref{th:2.1} e per il corollario \ref{cor:2.1} $A$ ammette di conseguenza estremo superiore ed inferiore.\\
     Ragionando come nell'esercizio \ref{ex:2.1} si può mostrare che $-\frac{5}{2} = a_0\in A$ è estremo inferiore e minimo di $A$; per quanto riguarda l'estremo superiore, ragionando sempre in modo non formale, al crescere di $n$ la frazione assomiglia sempre più ad un oggetto del tipo $\frac{n^2}{n^2}$, ossia si avvicina sempre più ad $1$. La nostra ipotesi è quindi che $1$ sia l'estremo superiore di $A$. Come facciamo a dimostrarlo? Sfruttiamo la seguente caratterizzazione dell'estremo superiore:
     \begin{tcolorbox}
         \begin{theorem}[Caratterizzazione dell'estremo superiore]
             \label{th:2.2}
-            Sia $S\subseteq \amsbb{R}$, $S\ne \varnothing$ un insieme limitato superiormente; $\alpha\in \amsbb{R}$ è l'estremo superiore di $S$ se per ogni $\varepsilon>0$ esiste $s_{\varepsilon}\in A$ tale che $s_\varepsilon>\alpha-\varepsilon$.
+            Sia $S\subseteq \amsbb{R}$, $S\ne \varnothing$ un insieme limitato superiormente; $\alpha\in \amsbb{R}$ maggiornate di $S$ è l'estremo superiore di $S$ se per ogni $\varepsilon>0$ esiste $s_{\varepsilon}\in A$ tale che $s_\varepsilon>\alpha-\varepsilon$.
         \end{theorem}
     \end{tcolorbox}
     Fissiamo quindi un generico $\varepsilon>0$; vogliamo mostrare che esiste un elemento $a_\varepsilon\in A$ tale che $a_\varepsilon>1-\varepsilon$. Poiché gli elementi di $A$ sono in corrispondenza biunivoca con i numeri naturali, $a_\varepsilon = a_{n_\varepsilon}$ per un qualche $n_\varepsilon \in \amsbb{N}$; dobbiamo quindi risolvere il seguente problema: dato $\varepsilon>0$, esiste $n_\varepsilon\in\amsbb{N}$ tale che
@@ -212,7 +212,11 @@
     \[
     \frac{-\varepsilon n_\varepsilon^2 + 7 -2\varepsilon}{\underbrace{n_\varepsilon^2+2}_{>0 \ \forall n_\varepsilon \in \amsbb{N}}}<0
     \]
-    Notiamo che se $7-2\varepsilon<=0$, ossia se $\varepsilon>=\frac{7}{2}$, il numeratore è sempre negativo, e quindi la disuguaglianza è verificata per ogni $n_\varepsilon\in\amsbb{N}$; se invece $\varepsilon<\frac{7}{2}$ bisogna scegliere $n_\varepsilon$ in maniera più oculata. Notiamo che il polinomio $-\varepsilon n_\varepsilon^2 +7-2\varepsilon$ ammette due radici,
+    Notiamo che se $7-2\varepsilon<0$, ossia se $\varepsilon>\frac{7}{2}$, il numeratore è sempre negativo, e quindi la disuguaglianza è verificata per ogni $n_\varepsilon\in\amsbb{N}$; quindi
+    \[
+    a_0> 1-\varepsilon
+    \]
+    Se invece $\varepsilon\ge\frac{7}{2}$ bisogna scegliere $n_\varepsilon$ in maniera più oculata. Notiamo che il polinomio $-\varepsilon n_\varepsilon^2 +7-2\varepsilon$ ammette due radici, eventualmente coincidenti nel caso $\varepsilon=\frac{7}{2}$,
     \[
     r_1 = -\sqrt{\frac{7}{\varepsilon}-2} \qquad r_2 = +\sqrt{\frac{7}{\varepsilon}-2}
     \]
@@ -242,7 +246,7 @@
     \[
     n_\varepsilon = \left\lfloor\sqrt{\frac{7}{\varepsilon}-2}\right\rfloor+1
     \]
-    ove $\amsbb{R}\ni x \mapsto \lfloor x \rfloor$ è la cosiddetta \emph{floor function}, che restituisce la parte intera di un numero reale ("approssimando verso $-\infty$")\footnote{Per i numeri reali positivi è analogo a fare il casting \texttt{n=(int)x} di una variabile \texttt{float} su C/C\texttt{++}.}. Per concludere quindi
+    ove $\amsbb{R}\ni x \mapsto \lfloor x \rfloor$ è la cosiddetta \emph{floor function}, che restituisce la parte intera di un numero reale ("approssimando verso $-\infty$")\footnote{Per i numeri reali positivi è analogo a fare il casting \texttt{n=(int)x} di una variabile \texttt{float} su C/C\texttt{++}. Come esempio, se consideriamo $\varepsilon=0.1$ abbiamo che $n_\varepsilon = \lfloor\sqrt{68}\rfloor+1 = 9$; $a_9 = \frac{76}{83}\simeq0.91>0.9$.}. Per concludere quindi
     \[
     -\frac{5}{2} = \inf A = \min A \qquad 1 = \sup A
     \]
