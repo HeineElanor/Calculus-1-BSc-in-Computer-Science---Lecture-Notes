@@ -2,7 +2,7 @@
 Lecture notes for the exercise sessions of the course “Calculus 1” for the Bachelor Degree in Computer Science held at the University of Trento.
 
 >[!IMPORTANT]
->As the TikZ figures are externalizd into the Graphs folder, you need to run `pdfLaTeX` with `--shell-escape` enabled
+>As the TikZ figures are externalizd into the `./Graphs` folder, you need to run `pdfLaTeX` with `--shell-escape` enabled
 >
 >On TeXStudio this can be done by modifying the pdfLaTeX options to
 >```

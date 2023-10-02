@@ -1,5 +1,5 @@
 \section{Lezione 8}
-\subsection{Ripasso: teoria dell'integrazione}
+\subsection{Ripasso e approfondimento: teoria dell'integrazione secondo Riemann}
 \begin{definition}
     \label{def:8.1}
     Sia $f\colon[a,b]\to\amsbb{R}$ una funzione \textbf{limitata definita su} $\mathbf{[a,b]}$. Una \emph{partizione} $\mathscr{P}$ di $[a,b]$ è una collezione di punti $\{x_0, \dots, x_n\}\subset [a,b]$ tale che
@@ -401,7 +401,467 @@ Come si può osservare, $U(\mathscr{P}, f)$ approssima l'area sottesa dal grafic
     \]
 \end{proof}
 \begin{remark}
-    Una funzione $F$ avente le proprietà descritte dall'enunciato del teorema \ref{th:8.3} è detta \emph{primitiva} di $f$.\\ 
+    Una funzione $F$ avente le proprietà descritte dall'enunciato del teorema \ref{th:8.3} è detta \emph{primitiva} di $f$. Chiaramente, se $f$ ammette una primitiva ne ammette in realtà infinite, in quanto $(F+c)' = f$ per ogni $c\in\amsbb{R}$. Notiamo che il teorema \ref{th:8.2} dice che ogni funzione continua ammette una primitiva; questa non è però necessariamente scrivibile in termini di funzioni elementari.\\ 
     Il teorema fondamentale del calcolo \ref{th:8.3} è la ragione per cui si ricercano le primitive delle funzioni per calcolare gli integrali.
 \end{remark}
 \subsection{Esercizi: ricerca delle primitive}
+\begin{exercise}
+    \label{ex:8.1}
+    Data la funzione $\amsbb{R}\setminus\{0\}\ni x \mapsto \frac{1}{x}$, determinarne una primitiva.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Ricordiamo che una primitiva di $f$ è una funzione $F\colon \amsbb{R}\setminus\{0\}\to \amsbb{R}$ tale che $F'(x) = f(x)$ per ogni $x\in\amsbb{R}\setminus\{0\}$.\\
+    Sappiamo che se consideriamo $\log(\cdot)\colon (0, +\infty)\to \amsbb{R}$, questa è tale per cui
+    \[
+    \frac{d}{dx}\log(x) = \frac{1}{x}
+    \]
+    Tuttavia, questa non è una primitiva di $f$, poiché è definita su di un dominio diverso. Possiamo però considerare la funzione
+    \[
+    \log(-\cdot)\colon (-\infty, 0) \to \amsbb{R}
+    \]
+    che è tale che
+    \[
+    \frac{d}{dx}\log(-x) \overset{(\ref{eq:6.4})}{=} \frac{1}{-x}\frac{d}{dx}(-x) = -\frac{1}{-x} = \frac{1}{x}
+    \]
+    Pertanto abbiamo che la funzione $\log\abs{\cdot}\colon \amsbb{R}\setminus\{0\}\to \amsbb{R}$ è una primitiva di $f$.
+\end{proof}
+\begin{remark}
+    In generale, trovare delle primitive non è facile; possiamo aiutarci scrivendo una primitiva \emph{formalmente} come
+    \[
+    \int f(x)\, dx
+    \]
+    e usando formalmente i teoremi validi nella teoria dell'integrazione.
+\end{remark}
+\begin{exercise}
+    \label{ex:8.2}
+    Data la funzione $f\colon(-\infty, 1] \to \amsbb{R}$, $f(x) = x\sqrt{1-x}$, determinarne una primitiva.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Scriviamo la primitiva di $f$ come
+    \[
+    \int x\sqrt{1-x}\, dx
+    \]
+    e ricordiamo il seguente risultato:
+    \begin{tcolorbox}
+        \begin{theorem}[Cambiamento di variabile]
+            \label{th:8.4}
+            Sia $f\colon[a,b]\to\amsbb{R}$ una funzione integrabile su $[a,b]$, e sia $\varphi\colon [c,d]\to [a,b]$ una funzione differenziabile su $[c,d]$ con $\varphi'\in\mathscr{R}([c,d])$ e tale che $\varphi([c,d])\subseteq [a,b]$; allora $f\circ \varphi\in\mathscr{R}([c,d])$ e
+            \[
+            \int_c^d (f\circ \varphi)(y) \varphi'(y)\, dy = \int_{\varphi(c)}^{\varphi(d)} f(x)\, dx
+            \]
+        \end{theorem}
+    \end{tcolorbox}
+    Vorremmo quindi applicarlo formalmente alla scrittura precedente. Per farlo, dobbiamo scegliere in maniera oculata la funzione $\varphi$, in modo tale che ci aiuti effettivamente a trovare una primitiva.\\
+    Ricordiamo che
+    \[
+    \cos^2\theta + \sin^2 \theta = 1 \ \text{per ogni} \ \theta\in\amsbb{R}
+    \]
+    e notiamo che $\sin^2(\cdot)\colon \left[0, \frac{\pi}{2}\right]\to [0,1]$ è una funzione differenziabile e con derivata continua; inoltre è e biiettiva, e quindi se $x\in[0,1]$ lo possiamo scrivere come $\sin^2(\theta_x)$ per qualche $\theta_x\in\left[0, \frac{\pi}{2}\right]$. 
+    Come nel caso precedente, restringiamo quindi $f$ all'intervallo $[0,1]$ e verifichiamo poi se riusciamo a ricondurre la primitiva trovata ad una funzione definita su tutto $(-\infty, 1]$.
+    Per il teorema \ref{th:8.4}, applicato formalmente, abbiamo che
+    \[
+    \begin{split}
+        \int x\sqrt{1-x}\, dx & = \int f(x)\, dx = \int (f\circ \sin^2)(\theta) \frac{d}{d\theta}\sin^2(\theta)\, d\theta = \\
+        & = \int 2\sin^3(\theta)\cos(\theta)\sqrt{1-\sin^2(\theta)}\, d\theta = \int 2\sin^3(\theta)\cos^2(\theta)\, d\theta
+    \end{split}
+    \]
+    ove $\sqrt{\cos^2(\theta)} = \cos(\theta)$ poiché su $\left[0, \frac{\pi}{2}\right]$ il coseno assume valori positivi.\\
+    In generale, trovare le primitive di funzioni del tipo $\sin^n(\theta)\cos^m(\theta)$ sfruttando il fatto che
+    \[
+    \frac{d}{d\theta}\sin^n(\theta) = n\sin^{n-1}(\theta)\cos(\theta) \quad \frac{d}{d\theta}\cos^n(\theta) = -n\cos^{n-1}(\theta)\sin(\theta) \quad \sin^2(\theta) + \cos^2(\theta) = 1
+    \]
+    Nel nostro caso, abbiamo 
+    \[
+    \begin{split}
+        & \int 2\sin^3(\theta)\cos^2(\theta)\, d\theta = 2\int \sin(\theta)(1-\cos^2(\theta))\cos^2(\theta)\, d\theta = \\
+        & = 2\int \sin(\theta)\cos^2(\theta)\, d\theta - 2\int \sin(\theta)\cos^4(\theta)\, d\theta = \\
+        & = -\frac{2}{3}\int \frac{d}{d\theta}(\cos^3(\theta))\, d\theta +\frac{2}{5} \int \frac{d}{d\theta}(\cos^5(\theta)) = -\frac{2}{3}\cos^3(\theta) + \frac{2}{5}\cos^5(\theta)
+    \end{split}
+    \]
+    Per trovare una primitiva di $f(x)$, è ora necessario scrivere $\theta$ in funzione di $x$, sapendo che vale la biiezione
+    \[
+    [0,1]\ni x \mapsto \sin^2(\theta), \ \theta\in\left[0,\frac{\pi}{2}\right] 
+    \]
+    Possiamo quindi scrivere $\theta=\arcsin(\sqrt{x})$; a questo punto
+    \[
+    \begin{split}
+        \int x\sqrt{1-x}\, dx & = -\frac{2}{3}\cos^3(\arcsin(\sqrt{x}))+\frac{2}{5}\cos^5(\arcsin{\sqrt{x}}) = \\
+        & = -\frac{2}{3}(1-x)^{\frac{3}{2}}+\frac{2}{5}(1-x)^{\frac{5}{2}} = F(x)
+    \end{split}
+    \]
+    Ricordiamo che abbiamo trovato la primitiva restringendo il dominio della funzione a $[0,1]$; quindi a priori la funzione $F$ ottenuta è definita su $[0,1]$. Tuttavia, notiamo che $F$ è in realtà la restrizione a $[0,1]$ di una funzione definita su $(-\infty, 1]$, e inoltre
+    \[
+    \frac{d}{dx}F(x) = -\sqrt{1-x}(-1)+(\sqrt{1-x})^3(-1) = \sqrt{1-x}\left(1-(\sqrt{1-x})^2\right) = x\sqrt{1-x}
+    \]
+    Di conseguenza la funzione $F$ che abbiamo trovato è definita su tutto $(-\infty, 1]$ e soddisfa $F'(x) = f(x)$ per ogni $x\in(-\infty, 1]$.
+\end{proof}
+\begin{exercise}
+    \label{ex:8.3}
+    Data la funzione $\amsbb{R}\ni x \mapsto \frac{1}{\sqrt{x^2+a^2}}$, $a\ne 0$, determinarne una primitiva.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Anche in questo caso, scriviamo la sua primitiva come
+    \[
+    \int \frac{1}{\sqrt{x^2+a^2}}\, dx = \int \frac{1}{\sqrt{a^2\left(1+\frac{x^2}{a^2}\right)}}\, dx = \int \frac{1}{\abs{a}\sqrt{1+\frac{x^2}{a^2}}}\, dx = \frac{a}{\abs{a}}\int \frac{1}{\sqrt{1+\frac{x^2}{a^2}}}\frac{1}{a}\, dx 
+    \]
+    Possiamo considerare la funzione $x\mapsto \frac{1}{\sqrt{1+\frac{x^2}{a^2}}}$ come la composizione di due funzioni,
+    \[
+    \frac{1}{\sqrt{1+(\cdot)^2}} \circ \frac{1}{a} \colon \amsbb{R}\to \amsbb{R}
+    \]
+    e di conseguenza possiamo applicare il teorema \ref{th:8.4}, notando che 
+    \[
+    \frac{d}{dx}\left(\frac{1}{a}x\right) = \frac{1}{a}
+    \]
+    Quindi
+    \[
+    \int \frac{1}{\sqrt{x^2+a^2}}\, dx = \frac{a}{\abs{a}}\int \frac{1}{\sqrt{1+\frac{x^2}{a^2}}}\frac{1}{a}\, dx = \frac{a}{\abs{a}}\int \frac{1}{\sqrt{1+y^2}}\, dy
+    \]
+    Vogliamo riapplicare il teorema \ref{th:8.4}, come fatto nell'esercizio \ref{ex:8.2}. Dobbiamo quindi trovare una funzione $\varphi$ che ci aiuti a trovare una primitiva. A questo scopo, ricordiamo che
+    \[
+    \cosh^2(x)-\sinh^2(x) = 1 \ \text{per ogni} \ x\in\amsbb{R}
+    \]
+    e che $\sinh(\cdot)\colon \amsbb{R} \to \amsbb{R}$ è una funzione biiettiva, differenziabile e con derivata continua. Applichiamo quindi il teorema \ref{th:8.4}:
+    \[
+    \frac{a}{\abs{a}}\int \frac{1}{\sqrt{1+y^2}}\, dy = \frac{a}{\abs{a}}\int \frac{1}{\sqrt{1+\sinh^2(\xi)}}\cosh(\xi)\, d\xi = \frac{a}{\abs{a}}\int \frac{\cosh(\xi)}{\cosh(\xi)}\, d\xi = \frac{a}{\abs{a}}\xi
+    \]
+    dove abbiamo usato il fatto che il coseno iperbolico assume sempre valori positivi.\\
+    Come nell'esercizio precedente, per trovare l'effettiva primitiva di $f(x)$, è necessario esprimere $\xi$ in funzione di $x$, sapendo che vale la biiezione
+    \[
+    \amsbb{R}\ni y \mapsto \sinh(\xi)\in\amsbb{R}
+    \]
+    Vale che
+    \[
+    y = \sinh(\xi) = \frac{1}{2}(e^{\xi}-e^{-\xi}) \iff 2y = e^\xi - e^{-\xi} \iff (e^\xi)^2 -2y e^{\xi}-1 = 0
+    \]
+    Sostituendo $t=e^\xi$ abbiamo
+    \[
+    t^2 -2yt -1 = 0 \iff t =y\pm\sqrt{y^2+1}
+    \]
+    Poiché $t=e^\xi>0$, vale che $t = y+\sqrt{y^2+1}$; di conseguenza
+    \[
+    e^\xi = y+\sqrt{y^2+1} \iff \xi = \log(y+\sqrt{y^2+1})
+    \]
+    Ricordando che $y=\frac{x}{a}$ abbiamo infine che
+    \[
+    \int \frac{1}{\sqrt{x^2+a^2}}\, dx = \frac{a}{\abs{a}}\xi = \frac{a}{\abs{a}}\log(y+\sqrt{y^2+1}) = \frac{a}{\abs{a}}\log\left(\frac{x}{a}+\sqrt{\frac{x^2}{a^2}+1}\right) = F(x)
+    \]
+    Notiamo che $F$ è definita su tutto $\amsbb{R}$, e che
+    \[
+    \begin{split}
+        \frac{d}{dx}F(x) & = \frac{a}{\abs{a}}\frac{1}{\frac{x}{a}+\sqrt{\frac{x^2}{a^2}+1}}\left(\frac{1}{a}+\frac{x}{a^2\sqrt{\frac{x^2}{a^2}+1}}\right) = \frac{1}{\abs{a}}\frac{1}{\frac{x}{a}+\sqrt{\frac{x^2}{a^2}+1}}\frac{\sqrt{\frac{x^2}{a^2}+1}+\frac{x}{a}}{\sqrt{\frac{x^2}{a^2}+1}}\\
+        & = \frac{1}{\abs{a}}\frac{1}{\sqrt{\frac{x^2}{a^2}+1}} = \frac{1}{\sqrt{x^2+a^2}}
+    \end{split}
+    \]
+\end{proof}
+\begin{exercise}
+    \label{ex:8.4}
+    Data la funzione $f\colon \amsbb{R}^+\ni x \mapsto \sqrt{x}\log(x)$ determinarne una primitiva.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Ricordiamo il seguente risultato:
+    \begin{tcolorbox}
+        \begin{theorem}[Integrazione per parti]
+            \label{th:8.5}
+            Siano $F,G\colon [a,b]\to \amsbb{R}$ due funzioni differenziabili in $[a,b]$ con $F'=f$ e $G' = g$, $f,g\in\mathscr{R}([a,b])$. Allora
+            \[
+            \int_a^b Fg\,dx = \left(F(b)G(b)-F(a)G(a)\right)-\int_a^b fG\, dx
+            \]
+        \end{theorem}
+    \end{tcolorbox}
+    In generale quando si ha a che fare con il logaritmo l'integrazione per parti torna molto utile perché sappiamo che
+    \[
+    \frac{d}{dx}\log(x) = \frac{1}{x}
+    \]
+    Quindi in questo caso $F(x) = \log(x)$ e $g(x)=\sqrt{x}$, e sappiamo che
+    \[
+    f(x) = \frac{1}{x} \qquad G(x) = \frac{2}{3}x^{\frac{3}{2}}
+    \]
+    Quindi applicando il teorema \ref{th:8.5} abbiamo che
+    \[
+    \begin{split}
+        \int \sqrt{x}\log(x)\, dx & = \int F(x)g(x)\, dx = F(x)G(x)-\int f(x)G(x)\, dx = \\
+        & = \frac{2}{3}\log(x)x^{\frac{3}{2}}-\int \frac{1}{x}\frac{2}{3}x^{\frac{3}{2}}\, dx = \frac{2}{3}x^{\frac{3}{2}}\log(x)-\frac{4}{9}x^{\frac{3}{2}} = F(x)
+    \end{split}
+    \]
+    Notiamo che $F$ è definita su $\amsbb{R}^+$ come $f$, e che
+    \[
+    \frac{d}{dx}F(x) \overset{(\ref{eq:6.3})}{=} \sqrt{x}\log(x)+\frac{2}{3}\sqrt{x} -\frac{2}{3}\sqrt{x} = \sqrt{x}\log(x) 
+    \]
+\end{proof}
+\begin{exercise}
+    \label{ex:8.5}
+    Data $f\colon \amsbb{R}\setminus\{-a, a\}\to \amsbb{R}$, $f(x) = \frac{1}{x^2-a^2}$, determinarne una primitiva.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Sappiamo trovare agilmente le primitive di funzioni del tipo $x\mapsto \frac{1}{x+a}$, 
+    \[
+    \int \frac{1}{x+a}\, dx = \int \frac{1}{y}\, dy = \log\abs{y} = \log\abs{x+a}
+    \]
+    Notiamo che possiamo scrivere
+    \[
+    f(x) = \frac{1}{x^-a^2} = \frac{1}{(x+a)(x-a)}
+    \]
+    e quindi ci chiediamo se esistano due coefficienti $k_1, k_2\in\amsbb{R}$ tali che
+    \[
+    f(x) = \frac{1}{(x-a)(x+a)} = \frac{k_1}{x+a} + \frac{k_2}{x-a}
+    \]
+    Effettuando esplicitamente la somma di frazioni otteniamo
+    \[
+    \frac{k_1}{x+a} + \frac{k_2}{x-a} = \frac{k_1(x-a)+k_2(x+a)}{x^2-a^2} = \frac{(k_1+k_2)x+(k_2-k_1)a}{x^2-a^2}
+    \]
+    e affinché valga l'uguaglianza
+    \[
+    f(x) = \frac{k_1}{x+a}+\frac{k_2}{x-a}
+    \]
+    per l'indipendenza lineare dei polinomi di diverso grado i coefficienti $k_1, k_2$ devono soddisfare il sistema
+    \[
+    \begin{dcases}
+        k_1 +k_2 = 0\\
+        (k_2-k_1)a=1
+    \end{dcases} \iff \begin{dcases}
+        k_1 =- k_2\\
+        (k_2-k_1)a=1
+    \end{dcases} \iff k_2 = \frac{1}{2a}
+    \]
+    Quindi
+    \[
+    \begin{split}
+        \int \frac{1}{x^2-a^2}\, dx & = \int \frac{1}{2a}\frac{1}{x-a}-\frac{1}{2a}\frac{1}{x+a}\, dx = \frac{1}{2a}\int \frac{1}{x-a}\, dx - \frac{1}{2a}\int \frac{1}{x+a}\, dx = \\
+        & = \frac{1}{2a}\log\abs{\frac{x-a}{x+a}}=F(x)
+    \end{split}
+    \]
+    Notiamo che $F$ è definita su tutto $\amsbb{R}\setminus\{-a,a\}$ e che 
+    \[
+    \frac{d}{dx}F(x) = \frac{1}{2a} \frac{1}{x-a}-\frac{1}{2a}\frac{1}{x+a} = \frac{1}{2a}\frac{x+a-x+a}{x^2-a^2} = \frac{1}{x^2-a^2}
+    \]
+\end{proof}
+\begin{exercise}
+    \label{ex:8.6}
+    Data $f\colon \amsbb{R}\to\amsbb{R}$, $f(x)=\frac{2x-1}{x^2+2x+2}$, determinarne una primitiva.
+\end{exercise}
+\begin{proof}[Soluzione]
+    $f$ è definita su tutto $\amsbb{R}$, infatti il discriminante del denominatore è $\Delta = 4-8 <0$ e di conseguenza è sempre positivo. Non possiamo quindi agire come nell'esercizio \ref{ex:8.5}; notiamo però che
+    \[
+    x^2+2x+2 = x^2 +2x+1 +1 = (x+1)^2+1
+    \]
+    e che 
+    \[
+    \frac{d}{dx}(x+1)^2 = 2x+2 = 2x-1+3
+    \]
+    Quindi possiamo scrivere
+    \[
+    \begin{split}
+        \int \frac{2x-1}{x^2+2x+2}\, dx & = \int \frac{2x-1}{(x+1)^2+1}\, dx = \int \frac{\frac{d}{dx}(x+1)^2-3}{(x+1)^2+1}\, dx = \\
+        & = \int \frac{1}{(x+1)^2+1}\frac{d}{dx}(x+1)^2\, dx -3\int \frac{1}{(x+1)^2+1}\, dx \overset{\text{Teorema \ref{th:8.4}}}{=} \\
+        & = \int \frac{1}{y+1}\, dy -3\int \frac{1}{(x+1)^2+1} \frac{d}{dx}(x+1)\, dx \overset{\text{Teorema \ref{th:8.4}}}{=} \\
+        & = \log\abs{y+1} -3 \int \frac{1}{z^2+1}\, dz = \log\abs{y+1}-3\arctan(z) = \\
+        & = \log\abs{(x+1)^2+1} -3\arctan(x+1) = F(x)
+    \end{split}
+    \]
+    Notiamo che $F$ è definita su tutto $\amsbb{R}$ come $f$, e che
+    \[
+    \frac{d}{dx}F(x) = \frac{2(x+1)}{(x+1)^2+1}-3\frac{1}{(x+1)^2+1} = \frac{2x-1}{x^2+2x+2}
+    \]
+\end{proof}
+\begin{exercise}
+    \label{ex:8.7}
+    Data $f\colon \amsbb{R}\to \amsbb{R}$, $f(x) = \frac{1}{\cos(x)+2}$, determinarne una primitiva.
+\end{exercise}
+\begin{proof}[Soluzione]
+    In questo caso conviene usare le formule parametriche per scrivere
+    \[
+    \cos(x)=\frac{1-t^2}{1+t^2} \qquad t = \tan\left(\frac{x}{2}\right)\iff x = 2\arctan(t)
+    \]
+    Notiamo però che se scriviamo effettuiamo la sostituzione sopra descritta, $f$ non sarà più definita su $\amsbb{R}$, bensì su un $\amsbb{R}\setminus\{\pi+2k\pi, k\in\amsbb{Z}\}$. Poiché conviene restringersi ad intervalli connessi, scegliamo $(-\pi, \pi)$ come intervallo di definizione di $f$. Usando il teorema \ref{th:8.4} abbiamo che
+    \[
+    \begin{split}
+        \int \frac{1}{\cos(x)+2}\, dx & = \int \frac{1+t^2}{1-t^2+2+2t^2}\frac{d}{dt}(2\arctan(t))\, dt = \\
+        & = \int \frac{1+t^2}{t^2+3}\frac{2}{1+t^2}\, dt = \int \frac{2}{t^2+3}\, dt  =\\
+        & = \frac{2}{3}\int \frac{1}{1+\left(\frac{t}{\sqrt{3}}\right)^2}\frac{\sqrt{3}}{\sqrt{3}}\, dt \overset{\text{Teorema \ref{th:8.4}}}{=} \frac{2}{\sqrt{3}}\int \frac{1}{1+y^2}\, dy = \frac{2}{\sqrt{3}}\arctan(y) =\\
+        & = \frac{2}{\sqrt{3}}\arctan\left(\frac{t}{\sqrt{3}}\right) = \frac{2}{\sqrt{3}}\arctan\left(\frac{1}{\sqrt{3}}\tan\left(\frac{x}{2}\right)\right) = F(x)
+    \end{split}
+    \]
+    Notiamo che in questo caso $F$ è definita in $\amsbb{R}\setminus\{\pi+2k\pi, k\in\amsbb{Z}\}$, e di conseguenza non è una primitiva di $f$, che è invece definita su tutto $\amsbb{R}$. Come possiamo fare a determinare un'effettiva primitiva di $f$?\\
+    Innanzitutto, notiamo che $F$ ammette limite destro e sinistro finiti per $x\to \pi+2k\pi$: infatti,
+    \[
+    \begin{split}
+        \lim_{x\to (\pi+2k\pi)^-} F(x) & = \lim_{x\to (\pi+2k\pi)^-}\frac{2}{\sqrt{3}}\arctan\left(\frac{1}{\sqrt{3}}\tan\left(\frac{x}{2}\right)\right) \overset{y=\frac{1}{\sqrt{3}}\tan\left(\frac{x}{2}\right)}{=} \\
+        & = \lim_{y\to +\infty} \frac{2}{\sqrt{3}}\arctan(y) = \frac{\pi}{\sqrt{3}}
+    \end{split}
+    \]
+    e
+    \[
+    \begin{split}
+        \lim_{x\to (\pi+2k\pi)^+} F(x) & = \lim_{x\to (\pi+2k\pi)^+}\frac{2}{\sqrt{3}}\arctan\left(\frac{1}{\sqrt{3}}\tan\left(\frac{x}{2}\right)\right) \overset{y=\frac{1}{\sqrt{3}}\tan\left(\frac{x}{2}\right)}{=} \\
+        & = \lim_{y\to -\infty} \frac{2}{\sqrt{3}}\arctan(y) = -\frac{\pi}{\sqrt{3}}
+    \end{split}
+    \]
+    \begin{center}
+        \begin{tikzpicture}[xscale=.6, yscale = 1, font=\tiny]
+            \tzaxes(-9.7, -2.3)(9.7,2.3){$x$}[b]{$y$}[l]
+            \tzticks{3.1415/$\pi$}[b]
+            \tzticks{6.2832/$2\pi$}[b]
+            \tzticks{9.4248/$3\pi$}[b]
+            \tzticks{-3.1415/$-\pi$}[b]
+            \tzticks{-6.2832/$-2\pi$}[b]
+            \tzticks{-9.4248/$-3\pi$}[b]
+            \tzfn[blue, thick, samples = 401]"curve"{2/1.7321*rad(atan(1/1.7321*tan(deg(\x/2))))}[-3.1413:3.1413]
+            \tzfn[blue, thick, samples = 401]"curve"{2/1.7321*rad(atan(1/1.7321*tan(deg(\x/2))))}[3.1418:9.4246]{$F(x)$}[r]
+            \tzfn[blue, thick, samples = 401]"curve"{2/1.7321*rad(atan(1/1.7321*tan(deg(\x/2))))}[-9.4246:-3.1418]
+            \tzhfnat[dashed]{1.8138}[-9.4248:9.4248]{$\frac{\pi}{\sqrt{3}}$}[a]
+            \tzhfnat[dashed]{-1.8138}[-9.4248:9.4248]{$-\frac{\pi}{\sqrt{3}}$}[b]
+            %\tzdot*[red](0.2122, 0)
+            %\tznode[red](0.2122, 0){$2k\pi + \frac{3}{2}\pi$}[below, red]
+        \end{tikzpicture}
+    \end{center}
+    Poiché sono distinti, il limite
+    \[
+    \lim_{x\to (\pi +2k\pi)} F(x)
+    \]
+    non esiste, e quindi non è possibile estendere $F$ per continuità a tutto $\amsbb{R}$. Possiamo però agire nel modo seguente: innanzitutto definiamo
+    \[
+    \widehat{F}(x) = \begin{dcases}
+        \frac{2}{\sqrt{3}}\arctan\left(\frac{1}{\sqrt{3}}\tan\left(\frac{x}{2}\right)\right)\, x\in(-\pi, \pi) \\
+        \frac{\pi}{\sqrt{3}}\, & x=\pi
+    \end{dcases}
+    \]
+    In questo modo abbiamo esteso $F$ a $(-\pi, \pi]$ preservando la continuità da sinistra. Notiamo poi che per ogni $x\in\amsbb{R}$, esiste un unico $k\in\amsbb{Z}$ tale che
+    \[
+    x\in(-\pi + 2k\pi, \pi + 2k\pi]
+    \]
+    in quanto
+    \[
+    \bigcup_{k\in\amsbb{Z}} (-\pi + 2k\pi, \pi +2k\pi] = \amsbb{R} \quad (-\pi+2k\pi, \pi+2k\pi]\cap (-\pi+2i\pi, \pi+2i\pi]=\varnothing \ \text{se} \ k\ne i
+    \]
+    Ci ricordiamo, poi, come scritto nell'osservazione successiva al teorema \ref{th:8.3}, che le primitive di una funzione non sono uniche, bensì sono definite a meno di una costante additiva. In questo caso, possiamo sfruttare questa proprietà a nostro vantaggio per definire un'ulteriore estensione di $F$ nel modo seguente:
+    \[
+    \tilde{F}(x) = \widehat{F}(x-2k\pi)+k\frac{2\pi}{\sqrt{3}}, \ k \ \text{tale che} \ x\in(-\pi +2k\pi, \pi+2k\pi]
+    \]
+    In questo modo $\tilde{F}$ è continua su tutto $\amsbb{R}$: infatti, $\tilde{F}$ è chiaramente continua su $\amsbb{R}\setminus\{\pi + 2k\pi, k\in\amsbb{Z}\}$, e vale che
+    \[
+    \lim_{x\to (\pi+2k\pi)^-}\tilde{F}(x) = \lim_{x\to (\pi +2k\pi)^-} \widehat{F}(x-2k\pi) + k\frac{2\pi}{\sqrt{3}} = \frac{(2k+1)\pi}{\sqrt{3}}
+    \]
+    e
+    \[
+    \begin{split}
+        \lim_{x\to (\pi+2k\pi)^+}\tilde{F}(x) & = \lim_{x\to (\pi +2k\pi)^+} \widehat{F}(x-2(k+1)\pi) + (k+1)\frac{2\pi}{\sqrt{3}} = -\frac{\pi}{\sqrt{3}} +  (k+1)\frac{2\pi}{\sqrt{3}}= \\
+        & = (2k+1)\frac{\pi}{\sqrt{3}}
+    \end{split}
+    \]
+    Inoltre, $\tilde{F}$ è differenziabile su tutto $\amsbb{R}$: anche in questo caso $\tilde{F}$ è chiaramente differenziabile su $\amsbb{R}\setminus\{\pi +2k\pi, k\in\amsbb{Z}\}$, e vale che
+    \[
+    \begin{split}
+        &\lim_{x\to (\pi+2k\pi)^+}\frac{\tilde{F}(x)-\tilde{F}(\pi+2k\pi)}{x-\pi -2k\pi}= \lim_{x\to (\pi+2k\pi)^+}\frac{\widehat{F}(x-2(k+1)\pi)+(k+1)\frac{2\pi}{\sqrt{3}}-\frac{\pi}{\sqrt{3}}-k\frac{2\pi}{\sqrt{3}}}{x-\pi -2k\pi} = \\
+        & \overset{t=x-2(k+1)\pi}{=} \lim_{t\to-\pi^+}\frac{\widehat{F}(t)+\frac{\pi}{\sqrt{3}}}{t+\pi}
+    \end{split}
+    \]
+    Per calcolare
+    \[
+    \lim_{t\to-\pi^+}\frac{\widehat{F}(t)+\frac{\pi}{\sqrt{3}}}{t+\pi}
+    \]
+    proviamo ad usare il teorema di de l'H{\^o}pital \ref{th:6.4}: sappiamo che $\widehat{F}+\frac{\pi}{\sqrt{3}}$ e $t+\pi$ sono differenziabili in $(-\pi, \pi]$, e che $(t+\pi)' = 1$ è diverso da $0$ per ogni $t\in(-\pi, \pi]$; inoltre $(\widehat{F}+\frac{\pi}{\sqrt{3}})'(t) = \frac{1}{\cos(t)+2}$ per ogni $t\in (-\pi, \pi)$, e 
+    \[
+    \lim_{t\to -\pi^+} \frac{1}{\cos(t)+2} \overset{\text{continuità}}{=} 1
+    \]
+    e quindi per il teorema di de l'H{\^o}pital vale che
+    \[
+    \lim_{x\to (\pi+2k\pi)^+}\frac{\tilde{F}(x)-\tilde{F}(\pi+2k\pi)}{x-\pi -2k\pi}=1
+    \]
+    Allo stesso modo si dimostra che
+    \[
+    \begin{split}
+        &\lim_{x\to (\pi+2k\pi)^-}\frac{\tilde{F}(x)-\tilde{F}(\pi+2k\pi)}{x-\pi -2k\pi}= \lim_{x\to (\pi+2k\pi)^-}\frac{\widehat{F}(x-2k\pi)+k\frac{2\pi}{\sqrt{3}}-\frac{\pi}{\sqrt{3}}-k\frac{2\pi}{\sqrt{3}}}{x-\pi -2k\pi} = \\
+        & \overset{t=x-2k\pi}{=} \lim_{t\to\pi^-}\frac{\widehat{F}(t)-\frac{\pi}{\sqrt{3}}}{t-\pi} = 1
+    \end{split}
+    \]
+    Di conseguenza $\tilde{F}$ è derivabile anche in $\{\pi+2k\pi, k\in\amsbb{Z}\}$; quindi $\tilde{F}$ è definita su tutto $\amsbb{R}$, è differenziabile su tutto $\amsbb{R}$ e vale che $F'(x) = f(x)$ per ogni $x\in\amsbb{R}$.
+    \begin{center}
+        \begin{tikzpicture}[xscale=.6, yscale = 0.5, font=\tiny]
+            \tzaxes(-9.7, -5.7)(9.7,5.7){$x$}[b]{$y$}[l]
+            \tzticks{3.1415/$\pi$}[b]
+            \tzticks{6.2832/$2\pi$}[b]
+            \tzticks{9.4248/$3\pi$}[b]
+            \tzticks{-3.1415/$-\pi$}[b]
+            \tzticks{-6.2832/$-2\pi$}[b]
+            \tzticks{-9.4248/$-3\pi$}[b]
+            \tzfn[blue, thick, samples = 401]"curve"{2/1.7321*rad(atan(1/1.7321*tan(deg(\x/2))))}[-3.1413:3.1413]
+            \tzfn[blue, thick, samples = 401]"curve"{2/1.7321*rad(atan(1/1.7321*tan(deg(\x/2))))+1.8138*2}[3.1418:9.4246]{$\tilde{F}(x)$}[r]
+            \tzfn[blue, thick, samples = 401]"curve"{2/1.7321*rad(atan(1/1.7321*tan(deg(\x/2))))-2*1.8138}[-9.4246:-3.1418]
+            %\tzhfnat[dashed]{1.8138}[-9.4248:9.4248]{$\frac{\pi}{\sqrt{3}}$}[a]
+            %\tzhfnat[dashed]{-1.8138}[-9.4248:9.4248]{$-\frac{\pi}{\sqrt{3}}$}[b]
+            \tzdot*[blue](3.115, 1.8138)
+            \tzdot*[blue](-3.115, -1.8138)
+            \tzdot*[blue](9.4248, 5.4414)
+            \tzdot*[blue](-9.424, -5.4414)
+            \tzprojy(-3.115, -1.8138){$-\frac{\pi}{\sqrt{3}}$}[r]
+            \tzprojy(3.115, 1.8138){$\frac{\pi}{\sqrt{3}}$}[l]
+            \tzprojy(-9.424, -5.4414){$-3\frac{\pi}{\sqrt{3}}$}[r]
+            \tzprojy(9.4248, 5.4414){$3\frac{\pi}{\sqrt{3}}$}[bl]
+            %\tznode[red](0.2122, 0){$2k\pi + \frac{3}{2}\pi$}[below, red]
+        \end{tikzpicture}
+    \end{center}
+\end{proof}
+\begin{exercise}
+    \label{ex:8.8}
+    Calcolare
+    \[
+    \int_{-\pi}^\pi \frac{\sin(x)}{\cos^4(x)+\cos^2(x)+2}\, dx
+    \]
+\end{exercise}
+\begin{proof}[Soluzione]
+    In questo caso possiamo procedere in due modi: 
+    \begin{enumerate}[(i)]
+        \item possiamo provare a risolvere direttamente l'integrale: notiamo che la funzione integranda
+        \[
+        f(x) = \frac{\sin(x)}{\cos^4(x)+\cos^2(x)+2}
+        \]
+        può essere scritta come
+        \[
+        f(x) = -\frac{1}{\cos^4(x)+\cos^2(x)+2}\frac{d}{dx}(\cos(x)) = (g \circ \cos(x))\frac{d}{dx}(\cos(x))
+        \]
+        ove $g\colon x \mapsto -\frac{1}{x^4+x^2+2}$. Possiamo quindi applicare il teorema \ref{th:8.4}, e scrivere
+        \[
+        \begin{split}
+            &\int_{-\pi}^\pi  \frac{\sin(x)}{\cos^4(x)+\cos^2(x)+2}\, dx = \int_{-\pi}^\pi (g\circ \cos)(x) \frac{d}{dx}\sin(x)\, dx = \\
+            & = \int_{\cos(-\pi)}^{\cos(\pi)}-\frac{1}{y^4+y^2+2}\, dy = -\int_{-1}^{-1} \frac{1}{y^4+y^2+2}\, dy = 0
+        \end{split}
+        \]   
+        \item Oppure possiamo usare il seguente risultato:
+        \begin{tcolorbox}
+            \begin{proposition}
+                \label{prop:8.1}
+                Sia $f\colon\amsbb{R}\to \amsbb{R}$ una funzione dispari tale che $f\in\mathscr{R}([-a,a])$, $a>0$; allora
+                \[
+                \int_{-a}^a f(x)\, dx = 0
+                \]
+            \end{proposition}
+            \begin{proof}
+                Sappiamo, per il corollario \ref{cor:8.1} (v), che $f\in\mathscr{R}([-a,0])$ e $f\in\mathscr{R}([0,a])$, e che
+                \[
+                \int_{-a}^a f(x)\, dx = \int_{-a}^0 f(x)\, dx + \int_0^a f(x)\, dx
+                \]
+                Possiamo quindi considerare la funzione $\varphi\colon [-a,0]\ni x \mapsto -x\in[0,a]$, che è differenziabile e ammette derivata continua in $[-a,0]$, e applicare il teorema \ref{th:8.4} al primo integrale: avremo
+                \[
+                \int_{0}^a f(x)\, dx = \int_{\varphi(0)}^{\varphi(-a)}f(x)\, dx =  \int_{0}^{-a} (f \circ \varphi)(x) \varphi'(x)\, dx = -\int_{0}^{-a} f(-x)\, dx
+                \]
+                Poiché $f$ è dispari su $\amsbb{R}$ vale che $f(-x) = -f(x)$; di conseguenza
+                \[
+                \int_{0}^a f(x)\, dx = -\int_0^{-a} f(-x)\, dx = \int_0^{-a} f(x)\, dx = -\int_{-a}^0 f(x)\, dx
+                \]
+                Quindi
+                \[
+                \int_{-a}^a f(x)\, dx = \int_{-a}^0 f(x)\, dx - \int_{-a}^0 f(x)\, dx = 0
+                \]
+            \end{proof}
+        \end{tcolorbox}
+        Verifichiamo che la funzione integranda sia dispari:
+        \[
+        \frac{\sin(-x)}{\cos^4(-x)+\cos^2(-x)+2} = \frac{-\sin(x)}{\cos^4(x)+\cos^2(x)+2} = -\frac{\sin(x)}{\cos^4(x)+\cos^2(x)+2}
+        \]
+        Possiamo quindi applicare la proposizione \ref{prop:8.1}, e concludere che
+        \[
+        \int_{-\pi}^\pi  \frac{\sin(x)}{\cos^4(x)+\cos^2(x)+2}\, dx =0
+        \]
+    \end{enumerate}
+\end{proof}
+\newpage

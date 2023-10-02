@@ -1,5 +1,5 @@
 \pdfobjcompresslevel=0
-\documentclass[a4paper, 11pt, twoside]{article}
+\documentclass[a4paper, 11pt, twoside, titlepage]{article}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
@@ -210,10 +210,8 @@
 \hypersetup{%
             pdftitle={\xmpquote{Analisi Matematica 1\xmpcomma\ Corso di Laurea in Informatica\xmpcomma\ Appunti delle Esercitazioni}},
             pdfauthor={Valentino Abram},
-             pdfcopyright={This work is licensed under a Creative Commons Attribution ShareAlike 4.0 International license},
              pdfsubject={Mathematical analysis},
              pdfkeywords={Lecture notes, Calculus 1},
-             pdflicenseurl={https://creativecommons.org/licenses/by-sa/4.0/legalcode},
              pdfcontactaddress={Via Sommarive 14},
              pdfcontactcity={\xmpquote{Povo\xmpcomma\ Trento}},
              pdfcontactpostcode={38123},
@@ -230,6 +228,13 @@
                  plainpages=false,
                  breaklinks
 }
+\usepackage[
+       type={CC},
+       modifier={by-sa},
+       version={4.0},
+       lang={italian}
+     ]{doclicense}
+
 \begin{document}
 \pagenumbering{gobble}
 \afterpage{\blankpage}
@@ -249,9 +254,10 @@
     Analisi Matematica 1, Corso di Laurea in Informatica
     \vfill
     {\scshape Anno Accademico 2023 - 2024}
+    
   \end{titlepage}
- % \doclicenseThis
-\newpage
+%\doclicenseThis%
+\clearpage
 \tableofcontents
 \clearpage
 %\blankpage
@@ -265,10 +271,16 @@
 \input{Lessons/Lesson_6}
 \input{Lessons/Lesson_7}
 \input{Lessons/Lesson_8}
+\input{Lessons/Lesson_9}
+\input{Lessons/Lesson_10}
+\input{Lessons/Lesson_11}
+\input{Lessons/Lesson_12}
 \clearpage
 \pagestyle{empty}
 \phantomsection
 \addcontentsline{toc}{section}{Riferimenti bibliografici}
 \printbibliography
 \nocite{rudin1976principles}
+\nocite{lang1999}
+\nocite{paganisauce}
 \end{document}

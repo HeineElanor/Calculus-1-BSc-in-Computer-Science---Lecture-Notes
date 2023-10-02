@@ -44,10 +44,10 @@
   <internal package="biblatex" priority="9" active="1">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>./Plots/output-figure9.bcf</file>
+      <file>./Graphs/output-figure9.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>./Plots/output-figure9.bbl</file>
+      <file>./Graphs/output-figure9.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -64,19 +64,19 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>./Plots/output-figure9</infile>
+      <infile>./Graphs/output-figure9</infile>
     </cmdline>
     <input>
-      <file>./Plots/output-figure9.bcf</file>
+      <file>./Graphs/output-figure9.bcf</file>
     </input>
     <output>
-      <file>./Plots/output-figure9.bbl</file>
+      <file>./Graphs/output-figure9.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>./Plots/output-figure9.bbl</file>
+      <file>./Graphs/output-figure9.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>./Plots/output-figure9.bcf</file>
+      <file>./Graphs/output-figure9.bcf</file>
     </requires>
     <requires type="editable">
       <file>biblio.bib</file>

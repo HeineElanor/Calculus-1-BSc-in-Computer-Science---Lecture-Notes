@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.9.18)  18 SEP 2023 14:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.9.18)  27 SEP 2023 10:07
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -926,7 +926,15 @@ Package: afterpage 2014/10/28 v1.08 After-Page Package (DPC)
 \c@corollary=\count358
 \c@proposition=\count359
 \c@axiom=\count360
-(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/pgfplots\pgfplots.sty
+(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count361
+\float@exts=\toks52
+\float@box=\box106
+\@float@everytoks=\toks53
+\@floatcapt=\box107
+) (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/pgfplots\pgfplots.sty
+
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.rev
 ision.tex)
 Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
@@ -935,12 +943,12 @@ Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
 e.tex
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotscore
 .code.tex
-\t@pgfplots@toka=\toks52
-\t@pgfplots@tokb=\toks53
-\t@pgfplots@tokc=\toks54
+\t@pgfplots@toka=\toks54
+\t@pgfplots@tokb=\toks55
+\t@pgfplots@tokc=\toks56
 \pgfplots@tmpa=\dimen316
-\c@pgfplots@coordindex=\count361
-\c@pgfplots@scanlineindex=\count362
+\c@pgfplots@coordindex=\count362
+\c@pgfplots@scanlineindex=\count363
 
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgfplots
 sysgeneric.code.tex))
@@ -949,9 +957,9 @@ slibrary.code.tex)
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/oldpgfcompat
 ib\pgfplotsoldpgfsupp_loader.code.tex
 Package pgfplots: loading complementary utilities for your pgf version...
-\t@pgf@toka=\toks55
-\t@pgf@tokb=\toks56
-\t@pgf@tokc=\toks57
+\t@pgf@toka=\toks57
+\t@pgf@tokb=\toks58
+\t@pgf@tokc=\toks59
 
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/oldpgfcompat
 ib\pgfplotsoldpgfsupp_pgfutil-common-lists.tex))
@@ -963,14 +971,14 @@ e\pgfplotsliststructure.code.tex)
 e\pgfplotsliststructureext.code.tex)
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
 e\pgfplotsarray.code.tex
-\c@pgfplotsarray@tmp=\count363
+\c@pgfplotsarray@tmp=\count364
 )
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
 e\pgfplotsmatrix.code.tex)
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/numtable\pgf
 plotstableshared.code.tex
-\c@pgfplotstable@counta=\count364
-\t@pgfplotstable@a=\toks58
+\c@pgfplotstable@counta=\count365
+\t@pgfplotstable@a=\toks60
 )
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
 e\pgfplotsdeque.code.tex)
@@ -982,7 +990,7 @@ sbinary.data.code.tex))
 sutil.verb.code.tex)
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\pgflibr
 arypgfplots.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count365
+\c@pgfplotslibrarysurf@no=\count366
 
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgflibra
 rypgfplots.surfshading.pgfsys-pdftex.def)))
@@ -1012,7 +1020,7 @@ s.code.tex)
 hs.code.tex)
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\tikzlib
 rarypgfplots.contourlua.code.tex)
-\pgfplots@numplots=\count366
+\pgfplots@numplots=\count367
 \pgfplots@xmin@reg=\dimen317
 \pgfplots@xmax@reg=\dimen318
 \pgfplots@ymin@reg=\dimen319
@@ -1072,56 +1080,56 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 )) (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count367
+\lrq@indent=\count368
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 )) (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-\c@tabx@nest=\count368
-\c@listtotal=\count369
-\c@listcount=\count370
-\c@liststart=\count371
-\c@liststop=\count372
-\c@citecount=\count373
-\c@citetotal=\count374
-\c@multicitecount=\count375
-\c@multicitetotal=\count376
-\c@instcount=\count377
-\c@maxnames=\count378
-\c@minnames=\count379
-\c@maxitems=\count380
-\c@minitems=\count381
-\c@citecounter=\count382
-\c@maxcitecounter=\count383
-\c@savedcitecounter=\count384
-\c@uniquelist=\count385
-\c@uniquename=\count386
-\c@refsection=\count387
-\c@refsegment=\count388
-\c@maxextratitle=\count389
-\c@maxextratitleyear=\count390
-\c@maxextraname=\count391
-\c@maxextradate=\count392
-\c@maxextraalpha=\count393
-\c@abbrvpenalty=\count394
-\c@highnamepenalty=\count395
-\c@lownamepenalty=\count396
-\c@maxparens=\count397
-\c@parenlevel=\count398
-\blx@tempcnta=\count399
-\blx@tempcntb=\count400
-\blx@tempcntc=\count401
-\c@blx@maxsection=\count402
-\blx@maxsegment@0=\count403
-\blx@notetype=\count404
-\blx@parenlevel@text=\count405
-\blx@parenlevel@foot=\count406
-\blx@sectionciteorder@0=\count407
-\blx@sectionciteorderinternal@0=\count408
-\blx@entrysetcounter=\count409
-\blx@biblioinstance=\count410
+\c@tabx@nest=\count369
+\c@listtotal=\count370
+\c@listcount=\count371
+\c@liststart=\count372
+\c@liststop=\count373
+\c@citecount=\count374
+\c@citetotal=\count375
+\c@multicitecount=\count376
+\c@multicitetotal=\count377
+\c@instcount=\count378
+\c@maxnames=\count379
+\c@minnames=\count380
+\c@maxitems=\count381
+\c@minitems=\count382
+\c@citecounter=\count383
+\c@maxcitecounter=\count384
+\c@savedcitecounter=\count385
+\c@uniquelist=\count386
+\c@uniquename=\count387
+\c@refsection=\count388
+\c@refsegment=\count389
+\c@maxextratitle=\count390
+\c@maxextratitleyear=\count391
+\c@maxextraname=\count392
+\c@maxextradate=\count393
+\c@maxextraalpha=\count394
+\c@abbrvpenalty=\count395
+\c@highnamepenalty=\count396
+\c@lownamepenalty=\count397
+\c@maxparens=\count398
+\c@parenlevel=\count399
+\blx@tempcnta=\count400
+\blx@tempcntb=\count401
+\blx@tempcntc=\count402
+\c@blx@maxsection=\count403
+\blx@maxsegment@0=\count404
+\blx@notetype=\count405
+\blx@parenlevel@text=\count406
+\blx@parenlevel@foot=\count407
+\blx@sectionciteorder@0=\count408
+\blx@sectionciteorderinternal@0=\count409
+\blx@entrysetcounter=\count410
+\blx@biblioinstance=\count411
 \labelnumberwidth=\skip69
 \labelalphawidth=\skip70
 \biblabelsep=\skip71
@@ -1133,9 +1141,9 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 \blx@bcfin=\read5
 \blx@bcfout=\write5
 \blx@langwohyphens=\language80
-\c@mincomprange=\count411
-\c@maxcomprange=\count412
-\c@mincompwidth=\count413
+\c@mincomprange=\count412
+\c@maxcomprange=\count413
+\c@mincompwidth=\count414
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-dm.def
@@ -1143,74 +1151,74 @@ File: blx-dm.def 2023/03/05 v3.19 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count414
-\c@savedafterword=\count415
-\c@annotator=\count416
-\c@savedannotator=\count417
-\c@author=\count418
-\c@savedauthor=\count419
-\c@bookauthor=\count420
-\c@savedbookauthor=\count421
-\c@commentator=\count422
-\c@savedcommentator=\count423
-\c@editor=\count424
-\c@savededitor=\count425
-\c@editora=\count426
-\c@savededitora=\count427
-\c@editorb=\count428
-\c@savededitorb=\count429
-\c@editorc=\count430
-\c@savededitorc=\count431
-\c@foreword=\count432
-\c@savedforeword=\count433
-\c@holder=\count434
-\c@savedholder=\count435
-\c@introduction=\count436
-\c@savedintroduction=\count437
-\c@namea=\count438
-\c@savednamea=\count439
-\c@nameb=\count440
-\c@savednameb=\count441
-\c@namec=\count442
-\c@savednamec=\count443
-\c@translator=\count444
-\c@savedtranslator=\count445
-\c@shortauthor=\count446
-\c@savedshortauthor=\count447
-\c@shorteditor=\count448
-\c@savedshorteditor=\count449
-\c@labelname=\count450
-\c@savedlabelname=\count451
-\c@institution=\count452
-\c@savedinstitution=\count453
-\c@lista=\count454
-\c@savedlista=\count455
-\c@listb=\count456
-\c@savedlistb=\count457
-\c@listc=\count458
-\c@savedlistc=\count459
-\c@listd=\count460
-\c@savedlistd=\count461
-\c@liste=\count462
-\c@savedliste=\count463
-\c@listf=\count464
-\c@savedlistf=\count465
-\c@location=\count466
-\c@savedlocation=\count467
-\c@organization=\count468
-\c@savedorganization=\count469
-\c@origlocation=\count470
-\c@savedoriglocation=\count471
-\c@origpublisher=\count472
-\c@savedorigpublisher=\count473
-\c@publisher=\count474
-\c@savedpublisher=\count475
-\c@language=\count476
-\c@savedlanguage=\count477
-\c@origlanguage=\count478
-\c@savedoriglanguage=\count479
-\c@pageref=\count480
-\c@savedpageref=\count481
+\c@afterword=\count415
+\c@savedafterword=\count416
+\c@annotator=\count417
+\c@savedannotator=\count418
+\c@author=\count419
+\c@savedauthor=\count420
+\c@bookauthor=\count421
+\c@savedbookauthor=\count422
+\c@commentator=\count423
+\c@savedcommentator=\count424
+\c@editor=\count425
+\c@savededitor=\count426
+\c@editora=\count427
+\c@savededitora=\count428
+\c@editorb=\count429
+\c@savededitorb=\count430
+\c@editorc=\count431
+\c@savededitorc=\count432
+\c@foreword=\count433
+\c@savedforeword=\count434
+\c@holder=\count435
+\c@savedholder=\count436
+\c@introduction=\count437
+\c@savedintroduction=\count438
+\c@namea=\count439
+\c@savednamea=\count440
+\c@nameb=\count441
+\c@savednameb=\count442
+\c@namec=\count443
+\c@savednamec=\count444
+\c@translator=\count445
+\c@savedtranslator=\count446
+\c@shortauthor=\count447
+\c@savedshortauthor=\count448
+\c@shorteditor=\count449
+\c@savedshorteditor=\count450
+\c@labelname=\count451
+\c@savedlabelname=\count452
+\c@institution=\count453
+\c@savedinstitution=\count454
+\c@lista=\count455
+\c@savedlista=\count456
+\c@listb=\count457
+\c@savedlistb=\count458
+\c@listc=\count459
+\c@savedlistc=\count460
+\c@listd=\count461
+\c@savedlistd=\count462
+\c@liste=\count463
+\c@savedliste=\count464
+\c@listf=\count465
+\c@savedlistf=\count466
+\c@location=\count467
+\c@savedlocation=\count468
+\c@organization=\count469
+\c@savedorganization=\count470
+\c@origlocation=\count471
+\c@savedoriglocation=\count472
+\c@origpublisher=\count473
+\c@savedorigpublisher=\count474
+\c@publisher=\count475
+\c@savedpublisher=\count476
+\c@language=\count477
+\c@savedlanguage=\count478
+\c@origlanguage=\count479
+\c@savedoriglanguage=\count480
+\c@pageref=\count481
+\c@savedpageref=\count482
 \shorthandwidth=\skip77
 \shortjournalwidth=\skip78
 \shortserieswidth=\skip79
@@ -1235,19 +1243,19 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.def
 File: biblatex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
-\c@textcitecount=\count482
-\c@textcitetotal=\count483
-\c@textcitemaxnames=\count484
-\c@biburlbigbreakpenalty=\count485
-\c@biburlbreakpenalty=\count486
-\c@biburlnumpenalty=\count487
-\c@biburlucpenalty=\count488
-\c@biburllcpenalty=\count489
+\c@textcitecount=\count483
+\c@textcitetotal=\count484
+\c@textcitemaxnames=\count485
+\c@biburlbigbreakpenalty=\count486
+\c@biburlbreakpenalty=\count487
+\c@biburlnumpenalty=\count488
+\c@biburlucpenalty=\count489
+\c@biburllcpenalty=\count490
 \biburlbigskip=\muskip18
 \biburlnumskip=\muskip19
 \biburlucskip=\muskip20
 \biburllcskip=\muskip21
-\c@smartand=\count490
+\c@smartand=\count491
 )
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
@@ -1261,8 +1269,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard.b
 bx
 File: standard.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count491
-\c@bbx:relatedtotal=\count492
+\c@bbx:relatedcount=\count492
+\c@bbx:relatedtotal=\count493
 ))
 Package biblatex Info: Trying to load citation style 'numeric'...
 Package biblatex Info: ... file 'numeric.cbx' found.
@@ -1300,13 +1308,13 @@ Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
 )) (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.st
 y
 Package: csquotes 2022-09-14 v5.2n context-sensitive quotations (JAW)
-\csq@reset=\count493
-\csq@gtype=\count494
-\csq@glevel=\count495
-\csq@qlevel=\count496
-\csq@maxlvl=\count497
-\csq@tshold=\count498
-\csq@ltx@everypar=\toks59
+\csq@reset=\count494
+\csq@gtype=\count495
+\csq@glevel=\count496
+\csq@qlevel=\count497
+\csq@maxlvl=\count498
+\csq@tshold=\count499
+\csq@ltx@everypar=\toks61
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.def
 File: csquotes.def 2022-09-14 v5.2n csquotes generic definitions (JAW)
 )
@@ -1314,26 +1322,8 @@ Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
 Package csquotes Info: ... configuration file loaded successfully.
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.cfg
 File: csquotes.cfg 
-)) (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/pdfx\pdfx.sty
-Package: pdfx 2019/02/27 v1.6.3 PDF/X and PDF/A support (CVR/HTH/RRM/PS)
-\pdfx@minorversion=\count499
-(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifpdf.sty
-Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
-) (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifxetex.sty
-Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-) (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/everyshi\everyshi.sty
-Package: everyshi 2020/11/18 v4.00 EveryShipout Package
-) (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifluatex.sty
-Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-){C:/Users/angel/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} (C:\Users\an
-gel\AppData\Local\Programs\MiKTeX\tex/latex/pdfx\l8u-penc.def
-File: l8u-penc.def 2017/06/23 v0.8 Custom LaTeX file, for UTF8 encoded letters 
-and symbols
-LaTeX Info: Composite with undeclared \b in encoding L8U on input line 278.
-)
-\pdfxsafeforxmp@toks=\toks60
-\pdfx@tmptoks=\toks61
-(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+)) (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.st
+y
 Package: hyperref 2023-07-08 v7.01b Hypertext links for LaTeX
 
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
@@ -1367,12 +1357,16 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 \Hy@pagecounter=\count502
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2023-07-08 v7.01b Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
 ) (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count503
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2023-07-08 v7.01b Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
 )
 Package hyperref Info: Option `pdfa' set `true' on input line 4050.
 Package hyperref Info: Hyper figures OFF on input line 4167.
@@ -1411,7 +1405,7 @@ package with kernel methods
 \c@Item=\count507
 \c@Hfootnote=\count508
 )
-Package hyperref Info: Driver: hpdftex.
+Package hyperref Info: Driver (autodetected): hpdftex.
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
 File: hpdftex.def 2023-07-08 v7.01b Hyperref driver for pdfTeX
 \Fld@listcount=\count509
@@ -1429,98 +1423,68 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 85.
 )
 \Hy@SectionHShift=\skip91
-)
-Package hyperref Info: Option `unicode' set `true' on input line 1463.
+) (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/hyperxmp\hyperxmp.sty
+Package: hyperxmp 2023/09/10 v5.12 Store hyperref metadata in XMP format
+\hyxmp@aep@toks=\toks62
 
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.s
 ty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
+) (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/ifmtarg\ifmtarg.sty
+Package: ifmtarg 2018/04/16 v1.2b check for an empty argument
 )
-Package hyperref Info: Option `psdextra' set `true' on input line 1465.
-(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\psdextra.def
-File: psdextra.def 2023-07-08 v7.01b Hyperref: Additions to PDF string support
-)
-(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/colorprofiles\colorpr
-ofiles.sty
-Package: colorprofiles 2018/11/01 v1.0.1 color profiles for PDF/X and PDF/A sup
-port
-
-(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/colorprofiles\colorpr
-ofiles.tex))
-(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\se-pdfdoc.d
-ef
-File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
-)
-(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/pdfx\AdobeColorProfiles
-.tex) (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/pdfx\8bit.def
-File: 8bit.def 2008/03/30 v1.1d Input encoding file
-)
-** pdfx: No file ./Plots/output-figure8.xmpdata . Metadata will be incomplete!
-<<sRGB.icc>> (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/pdfx\8bit.
-def
-File: 8bit.def 2008/03/30 v1.1d Input encoding file
-)
-Package hyperref Info: Option `unicode' set `true' on input line 2411.
-Package hyperref Info: Option `unicode' set `true' on input line 2412.
-
-(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/pdftex\glyphtounicode
-.tex)
-(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/pdfx\glyphtounicode-cmr
-.tex)
-(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/pdfx\glyphtounicode-ntx
-.tex) (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/xmpincl\xmpincl.s
-ty
-Package: xmpincl 2021/09/22 v2.4 Include XMP data in pdflatex
-) (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/pdfx\8bit.def
-File: 8bit.def 2008/03/30 v1.1d Input encoding file
-)
-Using XMP template file: pdfa.xmp
-\xmpinclWrite=\write6
-\xmpinclRead=\read6
-\openout6 = `pdfa.xmpi'.
-
-<<pdfa.xmpi>>)
+\@hyxmp@count=\count511
+(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/oberdiek\ifdraft.sty
+Package: ifdraft 2016/05/16 v1.4 Detect class options draft and final (HO)
+) (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+))<<eciRGB_v2.icc>>
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 232.
+Package hyperref Info: Option `hypertexnames' set `false' on input line 232.
+Package hyperref Info: Option `linktocpage' set `true' on input line 232.
+Package hyperref Info: Option `plainpages' set `false' on input line 232.
+Package hyperref Info: Option `breaklinks' set `true' on input line 232.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'italian'.
-No file ./Plots/output-figure8.aux.
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 180.
-LaTeX Font Info:    ... okay on input line 180.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 180.
-LaTeX Font Info:    ... okay on input line 180.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 180.
-LaTeX Font Info:    ... okay on input line 180.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 180.
-LaTeX Font Info:    ... okay on input line 180.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 180.
-LaTeX Font Info:    ... okay on input line 180.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 180.
-LaTeX Font Info:    ... okay on input line 180.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 180.
-LaTeX Font Info:    ... okay on input line 180.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 180.
-LaTeX Font Info:    ... okay on input line 180.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 180.
-LaTeX Font Info:    ... okay on input line 180.
-LaTeX Info: Redefining \it@ocap on input line 180.
-LaTeX Info: Redefining \it@ccap on input line 180.
+No file ./Graphs/output-figure8.aux.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 233.
+LaTeX Font Info:    ... okay on input line 233.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 233.
+LaTeX Font Info:    ... okay on input line 233.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 233.
+LaTeX Font Info:    ... okay on input line 233.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 233.
+LaTeX Font Info:    ... okay on input line 233.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 233.
+LaTeX Font Info:    ... okay on input line 233.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 233.
+LaTeX Font Info:    ... okay on input line 233.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 233.
+LaTeX Font Info:    ... okay on input line 233.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 233.
+LaTeX Font Info:    ... okay on input line 233.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 233.
+LaTeX Font Info:    ... okay on input line 233.
+LaTeX Info: Redefining \it@ocap on input line 233.
+LaTeX Info: Redefining \it@ccap on input line 233.
 
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count511
+\scratchcounter=\count512
 \scratchdimen=\dimen327
-\scratchbox=\box106
-\nofMPsegments=\count512
-\nofMParguments=\count513
-\everyMPshowfont=\toks62
-\MPscratchCnt=\count514
+\scratchbox=\box108
+\nofMPsegments=\count513
+\nofMParguments=\count514
+\everyMPshowfont=\toks63
+\MPscratchCnt=\count515
 \MPscratchDim=\dimen328
-\MPnumerator=\count515
-\makeMPintoPDFobject=\count516
-\everyMPtoPDFconversion=\toks63
+\MPnumerator=\count516
+\makeMPintoPDFobject=\count517
+\everyMPtoPDFconversion=\toks64
 )
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -1579,13 +1543,13 @@ Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file './Plots/output-figure8.bbl' not found.
-No file ./Plots/output-figure8.bbl.
-Package biblatex Info: Reference section=0 on input line 180.
-Package biblatex Info: Reference segment=0 on input line 180.
+Package biblatex Info: ... file './Graphs/output-figure8.bbl' not found.
+No file ./Graphs/output-figure8.bbl.
+Package biblatex Info: Reference section=0 on input line 233.
+Package biblatex Info: Reference segment=0 on input line 233.
 \providecommand\hyper@newdestlabel[2]{}
-Package hyperref Info: Link coloring OFF on input line 180.
-No file ./Plots/output-figure8.toc.
+Package hyperref Info: Link coloring OFF on input line 233.
+No file ./Graphs/output-figure8.toc.
 (Lessons/Lesson_1.tex
 LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
@@ -1648,6 +1612,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 368--370
 
  []
 
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
 
 LaTeX Warning: Reference `eq:1.1' on page 10 undefined on input line 384.
 
@@ -1679,122 +1645,121 @@ LaTeX Warning: Reference `cor:2.1' on page 15 undefined on input line 191.
 
 LaTeX Warning: Reference `ex:2.1' on page 15 undefined on input line 192.
 
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
-45.
+49.
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 
-LaTeX Warning: Reference `eq:2.1' on page 17 undefined on input line 283.
+LaTeX Warning: Reference `eq:2.1' on page 17 undefined on input line 287.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `eq:2.1' on page 17 undefined on input line 304.
 
 
-LaTeX Warning: Reference `eq:2.1' on page 18 undefined on input line 300.
+LaTeX Warning: Reference `eq:2.2' on page 18 undefined on input line 327.
 
 
-LaTeX Warning: Reference `eq:2.2' on page 18 undefined on input line 323.
+LaTeX Warning: Reference `eq:2.3' on page 18 undefined on input line 343.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `eq:2.3' on page 18 undefined on input line 366.
 
 
-LaTeX Warning: Reference `eq:2.3' on page 18 undefined on input line 339.
+LaTeX Warning: Reference `eq:2.4' on page 19 undefined on input line 377.
 
 
-LaTeX Warning: Reference `eq:2.3' on page 19 undefined on input line 362.
-
-
-LaTeX Warning: Reference `eq:2.4' on page 19 undefined on input line 373.
-
-
-LaTeX Warning: Reference `eq:2.5' on page 19 undefined on input line 377.
+LaTeX Warning: Reference `eq:2.5' on page 19 undefined on input line 381.
 
 ) (Lessons/Lesson_3.tex
 
-LaTeX Warning: Reference `def:3.2' on page 21 undefined on input line 43.
+LaTeX Warning: Reference `def:3.2' on page 20 undefined on input line 43.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `eq:3.2' on page 21 undefined on input line 106.
 
 
-LaTeX Warning: Reference `eq:3.2' on page 23 undefined on input line 106.
+LaTeX Warning: Reference `eq:3.2' on page 21 undefined on input line 113.
 
 
-LaTeX Warning: Reference `eq:3.2' on page 23 undefined on input line 113.
+LaTeX Warning: Reference `eq:3.1' on page 22 undefined on input line 123.
 
 
-LaTeX Warning: Reference `eq:3.1' on page 23 undefined on input line 123.
+LaTeX Warning: Reference `th:3.2' on page 22 undefined on input line 134.
 
 
-LaTeX Warning: Reference `th:3.2' on page 23 undefined on input line 134.
+LaTeX Warning: Reference `eq:3.2' on page 22 undefined on input line 139.
 
 
-LaTeX Warning: Reference `eq:3.2' on page 23 undefined on input line 139.
+LaTeX Warning: Reference `eq:3.4' on page 23 undefined on input line 214.
 
 
-LaTeX Warning: Reference `eq:3.4' on page 25 undefined on input line 214.
+LaTeX Warning: Reference `prop:1.1' on page 24 undefined on input line 257.
 
 
-LaTeX Warning: Reference `prop:1.1' on page 26 undefined on input line 257.
+LaTeX Warning: Reference `def:1.5' on page 24 undefined on input line 257.
 
 
-LaTeX Warning: Reference `def:1.5' on page 26 undefined on input line 257.
+LaTeX Warning: Reference `th:1.2' on page 25 undefined on input line 274.
 
 
-LaTeX Warning: Reference `th:1.2' on page 26 undefined on input line 274.
+LaTeX Warning: Reference `eq:3.7' on page 26 undefined on input line 312.
 
 
-LaTeX Warning: Reference `eq:3.7' on page 27 undefined on input line 312.
+LaTeX Warning: Reference `eq:3.8' on page 26 undefined on input line 337.
 
 
-LaTeX Warning: Reference `eq:3.8' on page 27 undefined on input line 337.
+LaTeX Warning: Reference `eq:3.9' on page 26 undefined on input line 341.
 
 
-LaTeX Warning: Reference `eq:3.9' on page 28 undefined on input line 341.
+LaTeX Warning: Reference `eq:3.10' on page 27 undefined on input line 360.
 
 
-LaTeX Warning: Reference `eq:3.10' on page 28 undefined on input line 360.
+LaTeX Warning: Reference `eq:3.11' on page 27 undefined on input line 364.
 
 
-LaTeX Warning: Reference `eq:3.11' on page 28 undefined on input line 364.
+LaTeX Warning: Reference `def:3.1' on page 27 undefined on input line 390.
 
 
-LaTeX Warning: Reference `def:3.1' on page 28 undefined on input line 390.
+LaTeX Warning: Reference `eq:3.12' on page 27 undefined on input line 406.
 
 
-LaTeX Warning: Reference `eq:3.12' on page 29 undefined on input line 406.
+LaTeX Warning: Reference `eq:3.13' on page 27 undefined on input line 414.
 
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+\openout4 = `./Graphs/output-figure8.dpth'.
 
-LaTeX Warning: Reference `eq:3.13' on page 29 undefined on input line 414.
-
-Package pgfplots info on input line 498: Overriding colorspace to rgb due to xc
-olor configuration.
-Package pgfplots info on input line 504: fill between: activating layered graph
-ics
-\pgf@layerbox@axis background=\box107
-\pgf@layerboxsaved@axis background=\box108
-\pgf@layerbox@axis grid=\box109
-\pgf@layerboxsaved@axis grid=\box110
-\pgf@layerbox@axis ticks=\box111
-\pgf@layerboxsaved@axis ticks=\box112
-\pgf@layerbox@axis lines=\box113
-\pgf@layerboxsaved@axis lines=\box114
-\pgf@layerbox@axis tick labels=\box115
-\pgf@layerboxsaved@axis tick labels=\box116
-\pgf@layerbox@pre main=\box117
-\pgf@layerboxsaved@pre main=\box118
-\pgf@layerbox@axis descriptions=\box119
-\pgf@layerboxsaved@axis descriptions=\box120
-\pgf@layerbox@axis foreground=\box121
-\pgf@layerboxsaved@axis foreground=\box122
-Package pgfplots info on input line 504: Setting layers 'axis background,axis g
-rid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis
- foreground'...
-Package pgfplots info on input line 504: the combination of 'axis on top' and '
-activate layers' implies 'set layers=axis on top'. Deactivate 'axis on top' if 
-you want other layers.
-Package pgfplots info on input line 504: Setting layers 'axis background,pre ma
-in,main,axis grid,axis ticks,axis lines,axis tick labels,axis descriptions,axis
- foreground'...
-\openout4 = `./Plots/output-figure8.dpth'.
-
-Package pgfplots info on input line 517: Overriding colorspace to rgb due to xc
-olor configuration.
 Package pgfplots info on input line 530: fill between: activating layered graph
 ics
+\pgf@layerbox@axis background=\box109
+\pgf@layerboxsaved@axis background=\box110
+\pgf@layerbox@axis grid=\box111
+\pgf@layerboxsaved@axis grid=\box112
+\pgf@layerbox@axis ticks=\box113
+\pgf@layerboxsaved@axis ticks=\box114
+\pgf@layerbox@axis lines=\box115
+\pgf@layerboxsaved@axis lines=\box116
+\pgf@layerbox@axis tick labels=\box117
+\pgf@layerboxsaved@axis tick labels=\box118
+\pgf@layerbox@pre main=\box119
+\pgf@layerboxsaved@pre main=\box120
+\pgf@layerbox@axis descriptions=\box121
+\pgf@layerboxsaved@axis descriptions=\box122
+\pgf@layerbox@axis foreground=\box123
+\pgf@layerboxsaved@axis foreground=\box124
 Package pgfplots info on input line 530: Setting layers 'axis background,axis g
 rid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis
  foreground'...
@@ -1804,136 +1769,120 @@ you want other layers.
 Package pgfplots info on input line 530: Setting layers 'axis background,pre ma
 in,main,axis grid,axis ticks,axis lines,axis tick labels,axis descriptions,axis
  foreground'...
-[31
+[29
 
-]
-Package pgfplots info on input line 543: Overriding colorspace to rgb due to xc
-olor configuration.
-Package pgfplots info on input line 553: fill between: activating layered graph
-ics
-Package pgfplots info on input line 553: Setting layers 'axis background,axis g
-rid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis
- foreground'...
-Package pgfplots info on input line 553: the combination of 'axis on top' and '
-activate layers' implies 'set layers=axis on top'. Deactivate 'axis on top' if 
-you want other layers.
-Package pgfplots info on input line 553: Setting layers 'axis background,pre ma
-in,main,axis grid,axis ticks,axis lines,axis tick labels,axis descriptions,axis
- foreground'...
-Package pgfplots info on input line 585: Overriding colorspace to rgb due to xc
-olor configuration.
-Package pgfplots info on input line 590: fill between: activating layered graph
-ics
-Package pgfplots info on input line 590: Setting layers 'axis background,axis g
-rid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis
- foreground'...
-Package pgfplots info on input line 590: the combination of 'axis on top' and '
-activate layers' implies 'set layers=axis on top'. Deactivate 'axis on top' if 
-you want other layers.
-Package pgfplots info on input line 590: Setting layers 'axis background,pre ma
-in,main,axis grid,axis ticks,axis lines,axis tick labels,axis descriptions,axis
- foreground'...
+{C:/Users/angel/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
 
-Underfull \vbox (badness 1478) has occurred while \output is active []
-
-
-LaTeX Warning: Reference `def:1.5' on page 33 undefined on input line 613.
+LaTeX Warning: Reference `def:1.5' on page 30 undefined on input line 613.
 
 ) (Lessons/Lesson_4.tex
 
-LaTeX Warning: Reference `def:4.2' on page 34 undefined on input line 45.
+LaTeX Warning: Reference `def:4.2' on page 31 undefined on input line 45.
 
 
-LaTeX Warning: Reference `th:4.1' on page 35 undefined on input line 75.
+LaTeX Warning: Reference `th:4.1' on page 32 undefined on input line 75.
 
 
-LaTeX Warning: Reference `eq:4.3' on page 35 undefined on input line 103.
+LaTeX Warning: Reference `eq:4.3' on page 32 undefined on input line 103.
 
 
-LaTeX Warning: Reference `th:4.2' on page 35 undefined on input line 103.
+LaTeX Warning: Reference `th:4.2' on page 32 undefined on input line 103.
 
 
-LaTeX Warning: Reference `th:4.1' on page 35 undefined on input line 104.
+LaTeX Warning: Reference `th:4.1' on page 32 undefined on input line 104.
 
 
-LaTeX Warning: Reference `th:4.2' on page 36 undefined on input line 124.
+LaTeX Warning: Reference `th:4.2' on page 33 undefined on input line 124.
 
 
-LaTeX Warning: Reference `th:4.2' on page 37 undefined on input line 155.
+LaTeX Warning: Reference `th:4.2' on page 34 undefined on input line 155.
 
 
-LaTeX Warning: Reference `th:4.4' on page 37 undefined on input line 189.
+LaTeX Warning: Reference `th:4.4' on page 34 undefined on input line 189.
 
 
-LaTeX Warning: Reference `th:4.3' on page 37 undefined on input line 189.
+LaTeX Warning: Reference `th:4.3' on page 34 undefined on input line 189.
 
 
-LaTeX Warning: Reference `ex:4.3' on page 38 undefined on input line 200.
+LaTeX Warning: Reference `ex:4.3' on page 35 undefined on input line 200.
 
 
-LaTeX Warning: Reference `def:4.2' on page 38 undefined on input line 227.
+LaTeX Warning: Reference `def:4.2' on page 35 undefined on input line 227.
 
 
-LaTeX Warning: Reference `th:4.4' on page 38 undefined on input line 227.
+LaTeX Warning: Reference `th:4.4' on page 35 undefined on input line 227.
 
 
-LaTeX Warning: Reference `th:4.3' on page 38 undefined on input line 231.
+LaTeX Warning: Reference `th:4.3' on page 35 undefined on input line 231.
 
 
-LaTeX Warning: Reference `th:4.6' on page 39 undefined on input line 253.
+LaTeX Warning: Reference `def:4.2' on page 35 undefined on input line 246.
 
 
-LaTeX Warning: Reference `th:4.6' on page 39 undefined on input line 256.
+LaTeX Warning: Reference `th:4.6' on page 36 undefined on input line 260.
 
 
-LaTeX Warning: Reference `th:4.6' on page 39 undefined on input line 271.
+LaTeX Warning: Reference `th:4.6' on page 36 undefined on input line 263.
 
 
-LaTeX Warning: Reference `th:4.4' on page 40 undefined on input line 288.
+LaTeX Warning: Reference `th:4.6' on page 36 undefined on input line 278.
 
 
-LaTeX Warning: Reference `th:4.1' on page 40 undefined on input line 292.
+LaTeX Warning: Reference `th:4.4' on page 37 undefined on input line 295.
 
 
-LaTeX Warning: Reference `def:4.2' on page 41 undefined on input line 347.
+LaTeX Warning: Reference `th:4.1' on page 37 undefined on input line 299.
 
 
-LaTeX Warning: Reference `th:4.2' on page 41 undefined on input line 378.
+LaTeX Warning: Reference `def:4.2' on page 38 undefined on input line 354.
 
 
-LaTeX Warning: Reference `th:4.4' on page 42 undefined on input line 417.
+LaTeX Warning: Reference `th:4.2' on page 39 undefined on input line 385.
 
 
-LaTeX Warning: Reference `th:4.5' on page 43 undefined on input line 423.
+LaTeX Warning: Reference `th:4.4' on page 40 undefined on input line 424.
 
+
+LaTeX Warning: Reference `th:4.5' on page 40 undefined on input line 430.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
 ) (Lessons/Lesson_5.tex
 Underfull \hbox (badness 10000) in paragraph at lines 29--31
 
  []
 
 
-LaTeX Warning: Reference `th:5.1' on page 46 undefined on input line 49.
+LaTeX Warning: Reference `th:5.1' on page 43 undefined on input line 49.
 
 
-LaTeX Warning: Reference `th:5.1' on page 47 undefined on input line 66.
+LaTeX Warning: Reference `th:5.1' on page 44 undefined on input line 66.
 
 
-LaTeX Warning: Reference `th:5.1' on page 47 undefined on input line 94.
+LaTeX Warning: Reference `th:5.1' on page 44 undefined on input line 94.
 
 
-LaTeX Warning: Reference `th:4.2' on page 47 undefined on input line 94.
+LaTeX Warning: Reference `th:4.2' on page 44 undefined on input line 94.
 
 
-LaTeX Warning: Reference `th:4.3' on page 47 undefined on input line 94.
+LaTeX Warning: Reference `th:4.3' on page 44 undefined on input line 94.
 
 
-LaTeX Warning: Reference `th:4.4' on page 47 undefined on input line 94.
+LaTeX Warning: Reference `th:4.4' on page 44 undefined on input line 94.
 
 
-LaTeX Warning: Reference `eq:5.1' on page 48 undefined on input line 103.
+LaTeX Warning: Reference `eq:5.1' on page 45 undefined on input line 103.
 
 
-LaTeX Warning: Reference `eq:5.2' on page 48 undefined on input line 103.
+LaTeX Warning: Reference `eq:5.2' on page 45 undefined on input line 103.
 
 
 Overfull \hbox (17.71176pt too wide) detected at line 110
@@ -1941,16 +1890,16 @@ Overfull \hbox (17.71176pt too wide) detected at line 110
  []
 
 
-LaTeX Warning: Reference `eq:5.3' on page 48 undefined on input line 127.
+LaTeX Warning: Reference `eq:5.3' on page 45 undefined on input line 127.
 
 
-LaTeX Warning: Reference `eq:5.1' on page 48 undefined on input line 131.
+LaTeX Warning: Reference `eq:5.1' on page 45 undefined on input line 131.
 
 
-LaTeX Warning: Reference `eq:5.2' on page 48 undefined on input line 134.
+LaTeX Warning: Reference `eq:5.2' on page 45 undefined on input line 134.
 
 
-LaTeX Warning: Reference `eq:5.4' on page 48 undefined on input line 137.
+LaTeX Warning: Reference `eq:5.4' on page 45 undefined on input line 137.
 
 
 Overfull \hbox (1.89412pt too wide) detected at line 145
@@ -1963,60 +1912,535 @@ Overfull \hbox (25.74338pt too wide) detected at line 145
  []
 
 
-LaTeX Warning: Reference `th:4.3' on page 49 undefined on input line 146.
+LaTeX Warning: Reference `th:4.3' on page 46 undefined on input line 146.
 
 
-LaTeX Warning: Reference `th:4.3' on page 49 undefined on input line 150.
+LaTeX Warning: Reference `th:4.3' on page 46 undefined on input line 150.
 
 
-LaTeX Warning: Reference `th:4.2' on page 49 undefined on input line 150.
+LaTeX Warning: Reference `th:4.2' on page 46 undefined on input line 150.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `th:4.5' on page 49 undefined on input line 277.
 
 
-LaTeX Warning: Reference `th:4.5' on page 52 undefined on input line 268.
+LaTeX Warning: Reference `def:5.2' on page 49 undefined on input line 281.
 
 
-LaTeX Warning: Reference `def:5.2' on page 52 undefined on input line 272.
+LaTeX Warning: Reference `th:5.2' on page 49 undefined on input line 285.
 
 
-LaTeX Warning: Reference `th:5.2' on page 52 undefined on input line 276.
+LaTeX Warning: Reference `th:5.1' on page 49 undefined on input line 305.
 
 
-LaTeX Warning: Reference `th:5.1' on page 52 undefined on input line 296.
+LaTeX Warning: Reference `th:5.1' on page 49 undefined on input line 309.
 
 
-LaTeX Warning: Reference `th:5.1' on page 53 undefined on input line 300.
+LaTeX Warning: Reference `def:4.2' on page 49 undefined on input line 309.
 
 
-LaTeX Warning: Reference `def:4.2' on page 53 undefined on input line 300.
+LaTeX Warning: Reference `eq:5.6' on page 50 undefined on input line 331.
 
 
-LaTeX Warning: Reference `eq:5.6' on page 53 undefined on input line 322.
+LaTeX Warning: Reference `eq:5.7' on page 50 undefined on input line 331.
 
 
-LaTeX Warning: Reference `eq:5.7' on page 53 undefined on input line 322.
+LaTeX Warning: Reference `def:5.3' on page 50 undefined on input line 354.
 
 
-LaTeX Warning: Reference `def:5.3' on page 53 undefined on input line 345.
+LaTeX Warning: Reference `th:5.2' on page 50 undefined on input line 354.
 
 
-LaTeX Warning: Reference `th:5.2' on page 53 undefined on input line 345.
+LaTeX Warning: Reference `th:4.3' on page 50 undefined on input line 360.
 
 
-LaTeX Warning: Reference `th:4.3' on page 54 undefined on input line 351.
+LaTeX Warning: Reference `eq:5.8' on page 50 undefined on input line 362.
 
 
-LaTeX Warning: Reference `eq:5.8' on page 54 undefined on input line 353.
+LaTeX Warning: Reference `eq:5.9' on page 51 undefined on input line 370.
 
 
-LaTeX Warning: Reference `eq:5.9' on page 54 undefined on input line 361.
+LaTeX Warning: Reference `eq:5.11' on page 51 undefined on input line 412.
+
+
+LaTeX Warning: Reference `eq:5.10' on page 51 undefined on input line 412.
+
+
+LaTeX Warning: Reference `eq:5.11' on page 51 undefined on input line 412.
+
+
+LaTeX Warning: Reference `eq:5.10' on page 51 undefined on input line 412.
+
+
+LaTeX Warning: Reference `eq:5.12' on page 52 undefined on input line 424.
+
+
+LaTeX Warning: Reference `def:5.4' on page 52 undefined on input line 438.
+
+
+Overfull \hbox (8.60234pt too wide) detected at line 464
+   []  []  []  []
+ []
+
+
+LaTeX Warning: Reference `eq:5.13' on page 53 undefined on input line 478.
+
+
+LaTeX Warning: Reference `eq:5.12' on page 53 undefined on input line 478.
+
+
+LaTeX Warning: Reference `eq:5.13' on page 53 undefined on input line 478.
+
+
+LaTeX Warning: Reference `eq:5.12' on page 53 undefined on input line 478.
+
+
+LaTeX Warning: Reference `eq:5.16' on page 53 undefined on input line 493.
+
+
+LaTeX Warning: Reference `eq:5.12' on page 53 undefined on input line 493.
+
+
+LaTeX Warning: Reference `eq:5.14' on page 53 undefined on input line 493.
+
+
+LaTeX Warning: Reference `eq:5.15' on page 53 undefined on input line 493.
+
+
+LaTeX Warning: Reference `eq:5.16' on page 53 undefined on input line 493.
+
+
+LaTeX Warning: Reference `eq:5.12' on page 53 undefined on input line 493.
+
+
+LaTeX Warning: Reference `eq:5.14' on page 53 undefined on input line 493.
+
+
+LaTeX Warning: Reference `eq:5.15' on page 53 undefined on input line 493.
+
+
+Underfull \vbox (badness 1755) has occurred while \output is active []
+
+
+LaTeX Warning: Reference `th:4.2' on page 54 undefined on input line 500.
+
+
+LaTeX Warning: Reference `th:4.3' on page 54 undefined on input line 500.
+
+
+LaTeX Warning: Reference `th:4.4' on page 54 undefined on input line 500.
+
+) (Lessons/Lesson_6.tex
+
+LaTeX Warning: Reference `th:4.6' on page 55 undefined on input line 27.
+
+
+LaTeX Warning: Reference `eq:6.1' on page 55 undefined on input line 27.
+
+
+LaTeX Warning: Reference `def:5.4' on page 55 undefined on input line 31.
+
+
+LaTeX Warning: Reference `eq:6.1' on page 56 undefined on input line 58.
+
+
+LaTeX Warning: Reference `eq:6.1' on page 56 undefined on input line 62.
+
+
+LaTeX Warning: Reference `th:4.6' on page 56 undefined on input line 75.
+
+
+LaTeX Warning: Reference `def:6.2' on page 56 undefined on input line 79.
+
+
+LaTeX Warning: Reference `th:6.2' on page 57 undefined on input line 111.
+
+
+LaTeX Warning: Reference `eq:6.3' on page 57 undefined on input line 116.
+
+
+LaTeX Warning: Reference `eq:6.4' on page 57 undefined on input line 116.
+
+
+LaTeX Warning: Reference `eq:6.3' on page 57 undefined on input line 116.
+
+
+LaTeX Warning: Reference `eq:6.4' on page 57 undefined on input line 116.
+
+
+LaTeX Warning: Reference `eq:6.1' on page 57 undefined on input line 118.
+
+
+LaTeX Warning: Reference `th:4.5' on page 57 undefined on input line 126.
+
+
+LaTeX Warning: Reference `th:4.6' on page 57 undefined on input line 126.
+
+
+LaTeX Warning: Reference `th:5.1' on page 58 undefined on input line 149.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `def:6.1' on page 58 undefined on input line 199.
+
+
+LaTeX Warning: Reference `eq:6.1' on page 58 undefined on input line 199.
+
+
+LaTeX Warning: Reference `eq:6.4' on page 59 undefined on input line 217.
+
+
+LaTeX Warning: Reference `eq:6.4' on page 59 undefined on input line 217.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `th:5.3' on page 60 undefined on input line 241.
+
+
+LaTeX Warning: Reference `eq:6.4' on page 60 undefined on input line 248.
+
+
+Overfull \hbox (8.30885pt too wide) in paragraph at lines 251--253
+\T1/cmr/m/n/10.95 Notiamo che se $\OML/cmm/m/it/10.95 f[]\OT1/cmr/m/n/10.95 (\O
+ML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) = 0$ \T1/cmr/m/n/10.95 non pos-sia-mo u
+sa-re que-sto me-to-do per cal-co-la-re $\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.9
+5 f[]\OT1/cmr/m/n/10.95 )[](\OML/cmm/m/it/10.95 f\OT1/cmr/m/n/10.95 (\OML/cmm/m
+/it/10.95 x\OT1/cmr/m/n/10.95 ))$\T1/cmr/m/n/10.95 ;
+ []
+
+
+LaTeX Warning: Reference `th:5.2' on page 62 undefined on input line 333.
+
+
+LaTeX Warning: Reference `th:6.3' on page 62 undefined on input line 352.
+
+
+LaTeX Warning: Citation 'rudin1976principles' on page 62 undefined on input lin
+e 352.
+
+
+LaTeX Warning: Reference `th:6.3' on page 63 undefined on input line 366.
+
+
+LaTeX Warning: Reference `th:5.2' on page 63 undefined on input line 366.
+
+
+LaTeX Warning: Reference `def:6.1' on page 63 undefined on input line 381.
+
+
+LaTeX Warning: Reference `eq:6.1' on page 63 undefined on input line 381.
+
+
+LaTeX Warning: Reference `th:5.2' on page 63 undefined on input line 381.
+
+
+LaTeX Warning: Reference `eq:6.5' on page 63 undefined on input line 387.
+
+
+LaTeX Warning: Reference `eq:5.13' on page 63 undefined on input line 393.
+
+
+LaTeX Warning: Reference `eq:5.13' on page 63 undefined on input line 393.
+
+
+LaTeX Warning: Reference `eq:6.6' on page 63 undefined on input line 395.
+
+
+LaTeX Warning: Reference `eq:5.15' on page 63 undefined on input line 401.
+
+
+LaTeX Warning: Reference `eq:5.14' on page 63 undefined on input line 401.
+
+
+LaTeX Warning: Reference `eq:5.15' on page 63 undefined on input line 401.
+
+
+LaTeX Warning: Reference `eq:5.14' on page 63 undefined on input line 401.
+
+
+Overfull \hbox (3.0469pt too wide) detected at line 402
+[]
+ []
+
+
+Overfull \hbox (25.74338pt too wide) detected at line 402
+[]
+ []
+
+
+LaTeX Warning: Reference `th:4.4' on page 64 undefined on input line 403.
+
+
+LaTeX Warning: Reference `def:5.4' on page 64 undefined on input line 403.
+
+
+LaTeX Warning: Reference `th:6.4' on page 65 undefined on input line 496.
+
+
+LaTeX Warning: Reference `th:6.4' on page 66 undefined on input line 518.
+
+
+LaTeX Warning: Reference `eq:6.7' on page 68 undefined on input line 598.
+
+
+LaTeX Warning: Reference `ex:6.4' on page 69 undefined on input line 653.
+
+) (Lessons/Lesson_7.tex
+
+LaTeX Warning: Reference `th:7.1' on page 72 undefined on input line 43.
+
+
+LaTeX Warning: Reference `th:7.2' on page 73 undefined on input line 71.
+
+
+LaTeX Warning: Reference `th:4.2' on page 74 undefined on input line 107.
+
+
+LaTeX Warning: Reference `th:4.2' on page 74 undefined on input line 110.
+
+
+LaTeX Warning: Reference `cor:7.1' on page 74 undefined on input line 119.
+
+
+LaTeX Warning: Reference `eq:7.1' on page 75 undefined on input line 147.
+
+
+LaTeX Warning: Reference `th:6.3' on page 75 undefined on input line 147.
+
+
+LaTeX Warning: Reference `eq:7.1' on page 75 undefined on input line 147.
+
+
+LaTeX Warning: Reference `th:7.1' on page 75 undefined on input line 147.
+
+
+LaTeX Warning: Reference `th:7.2' on page 75 undefined on input line 152.
+
+
+LaTeX Warning: Reference `eq:7.1' on page 75 undefined on input line 154.
+
+
+LaTeX Warning: Reference `eq:7.1' on page 75 undefined on input line 156.
+
+
+LaTeX Warning: Reference `th:5.3' on page 75 undefined on input line 175.
+
+
+LaTeX Warning: Reference `th:7.2' on page 75 undefined on input line 176.
+
+
+LaTeX Warning: Reference `def:7.2' on page 76 undefined on input line 201.
+
+
+LaTeX Warning: Reference `def:7.2' on page 76 undefined on input line 220.
+
+
+LaTeX Warning: Reference `th:4.5' on page 77 undefined on input line 222.
+
+
+LaTeX Warning: Reference `th:6.2' on page 77 undefined on input line 241.
+
+
+LaTeX Warning: Reference `th:7.4' on page 77 undefined on input line 248.
+
+
+LaTeX Warning: Reference `th:4.6' on page 77 undefined on input line 264.
+
+
+LaTeX Warning: Reference `th:4.5' on page 77 undefined on input line 264.
+
+
+LaTeX Warning: Reference `def:5.1' on page 78 undefined on input line 274.
+
+
+LaTeX Warning: Reference `eq:7.2' on page 78 undefined on input line 274.
+
+
+LaTeX Warning: Reference `eq:7.3' on page 78 undefined on input line 278.
+
+
+LaTeX Warning: Reference `th:7.4' on page 78 undefined on input line 302.
+
+
+LaTeX Warning: Reference `ex:7.3' on page 79 undefined on input line 320.
+
+
+LaTeX Warning: Reference `th:4.6' on page 79 undefined on input line 328.
+
+
+LaTeX Warning: Reference `th:4.5' on page 79 undefined on input line 328.
+
+
+LaTeX Warning: Reference `th:7.4' on page 79 undefined on input line 351.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `th:7.1' on page 80 undefined on input line 393.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+) (Lessons/Lesson_8.tex
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `eq:8.4' on page 82 undefined on input line 86.
+
+
+LaTeX Warning: Reference `th:2.1' on page 82 undefined on input line 86.
+
+
+LaTeX Warning: Reference `cor:2.1' on page 82 undefined on input line 86.
+
+Missing character: There is no 2 in font rsfs10!
+Missing character: There is no 2 in font rsfs10!
+
+LaTeX Warning: Reference `def:2.2' on page 84 undefined on input line 158.
+
+Missing character: There is no 1 in font rsfs10!
+
+LaTeX Warning: Reference `def:8.2' on page 84 undefined on input line 168.
+
+
+LaTeX Warning: Reference `def:8.2' on page 85 undefined on input line 190.
+
+
+LaTeX Warning: Reference `th:8.1' on page 86 undefined on input line 249.
+
+
+LaTeX Warning: Reference `cor:8.1' on page 87 undefined on input line 286.
+
+
+LaTeX Warning: Reference `cor:8.2' on page 87 undefined on input line 292.
+
+
+LaTeX Warning: Reference `cor:8.1' on page 87 undefined on input line 304.
+
+
+LaTeX Warning: Reference `cor:8.1' on page 87 undefined on input line 309.
+
+
+LaTeX Warning: Reference `def:6.1' on page 88 undefined on input line 331.
+
+
+LaTeX Warning: Reference `eq:8.6' on page 88 undefined on input line 340.
+
+
+LaTeX Warning: Reference `eq:8.6' on page 88 undefined on input line 340.
+
+
+LaTeX Warning: Reference `eq:8.6' on page 88 undefined on input line 352.
+
+
+LaTeX Warning: Reference `th:8.1' on page 88 undefined on input line 362.
+
+
+LaTeX Warning: Reference `th:7.2' on page 88 undefined on input line 366.
+
+
+LaTeX Warning: Reference `th:8.3' on page 89 undefined on input line 404.
+
+
+LaTeX Warning: Reference `th:8.3' on page 89 undefined on input line 405.
+
+
+LaTeX Warning: Reference `eq:6.4' on page 90 undefined on input line 424.
+
+
+LaTeX Warning: Reference `th:8.4' on page 90 undefined on input line 461.
+
+
+LaTeX Warning: Reference `th:8.4' on page 92 undefined on input line 511.
+
+
+LaTeX Warning: Reference `th:8.4' on page 92 undefined on input line 519.
+
+
+LaTeX Warning: Reference `ex:8.2' on page 92 undefined on input line 519.
+
+
+LaTeX Warning: Reference `th:8.4' on page 92 undefined on input line 523.
+
+
+LaTeX Warning: Reference `th:8.5' on page 93 undefined on input line 579.
+
+
+LaTeX Warning: Reference `eq:6.3' on page 93 undefined on input line 588.
+
+
+LaTeX Warning: Reference `ex:8.5' on page 94 undefined on input line 643.
+
+
+LaTeX Warning: Reference `th:8.4' on page 95 undefined on input line 659.
+
+
+LaTeX Warning: Reference `th:8.4' on page 95 undefined on input line 659.
+
+
+LaTeX Warning: Reference `th:8.4' on page 95 undefined on input line 659.
+
+
+LaTeX Warning: Reference `th:8.4' on page 95 undefined on input line 659.
+
+
+LaTeX Warning: Reference `th:8.4' on page 95 undefined on input line 675.
+
+
+LaTeX Warning: Reference `th:8.4' on page 95 undefined on input line 682.
+
+
+LaTeX Warning: Reference `th:8.4' on page 95 undefined on input line 682.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `th:8.3' on page 97 undefined on input line 736.
+
+
+Overfull \hbox (11.09872pt too wide) detected at line 757
+[]
+ []
+
+
+LaTeX Warning: Reference `th:6.4' on page 97 undefined on input line 762.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `th:8.3' on page 98 undefined on input line 812.
+
+
+LaTeX Warning: Reference `cor:8.1' on page 98 undefined on input line 822.
+
+
+LaTeX Warning: Reference `th:8.4' on page 98 undefined on input line 826.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 )
 
-LaTeX Warning: Empty bibliography on input line 216.
+LaTeX Warning: Empty bibliography on input line 272.
 
 
-LaTeX Warning: Citation 'rudin1976principles' undefined on input line 217.
+LaTeX Warning: Citation 'rudin1976principles' undefined on input line 273.
 
+
+(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\se-pdfdoc.d
+ef
+File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
+)
+(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\se-utf8.def
+File: se-utf8.def 2019/11/29 v1.12 stringenc: UTF-8
+) [100]
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2026,31 +2450,34 @@ LaTeX Warning: There were undefined references.
 
 
 Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                ./Plots/output-figure8
+(biblatex)                ./Graphs/output-figure8
 (biblatex)                and rerun LaTeX afterwards.
 
-Package logreq Info: Writing requests to './Plots/output-figure8.run.xml'.
-\openout1 = `./Plots/output-figure8.run.xml'.
+Package logreq Info: Writing requests to './Graphs/output-figure8.run.xml'.
+\openout1 = `./Graphs/output-figure8.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 57540 strings out of 475248
- 1293863 string characters out of 5757813
- 2065765 words of memory out of 5000000
- 78146 multiletter control sequences out of 15000+600000
+ 53055 strings out of 475248
+ 1226166 string characters out of 5757813
+ 2029693 words of memory out of 5000000
+ 73684 multiletter control sequences out of 15000+600000
  585974 words of font info for 111 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 105i,23n,110p,2870b,2555s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmmi9.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmr10.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmr6.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmr9.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/angel/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on ./Plots/output-figure8.pdf (1 page, 71927 bytes).
+ 105i,23n,110p,2870b,2137s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\angel\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm
+0800.pk> <C:\Users\angel\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ecrm1095.pk> <C:\Users\angel\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecbx1095.pk><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi9.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/angel/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/angel/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/angel/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/angel/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
+Output written on ./Graphs/output-figure8.pdf (2 pages, 104856 bytes).
 PDF statistics:
- 52 PDF objects out of 1000 (max. 8388607)
+ 114 PDF objects out of 1000 (max. 8388607)
  1 named destinations out of 1000 (max. 500000)
- 25 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
