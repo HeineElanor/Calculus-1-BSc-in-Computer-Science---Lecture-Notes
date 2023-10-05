@@ -1,2 +1,378 @@
 \section{Lezione 12}
+\subsection{Ripasso ed esercizi: equazioni differenziali ordinarie del secondo ordine lineari a coefficienti costanti}
+\begin{definition}
+    \label{def:12.1}
+    Un'equazione differenziale ordinaria del secondo ordine lineare a coefficienti costanti omogenea è un'equazione del tipo
+    \[
+    au''(t)+bu'(t)+cu(t) = 0 \qquad a,b,c\in\amsbb{R}
+    \]
+\end{definition}
+Per risolvere un'equazione differenziale del tipo presentato nella definizione \ref{def:12.1}, operiamo nel modo seguente: consideriamo il \emph{polinomio caratteristico} associato all'equazione differenziale:
+\[
+P(\lambda) = a \lambda^2 +b\lambda^1 + c \lambda^0 = a\lambda^2 +b\lambda + c
+\]
+Poiché $P(\lambda)$ è un polinomio di grado due a coefficienti reali, abbiamo le seguenti casistiche:
+\begin{enumerate}[(i)]
+    \item $\Delta = b^2-4ac>0$: in questo caso $P(\lambda)$ ammette due radici reali distinte, $\lambda_1, \lambda_2\in\amsbb{R}$. In questo caso la soluzione generale dell'equazione differenziale è data da
+    \[
+    u(t) = c_1 e^{\lambda_1 t} + c_2 e^{i\lambda_2 t} \qquad c_1, c_2\in\amsbb{R}
+    \]
+    \item $\Delta = b^2-4ac = 0$: in questo caso $P(\lambda)$ ammette un'unica radice reale $\lambda_1\in\amsbb{R}$ con molteplicità algebrica 2. La soluzione è data da
+    \[
+    u(t) = (c_1 +c_2 t)e^{\lambda_1 t} \qquad c_1, c_2\in\amsbb{R}
+    \]
+    \item $\Delta= b^2-4ac<0$: in questo caso $P(\lambda)$ ammette due radici complesse $\omega_1, \omega_2\in\amsbb{C}$ tali che $\omega_2 = \overline{\omega_1}$, ossia
+    \[
+    \text{Re}(\omega_1) = \text{Re}(\omega_2) \qquad \text{Im}(\omega_1) = -\text{Im}(\omega_2)
+    \]
+    In questo caso la soluzione sarà data da
+    \[
+    u(t) = c_1 e^{\omega_1 t} + c_2 e^{\omega_2 t} = e^{\text{Re}(\omega_1)t}\left(c_1 e^{i\text{Im}(\omega_1)t} + c_2 e^{-i \text{Im}(\omega_1)t}\right) \qquad c_1, c_2\in\amsbb{C}
+    \]
+\end{enumerate}
+\begin{remark}
+    Le costanti $c_1$ e $c_2$ sono fissate tramite le condizioni iniziali del problema di Cauchy. Notiamo che nell'ultimo caso, l'equazione differenziale ha come soluzione una funzione $u(t)\colon I \to \amsbb{R}$; pertanto le due costanti $c_1, c_2\in\amsbb{C}$ devono essere tali per cui la soluzione avrà valori reali (in particolare sarà una combinazione lineare di $\sin(\text{Im}(\omega_1)t)$ e $\cos(\text{Im}(\omega_1)t)$).
+\end{remark}
+\begin{example}
+    Consideriamo il problema di Cauchy
+    \[
+    \begin{dcases}
+        u''(t)-4u'(t)+13u(t) = 0\\
+        u(0) = 0\\
+        u'(0)=3
+    \end{dcases}
+    \]
+    Vogliamo determinarne la soluzione. \\
+    Come suggerito, consideriamo il polinomio caratteristico 
+    \[
+    P(\lambda) = \lambda^2-4\lambda +3
+    \]
+    e calcoliamone il discriminante $\Delta = 16-4\times 13 <0$. Pertanto ci troviamo nel caso (iii): le sue radici saranno due numeri complessi $\omega_1, \omega_2$ dati da
+    \[
+    \omega_{1,2} = {2\pm \sqrt{4-13}} = 2\pm i3
+    \]
+    Di conseguenza la soluzione generale dell'equazione differenziale è data da
+    \[
+    u(t) = e^{2t}\left(c_1 e^{i3t} +c_2 e^{-i3t}\right)
+    \]
+    Per determinare le costanti $c_1, c_2\in\amsbb{C}$ dobbiamo imporre le condizioni iniziali:
+    \[
+    \begin{dcases}
+        \begin{aligned}
+            0 = u(0)&= e^0\left(c_1 e^0 +c_2 e^0\right) = c_1+c_2\\
+            3 = u'(0)&= \left(2e^{2t}\left(c_1 e^{i3t}+c_2e^{-i3t}\right)+e^{2t}\left(i3c_1 e^{i3t} -i3c_2 e^{-i3t}\right)\right)\bigg|_{t=0} = \\
+            & = 2(c_1+c_2)+i3(c_1-c_2)
+        \end{aligned}
+    \end{dcases}
+    \]
+    Dalla prima equazione sappiamo che $c_1+c_2 =0$, e quindi la seconda equazione si riduce a
+    \[
+    3 = i3(c_1-c_2) \iff 1=i(c_1-c_2) \iff (c_1-c_2) = -i
+    \]
+    e possiamo quindi riscrivere il sistema come
+    \[
+    \begin{dcases}
+        c_1 + c_2 = 0\\
+        c_1 - c_2 = -i 
+    \end{dcases} \iff c_1 = -\frac{i}{2} \quad c_2 = \frac{i}{2}
+    \]
+    La soluzione sarà quindi
+    \[
+    u(t) = e^{2t}\left(\frac{i}{2}e^{-i3t} -\frac{i}{2}e^{i3t}\right) = e^{2t}\sin(3t)
+    \]
+\end{example}
+\begin{definition}
+    \label{def:12.2}
+    Un'equazione differenziale ordinaria del secondo ordine lineare a coefficienti costanti non omogenea è un'equazione del tipo
+    \[
+    au''(t)+bu'(t)+cu(t) = f(t) \qquad a,b,c\in\amsbb{R}, \ f(t)\in\mathscr{C}(I)
+    \]
+\end{definition}
+In questo caso, la soluzione di un'equazione differenziale del tipo indicato dalla definizione \ref{def:12.2} sarà 
+\[
+u(t) = u_0(t) + u_p(t)
+\]
+ove $u_0(t)$ è una soluzione dell'equazione differenziale omogenea (cfr. definizione \ref{def:12.1})
+\[
+au''(t)+bu'(t)+cu(t) = 0
+\]
+mentre $u_p(t)$ è una soluzione (detta \emph{soluzione particolare}) dell'equazione differenziale non omogenea.
+\begin{remark}
+    Possiamo trovare un'analogia con l'algebra lineare: sappiamo che dato un operatore lineare $A\colon V \to W$ che agisce sullo spazio vettoriale $V$ a valori nello spazio vettoriale $W$, se $w\in A(V)$ esiste un elemento $v_w\in\ V$ tale che
+    \[
+    A v_w = w
+    \]
+    Se $A$ non è iniettivo (ossia se $\ker A \ne \{0\}$) questo elemento $v_w$ non è unico: infatti
+    \[
+    A(v_w + v_0) = w 
+    \]
+    per ogni $v_0\in\ker A$.
+\end{remark}
+\begin{example}
+    Dato il problema di Cauchy
+    \[
+    \begin{dcases}
+        u''(t)-2u'(t)-3u(t) = \sin(t)\\
+        u(0) = -\frac{1}{2}\\
+        u'(0) = \frac{1}{5}
+    \end{dcases}
+    \]
+    determinarne la soluzione sapendo che la soluzione particolare dell'equazione differenziale ha forma
+    \[
+    u_p(t) = a e^{it}+be^{-it}
+    \]
+    Dalla discussione successiva alla definizione \ref{def:12.2}, sappiamo che la soluzione $u(t)$ sarà data da
+    \[
+    u(t) = u_0(t) + u_p(t)
+    \]
+    \begin{enumerate}[(i)]
+        \item Determiniamo per prima cosa la soluzione particolare $u_p(t)$ andando ad inserire la forma proposta nell'equazione differenziale: abbiamo
+        \[
+        u_p'(t) = iae^{it}-ibe^{-it} \qquad u_p''(t) = -ae^{it} - be^{-it}
+        \]
+        e quindi
+        \[
+        \begin{split}
+            \sin(t) & = u_p''(t) - 2u'(t)-3u(t) = -ae^{it}-be^{-it} -2(iae^{it}-ibe^{-it})-3ae^{it}-3be^{-it} = \\
+            & = e^{it}(-4a-2ia)+e^{-it}(-4b+2ib)
+        \end{split}
+        \]
+        Ricordiamo che $\sin(t) = \frac{1}{2i}e^{it}-\frac{1}{2i}e^{-it}$, e dato che $e^{it}$ e $e^{-it}$ sono linearmente indipendenti su $I$ vale che la precedente equazione è equivalente al sistema
+        \[
+        \begin{dcases}
+            -4a-2ia = \frac{1}{2i}\\
+            -4b+2ib = -\frac{1}{2i}
+        \end{dcases}  \iff a = \frac{1}{2i}\frac{1}{-4-2i} = \frac{1}{20}+\frac{i}{10}, \ b= -\frac{1}{2i}\frac{1}{-4+2i} = \frac{1}{20}-\frac{i}{10}
+        \]
+        La soluzione particolare è quindi data da
+        \[
+        u_p(t) = \frac{1}{20}\left(e^{it}+e^{-it}\right) + \frac{i}{10}\left(e^{it}-e^{-it}\right) = \frac{1}{10}\cos(t) -\frac{1}{5}\sin(t)
+        \]
+        \item Determiniamo ora la soluzione dell'equazione omogenea
+        \[
+        u''(t)-2u'(t)-3u(t) = 0
+        \]
+        Il polinomio caratteristico in questo caso è dato da
+        \[
+        P(\lambda) = \lambda^2 -2\lambda-3 = (\lambda-3)(\lambda+1)
+        \]
+        le cui radici sono $\lambda_1 = 3$ e $\lambda_2 = -1$. La soluzione sarà quindi data da
+        \[
+        u_0(t) = c_1 e^{3t}+c_2 e^{-t}
+        \]
+    \end{enumerate}
+    Di conseguenza la soluzione dell'equazione differenziale è data da
+    \[
+    u(t) = c_1 e^{3t}+c_2 e^{-t} +\frac{1}{10}\cos(t)-\frac{1}{5}\sin(t)
+    \]
+    Per determinare la soluzione del problema di Cauchy, dobbiamo imporre le condizioni iniziali:
+    \[
+    \begin{dcases}
+        -\frac{1}{2} = u(0) = c_1 +c_2 +\frac{1}{10}\\
+        \frac{1}{5} = u'(0) = 3c_1 -c_2 -\frac{1}{5}
+    \end{dcases} \iff \begin{dcases}
+        c_1 + c_2 = -\frac{3}{5}\\
+        3c_1 -c_2 = \frac{2}{5}
+    \end{dcases}
+    \]
+    le cui soluzioni sono $c_1 = -\frac{1}{20}$ e $c_2 = -\frac{11}{20}$. Quindi la soluzione del problema di Cauchy è
+    \[
+    u(t) = -\frac{1}{20}e^{3t} -\frac{11}{20}e^{-t}+\frac{1}{10}\cos(t)-\frac{1}{5}\sin(t)
+    \]
+\end{example}
+\subsection{Approfondimento: introduzione all'analisi numerica}
+In generale, data un'equazione differenziale del tipo
+\[
+u'(t) = f(t,u(t))
+\]
+non è sempre detto sia possibile trovare esplicitamene una soluzione $u\colon I \to \amsbb{R}$ (anzi, in generale è normale \emph{non} avere una soluzione scrivibile in termini di funzioni matematiche elementari). Si è quindi inevitabilmente portati a considerare soluzioni approssimate della soluzione, attraverso i metodi studiati dall'\emph{analisi numerica}. \\
+Supponiamo di considerare un problema di Cauchy
+\[
+\begin{dcases}
+    u'(t) = f(t,u(t))\\
+    u(t_0) = u_0
+\end{dcases}
+\]
+con $f\colon I \times J \to \amsbb{R}$, $u(I)\subseteq J$ e $I=[t_0, t_f]$. Per approssimare la soluzione dell'equazione differenziale, consideriamo una partizione $\mathscr{P} = \{t_0, \dots, t_n = t_f\}$ di $I$ e definiamo $u_i = u(t_i)$. A questo punto, consideriamo, dato un tempo $t_i$, lo sviluppo di Taylor di $u(t_i+h)$, ove $h$ va inteso come una variabile che assume valori molto piccoli, in un intorno di $h=0$:
+\[
+u(t_i+h) = u(t_i) + u'(t_i)h + o(h)
+\]
+Sappiamo che vale l'equazione differenziale
+\[
+u'(t) = f(t,u(t))
+\]
+e di conseguenza possiamo scrivere
+\[
+u(t_i+h) = u(t_i)+ h f(t_i, u(t_i)) +o(h) = u_i +hf(t_i, u_i)+o(h)
+\]
+Abbiamo quindi trovato un modo di scrivere $u$ in prossimità di $t_i$ in funzione della distanza da $t_i$, del valore di $u_i$ e di $f$ calcolata in $t_i$ e $u_i$, modulo un errore $o(h)$ che viene detto \emph{errore di troncamento locale}. In particolare, se scegliamo una partizione uniforme
+\[
+\mathscr{P} = \left\{t_0, \dots, t_n\right\} \qquad t_i = t_0+idt, \ dt =\frac{t_f-t_0}{n}
+\]
+e se consideriamo $h=dt$ abbiamo che
+\[
+u_i + dt f(t_i, u_i) +o(dt) = u(t_i+dt) = u(t_{i+1}) = u_{i+1}
+\]
+Di conseguenza possiamo determinare il valore di $u$ al tempo $t_{i+1}$ conoscendo il valore di $u$ al tempo $t_i$. Il metodo iterativo descritto prende il nome di \emph{metodo di Eulero esplicito} (\emph{forward Euler method}), perché $u_{i+1}$ è descritto in forma esplicita utilizzando quantità note.
+\begin{example}
+    Consideriamo il problema di Cauchy
+    \[
+    \begin{dcases}
+        u'(t) = -au(t)\\
+        u(0) = 1
+    \end{dcases}
+    \]
+    con $a>0$. La sua soluzione esatta è data da $u_e(t) = e^{-at}$. Se consideriamo un intervallo $[0, t_f]$ partizionato in modo uniforme in $\{t_0, \dots, t_n\}$ secondo il passo $dt$ e applichiamo il metodo di Eulero esplicito per ottenere una soluzione approssimata otteniamo
+    \[
+    u_{i+1} = u_i-dt(au_i) = u_i(1-adt) = u_{i-1}(1-adt)^2 = \dots = u_0(1-adt)^{i+1} = (1-adt)^{i+1}
+    \]
+    Di seguito riportiamo per diversi valori di $dt$ la soluzione approssimata per $a=100$.
+    \begin{center}
+        \begin{tikzpicture}
+            \pgfplotsset{
+                scale only axis,
+                compat = newest,
+                axis lines=middle,
+                height=7cm,
+                width=0.85\textwidth,
+                scaled x ticks=false
+            }
+            \begin{axis}[
+                xmax = 0.23,
+                ymax = 1.05,
+                xtick={0, 0.02,...,0.2},
+                ytick={0, 0.1, ..., 1},
+                xlabel={$t$},
+                ylabel={$u(t)$},
+                xlabel style={below},
+                ylabel style={left},
+                legend cell align=left,
+                legend style={at={(axis cs:0.12, 1)},anchor=west}, xticklabel style={
+        /pgf/number format/fixed, /pgf/number format/precision=2}]
+                \addplot[domain=0:0.2, color=red, samples = 401]{exp(-100*x)};
+                \addlegendentry{\(y=e^{-100t}\)}
+                \addplot+[
+                    mark=square*,
+                    mark size=2pt, dashed, black, mark options={solid}]table{Data/f_e_m_0.004000.txt};
+                \addlegendentry{$dt = 0.004$}
+                \addplot+[
+                    mark=triangle*,
+                    mark size=2pt, dashed, blue, mark options={solid}]table{Data/f_e_m_0.008000.txt};
+                \addlegendentry{$dt = 0.008$}
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    Notiamo che otteniamo un buon accordo, ma che il numero di punti è eccessivo; possiamo quindi provare a ridurre un po' il passo $dt$
+    \begin{center}
+        \begin{tikzpicture}
+            \pgfplotsset{
+                scale only axis,
+                compat = newest,
+                axis lines=middle,
+                height=7cm,
+                width=0.85\textwidth,
+                scaled y ticks=false,
+                scaled x ticks=false
+            }
+            \begin{axis}[
+                xmax = 0.23,
+                ymax = 1.05,
+                xtick={0, 0.02,...,0.2},
+                ytick={-0.6, -0.4, ..., 1},
+                xlabel={$t$},
+                ylabel={$u(t)$},
+                xlabel style={below},
+                ylabel style={left},
+                legend cell align=left,
+                legend style={at={(axis cs:0.12, 1)},anchor=west}, yticklabel style={
+        /pgf/number format/fixed, /pgf/number format/precision=2}, xticklabel style={
+        /pgf/number format/fixed, /pgf/number format/precision=2}]
+                \addplot[domain=0:0.2, color=red, samples = 401]{exp(-100*x)};
+                \addlegendentry{\(y=e^{-100t}\)}
+                \addplot+[
+                    mark=square*,
+                    mark size=2pt, dashed, black, mark options={solid}]table{Data/f_e_m_0.015000.txt};
+                \addlegendentry{$dt = 0.015$}
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    Il risultato è ancora più catastrofico se consideriamo $dt$ più grandi:
+    \begin{center}
+        \begin{tikzpicture}
+            \pgfplotsset{
+                scale only axis,
+                compat = newest,
+                axis lines=middle,
+                height=7cm,
+                width=0.85\textwidth,
+                scaled y ticks=false,
+                scaled x ticks=false
+            }
+            \begin{axis}[
+                xmax = 0.23,
+                ymax = 1.3,
+                xtick={0, 0.02,...,0.2},
+                ytick={-1.2, -0.9, ..., 1.2},
+                xlabel={$t$},
+                ylabel={$u(t)$},
+                xlabel style={below},
+                ylabel style={left},
+                legend cell align=left,
+                legend style={at={(axis cs:0.18, 0.5)},anchor=west}, yticklabel style={
+        /pgf/number format/fixed, /pgf/number format/precision=2}, xticklabel style={
+        /pgf/number format/fixed, /pgf/number format/precision=2}]
+                \addplot[domain=0:0.2, color=red, samples = 401]{exp(-100*x)};
+                \addlegendentry{\(y=e^{-100t}\)}
+                \addplot+[
+                    mark=square*,
+                    mark size=2pt, dashed, black, mark options={solid}]table{Data/f_e_m_0.020100.txt};
+                \addlegendentry{$dt = 0.0201$}
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+
+\begin{center}
+    	\begin{tikzpicture}
+    		\pgfplotsset{
+    			scale only axis,
+    			compat = newest,
+    			axis lines=middle,
+    			height=7cm,
+    			width=0.85\textwidth,
+    			scaled x ticks=false
+    		}
+    		\begin{axis}[
+    			xmax = 0.23,
+    			ymax = 1.05,
+    			xtick={0, 0.02,...,0.2},
+    			ytick={0, 0.1, ..., 1},
+    			xlabel={$t$},
+    			ylabel={$u(t)$},
+    			xlabel style={below},
+    			ylabel style={left},
+    			legend cell align=left,
+    			legend style={at={(axis cs:0.12, 1)},anchor=west}, xticklabel style={
+    				/pgf/number format/fixed, /pgf/number format/precision=2}]
+    			\addplot[domain=0:0.2, color=red, samples = 401]{exp(-100*x)};
+    			\addlegendentry{\(y=e^{-100t}\)}
+    			\addplot+[
+    			mark=square*,
+    			mark size=2pt, dashed, black, mark options={solid}]table{Data/b_e_m_0.004000.txt};
+    			\addlegendentry{$dt = 0.004$}
+    			\addplot+[
+    			mark=triangle*,
+    			mark size=2pt, dashed, blue, mark options={solid}]table{Data/b_e_m_0.008000.txt};
+    			\addlegendentry{$dt = 0.008$}
+    			\addplot+[
+    			mark=diamond*,
+    			mark size=2pt, dashed, teal, mark options={solid}]table{Data/b_e_m_0.015000.txt};
+    			\addlegendentry{$dt = 0.015$}
+    			\addplot+[
+    			mark=pentagon*,
+    			mark size=2pt, dashed, violet, mark options={solid}]table{Data/b_e_m_0.020100.txt};
+    			\addlegendentry{$dt = 0.0201$}
+    		\end{axis}
+    	\end{tikzpicture}
+    \end{center}
+\end{example}
 \newpage

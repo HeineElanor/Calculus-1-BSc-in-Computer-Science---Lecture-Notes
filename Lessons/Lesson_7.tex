@@ -356,6 +356,29 @@ Come esempio di un processo di ottimizzazione, presentiamo la cosiddetta \emph{r
 Supponiamo di fare un qualche esperimento, per esempio di voler misurare una grandezza fisica $y$ che dipende da un'altra grandezza fisica $x$; noi variamo $x$ in un insieme finito e discreto di valori $\{x_1, \dots, x_i, \dots, x_n\}$ e misuriamo i valori $\{y_1, \dots, y_i, \dots, y_n\}$ della grandezza fisica $y$. Possiamo costruire delle coppie $(x_i, y_i)$ che associano ad ogni valore della grandezza $x$ su cui abbiamo controllo il corrispettivo valore della grandezza $y$, e possiamo poi rappresentare le coppie ottenute nel piano cartesiano, ottenendo il grafico seguente:
 \begin{center}
     \begin{tikzpicture}
+    \pgfplotsset{compat=1.17, 
+     %%%% common settings
+     axis lines=middle,  
+     axis line style= {-Straight Barb},
+     axis on top,
+     x=7mm, y=3.5mm, % <---
+     %
+     xlabel=$\mathrm{Re}$,
+     xlabel style=below,
+     xmin=-4.5, xmax=4.5,
+     xtick={-4,-3,...,\Xmax}, % <---
+     %
+     ylabel=$\mathrm{Im}$,
+     ylabel style=left,     
+     ymin=-8.5, ymax=4.5,
+     ytick={-8,-7,...,8},
+     %
+     tick style=black,
+     tick label style = {inner sep=1pt, font=\tiny},
+     %
+     no marks,
+     every axis plot post/.append style={very thick}
+             }
 \begin{axis}[
     xtick={-2,0, 2,...,12},
   ytick={-5,0,5,...,45},
@@ -401,6 +424,29 @@ a = \frac{\sum_{i=1}^n y_i x_i}{\sum_{i=1}^n x_i^2}
 \`E facile verificare che $a$ è effettivamente un punto di minimo; nel caso della point cloud nella figura precedente la retta di regressione ottenuta è la seguente:
 \begin{center}
     \begin{tikzpicture}
+    \pgfplotsset{compat=1.17, 
+     %%%% common settings
+     axis lines=middle,  
+     axis line style= {-Straight Barb},
+     axis on top,
+     x=7mm, y=3.5mm, % <---
+     %
+     xlabel=$\mathrm{Re}$,
+     xlabel style=below,
+     xmin=-4.5, xmax=4.5,
+     xtick={-4,-3,...,\Xmax}, % <---
+     %
+     ylabel=$\mathrm{Im}$,
+     ylabel style=left,     
+     ymin=-8.5, ymax=4.5,
+     ytick={-8,-7,...,8},
+     %
+     tick style=black,
+     tick label style = {inner sep=1pt, font=\tiny},
+     %
+     no marks,
+     every axis plot post/.append style={very thick}
+             }
 \begin{axis}[
     xtick={-2,0, 2,...,12},
   ytick={-5,0,5,...,45},

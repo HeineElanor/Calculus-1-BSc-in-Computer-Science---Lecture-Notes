@@ -158,29 +158,9 @@
 \newtheorem*{example}{Esempio}
 \usepackage{float}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.17, 
-     %%%% common settings
-     axis lines=middle,  
-     axis line style= {-Straight Barb},
-     axis on top,
-     x=7mm, y=3.5mm, % <---
-     %
-     xlabel=$\mathrm{Re}$,
-     xlabel style=below,
-     xmin=-4.5, xmax=4.5,
-     xtick={-4,-3,...,\Xmax}, % <---
-     %
-     ylabel=$\mathrm{Im}$,
-     ylabel style=left,     
-     ymin=-8.5, ymax=4.5,
-     ytick={-8,-7,...,8},
-     %
-     tick style=black,
-     tick label style = {inner sep=1pt, font=\tiny},
-     %
-     no marks,
-     every axis plot post/.append style={very thick}
-             }
+\pgfplotsset{
+compat=newest
+}
 \newcommand\Xmin{\pgfkeysvalueof{/pgfplots/xmin}}
      \newcommand\Xmax{\pgfkeysvalueof{/pgfplots/xmax}}
      \newcommand\Ymin{\pgfkeysvalueof{/pgfplots/ymin}}
@@ -283,4 +263,5 @@
 \nocite{rudin1976principles}
 \nocite{lang1999}
 \nocite{paganisauce}
+\nocite{Quarteroni2008}
 \end{document}

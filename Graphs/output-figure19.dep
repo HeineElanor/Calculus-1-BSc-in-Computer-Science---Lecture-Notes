@@ -1,1 +1,1 @@
-./Graphs/output-figure19.pdf: Data/datafile_lin_reg.txt
+Graphs/output-figure19.pdf: Data/datafile_lin_reg.txt

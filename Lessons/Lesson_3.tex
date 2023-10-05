@@ -495,6 +495,29 @@ ove $(r,\theta)$ sono dati o sono calcolati tramite (\ref{eq:3.2}). Questa notaz
     Di conseguenza il primo insieme è il semipiano generato dalla retta $\mathrm{Im}(z) = -\mathrm{Re}(z)$, ossia
     \begin{center}
         \begin{tikzpicture}
+        \pgfplotsset{compat=1.17, 
+     %%%% common settings
+     axis lines=middle,  
+     axis line style= {-Straight Barb},
+     axis on top,
+     x=7mm, y=3.5mm, % <---
+     %
+     xlabel=$\mathrm{Re}$,
+     xlabel style=below,
+     xmin=-4.5, xmax=4.5,
+     xtick={-4,-3,...,\Xmax}, % <---
+     %
+     ylabel=$\mathrm{Im}$,
+     ylabel style=left,     
+     ymin=-8.5, ymax=4.5,
+     ytick={-8,-7,...,8},
+     %
+     tick style=black,
+     tick label style = {inner sep=1pt, font=\tiny},
+     %
+     no marks,
+     every axis plot post/.append style={very thick}
+             }
         \begin{axis}[y=7mm, ymin=-4.5, samples=101]
         \addplot [name path=A, blue] coordinates { (\Xmin, -\Xmin) (\Xmax,-\Xmax) };
         \path [name path=B] (\Xmax,\Ymax)
@@ -511,6 +534,29 @@ ove $(r,\theta)$ sono dati o sono calcolati tramite (\ref{eq:3.2}). Questa notaz
     Ricordiamo che $(a-a_0)^2+(b-b_0)^2 \le 1$ descrive un cerchio di raggio $1$ e centro $(a_0, b_0)$; pertanto la disequazione descrive la regione di piano esterna ad una circonferenza di raggio $1$ e cento $(0,2)\in\amsbb{C}$, circonferenza inclusa, ossia
     \begin{center}
         \begin{tikzpicture}
+        \pgfplotsset{compat=1.17, 
+     %%%% common settings
+     axis lines=middle,  
+     axis line style= {-Straight Barb},
+     axis on top,
+     x=7mm, y=3.5mm, % <---
+     %
+     xlabel=$\mathrm{Re}$,
+     xlabel style=below,
+     xmin=-4.5, xmax=4.5,
+     xtick={-4,-3,...,\Xmax}, % <---
+     %
+     ylabel=$\mathrm{Im}$,
+     ylabel style=left,     
+     ymin=-8.5, ymax=4.5,
+     ytick={-8,-7,...,8},
+     %
+     tick style=black,
+     tick label style = {inner sep=1pt, font=\tiny},
+     %
+     no marks,
+     every axis plot post/.append style={very thick}
+             }
         \pgfsetlayers{pre main,main}
         \begin{axis}[y=7mm,       % <--
              ymin=-4.5,   % <--
@@ -540,6 +586,30 @@ ove $(r,\theta)$ sono dati o sono calcolati tramite (\ref{eq:3.2}). Questa notaz
     La seconda equazione diventa $a^2+(a+2)^2 = 2a^2 +4a+3=0$ che non ammette soluzioni reali, in quanto $\Delta = 16-24<0$. A questo punto, l'intersezione dei due insiemi risulta essere
     \begin{center}
         \begin{tikzpicture}
+        
+        \pgfplotsset{compat=1.17, 
+     %%%% common settings
+     axis lines=middle,  
+     axis line style= {-Straight Barb},
+     axis on top,
+     x=7mm, y=3.5mm, % <---
+     %
+     xlabel=$\mathrm{Re}$,
+     xlabel style=below,
+     xmin=-4.5, xmax=4.5,
+     xtick={-4,-3,...,\Xmax}, % <---
+     %
+     ylabel=$\mathrm{Im}$,
+     ylabel style=left,     
+     ymin=-8.5, ymax=4.5,
+     ytick={-8,-7,...,8},
+     %
+     tick style=black,
+     tick label style = {inner sep=1pt, font=\tiny},
+     %
+     no marks,
+     every axis plot post/.append style={very thick}
+             }
         \begin{axis}[y=7mm, ymin=-4.5, samples=201]
         \addplot [name path=A, teal] coordinates { (\Xmin, -\Xmin) (\Xmax,-\Xmax) };
         \path [name path=B] (\Xmax,\Ymax)--(\Xmin,\Ymax);
@@ -582,6 +652,29 @@ ove $(r,\theta)$ sono dati o sono calcolati tramite (\ref{eq:3.2}). Questa notaz
     L'insieme è quindi
     \begin{center}
         \begin{tikzpicture}
+        \pgfplotsset{compat=1.17, 
+     %%%% common settings
+     axis lines=middle,  
+     axis line style= {-Straight Barb},
+     axis on top,
+     x=7mm, y=3.5mm, % <---
+     %
+     xlabel=$\mathrm{Re}$,
+     xlabel style=below,
+     xmin=-4.5, xmax=4.5,
+     xtick={-4,-3,...,\Xmax}, % <---
+     %
+     ylabel=$\mathrm{Im}$,
+     ylabel style=left,     
+     ymin=-8.5, ymax=4.5,
+     ytick={-8,-7,...,8},
+     %
+     tick style=black,
+     tick label style = {inner sep=1pt, font=\tiny},
+     %
+     no marks,
+     every axis plot post/.append style={very thick}
+             }
         \begin{axis}[y=7mm, ymin=-4.5, samples=201]
         \addplot [name path=A, red] coordinates { (0,\Ymin) (0,\Ymax) };
         \path [name path=B] (\Xmax,\Ymin) -- (\Xmax,\Ymax)
