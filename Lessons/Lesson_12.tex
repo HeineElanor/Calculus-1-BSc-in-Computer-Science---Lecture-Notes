@@ -213,7 +213,12 @@ e se consideriamo $h=dt$ abbiamo che
 \[
 u_i + dt f(t_i, u_i) +o(dt) = u(t_i+dt) = u(t_{i+1}) = u_{i+1}
 \]
-Di conseguenza possiamo determinare il valore di $u$ al tempo $t_{i+1}$ conoscendo il valore di $u$ al tempo $t_i$. Il metodo iterativo descritto prende il nome di \emph{metodo di Eulero esplicito} (\emph{forward Euler method}), perché $u_{i+1}$ è descritto in forma esplicita utilizzando quantità note.
+Di conseguenza possiamo determinare il valore di $u$ al tempo $t_{i+1}$ conoscendo il valore di $u$ al tempo $t_i$, calcolando
+\begin{equation}
+    \label{eq:12.1}
+    u_{i+1} = u_i + dtf(t_i, u_i)
+\end{equation}
+Il metodo iterativo descritto prende il nome di \emph{metodo di Eulero esplicito} (\emph{forward Euler method}), perché $u_{i+1}$ è descritto in forma esplicita utilizzando quantità note.
 \begin{example}
     Consideriamo il problema di Cauchy
     \[
@@ -222,7 +227,7 @@ Di conseguenza possiamo determinare il valore di $u$ al tempo $t_{i+1}$ conoscen
         u(0) = 1
     \end{dcases}
     \]
-    con $a>0$. La sua soluzione esatta è data da $u_e(t) = e^{-at}$. Se consideriamo un intervallo $[0, t_f]$ partizionato in modo uniforme in $\{t_0, \dots, t_n\}$ secondo il passo $dt$ e applichiamo il metodo di Eulero esplicito per ottenere una soluzione approssimata otteniamo
+    con $a>0$. La sua soluzione esatta è data da $u_e(t) = e^{-at}$. Se consideriamo un intervallo $[0, t_f]$ partizionato in modo uniforme in $\{t_0, \dots, t_n\}$ secondo il passo $dt$ e applichiamo il metodo di Eulero esplicito (\ref{eq:12.1}) per ottenere una soluzione approssimata otteniamo
     \[
     u_{i+1} = u_i-dt(au_i) = u_i(1-adt) = u_{i-1}(1-adt)^2 = \dots = u_0(1-adt)^{i+1} = (1-adt)^{i+1}
     \]
@@ -247,22 +252,21 @@ Di conseguenza possiamo determinare il valore di $u$ al tempo $t_{i+1}$ conoscen
                 xlabel style={below},
                 ylabel style={left},
                 legend cell align=left,
-                legend style={at={(axis cs:0.12, 1)},anchor=west}, xticklabel style={
-        /pgf/number format/fixed, /pgf/number format/precision=2}]
+                legend style={at={(axis cs:0.12, 0.7)},anchor=west}, xticklabel style={/pgf/number format/fixed, /pgf/number format/precision=2}]
                 \addplot[domain=0:0.2, color=red, samples = 401]{exp(-100*x)};
                 \addlegendentry{\(y=e^{-100t}\)}
                 \addplot+[
                     mark=square*,
-                    mark size=2pt, dashed, black, mark options={solid}]table{Data/f_e_m_0.004000.txt};
+                    mark size=2pt, dashed, black, mark options={solid}]table{Data/f_e_m004000.txt};
                 \addlegendentry{$dt = 0.004$}
                 \addplot+[
                     mark=triangle*,
-                    mark size=2pt, dashed, blue, mark options={solid}]table{Data/f_e_m_0.008000.txt};
+                    mark size=2pt, dashed, blue, mark options={solid}]table{Data/f_e_m008000.txt};
                 \addlegendentry{$dt = 0.008$}
             \end{axis}
         \end{tikzpicture}
     \end{center}
-    Notiamo che otteniamo un buon accordo, ma che il numero di punti è eccessivo; possiamo quindi provare a ridurre un po' il passo $dt$
+    Notiamo che otteniamo un buon accordo; in un'ottica di efficienza computazionale possiamo provare a ridurre un po' il passo $dt$, e vedere se l'approssimazione è comunque soddisfacente.
     \begin{center}
         \begin{tikzpicture}
             \pgfplotsset{
@@ -284,19 +288,19 @@ Di conseguenza possiamo determinare il valore di $u$ al tempo $t_{i+1}$ conoscen
                 xlabel style={below},
                 ylabel style={left},
                 legend cell align=left,
-                legend style={at={(axis cs:0.12, 1)},anchor=west}, yticklabel style={
+                legend style={at={(axis cs:0.12, 0.6)},anchor=west}, yticklabel style={
         /pgf/number format/fixed, /pgf/number format/precision=2}, xticklabel style={
         /pgf/number format/fixed, /pgf/number format/precision=2}]
                 \addplot[domain=0:0.2, color=red, samples = 401]{exp(-100*x)};
                 \addlegendentry{\(y=e^{-100t}\)}
                 \addplot+[
                     mark=square*,
-                    mark size=2pt, dashed, black, mark options={solid}]table{Data/f_e_m_0.015000.txt};
+                    mark size=2pt, dashed, black, mark options={solid}]table{Data/f_e_m015000.txt};
                 \addlegendentry{$dt = 0.015$}
             \end{axis}
         \end{tikzpicture}
     \end{center}
-    Il risultato è ancora più catastrofico se consideriamo $dt$ più grandi:
+    Il risultato è ancora più catastrofico se consideriamo $dt$ ancora più grandi:
     \begin{center}
         \begin{tikzpicture}
             \pgfplotsset{
@@ -325,13 +329,89 @@ Di conseguenza possiamo determinare il valore di $u$ al tempo $t_{i+1}$ conoscen
                 \addlegendentry{\(y=e^{-100t}\)}
                 \addplot+[
                     mark=square*,
-                    mark size=2pt, dashed, black, mark options={solid}]table{Data/f_e_m_0.020100.txt};
+                    mark size=2pt, dashed, black, mark options={solid}]table{Data/f_e_m020100.txt};
                 \addlegendentry{$dt = 0.0201$}
             \end{axis}
         \end{tikzpicture}
     \end{center}
-
-\begin{center}
+    Perché succede? Notiamo che (\ref{eq:12.1}) restituisce
+    \[
+    u_i = (1-a dt)^i 
+    \]
+    e di conseguenza, se $(1-adt)<0$, ossia se $dt>\frac{1}{a}$, vale che
+    \[
+    u_i = (1-adt)^i = (-1)^i(adt-1)^i \ \text{con} \ adt-1>0
+    \]
+    Quindi vediamo che il comportamento oscillatorio nel primo dei due grafici problematici è dovuto alla particolare scelta di $dt$ operata. \\
+    Nel secondo caso, notiamo che dato $dt=0.0201$ abbiamo che
+    \[
+    (1-adt)<-1
+    \]
+    In questo caso il problema è quindi duplice:
+    \begin{enumerate}[(i)]
+        \item il comportamento oscillatorio rimane, dato che $(1-adt)<0$;
+        \item abbiamo inoltre un fenomeno di amplificazione degli errori: infatti,
+        \[
+        u_i = (1-adt)^{i-1}u_1 = (1-adt)^{i-1}\left( 1-adt +o(dt)\right) = (1-adt)^{i} + (1-adt)^{i-1}o(dt)
+        \]
+        e vediamo quindi che dato che $\abs{1-adt}>1$ l'errore $o(dt)$ viene amplificato ad ogni step.
+    \end{enumerate}
+    Capiamo quindi che per prevenire il comportamento oscillatorio dobbiamo richiedere
+    \[
+    (1-adt)>0 \iff dt<\frac{1}{a}
+    \]
+    e per prevenire l'amplificazione degli errori dobbiamo avere
+    \[
+    \abs{1-adt}<1  \iff dt<\frac{2}{a}
+    \]
+    Queste condizioni dicono che il metodo di Eulero esplicito è \emph{condizionatamente stabile}: abbiamo dei requisiti nella discretizzazione del problema che dobbiamo tenere a mente se vogliamo che l'approssimazione sia soddisfacente. Questa è una caratteristica generale dei metodi espliciti.
+\end{example}
+Esiste un'altra classe di metodi numerici che non presenta questi problemi, i metodi \emph{impliciti}. Consideriamo, come prima, il problema di Cauchy
+\[
+\begin{dcases}
+    u'(t) = f(t,u(t))\\
+    u(t_0) = u_0
+\end{dcases}
+\]
+con $f\colon I \times J \to \amsbb{R}$, $u(I)\subseteq J$ e $I=[t_0, t_f]$. Per approssimare la soluzione dell'equazione differenziale, consideriamo al pari del caso precedente una partizione $\mathscr{P} = \{t_0, \dots, t_n = t_f\}$ di $I$ e definiamo $u_i = u(t_i)$. A questo punto, consideriamo i passaggi seguenti:
+\[
+u(t_i) = u(t_{i+1} - \underbrace{(t_{i+1}-t_{i})}_{h})
+\]
+e se $h$ è sufficientemente piccolo possiamo scrivere, sviluppando $u(t_{i+1}-h)$ in un intorno di $h=0$,
+\[
+u(t_i) = u(t_{i+1}-h) = u(t_{i+1})-u'(t_{i+1})h +o(h) = u(t_{i+1})-f(t_{i+1}, u_{i+1})h+o(h)
+\]
+Quindi anche in questo caso se la partizione è una partizione uniforme
+\[
+\mathscr{P} = \left\{t_0, \dots, t_n\right\} \qquad t_i = t_0+idt, \ dt =\frac{t_f-t_0}{n}
+\]
+abbiamo che $h=t_{i+1}-t_i = dt$ e 
+\[
+u(t_i) = u(t_i+1)-f(t_{i+1}, u_{i+1})dt +o(dt)
+\]
+e trascurando l'errore abbiamo
+\begin{equation}
+    \label{eq:12.2}
+    u_i = u_{i+1}-f(t_{i+1}, u_{i+1})dt
+\end{equation}
+Questo metodo viene detto \emph{metodo di Eulero implicito}, poiché $u_{i+1}$ è descritto implicitamente (non conosciamo $u_{i+1}$, e quindi non conosciamo $f(t_{i+1}, u_{i+1})$!) dall'equazione
+\[
+u_i = u_{i+1}-f(t_{i+1}, u_{i+1})dt
+\]
+\begin{example}
+    Consideriamo il problema di Cauchy dell'esempio precedente,
+    \[
+    \begin{dcases}
+        u'(t) = -au(t)\\
+        u(0) = 1
+    \end{dcases}
+    \]
+    con $a>0$. Se consideriamo il medesimo intervallo $[0, t_f]$ partizionato in modo uniforme in $\{t_0, \dots, t_n\}$ secondo il passo $dt$ e applichiamo il metodo di Eulero implicito (\ref{eq:12.1}) otteniamo
+    \[
+    u_{i} = u_{i+1}-(-au_{i+1})dt = u_{i+1}\left(1+adt\right) \iff u_{i+1} = \frac{u_i}{(1+adt)} = \dots = \frac{1}{(1+adt)^{i+1}} 
+    \]
+    Riportiamo ora le approssimazioni della soluzione $u(t)$ per diverse scelte di $dt$.
+    \begin{center}
     	\begin{tikzpicture}
     		\pgfplotsset{
     			scale only axis,
@@ -351,28 +431,43 @@ Di conseguenza possiamo determinare il valore di $u$ al tempo $t_{i+1}$ conoscen
     			xlabel style={below},
     			ylabel style={left},
     			legend cell align=left,
-    			legend style={at={(axis cs:0.12, 1)},anchor=west}, xticklabel style={
+    			legend style={at={(axis cs:0.12, 0.7)},anchor=west}, xticklabel style={
     				/pgf/number format/fixed, /pgf/number format/precision=2}]
     			\addplot[domain=0:0.2, color=red, samples = 401]{exp(-100*x)};
     			\addlegendentry{\(y=e^{-100t}\)}
     			\addplot+[
     			mark=square*,
-    			mark size=2pt, dashed, black, mark options={solid}]table{Data/b_e_m_0.004000.txt};
+    			mark size=2pt, dashed, black, mark options={solid}]table{Data/b_e_m004000.txt};
     			\addlegendentry{$dt = 0.004$}
     			\addplot+[
     			mark=triangle*,
-    			mark size=2pt, dashed, blue, mark options={solid}]table{Data/b_e_m_0.008000.txt};
+    			mark size=2pt, dashed, blue, mark options={solid}]table{Data/b_e_m008000.txt};
     			\addlegendentry{$dt = 0.008$}
     			\addplot+[
     			mark=diamond*,
-    			mark size=2pt, dashed, teal, mark options={solid}]table{Data/b_e_m_0.015000.txt};
+    			mark size=2pt, dashed, teal, mark options={solid}]table{Data/b_e_m015000.txt};
     			\addlegendentry{$dt = 0.015$}
     			\addplot+[
     			mark=pentagon*,
-    			mark size=2pt, dashed, violet, mark options={solid}]table{Data/b_e_m_0.020100.txt};
+    			mark size=2pt, dashed, violet, mark options={solid}]table{Data/b_e_m020100.txt};
     			\addlegendentry{$dt = 0.0201$}
     		\end{axis}
     	\end{tikzpicture}
     \end{center}
+    Notiamo che in questo caso gli step $dt$ che ci avevano dato problemi nel caso del metodo di Eulero esplicito si comportano bene: infatti,
+    \begin{enumerate}[(i)]
+        \item non abbiamo più il problema delle oscillazioni: infatti, dato che $dt>0$ e $a>0$, abbiamo che
+        \[
+        (1+adt)>0 \ \text{per ogni scelta di} \ dt \implies \frac{1}{(1+adt)^i}>0 \ \text{per ogni scelta di} \ dt
+        \]
+        \item non abbiamo più il problema dell'amplificazione dell'errore: infatti,
+        \[
+        (1+adt)>1 \ \text{per ogni scelta di} \ dt>0 \implies \frac{1}{1+adt}<1 
+        \]
+        e di conseguenza non abbiamo più il fenomeno di amplificazione degli errori.
+    \end{enumerate}
 \end{example}
+\begin{remark}
+    Osserviamo che in questo caso siamo stati fortunati, poiché siamo riusciti ad ottenere un'espressione esplicita di $u_{i+1}$ a partire dalla (\ref{eq:12.2}). In generale, questo non è possibile, ed è quindi necessario utilizzare un metodo numerico (ad esempio il metodo di Newton) anche per determinare $u_{i+1}$. Per questo i metodo impliciti sono generalmente computazionalmente più intensi; si guadagna però la stabilità incondizionata del metodo.  
+\end{remark}
 \newpage

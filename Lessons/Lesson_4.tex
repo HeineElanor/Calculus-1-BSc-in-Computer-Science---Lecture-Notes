@@ -72,7 +72,7 @@
     \[
     s_0 = 0 \quad s_1 = -\frac{1}{2} \quad s_2 = \frac{2}{3} \quad s_3 = -\frac{3}{4} \quad s_4 = \frac{4}{5} \ \dots
     \]
-    Notiamo quindi che sembrerebbero esistere due tendenze: $s_n$ tende a $1$ per $n$ pari e $s_n$ tende a $-1$ per $n$ dispari. Se riusciamo a mostrare che questo accade effettivamente, grazie al teorema \ref{th:4.1} potremmo affermare che la successione $(s_n)_n$ non converge.\\
+    Notiamo quindi che sembrerebbero esistere due tendenze: $s_n$ tende a $1$ per $n$ pari e $s_n$ tende a $-1$ per $n$ dispari. Se riusciamo a mostrare che questo accade effettivamente, grazie al teorema \ref{th:4.1} potremo affermare che la successione $(s_n)_n$ non converge.\\
     Consideriamo quindi i sottoinsiemi di $\amsbb{N}$
     \[
     \left\{n_k = 2k, \ k\in\amsbb{N}\right\} \qquad \left\{n_l = 2l+1, \ l\in\amsbb{N}\right\}
@@ -100,7 +100,7 @@
         \label{eq:4.3}
         k_\varepsilon = \max\left\{ \left\lfloor\frac{1}{2\varepsilon}-\frac{1}{2} \right\rfloor+1, 0\right\}
     \end{equation}
-    e consideriamo $k>k_\varepsilon$, vale che $k>\frac{1}{2\varepsilon}-\frac{1}{2}$; ma allora $2k+1 >\varepsilon$, ossia $\frac{1}{2k+1}<\varepsilon$. Di conseguenza, per ogni $\epsilon>0$ esiste $k_\varepsilon$, dato da (\ref{eq:4.3}), tale che $b_k<\varepsilon$ per ogni $k>k_\varepsilon$; quindi $b_k\to 0$, e per il teorema \ref{th:4.2} $s_{n_k}\to 1$. Allo stesso modo si può dimostrare che $s_{n_l}\to -1$.\\
+    e consideriamo $k>k_\varepsilon$, vale che $k>\frac{1}{2\varepsilon}-\frac{1}{2}$; ma allora $2k+1 >{\varepsilon}^{-1}$, ossia $\frac{1}{2k+1}<\varepsilon$. Di conseguenza, per ogni $\epsilon>0$ esiste $k_\varepsilon$, dato da (\ref{eq:4.3}), tale che $b_k<\varepsilon$ per ogni $k>k_\varepsilon$; quindi $b_k\to 0$, e per il teorema \ref{th:4.2} $s_{n_k}\to 1$. Allo stesso modo si può dimostrare che $s_{n_l}\to -1$.\\
     Esistono quindi due sottosuccessioni di $(s_n)_n$ che convergono a due limiti distinti; pertanto per il teorema \ref{th:4.1} $(s_n)_n$ non converge.\\
     Notiamo infine che 
     \[
@@ -449,7 +449,7 @@
     \[
     s_{n-1}\le s_n \ \text{per ogni} \ n\in\amsbb{N} \text{?}
     \]
-    Notiamo che nel nostro caso vale che per $n\ge 1$
+    Notiamo che nel nostro caso vale\footnote{Dalla definizione, sappiamo che $s_n\ge 1$ per ogni $n\in\amsbb{N}$.} che per $n\ge 1$
     \[
     s_n = 1 +\sqrt{s_{n-1}} \iff s_n-1 = \sqrt{s_{n-1}} \iff (s_n-1)^2 = s_{n-1}
     \]
@@ -470,10 +470,10 @@
                 \path (M23) -- (M24) node[black,midway]{$-$};
             \end{tikzpicture}
         \end{center}
-        Di conseguenza la successione $(s_n)_n$ è monotona crescente finché $s_n\in\left[\frac{3-\sqrt{5}}{2}, \frac{3+\sqrt{5}}{2}\right]$. Ora, $s_0 = 1 > \frac{3-\sqrt{5}}{2}$, e quindi la successione è effettivamente monotona decrescente se $s_n\le \frac{3+\sqrt{5}}{2}$ per ogni $n\in\amsbb{N}$. Per dimostrarlo, procediamo per induzione:
+        Di conseguenza la successione $(s_n)_n$ è monotona crescente finché $s_n\in\left[\frac{3-\sqrt{5}}{2}, \frac{3+\sqrt{5}}{2}\right]$. Ora, $s_0 = 1 > \frac{3-\sqrt{5}}{2}$, e quindi la successione è effettivamente monotona crescente se $s_n\le \frac{3+\sqrt{5}}{2}$ per ogni $n\in\amsbb{N}$. Per dimostrarlo, procediamo per induzione:
         \begin{enumerate}[(i)]
-            \item caso base $n=0$: banalmente verificato dato che $s_0 = 1 < \frac{3+\sqrt{5}}{2}$.
-            \item supponiamo che $s_k\le \frac{3+\sqrt{5}}{2}$ per ogni $0\le k \le n-1$, e mostriamo che vale per $n$: sappiamo che 
+            \item \emph{caso base $n=0$}: banalmente verificato dato che $s_0 = 1 < \frac{3+\sqrt{5}}{2}$.
+            \item \emph{passo induttivo}: supponiamo che $s_k\le \frac{3+\sqrt{5}}{2}$ per ogni $0\le k \le n-1$, e mostriamo che vale per $n$: sappiamo che 
             \[
             (s_n-1)^2 = s_{n-1} \le \frac{3+\sqrt{5}}{2}
             \]
