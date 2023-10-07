@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.9.18)  5 OCT 2023 20:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.9.18)  7 OCT 2023 15:30
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1440,73 +1440,50 @@ Package: ifdraft 2016/05/16 v1.4 Detect class options draft and final (HO)
 ) (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 ))<<eciRGB_v2.icc>>
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 210.
-Package hyperref Info: Option `hypertexnames' set `false' on input line 210.
-Package hyperref Info: Option `linktocpage' set `true' on input line 210.
-Package hyperref Info: Option `plainpages' set `false' on input line 210.
-Package hyperref Info: Option `breaklinks' set `true' on input line 210.
-
-(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/doclicense\doclicense.s
-ty
-Package: doclicense 2023/10/01 v3.3.0 Support for putting documents under a lic
-ense
-(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/xifthen\xifthen.sty
-Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
-) (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/xstring\xstring.sty (
-C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/xstring\xstring.tex
-\xs_counta=\count512
-\xs_countb=\count513
-)
-Package: xstring 2023/08/22 v1.86 String manipulations (CT)
-)
-\doclicense@hsize=\skip92
-
-(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/doclicense\doclicense-i
-talian.ldf
-File: doclicense-italian.ldf 
-))
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 212.
+Package hyperref Info: Option `hypertexnames' set `false' on input line 212.
+Package hyperref Info: Option `linktocpage' set `true' on input line 212.
+Package hyperref Info: Option `plainpages' set `false' on input line 212.
+Package hyperref Info: Option `breaklinks' set `true' on input line 212.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'italian'.
-(C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/ccicons\ccicons.sty
-Package: ccicons 2017/10/30 v1.6 LaTeX support for Creative Commons icons
-)
 No file Graphs/output-figure32.aux.
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 218.
-LaTeX Font Info:    ... okay on input line 218.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 218.
-LaTeX Font Info:    ... okay on input line 218.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 218.
-LaTeX Font Info:    ... okay on input line 218.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 218.
-LaTeX Font Info:    ... okay on input line 218.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 218.
-LaTeX Font Info:    ... okay on input line 218.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 218.
-LaTeX Font Info:    ... okay on input line 218.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 218.
-LaTeX Font Info:    ... okay on input line 218.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 218.
-LaTeX Font Info:    ... okay on input line 218.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 218.
-LaTeX Font Info:    ... okay on input line 218.
-LaTeX Info: Redefining \it@ocap on input line 218.
-LaTeX Info: Redefining \it@ccap on input line 218.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Info: Redefining \it@ocap on input line 214.
+LaTeX Info: Redefining \it@ccap on input line 214.
 
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count514
+\scratchcounter=\count512
 \scratchdimen=\dimen327
 \scratchbox=\box108
-\nofMPsegments=\count515
-\nofMParguments=\count516
+\nofMPsegments=\count513
+\nofMParguments=\count514
 \everyMPshowfont=\toks63
-\MPscratchCnt=\count517
+\MPscratchCnt=\count515
 \MPscratchDim=\dimen328
-\MPnumerator=\count518
-\makeMPintoPDFobject=\count519
+\MPnumerator=\count516
+\makeMPintoPDFobject=\count517
 \everyMPtoPDFconversion=\toks64
 )
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -1568,10 +1545,10 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Graphs/output-figure32.bbl' not found.
 No file Graphs/output-figure32.bbl.
-Package biblatex Info: Reference section=0 on input line 218.
-Package biblatex Info: Reference segment=0 on input line 218.
+Package biblatex Info: Reference section=0 on input line 214.
+Package biblatex Info: Reference segment=0 on input line 214.
 \providecommand\hyper@newdestlabel[2]{}
-Package hyperref Info: Link coloring OFF on input line 218.
+Package hyperref Info: Link coloring OFF on input line 214.
 No file Graphs/output-figure32.toc.
 (Lessons/Lesson_1.tex
 LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
@@ -2275,7 +2252,7 @@ LaTeX Warning: Reference `th:7.4' on page 79 undefined on input line 351.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 
-LaTeX Warning: Reference `th:7.1' on page 80 undefined on input line 393.
+LaTeX Warning: Reference `th:7.1' on page 80 undefined on input line 416.
 
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
@@ -2566,241 +2543,241 @@ LaTeX Warning: Reference `th:5.1' on page 111 undefined on input line 58.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 
-LaTeX Warning: Reference `def:10.2' on page 111 undefined on input line 115.
+LaTeX Warning: Reference `def:10.2' on page 111 undefined on input line 120.
 
 
-LaTeX Warning: Reference `th:10.1' on page 112 undefined on input line 130.
+LaTeX Warning: Reference `th:10.1' on page 112 undefined on input line 135.
 
 
-LaTeX Warning: Reference `th:10.2' on page 112 undefined on input line 130.
+LaTeX Warning: Reference `th:10.2' on page 112 undefined on input line 135.
 
 
-LaTeX Warning: Reference `def:10.2' on page 112 undefined on input line 131.
+LaTeX Warning: Reference `def:10.2' on page 112 undefined on input line 136.
 
 
-LaTeX Warning: Reference `th:8.4' on page 112 undefined on input line 137.
+LaTeX Warning: Reference `th:8.4' on page 112 undefined on input line 142.
 
 
-LaTeX Warning: Reference `th:8.4' on page 112 undefined on input line 137.
+LaTeX Warning: Reference `th:8.4' on page 112 undefined on input line 142.
 
 
-LaTeX Warning: Reference `th:6.5' on page 112 undefined on input line 139.
+LaTeX Warning: Reference `th:6.5' on page 112 undefined on input line 144.
 
 
-LaTeX Warning: Reference `th:10.2' on page 112 undefined on input line 139.
+LaTeX Warning: Reference `th:10.2' on page 112 undefined on input line 144.
 
 
-LaTeX Warning: Reference `th:10.2' on page 112 undefined on input line 154.
+LaTeX Warning: Reference `th:10.2' on page 112 undefined on input line 159.
 
 
-LaTeX Warning: Reference `cor:8.1' on page 113 undefined on input line 177.
+LaTeX Warning: Reference `cor:8.1' on page 113 undefined on input line 182.
 
 
-LaTeX Warning: Reference `th:4.2' on page 113 undefined on input line 177.
+LaTeX Warning: Reference `th:4.2' on page 113 undefined on input line 182.
 
 
-LaTeX Warning: Reference `th:4.2' on page 113 undefined on input line 181.
+LaTeX Warning: Reference `th:4.2' on page 113 undefined on input line 186.
 
 
-LaTeX Warning: Reference `eq:10.1' on page 113 undefined on input line 189.
+LaTeX Warning: Reference `eq:10.1' on page 113 undefined on input line 194.
 
 
-LaTeX Warning: Reference `ex:10.1' on page 113 undefined on input line 189.
+LaTeX Warning: Reference `ex:10.1' on page 113 undefined on input line 194.
 
 
-LaTeX Warning: Reference `th:10.2' on page 113 undefined on input line 201.
+LaTeX Warning: Reference `th:10.2' on page 113 undefined on input line 206.
 
 
-LaTeX Warning: Reference `eq:10.2' on page 114 undefined on input line 206.
+LaTeX Warning: Reference `eq:10.2' on page 114 undefined on input line 211.
 
 
-LaTeX Warning: Reference `th:10.2' on page 114 undefined on input line 222.
+LaTeX Warning: Reference `th:10.2' on page 114 undefined on input line 227.
 
 
-LaTeX Warning: Reference `th:8.4' on page 114 undefined on input line 228.
+LaTeX Warning: Reference `th:8.4' on page 114 undefined on input line 233.
 
 
-LaTeX Warning: Reference `eq:10.1' on page 114 undefined on input line 232.
+LaTeX Warning: Reference `eq:10.1' on page 114 undefined on input line 237.
 
 
-LaTeX Warning: Reference `eq:10.2' on page 114 undefined on input line 232.
+LaTeX Warning: Reference `eq:10.2' on page 114 undefined on input line 237.
 
 
-LaTeX Warning: Reference `def:10.1' on page 115 undefined on input line 246.
+LaTeX Warning: Reference `def:10.1' on page 115 undefined on input line 251.
 
 
-LaTeX Warning: Reference `th:8.4' on page 115 undefined on input line 252.
+LaTeX Warning: Reference `th:8.4' on page 115 undefined on input line 257.
 
 
-LaTeX Warning: Reference `ex:10.2' on page 115 undefined on input line 282.
+LaTeX Warning: Reference `ex:10.2' on page 115 undefined on input line 287.
 
 
-LaTeX Warning: Reference `eq:10.3' on page 115 undefined on input line 292.
+LaTeX Warning: Reference `eq:10.3' on page 115 undefined on input line 297.
 
 
-LaTeX Warning: Reference `eq:10.6' on page 115 undefined on input line 292.
+LaTeX Warning: Reference `eq:10.6' on page 115 undefined on input line 297.
 
 
-LaTeX Warning: Reference `th:8.4' on page 116 undefined on input line 301.
+LaTeX Warning: Reference `th:8.4' on page 116 undefined on input line 306.
 
 
-LaTeX Warning: Reference `th:8.4' on page 116 undefined on input line 301.
+LaTeX Warning: Reference `th:8.4' on page 116 undefined on input line 306.
 
 
-LaTeX Warning: Reference `eq:10.6' on page 116 undefined on input line 303.
+LaTeX Warning: Reference `eq:10.6' on page 116 undefined on input line 308.
 
 
-LaTeX Warning: Reference `eq:10.3' on page 116 undefined on input line 303.
+LaTeX Warning: Reference `eq:10.3' on page 116 undefined on input line 308.
 
 
-LaTeX Warning: Reference `eq:10.6' on page 116 undefined on input line 303.
+LaTeX Warning: Reference `eq:10.6' on page 116 undefined on input line 308.
 
 
-LaTeX Warning: Reference `eq:10.4' on page 116 undefined on input line 303.
+LaTeX Warning: Reference `eq:10.4' on page 116 undefined on input line 308.
 
 
-LaTeX Warning: Reference `eq:10.5' on page 116 undefined on input line 303.
+LaTeX Warning: Reference `eq:10.5' on page 116 undefined on input line 308.
 
 
-LaTeX Warning: Reference `eq:10.5' on page 116 undefined on input line 304.
+LaTeX Warning: Reference `eq:10.5' on page 116 undefined on input line 309.
 
 
-LaTeX Warning: Reference `eq:10.6' on page 116 undefined on input line 304.
+LaTeX Warning: Reference `eq:10.6' on page 116 undefined on input line 309.
 
 
-LaTeX Warning: Reference `eq:10.5' on page 116 undefined on input line 310.
+LaTeX Warning: Reference `eq:10.5' on page 116 undefined on input line 315.
 
 
-LaTeX Warning: Reference `eq:10.6' on page 116 undefined on input line 310.
+LaTeX Warning: Reference `eq:10.6' on page 116 undefined on input line 315.
 
 
-LaTeX Warning: Reference `eq:10.5' on page 116 undefined on input line 312.
+LaTeX Warning: Reference `eq:10.5' on page 116 undefined on input line 317.
 
 
-LaTeX Warning: Reference `ex:10.1' on page 116 undefined on input line 316.
+LaTeX Warning: Reference `ex:10.1' on page 116 undefined on input line 321.
 
 
-LaTeX Warning: Reference `ex:10.2' on page 116 undefined on input line 316.
+LaTeX Warning: Reference `ex:10.2' on page 116 undefined on input line 321.
 
 
-LaTeX Warning: Reference `th:10.2' on page 116 undefined on input line 316.
+LaTeX Warning: Reference `th:10.2' on page 116 undefined on input line 321.
 
 
-LaTeX Warning: Reference `th:10.2' on page 116 undefined on input line 332.
+LaTeX Warning: Reference `th:10.2' on page 116 undefined on input line 337.
 
 
-LaTeX Warning: Reference `eq:10.5' on page 116 undefined on input line 332.
+LaTeX Warning: Reference `eq:10.5' on page 116 undefined on input line 337.
 
 
-LaTeX Warning: Reference `eq:10.6' on page 116 undefined on input line 333.
+LaTeX Warning: Reference `eq:10.6' on page 116 undefined on input line 338.
 
 
-LaTeX Warning: Reference `th:10.2' on page 117 undefined on input line 361.
+LaTeX Warning: Reference `th:10.2' on page 117 undefined on input line 366.
 
 
-LaTeX Warning: Reference `eq:10.6' on page 117 undefined on input line 365.
+LaTeX Warning: Reference `eq:10.6' on page 117 undefined on input line 370.
 
 
-LaTeX Warning: Reference `ex:10.4' on page 118 undefined on input line 378.
+LaTeX Warning: Reference `ex:10.4' on page 118 undefined on input line 383.
 
 
-LaTeX Warning: Reference `eq:10.7' on page 118 undefined on input line 389.
+LaTeX Warning: Reference `eq:10.7' on page 118 undefined on input line 394.
 
 
-LaTeX Warning: Reference `th:10.2' on page 118 undefined on input line 393.
+LaTeX Warning: Reference `th:10.2' on page 118 undefined on input line 398.
 
 
-LaTeX Warning: Reference `th:10.2' on page 118 undefined on input line 412.
+LaTeX Warning: Reference `th:10.2' on page 118 undefined on input line 417.
 
 
-LaTeX Warning: Reference `ex:10.2' on page 119 undefined on input line 416.
+LaTeX Warning: Reference `ex:10.2' on page 119 undefined on input line 421.
 
 
-LaTeX Warning: Reference `eq:10.7' on page 119 undefined on input line 416.
+LaTeX Warning: Reference `eq:10.7' on page 119 undefined on input line 421.
 
 
-LaTeX Warning: Reference `eq:10.8' on page 119 undefined on input line 417.
+LaTeX Warning: Reference `eq:10.8' on page 119 undefined on input line 422.
 
 
-LaTeX Warning: Reference `th:10.2' on page 119 undefined on input line 426.
+LaTeX Warning: Reference `th:10.2' on page 119 undefined on input line 431.
 
 
-LaTeX Warning: Reference `th:10.1' on page 119 undefined on input line 438.
+LaTeX Warning: Reference `th:10.1' on page 119 undefined on input line 443.
 
 
-LaTeX Warning: Reference `th:10.2' on page 119 undefined on input line 442.
+LaTeX Warning: Reference `th:10.2' on page 119 undefined on input line 447.
 
 
-LaTeX Warning: Reference `th:10.1' on page 119 undefined on input line 446.
+LaTeX Warning: Reference `th:10.1' on page 119 undefined on input line 451.
 
 
-LaTeX Warning: Reference `eq:10.9' on page 119 undefined on input line 446.
+LaTeX Warning: Reference `eq:10.9' on page 119 undefined on input line 451.
 
 
-LaTeX Warning: Reference `th:8.4' on page 120 undefined on input line 462.
+LaTeX Warning: Reference `th:8.4' on page 120 undefined on input line 467.
 
 
-LaTeX Warning: Reference `th:8.4' on page 120 undefined on input line 462.
+LaTeX Warning: Reference `th:8.4' on page 120 undefined on input line 467.
 
 
-LaTeX Warning: Reference `th:8.5' on page 120 undefined on input line 469.
+LaTeX Warning: Reference `th:8.5' on page 120 undefined on input line 474.
 
 
-LaTeX Warning: Reference `th:8.5' on page 120 undefined on input line 469.
+LaTeX Warning: Reference `th:8.5' on page 120 undefined on input line 474.
 
 
-LaTeX Warning: Reference `th:10.1' on page 120 undefined on input line 479.
+LaTeX Warning: Reference `th:10.1' on page 120 undefined on input line 484.
 
 
-LaTeX Warning: Reference `th:4.2' on page 120 undefined on input line 479.
+LaTeX Warning: Reference `th:4.2' on page 120 undefined on input line 484.
 
 
-LaTeX Warning: Reference `th:10.1' on page 120 undefined on input line 493.
+LaTeX Warning: Reference `th:10.1' on page 120 undefined on input line 498.
 
 
-LaTeX Warning: Reference `th:10.1' on page 121 undefined on input line 501.
+LaTeX Warning: Reference `th:10.1' on page 121 undefined on input line 506.
 
 
-LaTeX Warning: Reference `th:10.2' on page 121 undefined on input line 505.
+LaTeX Warning: Reference `th:10.2' on page 121 undefined on input line 510.
 
 
-LaTeX Warning: Reference `eq:10.9' on page 121 undefined on input line 509.
+LaTeX Warning: Reference `eq:10.9' on page 121 undefined on input line 514.
 
 
-LaTeX Warning: Reference `th:10.2' on page 121 undefined on input line 509.
+LaTeX Warning: Reference `th:10.2' on page 121 undefined on input line 514.
 
 
-LaTeX Warning: Reference `eq:10.7' on page 121 undefined on input line 515.
+LaTeX Warning: Reference `eq:10.7' on page 121 undefined on input line 520.
 
 
-LaTeX Warning: Reference `eq:10.8' on page 121 undefined on input line 515.
+LaTeX Warning: Reference `eq:10.8' on page 121 undefined on input line 520.
 
 
-LaTeX Warning: Reference `ex:10.5' on page 121 undefined on input line 530.
+LaTeX Warning: Reference `ex:10.5' on page 121 undefined on input line 535.
 
 
-LaTeX Warning: Reference `th:8.5' on page 121 undefined on input line 541.
+LaTeX Warning: Reference `th:8.5' on page 121 undefined on input line 546.
 
 
-LaTeX Warning: Reference `th:8.5' on page 121 undefined on input line 541.
+LaTeX Warning: Reference `th:8.5' on page 121 undefined on input line 546.
 
 
-LaTeX Warning: Reference `ex:10.5' on page 122 undefined on input line 560.
+LaTeX Warning: Reference `ex:10.5' on page 122 undefined on input line 565.
 
 
-LaTeX Warning: Reference `eq:10.11' on page 122 undefined on input line 560.
+LaTeX Warning: Reference `eq:10.11' on page 122 undefined on input line 565.
 
 
-LaTeX Warning: Reference `eq:10.10' on page 122 undefined on input line 560.
+LaTeX Warning: Reference `eq:10.10' on page 122 undefined on input line 565.
 
 
-LaTeX Warning: Reference `th:10.2' on page 122 undefined on input line 560.
+LaTeX Warning: Reference `th:10.2' on page 122 undefined on input line 565.
 
 
-LaTeX Warning: Reference `th:10.2' on page 122 undefined on input line 572.
+LaTeX Warning: Reference `th:10.2' on page 122 undefined on input line 577.
 
 
-LaTeX Warning: Reference `eq:10.10' on page 122 undefined on input line 576.
+LaTeX Warning: Reference `eq:10.10' on page 122 undefined on input line 581.
 
 ) (Lessons/Lesson_11.tex
 
@@ -2863,7 +2840,7 @@ LaTeX Warning: Reference `eq:11.3' on page 131 undefined on input line 393.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 
-LaTeX Warning: Reference `ex:11.2' on page 132 undefined on input line 445.
+LaTeX Warning: Reference `ex:11.2' on page 132 undefined on input line 450.
 
 ) (Lessons/Lesson_12.tex
 
@@ -2878,33 +2855,48 @@ LaTeX Warning: Reference `def:12.1' on page 135 undefined on input line 95.
 
 LaTeX Warning: Reference `def:12.2' on page 136 undefined on input line 124.
 
+
+LaTeX Warning: Reference `eq:12.1' on page 138 undefined on input line 230.
+
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 \openout4 = `Graphs/output-figure32.dpth'.
 
-PGFPlots: reading {Data/f_e_m_0.020100.txt}
+PGFPlots: reading {Data/f_e_m020100.txt}
 \tikzexternal@dep@file=\write6
 \openout6 = `Graphs/output-figure32.dep'.
 
 [138
 
-{C:/Users/angel/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}])
+{C:/Users/angel/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 
-LaTeX Warning: Empty bibliography on input line 262.
-
-
-LaTeX Warning: Citation 'rudin1976principles' undefined on input line 263.
+LaTeX Warning: Reference `eq:12.1' on page 138 undefined on input line 337.
 
 
-LaTeX Warning: Citation 'lang1999' undefined on input line 264.
+LaTeX Warning: Reference `eq:12.1' on page 140 undefined on input line 409.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `eq:12.2' on page 141 undefined on input line 471.
+
+)
+
+LaTeX Warning: Empty bibliography on input line 258.
 
 
-LaTeX Warning: Citation 'paganisauce' undefined on input line 265.
+LaTeX Warning: Citation 'rudin1976principles' undefined on input line 259.
 
 
-LaTeX Warning: Citation 'Quarteroni2008' undefined on input line 266.
+LaTeX Warning: Citation 'lang1999' undefined on input line 260.
+
+
+LaTeX Warning: Citation 'paganisauce' undefined on input line 261.
+
+
+LaTeX Warning: Citation 'Quarteroni2008' undefined on input line 262.
 
 
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\se-pdfdoc.d
@@ -2913,7 +2905,7 @@ File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 )
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\se-utf8.def
 File: se-utf8.def 2019/11/29 v1.12 stringenc: UTF-8
-) [139]
+) [142]
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2931,13 +2923,13 @@ Package logreq Info: Writing requests to 'Graphs/output-figure32.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53624 strings out of 475248
- 1236075 string characters out of 5757813
- 2049242 words of memory out of 5000000
- 74215 multiletter control sequences out of 15000+600000
+ 53107 strings out of 475248
+ 1226736 string characters out of 5757813
+ 2037839 words of memory out of 5000000
+ 73719 multiletter control sequences out of 15000+600000
  586750 words of font info for 112 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 105i,23n,110p,2870b,2796s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 105i,23n,110p,2870b,2825s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\angel\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm
 0800.pk> <C:\Users\angel\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ecrm1095.pk> <C:\Users\angel\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
@@ -2948,9 +2940,9 @@ TeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/angel/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/angel/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/angel/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on Graphs/output-figure32.pdf (2 pages, 102452 bytes).
+Output written on Graphs/output-figure32.pdf (2 pages, 102441 bytes).
 PDF statistics:
- 117 PDF objects out of 1000 (max. 8388607)
+ 118 PDF objects out of 1000 (max. 8388607)
  1 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

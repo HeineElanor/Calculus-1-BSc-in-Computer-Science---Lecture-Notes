@@ -425,7 +425,9 @@
     \begin{center}
         \begin{tikzpicture}
         \pgfplotsset{
-            axis lines=middle
+            axis lines=middle,
+            xlabel style=below,
+            ylabel style=left
         }
             \begin{axis}[y=7mm, ymin=-.2, ymax = 21, xmin = -.2, xmax = 11, xscale =1.5, yscale = .5, samples=201, xlabel={$t$}, ylabel = {$n$}, xtick={1, 2, ..., 10}, ytick ={2, 4, ..., 20}, legend style={at={(axis cs: 8,15)},anchor=west}, legend cell align=left]
             \addplot [name path=A, domain=0:10, black] {10};
