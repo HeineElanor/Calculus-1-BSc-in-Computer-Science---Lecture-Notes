@@ -1,452 +1,586 @@
 \section{Lezione 11}
-\subsection{Ripasso: equazioni differenziali ordinarie}
+\subsection{Ripasso: integrazione di Riemann impropria}
 \begin{definition}
-    \label{def:11.1}
-    Un'\emph{equazione differenziale ordinaria} di ordine $n$ è un'equazione del tipo
+    \label{def:10.1}
+    Sia $f\colon[a,+\infty)\to \amsbb{R}$ una funzione tale che $f\in\mathscr{R}([a,x])$ per ogni $x>a$. Diremo che la quantità
     \[
-    F(t, u(t), u'(t), \dots, u^{(n)}(t)) = 0
+    \int_a^{+\infty} f(x)\, dx
     \]
-    con $F\colon D_F\subseteq \amsbb{R}^{n+2}\to \amsbb{R}$ una data funzione, definita su di un certo dominio $D_F$.\\
-    Diremo che un'equazione differenziale ordinaria di ordine $n$ è scritta \emph{in forma normale} se è scritta come
+    esiste se esiste finito il limite
     \[
-    u^{(n)}(t) = f(t, u(t), \dots, u^{(n-1)}(t))
+    \lim_{x\to +\infty} \int_a^x f(t)\, dt = \lim_{x\to+\infty} F(x)
+    \]
+\end{definition}
+Allo stesso modo, 
+\begin{definition}
+    \label{def:10.2}
+    Data una funzione $f\colon [a,b)\to\amsbb{R}$ con $f\in\mathscr{R}([a,x])$ per ogni $x\in(a,b)$, diremo che la quantità
+    \[
+    \int_a^b f(x)\, dx
+    \]
+    esiste se esiste finito
+    \[
+    \lim_{x\to b^-} \int_a^x f(x)\, dx = \lim_{x\to b^-} F(x)
     \]
 \end{definition}
 \begin{remark}
-    In generale, data un'equazione differenziale di ordine $n$
+    Notiamo che in questo secondo caso possono presentarsi due casi: la funzione $f\colon[a,b)\to\amsbb{R}$ non è definita in $b$ ma ammette limite finito per $x\to b^-$ (ad esempio se $f$ fosse $[-1, 0)\ni x\mapsto \frac{\sin(x)}{x}$), oppure $f$ non è definita in $b$ e non ammette limite finito per $x\to b^-$ (ad esempio, $[1,0)\ni x\mapsto \frac{1}{x}$). Nel primo caso possiamo agire nel modo seguente: possiamo definire per continuità una funzione $\tilde{f}\colon[a,b]\to \amsbb{R}$ che è definita su tutto $[a,b]$ ed è tale che $\tilde{f}\in\mathscr{R}([a,b])$. In virtù del corollario \ref{cor:8.2}, poiché $\tilde{f}$ e $f$ differiscono solamente in un punto, possiamo dire che
     \[
-    F(t, u(t), u'(t), \dots, u^{(n)}(t))=0
+    \int_a^b f(x)\, dx = \int_a^b \tilde{f}(x)\, dx
     \]
-    non è sempre possibile ricondursi ad un'equazione in forma normale: ci sono però delle condizioni sufficienti che la funzione $F$ deve soddisfare affinché ciò sia possibile (teorema della funzione implicita per funzioni scalari, in particolare $\partial_{n+2}F \ne 0$).
-\end{remark}
-\begin{definition}
-    \label{def:11.2}
-    Data un'equazione differenziale ordinaria di ordine $n$, diremo che la funzione $\phi\colon I \to \amsbb{R}$, definita sull'intervallo $I\subseteq \amsbb{R}$, è una \emph{soluzione} se:
+    Di conseguenza, nel primo caso il limite esiste sempre; di conseguenza, in generale quando si parla di integrazione di Riemann impropria si tende a considerare unicamente due casi:
     \begin{enumerate}[(i)]
-        \item $\phi\colon I \to \amsbb{R}$ è differenziabile $n$ volte in $I$;
-        \item $(t, \phi(t), \dots, \phi^{(n)}(t))\in D_F$ per ogni $t\in I$;
-        \item $F(t, \phi(t), \dots, \phi^{(n)}(t))=0$ per ogni $t\in I$.
+        \item funzioni $f$ \textbf{definite su un intervallo illimitato};
+        \item funzioni $f$ \textbf{definite su un intervallo limitato aventi immagine illimitata}.
     \end{enumerate}
-\end{definition}
-\begin{remark}
-    In generale, la proprietà di essere soluzione di un'equazione differenziale è una proprietà locale: ad esempio, consideriamo l'equazione differenziale
-    \[
-    u'(t) = \frac{1}{\cos(t)+2}
-    \]
-    La funzione $F\colon \amsbb{R^3}\to \amsbb{R}$ è definita su tutto $\amsbb{R}^3$; tuttavia sappiamo che la soluzione che è possibile trovare (cfr. esercizio \ref{ex:8.7}) è data da
-    \[
-    u(t) = \frac{2}{\sqrt{3}}\arctan\left(\frac{1}{\sqrt{3}}\tan\left(\frac{x}{2}\right)\right)+c, \quad c\in\amsbb{R}
-    \]
-    e di conseguenza $u(t)$ è definita su $\amsbb{R}\setminus\{\pi + 2k\pi, \ k\in\amsbb{Z}\}$. Poiché vogliamo che la soluzione sia definita su di un intervallo, $u$ sarà definita su di un intervallo del tipo $(\pi + 2k\pi, \pi + 2(k+1)\pi)$ per qualche $k\in\amsbb{Z}$. La scelta di $k\in\amsbb{Z}$ e del valore di $c\in\amsbb{R}$ dipendono dalle \emph{condizioni iniziali}.
 \end{remark}
-\begin{definition}
-    \label{def:11.3}
-    Data un'equazione differenziale ordinaria scritta in forma normale
-    \[
-    u^{(n)}(t) = f(t, u(t), \dots, u^{(n-1)}(t))
-    \]
-    un \emph{problema di Cauchy} ad essa associato è un sistema
-    \[
-    \begin{dcases}
-        u^{(n)}(t) = f(t, u(t), \dots, u^{(n-1)}(t))\\
-        u(t_0) = u_0\\
-        u'(t_0) = u_1\\
-        \dots\\
-        u^{(n-1)}(t_0) = u_{n-1}
-    \end{dcases}
-    \]
-    ove $(u(t_0), u'(t_0), \dots, u^{(n-1)}(t_0)) = (u_0, u_1, \dots, u_{n-1})$ è detta \emph{condizione iniziale}.
-\end{definition}
-\begin{remark}
-    La soluzione $\phi\colon I \to \amsbb{R}$ deve chiaramente essere compatibile con la condizione iniziale: deve valere che $t_0\in I$ e che $(t_0, \phi(t_0), \dots, \phi^{(n)}(t_0))\in D_F$. Ad esempio, consideriamo il problema di Cauchy
-    \[
-    \begin{dcases}
-        u'(t) = \frac{1}{\cos(t)+2}\\
-        u(0) = 0
-    \end{dcases}
-    \]
-    Sappiamo che la soluzione generale dell'equazione differenziale è data da
-    \[
-    u(t) = \frac{2}{\sqrt{3}}\arctan\left(\frac{1}{\sqrt{3}}\tan\left(\frac{x}{2}\right)\right)+c
-    \]
-    definita su $(\pi +2k\pi, \pi + 2(k+1)\pi)$. Poiché in questo caso l'istante iniziale $t_0=0$, l'intervallo del tipo precedente che contiene $0$ è quello per $k=-1$, ossia $(-\pi, \pi)$; pertanto $u$ sarà definita su $(-\pi, \pi)$. Inoltre, poiché $u(0) = 0$, vale che
-    \[
-    0=u(0) = \frac{2}{\sqrt{3}}\arctan\left(\frac{1}{\sqrt{3}}\tan\left(\frac{0}{2}\right)\right)+c = c
-    \]
-    Quindi la soluzione sarà data da
-    \[
-    u\colon (-\pi, \pi)\ni t \mapsto \frac{2}{\sqrt{3}}\arctan\left(\frac{1}{\sqrt{3}}\tan\left(\frac{t}{2}\right)\right)
-    \]
-    In generale, questo è il massimo che possiamo fare: possiamo cioè trovare una soluzione di un problema di Cauchy solo localmente, ossia in un intorno aperto della condizione iniziale. Talvolta però possiamo ``incollare'' soluzioni locali ed ottenere una soluzione globale: è il caso dello svolgimento dell'esercizio \ref{ex:8.7}.
-\end{remark}
-\subsection{Diverse tipologie di equazioni differenziali ordinarie di ordine 1}
-\begin{definition}
-    \label{def:11.4}
-    Un'equazione differenziale lineare non-omogenea a coefficienti non-costanti è un'equazione differenziale del tipo
-    \[
-    u'(t) = P(t)u(t) + Q(t)
-    \]
-    con $P, Q\in\mathscr{C}(I)$. La soluzione generale è una funzione $u\colon I \to \amsbb{R}$ data da
-    \begin{equation}
-        \label{eq:11.1}
-        u(t) = e^{\int P(t)\, dt}\left(c+\int Q(t) e^{-\int P(t)\, dt}\, dt\right)
-    \end{equation}
-    ove con $\int P(t)\, dt$ denotiamo una generica primitiva di $P$.
-\end{definition}
 \begin{example}
-    Consideriamo il problema di Cauchy
+    Consideriamo $f\colon[0,+\infty)\ni t\mapsto  \sin(t)\in\amsbb{R}$; ci chiediamo se esiste
     \[
-    \begin{dcases}
-        u'(t) = \frac{1}{t}u(t) + 3t^3\\
-        u(-1) = 2
-    \end{dcases}
+    \int_0^{+\infty}\sin(t)\, dt
     \]
-    In questo caso $P(t) = \frac{1}{t}$ e $Q(t) = 3t^3$. Notiamo che $P$ non è definita in $0$; pertanto, dato che vogliamo che $P$ e $Q$ siano continue sull'intervallo $I$ di definizione, dobbiamo restringerci a $(-\infty, 0)$ o $(0, +\infty)$. Dato che l'istante iniziale $t_0=-1$ appartiene al primo insieme, ci restringiamo a $(-\infty, 0)$. In questo caso, le primitive saranno
+    Calcoliamo quindi
     \[
-    \int P(t)\, dt = \int \frac{1}{t}\, dt = \log\abs{t} = \log(-t)
+    F(x) = \int_0^{x}\sin(t)\, dt = -\cos(t)\bigg|_0^x = 1-\cos(x)
     \]
-    e
+    Vogliamo determinare, se esiste,
     \[
-    \int Q(t) e^{-\int P(t)\, dt}\, dt = \int 3t^3 e^{-\log(-t)}\, dt = -\int 3t^2\, dt = -t^3
+    \lim_{x\to+\infty}F(x)
     \]
-    Inserendo i risultati in (\ref{eq:11.1}) otteniamo che la soluzione generale dell'equazione differenziale nell'intervallo $(-\infty, 0)$ è 
+    Ci ricordiamo che vale il teorema \ref{th:5.1}: consideriamo quindi due successioni,
     \[
-    u(t) = e^{\log(-t)}(c-t^3) = t(t^3-c)
+    (a_n = 2n\pi)_n \qquad (bn=\pi + 2n\pi)_n
     \]
-    Fissiamo ora la costante $c\in\amsbb{R}$ imponendo le condizioni iniziali:
+    Entrambe divergono a $+\infty$ per $n\to \infty$, e possiamo considerare quindi
     \[
-    2 = u(-1) = (-1)((-1)^3-c) = (c+1) \iff c = 1
+    \lim_{n\to\infty} F(a_n) = \lim_{n\to\infty}1-\cos(2n\pi) = 0 \qquad \lim_{n\to\infty} F(b_n) = \lim_{n\to\infty} 1-\cos(\pi+2n\pi) = 2
     \]
-    La soluzione del problema di Cauchy sarà quindi
+    Di conseguenza per il teorema \ref{th:5.1} sappiamo che
     \[
-    u\colon (-\infty, 0)\ni t \mapsto t(t^3-1)
+    \lim_{n\to\infty}F(x)
     \]
+    non esiste.\\
+    Questo esempio ammette un'interessante interpretazione grafica: se consideriamo infatti il grafico di $f(t) = \sin(t)$
+    \begin{center}
+        \begin{tikzpicture}
+            \pgfplotsset{
+                axis lines=middle,
+                xlabel style=below,
+                ylabel style=left
+            }
+            \begin{axis}[y=7mm, ymin=-1.2, ymax = 1.2, xmin = -.2, xmax = 13.2, xscale =1.3, yscale = 3, samples=201, xlabel={$x$}, ylabel = {$y$}, xtick={3.14159, 6.28318, 9.42477, 12.56637}, xticklabels={$\pi$, $2\pi$, $3\pi$, $4\pi$}]
+        %\addplot [name path=A, teal] coordinates { (\Xmin, -\Xmin) (\Xmax,-\Xmax) };
+        %\path [name path=B] (\Xmax,\Ymax)--(\Xmin,\Ymax);
+        
+
+            \addplot [name path=A, domain=0:3.14159, black] {sin(deg(x))};
+            \path [name path=B] (0, 0)--(3.14159, 0);
+            \addplot [red!30] fill between [of=A and B];
+            \addplot [name path=C, domain=3.14159:6.28318, black] {sin(deg(x))};
+            \path [name path=D] (3.14159, 0)--(6.28318, 0);
+            \addplot [blue!30] fill between [of=C and D];
+            \addplot [name path=E, domain=6.28318:9.42477, black] {sin(deg(x))};
+            \path [name path=F] (6.28318, 0)--(9.42477,0);
+            \addplot [red!30] fill between [of=E and F];
+            \addplot [name path=G, domain=9.42477:12.56637, black] {sin(deg(x))};
+            \path [name path=H] (9.42477, 0)--(12.56637, 0);
+            \addplot [blue!30] fill between [of=G and H];
+        %\addplot [white] fill between [of=C and D];
+        %\endpgfonlayer
+                \end{axis}
+            \end{tikzpicture}
+        \end{center}
+        sappiamo che $F(x)$ rappresenta l'area sottesa dal grafico di $\sin(t)$ da $0$ a $x$. Per $x$ che varia da 0 a $\pi$ quest'area cresce fino a raggiungere il valore massimo di $2$ per $x=\pi$; dopodiché decresce sino a raggiungere il valore minimo di $0$ per $x=2\pi$, e il processo si ripete ogni periodo. Poiché l'area sottesa dal grafico oscilla in questo modo, non tende a stabilizzarsi verso un valore predefinito per $x\to +\infty$, e di conseguenza l'integrale improprio non esiste.
 \end{example}
-\begin{definition}
-    \label{def:11.5}
-    Un'equazione differenziale non-lineare esatta è un'equazione differenziale del tipo
+Per capire se un integrale improprio esiste o meno, possiamo appellarci ai seguenti risultati:
+\begin{theorem}
+    \label{th:10.1}
+    Siano $f, g\colon[a,+\infty)\to \amsbb{R}$ due funzioni continue (in modo tale da soddisfare le richieste di integrabilità) e tali che esista $M>0$ tale che
     \[
-    u'(t) = -\frac{P(t,u)}{Q(t,u)}
+    Mg(x)\ge f(x)\ge 0 \ \text{per ogni} \ x\in[a,+\infty)
     \]
-    con $P, Q \colon A\subseteq\amsbb{R}^2 \to \amsbb{R}$ dove $A$ è un sottoinsieme semplicemente connesso\footnote{Vuol dire ``senza buchi''.} di $\amsbb{R}^2$, $Q\ne 0$ su $A$, $P,Q$ sono sufficientemente regolari su $A$ e sono tali\footnote{Le notazioni $\partial_t$ e $\partial_u$ denotano le derivate parziali rispetto a $t$ e $u$; all'atto pratico dovete derivare nel primo caso rispetto a $t$ trattando i termini in $u$ come costanti, e nel secondo caso i termini in $u$ trattando come costanti i termini dipendenti da $t$.} che
-    \[
-    \partial_u P(t,u) = \partial_t Q(t,u)
-    \]
-     Dato un punto $(\tau, \varepsilon)\in A$ esiste una funzione definita su di un intorno aperto $U$ di $(\tau, \varepsilon)$, $F\colon U\to\amsbb{R}$, data da
-     \begin{equation}
-         \label{eq:11.2}
-         F(t,u) = \int_\tau^t P(s,u)\, ds + \int_\varepsilon^u Q(\tau, s)\, ds
-     \end{equation}
-     tale che una soluzione generica dell'equazione differenziale esatta è data in forma \emph{implicita} da $F(t,u)=c$.\\
-     Se stiamo considerando un problema di Cauchy
-     \[
-     \begin{dcases}
-         u'(t) = -\frac{P(t,u)}{Q(t,u)} \\
-         u(t_0) = u_0
-     \end{dcases}
-     \]
-     allora è possibile scegliere $(\tau, \varepsilon) = (t_0, u_0)$, e in quel caso le soluzioni saranno date in forma implicita da $F(t,u) = 0$.
-\end{definition}
-\begin{example}
-    Consideriamo il problema di Cauchy
-    \[
-    \begin{dcases}
-        u'(t) = -\frac{t+u}{t-3u}\\
-        u(0) = 1
-    \end{dcases}
-    \]
-    Notiamo innanzitutto che la funzione a denominatore si annulla se $t=3u$; dobbiamo pertanto considerare uno dei due insiemi
-    \[
-    \left\{(t,u)\in\amsbb{R}^2\colon t<3u\right\} \qquad \left\{(t,u)\in\amsbb{R}^2\colon t>3u\right\}
-    \]
-    Poiché la condizione iniziale $(t_0, u_0) = (0, 1)$ appartiene al primo insieme, scegliamo quello come dominio $A$ (che è semplicemente connesso). Notiamo inoltre che se definiamo
-    \[
-    P(t) = t+u \qquad Q(t) = t-3u
-    \]
-    abbiamo che
-    \[
-    \partial_u P(t,u) = \partial_u(t+u) = 1 \qquad \partial_t Q(t,u) = \partial_t(t-3u) = 1
-    \]
-    L'equazione differenziale è quindi un'equazione differenziale esatta (cfr. \ref{def:11.5}), e la soluzione è data in forma implicita da $F(t,u) = 0$, con $F(t,u)$ data dalla (\ref{eq:11.2}):
-    \[
-    F(t,u) = \int_0^t (s+u)\, ds -\int_1^{u}3s\, ds = \frac{t^2}{2} + ut +\frac{3}{2}u^2-\frac{3}{2}
-    \]
-    ossia l'equazione implicita è
-    \[
-    \frac{t^2}{2} +ut-\frac{3}{2}u^2 +\frac{3}{2}=0\iff t^2 +2ut -3u^2+3=0
-    \]
-    In questo caso è possibile esplicitare la soluzione $u(t)$: consideriamo infatti
-    \[
-    u(t) = \frac{-t\pm \sqrt{t^2+3t^2+9}}{-3} = \frac{t\pm \sqrt{4t^2+9}}{3}
-    \]
-    Per capire quale fra i due segni prima della radice è opportuno tenere, consideriamo la condizione iniziale: abbiamo che
-    \[
-    1 = u(0) = \frac{\pm\sqrt{9}}{3}
-    \]
-    La soluzione corretta dell'equazione è quella con il segno positivo; pertanto la soluzione dell'equazione differenziale è data da
-    \[
-    u(t) = \frac{t+\sqrt{4t^2+9}}{3}
-    \]
-\end{example}
-\begin{definition}
-    \label{def:11.6}
-    Un'equazione differenziale a variabili separabili è un'equazione del tipo 
-    \[
-    u'(t) = f(t)g(u)
-    \]
-    con $f\colon I\to \amsbb{R}$ e $g\colon J \to \amsbb{R}$ sufficientemente regolari, e $g\ne 0$ su $J$. Poiché $g(u)\ne 0$ per ogni $u\in J$, possiamo definire
-    \[
-    P(t,u) = f(t) \qquad Q(t,u) = -\frac{1}{g(u)}
-    \]
-    con $P, Q \colon I \times J \to \amsbb{R}$. Notiamo che
+    Allora:
     \begin{enumerate}[(i)]
-        \item $P$ e $Q$ sono definite sul rettangolo $I \times J$ che è semplicemente connesso;
-        \item $\partial_u P(t,u) = \partial_u f(t) = 0$ e $\partial_t Q(t,u) = \partial_t g(u)^{-1}=0$;
-        \item $u'(t) = f(t)g(u) = -\frac{P(t,u)}{Q(t,u)}$.
+        \item Se $\int_a^{+\infty}g(x)\, dx$ esiste allora $\int_a^{+\infty}g(x)\, dx$ esiste;
+        \item Se $\int_a^{+\infty}f(x)\, dx$ diverge allora $\int_a^{+\infty}g(x)$ diverge.
     \end{enumerate}
-    Di conseguenza, possiamo dire che le equazioni differenziali a variabili separabili sono un sottocaso di quelle esatte; pertanto dato un punto $(t_0, u_0)\in I\times J$ la soluzione generale è data in forma implicita da $F(t,u)=c$, con $F(t,u)$ definita dalla (\ref{eq:11.2}) come
-    \begin{equation}
-        \label{eq:11.3}
-        F(t,u) = \int_{t_0}^t P(s,u)\, ds + \int_{u_0}^u Q(t_0, s)\, ds = \int_{t_0}^t f(s) - \int_{u_0}^u \frac{1}{g(s)}\, ds
-    \end{equation}
-\end{definition}
-\begin{example}
-    Consideriamo il problema di Cauchy
+\end{theorem}
+\begin{theorem}
+    \label{th:10.2}
+    Siano $f,g\colon[a,+\infty)\to \amsbb{R}$ due funzioni continue tali che $f(x), g(x)\ge 0$ per ogni $x\in[a,+\infty)$ e tali che
     \[
-    \begin{dcases}
-        u'(t)=2t\sqrt{1-u^2}\\
-        u(0) = \frac{1}{2}
-    \end{dcases}
+    \lim_{x\to+\infty} \frac{f(x)}{g(x)} = l\in\amsbb{R}\setminus\{0\}
     \]
-    Notiamo che in questo caso abbiamo
+    Allora
     \[
-    f(t) = 2t \qquad g(u) = \sqrt{1-u^2}
+    \int_a^{+\infty}f(x)\, dx \ \text{e} \ \int_a^{+\infty}g(x)\, dx
     \]
-    con $g\colon[-1,1]\to \amsbb{R}^+$. Chiaramente $g(u)\ge 0$ per ogni $u\in[-1,1]$, e $g(u)=0$ se e solo se $u=\pm 1$. Poiché dobbiamo necessariamente avere $g(u)\ne 0$, dobbiamo restringerci all'intervallo aperto $(-1,1)$. $f$ è invece definita su tutto $\amsbb{R}$; pertanto il dominio di definizione dell'equazione a variabili separabili, intesa come equazione differenziale esatta, è $\amsbb{R}\times (-1,1)$, e la soluzione è data da (\ref{eq:11.3}):
+    hanno lo stesso comportamento.
+\end{theorem}
+Analoghi risultati valgono per nel caso di integrali impropri nel senso della definizione \ref{def:10.2}.
+\subsection{Esercizi: integrazione di Riemann impropria}
+\begin{exercise}
+    \label{ex:10.1}
+    Determinare se
     \[
-    0=F(t,u) = \int_{0}^t 2s\, ds -\int_{\frac{1}{2}}^u\frac{1}{\sqrt{1-s^2}}\, ds = t^2 - \arcsin(u)+ \arcsin\left(\frac{1}{2}\right) = t^2-\arcsin(u)+\frac{\pi}{6}
+    \int_0^1 \frac{1}{\sqrt{1-x^4}}\, dx
     \]
-    L'equazione che da la soluzione del problema in forma implicita è quindi
+    esiste.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Notiamo che la funzione integranda $f\colon[0,1)\to\amsbb{R}$ può essere scritta come
     \[
-    t^2+\frac{\pi}{6}=\arcsin(u)
+    f(x) = \frac{1}{\sqrt{(1-x)(1+x)(1+x^2)}}
     \]
-    Dato che l'immagine di $\arcsin(u)$ per $u\in(-1,1)$ è $\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$, anche $t^2+\frac{\pi}{6}$ appartiene a questo insieme; pertanto dobbiamo restringere il dominio di $t$ a $\left(-\sqrt{\frac{\pi}{3}}, \sqrt{\frac{\pi}{3}}\right)$. \\
-    Anche in questo caso possiamo esprimere $u$ in forma esplicita come
+    e che $\lim_{x\to 1^-} f(x) = +\infty$. Pertanto l'integrale che stiamo considerando è un integrale di Riemann improprio; per determinare se questo esiste, conviene usare uno dei teoremi \ref{th:10.1} e \ref{th:10.2}.\\
+    Notiamo che per la definizione \ref{def:10.2} vale che
     \[
-    u(t)=\sin\left(t^2+\frac{\pi}{6}\right), \quad t\in\left(-\sqrt{\frac{\pi}{3}}, \sqrt{\frac{\pi}{3}}\right)
+    \begin{split}
+        \int_0^1 \frac{1}{\sqrt{1-x^4}}\, dx &= \lim_{t\to1^-} \int_0^t \frac{1}{\sqrt{(1-x)(1+x)(1+x^2)}}\, dx \overset{\text{Teorema \ref{th:8.4}}}{=} \\
+        &=\lim_{y\to0^+} -\int_1^y \frac{1}{\sqrt{y}\sqrt{2+y}\sqrt{1+(1+y)^2}}\, dy = \\
+        & = \lim_{y\to 0^+}\int_y^1 \frac{1}{\sqrt{y}\sqrt{2+y}\sqrt{1+(1+y)^2}}\, dy
+    \end{split}
     \]
-\end{example}
-\begin{remark}
-    Per risolvere le equazioni differenziali a variabili separabili, è possibile effettuare delle manipolazioni algebriche informali per facilitarne la risoluzione. Innanzitutto, possiamo scrivere
+    A questo punto possiamo provare a sviluppare con Taylor (cfr. teorema \ref{th:6.5}) parte del denominatore per provare a trovare una funzione $g(y)$ che soddisfi il teorema \ref{th:10.2}:
     \[
-    u'(t) = \frac{du}{dt}
+    \frac{1}{\sqrt{2+y}} = \frac{1}{\sqrt{2}}-\frac{1}{4\sqrt{2}}y +o(y) \qquad \frac{1}{\sqrt{1+(1+y)^2}} = \frac{1}{\sqrt{2}}-\frac{1}{2\sqrt{2}}y +o(y)
     \]
-    L'equazione differenziale a questo punto può essere scritta come
+    La funzione integranda può essere quindi sviluppata come
     \[
-    \frac{du}{dt} = 2t\sqrt{1-u^2} 
+    \begin{split}
+        & \frac{1}{\sqrt{y}}\left(\frac{1}{\sqrt{2}}-\frac{1}{4\sqrt{2}}y+o(y)\right)\left(\frac{1}{\sqrt{2}}-\frac{1}{2\sqrt{2}}y+o(y)\right) = \\
+        & = \frac{1}{\sqrt{y}}\left(\frac{1}{2}-\frac{3}{8}y+o(y)\right) = \frac{1}{2\sqrt{y}}-\frac{3}{8}\sqrt{y}+o(\sqrt{y})
+    \end{split}
     \]
-    Se immaginiamo di trattare $\frac{du}{dt}$ come una frazione otteniamo, supponendo $u\ne \pm1$,
+    Se consideriamo $g(y) = \frac{1}{2\sqrt{y}}$ abbiamo che
     \[
-    \frac{du}{dt} = 2t\sqrt{1-u^2} \iff \frac{1}{\sqrt{1-u^2}}du = (2t) dt
+    \lim_{y\to 0^+} \frac{f(y)}{g(y)} = \lim_{y\to 0^+} (\frac{1}{2\sqrt{y}}-\frac{3}{8}\sqrt{y}+o(\sqrt{y}))2\sqrt{y} = \lim_{y\to 0^+} 1 -\frac{3}{4}y+o(y) = 1
     \]
-    A questo punto possiamo immaginare di poter scrivere
+    Notiamo che $f(y)$ e $g(y)$ sono continue in $[0,1)$ e positive; quindi per il teorema \ref{th:10.2} vale che
     \[
-    \int \frac{1}{\sqrt{1-u^2}}\, du = \int 2t\, dt
+    \int_0^1 \frac{1}{\sqrt{1-x^4}}\, dx \ \text{e} \ \int_0^1 \frac{1}{2\sqrt{y}}\, dy
     \]
-    ossia
+    hanno lo stesso comportamento. Sappiamo che $\int_0^1 \frac{1}{x^\alpha}\, dx$ esiste se $\alpha<1$; pertanto 
     \[
-    \arcsin(u) = t^2+c
+    \int_0^1 \frac{1}{\sqrt{1-x^4}}\, dx
     \]
-    La soluzione a cui siamo giunti è quindi fondamentalmente la stessa di prima.
-\end{remark}
-\begin{definition}
-    \label{def:11.7}
-    Un'equazione differenziale ordinaria è un'equazione di Bernoulli se è un'equazione del tipo
+    esiste.
+\end{proof}
+\begin{exercise}
+    \label{ex:10.2}
+    Determinare i valori di $\alpha, \beta>0$ tali che
     \[
-    u'(t) = P(t)u(t)+Q(t)(u(t))^\alpha
+    \int_0^\pi \frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)}\, dx
     \]
-    con $\alpha\in \amsbb{R}\setminus\{0,1\}$ un parametro reale e $P,Q$ continue su $I$. Notiamo che se $\alpha\notin \amsbb{Z}$, allora necessariamente $u(t)\ge 0$ sul proprio dominio di definizione.\\
-    In questo caso, chiaramente $u(t) \equiv 0$ è una soluzione banale dell'equazione. Supponiamo ora $u(t)\ne 0$ nel dominio di definizione della soluzione; possiamo moltiplicare ambo i membri per $u(t)^{-\alpha}$, ottenendo
+    esiste.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Notiamo che in questo caso i punti problematici sono due: infatti, per ogni scelta di $\alpha, \beta>0$ vale che
     \[
-    u(t)^{-\alpha} u'(t) = P(t) u(t)^{1-\alpha} + Q(t)
+    \lim_{x\to 0^+}\frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)} = +\infty \qquad \lim_{x\to \pi^-} \frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)} = +\infty
     \]
-    Notiamo inoltre che 
+    Poiché sappiamo trattare funzioni con eventualmente un solo punto problematico, possiamo appellarci al punto (i) della seconda parte del corollario \ref{cor:8.1} e al teorema \ref{th:4.2} per scrivere
     \[
-    \frac{d}{dt}(u(t))^{1-\alpha} \overset{(\ref{eq:6.4})}{=} (1-\alpha) u(t)^{-\alpha} u'(t)
+    \int_0^\pi \frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)}\, dx = \int_0^{\frac{\pi}{2}}\frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)}\, dx + \int_{\frac{\pi}{2}}^\pi \frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)}\, dx
+    \]
+    Notiamo che, date le ipotesi del teorema \ref{th:4.2} questa scrittura è possibile solamente se esistono separatamente
+    \[
+    \underbrace{\lim_{y\to 0^+} \int_y^{\frac{\pi}{2}} \frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)}\, dx}_{\stepcounter{equation}\mbox{(\theequation)}} \qquad \underbrace{\lim_{z\to \pi^-}\int_{\frac{\pi}{2}}^0 \frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)}\, dx}_{\stepcounter{equation}\mbox{(\theequation)}}
+    \]
+    \addtocounter{equation}{-2}\refstepcounter{equation}\label{eq:10.1}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:10.2}
+    Consideriamo quindi i due limiti:
+    \begin{enumerate}[(i)]
+        \item per quanto riguarda (\ref{eq:10.1}), operiamo come nella soluzione dell'esercizio \ref{ex:10.1}, ossia sviluppiamo con Taylor la funzione integranda in un intorno di $x_0=0$, notando che $\cos(x)\ge 0$ per ogni $x\in\left[0,\frac{\pi}{2}\right]$:
+        \[
+        \abs{\cos(x)}^{2\alpha} = (\cos(x))^{2\alpha} = (1+o(x))^{2\alpha} \qquad \sin^\beta(x) = \left(x + o(x)\right)^\beta = x^\beta\left(1+\frac{o(x)}{x}\right)^\beta
+        \]
+        Quindi abbiamo che
+        \[
+        \frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)} = \frac{(1+o(x))^{2\alpha}}{x^\beta\left(1+\frac{o(x)}{x}\right)^\beta}
+        \]
+        Se consideriamo $g(x) = \frac{1}{x^\beta}$ vale che
+        \[
+        \lim_{x\to 0^+}\frac{f(x)}{g(x)} = \lim_{x\to 0^+} \frac{(1+o(x))^{2\alpha}}{x^\beta\left(1+\frac{o(x)}{x}\right)^\beta} x^\beta = \lim_{x\to 0^+} \frac{(1+o(x))^{2\alpha}}{\left(1+\frac{o(x)}{x}\right)^\beta} = 1
+        \]
+        Entrambe le funzioni sono continue e positive su $\left(0, \frac{\pi}{2}\right]$, e per il teorema \ref{th:10.2} abbiamo che
+        \[
+        \int_0^{\frac{\pi}{2}} \frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)}\, dx \ \text{e} \ \int_0^{\frac{\pi}{2}}\frac{1}{x^\beta}\, dx
+        \]
+        hanno lo stesso comportamento. Come prima, sappiamo che $\int_0^{\frac{\pi}{2}} \frac{1}{x^\beta}\, dx$ esiste se $\beta<1$.
+        \item Consideriamo ora il limite (\ref{eq:10.2}): notiamo innanzitutto che $\cos(x)\le0$ per ogni $x\in\left[\frac{\pi}{2}, \pi\right]$ e quindi
+        \[
+        \abs{\cos(x)}^{2\alpha} = (-\cos(x))^{2\alpha}
+        \]
+        Procedendo come prima e sviluppando numeratore e denominatore della funzione integranda in un intorno di $x_0=\pi$ abbiamo
+        \[
+        (-\cos(x))^{2\alpha} = (1+o(x-\pi))^{2\alpha}
+        \]
+        e
+        \[
+        \sin^\beta(x) = \left(-(x-\pi)+o((x-\pi)) \right)^\beta = (\pi-x)^\beta\left(1+\frac{o(\pi-x)}{\pi-x}\right)^\beta
+        \]
+        e se consideriamo $g(x) = \frac{1}{(\pi-x)^\beta}$ vale che
+        \[
+        \lim_{x\to \pi^-} \frac{f(x)}{g(x)} = \lim_{x\to \pi^-} \frac{(1+o(x-\pi))^{2\alpha}}{(\pi-x)^\beta \left(1+\frac{o(\pi-x)}{\pi-x}\right)^\beta} (\pi-x)^\beta = \lim_{x\to \pi^-} \frac{(1+o(x-\pi))^{2\alpha}}{\left(1+\frac{o(\pi-x)}{\pi-x}\right)^\beta} = 1 
+        \]
+        con $g(x), f(x)$ continue e positive in $\left[\frac{\pi}{2}, \pi\right)$. Quindi per il teorema \ref{th:10.2}
+        \[
+        \int_{\frac{\pi}{2}}^\pi \frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)}\, dx \ \text{e} \ \int_{\frac{\pi}{2}}^\pi \frac{1}{(\pi-x)^\beta}\, dx 
+        \]
+        hanno lo stesso comportamento. Notiamo che
+        \[
+        \int_{\frac{\pi}{2}}^\pi \frac{1}{(\pi-x)^\beta}\, dx = \lim_{z\to \pi^-}\int_{\frac{\pi}{2}}^\pi \frac{1}{(\pi-x)^\beta}\, dx \overset{\text{Teorema \ref{th:8.4}}}{=} \lim_{y\to 0^+}\int_0^{\frac{\pi}{2}} \frac{1}{x^\beta}\, dx
+        \]
+        che esiste finito per $\beta<1$.
+    \end{enumerate}
+    Quindi entrambi i limiti (\ref{eq:10.1}) e (\ref{eq:10.2}) esistono finiti se $0<\beta<1$ e per ogni $\alpha>0$; quindi l'integrale
+    \[
+    \int_0^\pi \frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)}\, dx
+    \]
+    esiste se $\alpha>0$, $0<\beta<1$.
+\end{proof}
+\begin{exercise}
+    \label{ex:10.3}
+    Calcolare, se esiste,
+    \[
+    \int_0^{+\infty}\frac{1}{e^x+e^{-x}}\, dx
+    \]
+\end{exercise}
+\begin{proof}[Soluzione]
+    Notiamo che $e^x+e^{-x}>0$ per ogni $x\in\amsbb{R}$; pertanto l'unica criticità dell'integrale improprio è il dominio di integrazione illimitato. Procediamo quindi secondo la definizione \ref{def:10.1}, ossia
+    \[
+    \int_0^{+\infty} \frac{1}{e^x+e^{-x}}\, dx = \lim_{t\to +\infty} \int_0^t \frac{1}{e^x + e^{-x}}\, dx 
+    \]
+    Notiamo che
+    \[
+    \int_0^t \frac{1}{e^x+e^{-x}}\, dx = \int_0^{t}\frac{e^x}{e^{2x}+1}\, dx = \int_0^t \frac{1}{(e^x)^2+1}e^x\, dx \overset{\text{Teorema \ref{th:8.4}}}{=} \int_1^{e^t} \frac{1}{y^2+1}\, dy
     \]
     Quindi
     \[
-    \frac{1}{1-\alpha} \frac{d}{dt}(u(t)^{1-\alpha}) = P(t) u(t)^{1-\alpha} + Q(t)
+    \begin{split}
+        \lim_{t\to +\infty} \int_0^t \frac{1}{e^x+e^{-x}}\, dx &= \lim_{t\to +\infty} \int_1^{e^t} \frac{1}{y^2+1}\, dy = \lim_{t\to +\infty} \left(\arctan(e^t)-\arctan(1)\right) = \\
+        & = \frac{\pi}{2}-\frac{\pi}{4} = \frac{\pi}{4}
+    \end{split}
     \]
-    Se definiamo $\varphi(t) = u(t)^{1-\alpha}$ abbiamo quindi che l'equazione differenziale risulta essere
-    \[
-    \varphi'(t) = (1-\alpha)P(t)\varphi(t) + (1-\alpha)Q(t)
-    \]
-    L'equazione che abbiamo ottenuto è descritta dalla definizione \ref{def:11.4}, e la soluzione è data da (\ref{eq:11.1}):
-    \[
-    \varphi(t) = e^{\int (1-\alpha)P(t)\, dt} \left(c+\int (1-\alpha)Q(t) e^{-\int(1-\alpha)P(t)\, dt}\right)
-    \]
-    Una volta trovata $\varphi(t)$, è possibile ricondursi a $u(t)$ considerando 
-    \[
-    u(t) = \varphi(t)^{\frac{1}{1-\alpha}}
-    \]
-    ove ben definita.
-\end{definition}
-\begin{example}
-    Consideriamo il problema di Cauchy
-    \[
-    \begin{dcases}
-        u'(t) = -t u(t) + t^3u(t)^2\\
-        u(1) = 1
-    \end{dcases}
-    \]
-    Questa è un'equazione di Bernoulli in cui l'esponente $\alpha$ è $2$, con $P(t) = -t$ e $Q(t) = t^3$ definite e continue su tutto $\amsbb{R}$. Di conseguenza, consideriamo $\varphi(t) = u(t)^{1-\alpha} = u(t)^{-1}$; l'equazione differenziale diventa quindi
-    \[
-    \varphi'(t) = t\varphi(t)-t^3
-    \]
-    La soluzione è data dalla (\ref{eq:11.1}): consideriamo quindi
-    \[
-    \int t\, dt = \frac{t^2}{2} \quad -\int t^3 e^{-\frac{t^2}{2}}\, dt = \int t^2 \frac{d}{dt}e^{-\frac{t^2}{2}}\, dt \overset{\text{Teorema \ref{th:8.5}}}{=} t^2e^{-\frac{t^2}{2}}-2\int e^{-\frac{t^2}{2}} t\, dt = t^2e^{-\frac{t^2}{2}}+2e^{-\frac{t^2}{2}}
-    \]
-    Di conseguenza
-    \[
-    \varphi(t) = e^{\frac{t^2}{2}}\left(c+t^2 e^{-\frac{t^2}{2}}+2e^{-\frac{t^2}{2}}\right) = ce^{\frac{t^2}{2}}+t^2+2
-    \] 
-    Poiché $u(t)= \varphi(t)^{-1}$ abbiamo che la soluzione generale dell'equazione differenziale è
-    \[
-    u(t) = \frac{1}{t^2+2+ce^{\frac{t^2}{2}}}
-    \]
-    Imponendo la condizione iniziale abbiamo
-    \[
-    1 = u(1) = \frac{1}{1+2+ce^{\frac{1}{2}}} \iff c = -2e^{-\frac{1}{2}}
-    \]
-    e quindi la soluzione del problema di Cauchy è data da
-    \[
-    u(t) = \frac{1}{t^2+2-2e^{\frac{t^2}{2}-\frac{1}{2}}}
-    \]
-    Notiamo che in questo caso abbiamo che il denominatore è
-    \[
-    q(t) = t^2+2-2e^{\frac{t^2}{2}-\frac{1}{2}}
-    \]
-    e questa funzione è tale per cui $q(0)>0$ e $\lim_{t\to\pm\infty}q(t) = -\infty$. Pertanto esistono almeno due punti $t_0, t_1\in\amsbb{R}$ tali che $t_0<0$, $t_1>0$ e $q(t_0) = q(t_1) = 0$. Studiando la derivata di $q$ è possibile mostrare che $t_1>1$; di conseguenza $u(t)$ sarà definita su $(t_0, t_1)$.
-\end{example}
-\subsection{Esercizi: equazioni differenziali ordinarie e problemi di Cauchy}
-\begin{exercise}
-    \label{ex:11.1}
-    Sia $u\colon I \to\amsbb{R}$ la soluzione del seguente problema di Cauchy:
-    \begin{equation}
-        \label{eq:11.4}
-        \begin{dcases}
-            u'(t)e^t +\sin(t)u(t) = \cos(u(t))\\
-            u(0) = 0
-        \end{dcases}
-    \end{equation}
-    Determinare il comportamento locale della soluzione $u$ in un intorno di $t_0=0$.
-\end{exercise}
-\begin{proof}[Soluzione]
-    Ricordiamo che per determinare il comportamento locale di $u$ dobbiamo capire se è crescente o decrescente e concava o convessa in un intorno di $t_0=0$. Dobbiamo quindi determinare $u'(0)$ e $u''(0)$. Poiché $u'(t)$ è determinato dall'equazione differenziale in (\ref{eq:11.4}), possiamo valutare ambo i membri dell'equazione in $t_0=0$ ottenendo
-    \[
-    u'(0)e^0 +\sin(0)u(0)=\cos(u(0)) \iff u'(0) = \cos(0) \iff u'(0) = 1
-    \]
-    Di conseguenza $u'(0)>0$, e quindi la funzione $u$ è crescente in un intorno di $t_0=0$.\\
-    Per calcolare $u''(0)$, possiamo sfruttare l'equazione differenziale in (\ref{eq:11.4}) nel modo seguente: possiamo derivare ambo i membri dell'equazione ottenendo così
-    \[
-    u''(t)e^t + u'(t)e^t + \cos(t)u(t) + \sin(t)u'(t) = -\sin(u(t))u'(t)
-    \]
-    Se valutiamo l'equazione precedente in $t_0=0$ otteniamo
-    \[
-    u''(0) e^0 +u'(0)e^0 +\cos(0)u(0)+\sin(0)u'(0) = -\sin(u(0))u'(0) 
-    \]
-    ossia
-    \[
-    u''(0) + 1 = 0 \iff u''(0)=-1
-    \]
-    Quindi $u''(0)<0$, e di conseguenza $u$ è concava in un intorno di $t_0=0$.
 \end{proof}
 \begin{exercise}
-    \label{ex:11.2}
-    Dato il problema di Cauchy
-    \begin{equation}
-        \label{eq:11.5}
-        \begin{dcases}
-            n'(t) = r n(t)\left(1-\frac{n(t)}{k}\right)\\
-            n(0) = n_0
-    \end{dcases}
-    \end{equation}
-    determinarne la soluzione $n(t)$ in funzione dei parametri $r>0$ e $k>0$ e della condizione iniziale $n_0\ge 0$.
+    \label{ex:10.4}
+    Dato $\alpha\in\amsbb{R}$, si consideri
+    \[
+    I_\alpha = \int_{-\infty}^{+\infty} \abs{x}^{-\alpha}\arctan\left(\frac{x}{x^4+1}\right)\, dx
+    \]
+    \begin{enumerate}[(i)]
+        \item Determinare per quali valori di $\alpha\in\amsbb{R}$ l'integrale improprio esiste;
+        \item per questi $\alpha$, calcolare $I_\alpha$.
+    \end{enumerate}
 \end{exercise}
 \begin{proof}[Soluzione]
-    Notiamo che possiamo scrivere l'equazione differenziale come
+    Innanzitutto, detta $f(x)$ la funzione 
     \[
-    n'(t) = \frac{r}{k}n(t)(k-n(t))
+    f(x) = \abs{x}^{-\alpha}\arctan\left(\frac{x}{x^4+1}\right)
     \]
-    Notiamo che la funzione $n(t)\equiv 0$ è una soluzione del problema di Cauhcy se $n_0=0$; supponiamo quindi $n_0>0$. L'equazione differenziale scritta come prima è un'equazione differenziale a variabili separabili (cfr. definizione \ref{def:11.6}), con
+    notiamo che per $\alpha\le 0$ la funzione è ben definita su tutto $\amsbb{R}$, mentre per $\alpha>0$ la funzione è definita su $\amsbb{R}\setminus\{0\}$. In entrambi i casi, notiamo che 
     \[
-    f(t) = \frac{r}{k} \qquad g(n) = n(k-n)
+    f(-x) = \abs{-x}^{-\alpha}\arctan\left(\frac{-x}{(-x)^4+1}\right) = -\abs{x}^{-\alpha} \arctan\left(\frac{x}{x^4+1}\right) = -f(x)
     \]
-    Notiamo che $g(n)\ne 0$ se $n\ne k$ e $n\ne 0$; quindi dobbiamo restringerci ad uno degli insiemi
+    ossia $f$ è dispari sul proprio dominio di definizione. Consideriamo quindi $I_\alpha$: questo integrale improprio consiste in realtà, come nel caso dell'esercizio \ref{ex:10.2}, nella somma di 4 integrali impropri ``di base'', ossia
     \[
-    \{n\in\amsbb{R}\colon n>k\} \qquad \{n\in\amsbb{R}\colon 0<n<k\} \qquad \{n\in\amsbb{R}\colon n<0\}
+    I_\alpha =  \underbrace{\int_{-\infty}^{-1} f(x)\, dx}_{\stepcounter{equation}\mbox{(\theequation)}} + \underbrace{\int_{-1}^0 f(x)\, dx}_{\stepcounter{equation}\mbox{(\theequation)}} + \underbrace{\int_0^1 f(x)\, dx}_{\stepcounter{equation}\mbox{(\theequation)}} + \underbrace{\int_1^{+\infty} f(x)\, dx}_{\stepcounter{equation}\mbox{(\theequation)}}
     \]
-    a seconda della condizione iniziale $n_0$. Chiaramente escludiamo l'ultimo insieme, visto che $n_0>0$. 
+    \addtocounter{equation}{-4}\refstepcounter{equation}\label{eq:10.3}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:10.4}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:10.5}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:10.6}
+    Quindi affinché $I_\alpha$ esista devono esistere questi singolarmente questi 4 integrali. Consideriamo ora i fatti seguenti:
     \begin{enumerate}[(i)]
-        \item Caso $n_0>k$: allora l'insieme a cui dobbiamo restringerci è $\{n\in\amsbb{R}\colon n>k\}$; il dominio in cui cerchiamo soluzioni è quindi $\amsbb{R}\times \{n\in\amsbb{R} \colon n>k\}$; applicando la formula risolutiva (\ref{eq:11.3}) otteniamo che la soluzione è data in forma implicita da
+        \item se consideriamo gli integrali (\ref{eq:10.3}) e (\ref{eq:10.6}), che esplicitamente sono rispettivamente
+        \[
+        \lim_{y\to-\infty} \int_y^1 f(x)\, dx \ \text{e} \ \lim_{y\to +\infty} \int_1^y f(x)\, dx
+        \]
+        notiamo che
         \[
         \begin{split}
-            F(t,n) &= \int_{0}^t \frac{r}{k}\, ds -\int_{n_0}^n \frac{1}{s(k-s)}\, ds = \frac{r}{k}t-\int_{n_0}^n \frac{1}{k}\frac{1}{s} +\frac{1}{k}\frac{1}{k-s}\, ds = \\
-            & = \frac{r}{k}t-\frac{1}{k}\left(\log\abs{n}-\log\abs{n_0}-\log\abs{k-n}+\log\abs{k-n_0}\right) = \\
-            & = \frac{r}{k}t -\frac{1}{k}\log\abs{\frac{n}{k-n}}-\frac{1}{k}\log\abs{\frac{k-n_0}{n_0}} = \\
-            & = \frac{r}{k}t+\frac{1}{k}\log\left(\frac{n-k}{n}\right)-\frac{1}{k}\log\left(\frac{n_0-k}{n_0}\right) =0
+            \lim_{y\to-\infty} \int_{y}^{-1} f(x)\, dx &= \lim_{y\to+\infty} \int_{-y}^{-(1)} f(x)\, dx \overset{\text{Teorema \ref{th:8.4}}}{=} \lim_{y\to +\infty} \int_y^{1} -f(-x)\, dx = \\
+            & = \lim_{y\to+\infty} \int_1^y f(-x)\, dx = -\lim_{y\to+\infty} \int_1^y f(x)\, dx
         \end{split}
         \]
-        Possiamo esplicitare la soluzione scrivendo
+        Quindi se esiste (\ref{eq:10.6}) automaticamente esiste (\ref{eq:10.3}). Possiamo quindi studiare unicamente il limite (\ref{eq:10.6}). Un analogo risultato vale per i limiti (\ref{eq:10.4}) e (\ref{eq:10.5}).
+        \item In virtù del punto (i), notiamo che se (\ref{eq:10.5}) e (\ref{eq:10.6}) esistono allora $I_\alpha$ esiste e vale che
         \[
-        -rt = \log\left(\frac{n-k}{n}\frac{n_0}{n_0-k}\right)
+        I_\alpha = 0
         \]
-        e quindi
-        \[
-        n(t) = \frac{k}{1-\frac{n_0-k}{n_0}e^{-rt}}
-        \]
-        Notiamo che $n(t)$ è definita per $t\ne -\frac{1}{r}\log\left(\frac{n_0}{n_0-k}\right)<0$; dato che $t_0=0$, l'intervallo di esistenza della soluzione è $\left(-\frac{1}{r}\log\left(\frac{n_0}{n_0-k}\right), +\infty\right)$.
-        \item Caso $n_0<k$: in questo caso dobbiamo restringerci a $\{n\in\amsbb{R}\colon 0<n<k\}$, e quindi il dominio in cui cerchiamo soluzioni è $\amsbb{R}\times \{n\in\amsbb{R}\colon 0<n<k\}$. La funzione $F(t,n)$ si ottiene allo stesso modo, ma in questo caso abbiamo
-        \[
-        F(t,n) = \frac{r}{k}t+\frac{1}{k}\log\left(\frac{k-n}{n}\right)-\frac{1}{k}\log\left(\frac{k-n_0}{n_0}\right) = 0
-        \]
-        ossia, esplicitando $n(t)$,
-        \[
-        n(t) = \frac{k}{1+\frac{k-n_0}{n_0}e^{-rt}}
-        \]
-        \item Infine, notiamo che per $n_0=k$ l'equazione differenziale ammette una soluzione: infatti se $n(t)\equiv k$ allora $n$ soddisfa il problema di Cauchy.
+        Di conseguenza quando $I_\alpha$ esiste, questo vale 0.
     \end{enumerate}
-    In tutti i casi, notiamo che 
+    Determiniamo ora i valori di $\alpha\in\amsbb{R}$ tali che (\ref{eq:10.5}) e (\ref{eq:10.6}) esistono finiti.
+    \begin{enumerate}[(i)]
+        \item Consideriamo (\ref{eq:10.5}), ossia
+        \[
+        \lim_{y\to 0^+} \int_y^1 f(x)\, dx 
+        \]
+        Per determinare se esiste, procediamo come nel caso degli esercizi \ref{ex:10.1} e \ref{ex:10.2}, ossia proviamo ad applicare il teorema \ref{th:10.2} sfruttando l'espansione di Taylor di $f(x)$ in un intorno di $x_0=0$:
+        \[
+        \arctan\left(\frac{x}{x^4+1}\right) = x+o(x) = x\left(1+\frac{o(x)}{x}\right)
+        \]
+        quindi
+        \[
+        f(x) = \abs{x}^{-\alpha} \arctan\left(\frac{x}{x^4+1}\right) = ({x})^{-\alpha} x \left(1+\frac{o(x)}{x}\right) = \frac{1}{x^{\alpha-1}} \left(1+\frac{o(x)}{x}\right) 
+        \]
+        Di conseguenza, se consideriamo $g(x) = \frac{1}{x^{\alpha-1}}$ abbiamo che
+        \[
+        \lim_{x\to 0^+} \frac{f(x)}{g(x)} = \lim_{x\to 0^+}\frac{1}{x^{\alpha-1}}\left(1+\frac{o(x)}{x}\right)x^{\alpha-1} = \lim_{x\to 0^+} \left(1+\frac{o(x)}{x}\right) = 1
+        \]
+        e poiché $f$ e $g$ sono entrambe continue e positive in $(0,1]$ abbiamo che
+        \[
+        \int_0^1 f(x)\, dx \ \text{e} \ \int_0^1 \frac{1}{x^{\alpha-1}}\, dx
+        \]
+        hanno lo stesso comportamento alla luce del teorema \ref{th:10.2}. Poiché sappiamo che $\int_0^1 \frac{1}{x^{\alpha-1}}\, dx$ esiste se $\alpha<2$, lo stesso vale per (\ref{eq:10.5}).
+        \item Se consideriamo (\ref{eq:10.6}), 
+        \[
+        \lim_{y\to +\infty} \int_1^y f(x)\, dx 
+        \]
+        per operare come prima bisogna stimare il comportamento di $\arctan\left(\frac{x}{x^4+1}\right)$ per grandi $x$; chiaramente 
+        \[
+        \lim_{x\to+\infty} \arctan\left(\frac{x}{x^4+1}\right)=0
+        \]
+        però per decidere se l'integrale esiste o meno dobbiamo stimare la velocità di decadimento della funzione. Per fare questo dobbiamo fare uno ``sviluppo all'$\infty$'' della funzione. A questo scopo, consideriamo i seguenti passaggi:
+        \[
+        \lim_{x\to +\infty} \arctan\left(\frac{x}{x^4+1}\right) = \lim_{x\to +\infty} \arctan\left(\frac{x}{x^4\left(1+\frac{1}{x^4}\right)}\right ) \overset{y=\frac{1}{x}}{=} \lim_{y\to 0^+} \arctan\left(\frac{y^3}{1+y^4}\right)
+        \]
+        Quindi il comportamento all'infinito di $\arctan\left(\frac{x}{x^4+1}\right)$ è analogo al comportamento in un intorno di $0$ di $\arctan\left(\frac{y^3}{y^4+1}\right)$. Consideriamone quindi lo sviluppo di Taylor in un intorno di $x_0=0$:
+        \[
+        \arctan\left(\frac{y^3}{y^4+1}\right) = y^3 + o(y^3)
+        \]
+        e di conseguenza 
+        \[
+        \arctan\left(\frac{x}{x^4+1}\right) = \frac{1}{x^3}+o\left(\frac{1}{x^3}\right) \ \text{per} \ x\to +\infty
+        \]
+        Quindi
+        \[
+        f(x) = \abs{x}^{-\alpha}\frac{1}{x^3}\left(1+x^3o\left(\frac{1}{x^3}\right)\right) = \frac{1}{x^{3+\alpha}}\left(1+x^3o\left(\frac{1}{x^3}\right)\right)
+        \]
+        e se definiamo $g(x) = \frac{1}{x^{3+\alpha}}$ abbiamo che
+        \[
+        \lim_{x\to +\infty} \frac{f(x)}{g(x)} = \lim_{x\to+\infty}\frac{1}{x^{3+\alpha}}\left(1+x^3o\left(\frac{1}{x^3}\right)\right) x^{3+\alpha} = \lim_{x\to+\infty} \left(1+x^3o\left(\frac{1}{x^3}\right)\right) = 1
+        \]
+        Dato che $f$ e $g$ sono continue e positive su $[1, +\infty)$, per il teorema \ref{th:10.2} abbiamo che
+        \[
+        \int_1^{+\infty} f(x)\, dx \ \text{e} \ \int_1^{+\infty} \frac{1}{x^{\alpha+3}}\, dx
+        \]
+        hanno lo stesso comportamento. Dato che $\int_1^{+\infty}\frac{1}{x^{\alpha+3}}\, dx$ esiste se $\alpha>-2$, lo stesso vale per (\ref{eq:10.6}).
+    \end{enumerate}
+    Possiamo quindi concludere dicendo che $I_\alpha$ esiste per $\alpha\in(-2,2)$ e che per $\alpha$ in questo intervallo $I_\alpha = 0$.
+\end{proof}
+\begin{exercise}
+    \label{ex:10.5}
+    Determinare per quali $\alpha, \beta\in\amsbb{R}$ l'integrale
     \[
-    \lim_{t\to+\infty} n(t) = k
+    \int_1^{+\infty} \frac{\log(x)e^{-x^2}}{(x+1)^\alpha(x-1)^\beta}\, dx
     \]
-    \begin{center}
-        \begin{tikzpicture}
-        \pgfplotsset{
-            axis lines=middle,
-            xlabel style=below,
-            ylabel style=left
-        }
-            \begin{axis}[y=7mm, ymin=-.2, ymax = 21, xmin = -.2, xmax = 11, xscale =1.5, yscale = .5, samples=201, xlabel={$t$}, ylabel = {$n$}, xtick={1, 2, ..., 10}, ytick ={2, 4, ..., 20}, legend style={at={(axis cs: 8,15)},anchor=west}, legend cell align=left]
-            \addplot [name path=A, domain=0:10, black] {10};
-            \addlegendentry{$n_0=k$}
-            \addplot[domain=0:10, red]{10/(1+(10-8)/8*exp(-0.5*x))};
-            \addlegendentry{$n_0=0.8k$}
-            \addplot[domain=0:10, teal]{10/(1+(10-2)/2*exp(-0.5*x))};
-            \addlegendentry{$n_0=0.2k$}
-            \addplot[domain=0:10, blue]{10/(1+(10-0.2)/0.2*exp(-0.5*x))};
-            \addlegendentry{$n_0=0.02k$}
-            \addplot[domain=0:10, violet]{10/(1-(20-10)/20*exp(-0.5*x))};
-            \addlegendentry{$n_0=2k$}
-            \addplot[domain=0:10, orange]{10/(1-(12-10)/12*exp(-0.5*x))};
-            \addlegendentry{$n_0=1.2k$}
-            \end{axis}
-        \end{tikzpicture}
-    \end{center}
+    esiste.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Come nel caso dell'esercizio \ref{ex:10.4}, i problemi di questo integrale improprio sono due: la singolarità della funzione integranda
+    \[
+    f(x) = \frac{\log(x)e^{-x^2}}{(x+1)^{\alpha}(x-1)^\beta}
+    \]
+    in $x=1$ e l'illimitatezza del dominio di integrazione. \`E quindi necessario considerare separatamente i due casi
+    \[
+    I = \underbrace{\int_1^e f(x)\, dx}_{\stepcounter{equation}\mbox{(\theequation)}} + \underbrace{\int_e^{+\infty}f(x)\, dx}_{\stepcounter{equation}\mbox{(\theequation)}}
+    \]
+    \addtocounter{equation}{-2}\refstepcounter{equation}\label{eq:10.7}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:10.8}
+    \begin{enumerate}[(i)]
+        \item Consideriamo l'integrale improprio (\ref{eq:10.7}), che possiamo scrivere come
+        \[
+        \lim_{y\to 1^+} \int_y^e f(x)\, dx
+        \]
+        Per poter applicare il teorema \ref{th:10.2} dobbiamo, come nei casi precedenti, determinare il comportamento in un intorno di $x_0=0$ di $f(x)$ sfruttando l'espansione in serie di Taylor:
+        \[
+        \log(x)=\log(1+(x-1))= (x-1)+o(x-1) \qquad e^{-x^2} = \frac{1}{e} -\frac{2}{e}(x-1) +o(x-1)
+        \]
+        e
+        \[
+        \frac{1}{(x+1)^\alpha} = \frac{1}{2^\alpha } -\frac{\alpha}{2^{\alpha+1}}(x-1) +o(x-1)
+        \]
+        Quindi
+        \[
+        \begin{split}
+            f(x) & = \frac{(x-1)^{1-\beta}}{2^{\alpha}e}\left(1+\frac{o(x-1)}{x-1}\right)\left(1-2(x-1)+o(x-1)\right)\times \\
+            & \times \left(1-\frac{\alpha}{2}(x-1)+o(x-1)\right)
+        \end{split}
+        \]
+        e definendo $g(x) = \frac{(x-1)^{1-\beta}}{2^{\alpha}e}$ abbiamo che
+        \[
+        \lim_{x\to 1^+} \frac{f(x)}{g(x)} = 1
+        \]
+        Dato che $f$ e $g$ sono positive e continue in $(1, e]$ per il teorema \ref{th:10.2} 
+        \[
+        \int_1^e \frac{\log(x)e^{-x^2}}{(x+1)^\alpha(x-1)^\beta}\, dx \ \text{e} \ \int_1^e \frac{(x-1)^{1-\beta}}{2^{\alpha}e}\, dx
+        \]
+        hanno lo stesso comportamento; effettuando passaggi simili a quelli dell'esercizio \ref{ex:10.2} possiamo quindi dire che (\ref{eq:10.7}) esiste se $\beta<2$.
+        \item Per quanto riguarda l'integrale (\ref{eq:10.8}), notiamo innanzitutto che 
+        \begin{equation}
+            \label{eq:10.9}
+            \frac{\log(x)e^{-x^2}}{(x+1)^\alpha(x-1)^\beta} \le \frac{xe^{-x^2}}{(x+1)^\alpha(x-1)^\beta} \ \text{per ogni} \ x\in [e,+\infty)
+        \end{equation}
+        e, se consideriamo $g(x) = x^{1-\beta-\alpha}e^{-x^2}$, abbiamo che
+        \[
+        \lim_{x\to +\infty} \frac{xe^{-x^2}}{(x+1)^\alpha (x-1)^\beta} \frac{1}{g(x)} = \lim_{x\to +\infty} \frac{x^\alpha}{(x+1)^\alpha} \frac{x^\beta}{(x-1)^\beta} = 1
+        \]
+        e di conseguenza $\frac{xe^{-x^2}}{(x+1)^\alpha (x-1)^\beta}$ e $g$ hanno lo stesso comportamento per il teorema \ref{th:10.2}. Determiniamo quindi per quali valori di $\alpha, \beta\in\amsbb{R}$ l'integrale
+        \[
+        \int_e^{+\infty} x^{1-\alpha-\beta} e^{-x^2}
+        \]
+        esiste. A questo scopo, consideriamo separatamente i casi $1-\alpha-\beta\le 0$ e $1-\alpha-\beta>0$. Nel caso $1-\alpha-\beta=0$ il risultato segue dal fatto che l'integrale $\int_0^{+\infty} e^{-x^2}\, dx$ esiste finito, mentre nel caso $1-\alpha-\beta<0$ possiamo ragionare come segue: la funzione
+        \[
+        [e,+\infty)\ni x \mapsto x^{1-\alpha-\beta}
+        \]
+        è monotona decrescente, e quindi
+        \[
+        x^{1-\alpha-\beta}e^{-x^2}\le e^{1-\alpha-\beta}e^{-x^2} \ \forall x\in[e, +\infty)
+        \]
+        Dato che $\int_0^{+\infty}e^{-x^2}\, dx$ esiste, grazie al teorema \ref{th:10.1} abbiamo che
+        \[
+        \int_e^{+\infty} x^{1-\alpha-\beta} e^{-x^2}\, dx
+        \]
+        esiste finito; per il teorema \ref{th:10.2} segue che
+        \[
+        \int_e^{+\infty} \frac{xe^{-x^2}}{(x+1)^\alpha(x-1)^\beta}\, dx
+        \]
+        esiste e quindi grazie al teorema \ref{th:10.1} e alla stima (\ref{eq:10.9}) possiamo concludere che
+        \[
+        \int_e^{+\infty}\frac{\log(x)e^{-x^2}}{(x+1)^\alpha(x-1)^\beta}\, dx
+        \]
+        esiste finito, senza vincoli su $\alpha,\beta\in\amsbb{R}$.\\
+        Se invece $1-\alpha-\beta>0$, bisogna operare diversamente. Vogliamo mostrare che
+        \[
+        \int_e^{+\infty}x^{1-\alpha-\beta} e^{-x^2}\, dx 
+        \]
+        esiste. A questo scopo, restringiamoci inizialmente al caso $1-\alpha-\beta\in\amsbb{N}$ e procediamo per induzione:
+        \begin{enumerate}[(a)]
+            \item \emph{caso base $n=1$}: vale che
+            \[
+            \begin{split}
+                \int_e^{+\infty} x e^{-x^2}\, dx & = \lim_{y\to +\infty} \int_e^y x e^{-x^2}\, dx = \lim_{y\to +\infty} -\frac{1}{2}\int_e^y e^{-x^2} \frac{d}{dx}(-x^2)\, dx \overset{\text{Teorema \ref{th:8.4}}}{=} \\
+                & = \lim_{y\to+\infty} -\frac{1}{2}\int_{-e^2}^{-t^2} e^z\, dz = \frac{1}{2}e^{-e^2} - \lim_{t\to +\infty} \frac{e^{-t^2}}{2} = \frac{1}{2}e^{-e^{2}}
+            \end{split} 
+            \]
+            \item \emph{passo induttivo}: supponiamo che valga per $n\ge 1$, e mostriamo che vale per $n+1$. Consideriamo quindi
+            \[
+            \begin{split}
+                & \int_e^{+\infty} x^{n+1}e^{-x^2}\, dx = \lim_{y\to +\infty} -\frac{1}{2} \int_e^y x^n \frac{d}{dx}(e^{-x^2})\, dx \overset{\text{Teorema \ref{th:8.5}}}{=} \\
+                & = \frac{1}{2}e^n e^{-e^2}-\lim_{y\to +\infty}\left(\frac{1}{2}y^ne^{-y^2}-\frac{n}{2}\int_e^{y} x^{n-1} e^{-x^2}\, dx\right)
+            \end{split} 
+            \]
+            Notiamo che 
+            \[
+            \lim_{y\to+\infty} \frac{1}{2}y^n e^{-y^2} = 0 \ \text{per ogni} \ n\in\amsbb{N}
+            \]
+            e che
+            \[
+            \lim_{y\to+\infty}-\frac{n}{2}\int_e^y x^{n-1}e^{-x^2}\, dx  
+            \]
+            esiste finito per l'ipotesi induttiva\footnote{$x^n\ge x^{n-1}$ per ogni scelta di $x\in[e,+\infty)$ per $n\ge 1$; di conseguenza l'asserzione segue dal teorema \ref{th:10.1}.}. Quindi possiamo applicare il teorema \ref{th:4.2} e concludere che
+            \[
+            \int_e^{+\infty} x^{n+1} e^{-x^2}\, dx
+            \]
+            esiste finito.
+        \end{enumerate}
+        Quindi 
+        \[
+        \int_0^{+\infty} x^n e^{-x^2}\, dx 
+        \]
+        esiste finito per ogni $n\in\amsbb{N}$. Noi vogliamo mostrare che
+        \[
+        \int_e^{+\infty} x^{1-\alpha-\beta} e^{-x^2}\, dx
+        \]
+        converge per ogni scelta di $\alpha, \beta$ tali che $1-\alpha-\beta >0$. Ma questo segue dalla proprietà archimedea dei numeri reali e dal teorema \ref{th:10.1}: infatti, per ogni scelta di $\alpha,\beta$ tali che $1-\alpha-\beta>0$, esiste un numero naturale $n\in\amsbb{N}$ tale che
+        \[
+        n>1-\alpha-\beta
+        \]
+        e ne consegue che possiamo trovare $n\in\amsbb{N}$ tale che
+        \[
+        x^n e^{-x^2}\ge x^{1-\alpha-\beta} e^{-x^2} \ \text{per ogni} \ x\in[e,+\infty)
+        \]
+        Per il teorema \ref{th:10.1} vale quindi che
+        \[
+        \int_e^{+\infty} x^{1-\alpha-\beta} e^{-x^2}\, dx
+        \]
+        esiste finito per ogni scelta di $\alpha, \beta\in\amsbb{R}$; il teorema \ref{th:10.2} a questo punto ci dice che 
+        \[
+        \int_e^{+\infty} \frac{xe^{-x^2}}{(x+1)^\alpha (x-1)^\beta}\, dx
+        \]
+        esiste finito per ogni scelta di $\alpha, \beta\in\amsbb{R}$. Possiamo quindi concludere, grazie alla stima (\ref{eq:10.9}) e al teorema \ref{th:10.2}, che
+        \[
+        \int_e^{+\infty} \frac{\log(x)e^{-x^2}}{(x+1)^\alpha (x-1)^\beta}\, dx
+        \]
+        esiste finito per ogni scelta di $\alpha, \beta\in\amsbb{R}$.
+    \end{enumerate}
+    Quindi per il punto (i) sappiamo che (\ref{eq:10.7}) esiste se $\beta<2$, mentre per il punto (ii) l'integrale (\ref{eq:10.8}) esiste per ogni scelta di $\alpha,\beta\in\amsbb{R}$. Quindi l'integrale
+    \[
+    \int_1^{+\infty}  \frac{\log(x)e^{-x^2}}{(x+1)^\alpha (x-1)^\beta}\, dx
+    \]
+    esiste per ogni $\alpha\in\amsbb{R}$ e $\beta<2$.
+\end{proof}
+\begin{exercise}
+    \label{ex:10.6}
+    Determinare per quali valori del parametro $x\in\amsbb{R}$ l'integrale
+    \[
+    \Gamma(x) = \int_0^{+\infty} t^{x-1} e^{-t}\, dt
+    \]
+    esiste finito.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Concentriamoci, come fatto nell'esercizio \ref{ex:10.5}, sui naturali, procedendo per induzione:
+    \begin{enumerate}[(i)]
+        \item \emph{caso base $n=1$}: abbiamo che
+        \[
+        \Gamma(1) = \int_0^{+\infty} e^{-t}\, dt = \lim_{x\to +\infty} \int_0^x e^{-t}\, dt = 1-\lim_{x\to+\infty}e^{-x} = 1 
+        \]
+        \item \emph{passo induttivo}: supponiamo che $\Gamma(n)$ sia finito, e mostriamo che anche $\Gamma(n+1)$ lo è. Consideriamo
+        \[
+        \begin{split}
+            \Gamma(n+1) & = \int_0^{+\infty} t^n e^{-t}\, dt = \lim_{x\to +\infty} -\int_0^x t^{n}\frac{d}{dt}(e^{-t})\, dt \overset{\text{Teorema \ref{th:8.5}}}{=} \\
+            & = \lim_{x\to+\infty} n\int_0^x t^{n-1} e^{-t}\, dt = n \int_0^{+\infty} t^{n-1}e^{-t}\, dt = n\Gamma(n)
+        \end{split}
+        \]
+        Di conseguenza $\Gamma(n+1)$ esiste finito.
+    \end{enumerate}
+    Consideriamo ora un generico $x\in\amsbb{R}$, con $x>1$; possiamo scrivere
+    \[
+    \lim_{y\to +\infty} \int_0^{y} t^{x-1} e^{-t}\, dt = \lim_{y\to+\infty} \int_{0^2}^{(\sqrt{y})^2} t^{x-1}e^{-t}\, dt = \lim_{y\to +\infty} 2\int_0^{\sqrt{y}} u^{2x-2} e^{-u^2} \, du 
+    \]
+    Nell'esercizio precedente avevamo già mostrato che, nel caso $x>1$, l'ultimo limite della catena di uguaglianze esiste; pertanto
+    \[
+    \Gamma(x) = \int_0^{+\infty} t^{x-1} e^{-t}\, dt
+    \]
+    esiste per $x>1$.\\
+    Se $x<1$, abbiamo un potenziale problema in $x=0$; dobbiamo pertanto considerare
+    \[
+    \int_0^{+\infty} t^{x-1} e^{-t}\, dt = \underbrace{\int_0^1 t^{x-1}e^{-t}\, dt}_{\stepcounter{equation}\mbox{(\theequation)}} + \underbrace{\int_1^{+\infty}t^{x-1}e^{-t}\, dt}_{\stepcounter{equation}\mbox{(\theequation)}} 
+    \]
+    \addtocounter{equation}{-2}\refstepcounter{equation}\label{eq:10.10}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:10.11}
+    Seguendo una procedura analoga a quella dell'esercizio \ref{ex:10.5}, è possibile dimostrare che l'integrale (\ref{eq:10.11}) esiste per ogni scelta di $x<1$. Concentriamoci quindi su (\ref{eq:10.10}): possiamo sviluppare con Taylor la funzione integranda per provare ad applicare il teorema \ref{th:10.2}. In particolare abbiamo che
+    \[
+    e^{-t} = 1-t +o(t)
+    \]
+    e quindi 
+    \[
+    \frac{e^{-t}}{t^{1-x}} = \frac{1}{t^{1-x}}(1-t+o(t))
+    \]
+    Se definiamo $g(t) = \frac{1}{t^{1-x}}$ abbiamo che
+    \[
+    \lim_{t\to 0^+} \frac{e^{-t}}{t^{1-x}}t^{1-x} = \lim_{t\to0^+} e^{-t} = 1
+    \]
+    e per il teorema \ref{th:10.2}
+    \[
+    \int_0^1 \frac{e^{-t}}{t^{1-x}}\, dt \ \text{e} \ \int_0^1 \frac{1}{t^{1-x}}\, dt
+    \]
+    hanno lo stesso comportamento. Sappiamo che $\int_0^1 \frac{1}{t^{1-x}}\, dt$ esiste se $x>0$, e pertanto anche (\ref{eq:10.10}) esiste se $x>0$. Di conseguenza, $\Gamma(x)$ è definita per $x>0$.
 \end{proof}
 \begin{remark}
-    L'equazione differenziale dell'esercizio \ref{ex:11.2} descrive una popolazione di individui che compete per un delle risorse limitate e che si riproduce ad un certo tasso $r$. $k$ rappresenta il numero di individui che il dato insieme di risorse può sostenere stabilmente. Le sue soluzioni sono dette \emph{curve logistiche}. 
+    La funzione $\amsbb{R}^+\ni x \mapsto \Gamma(x)$ è la \emph{funzione Gamma di Eulero}, e come si può osservare da $\Gamma(n+1) = n \Gamma(n)$, questa costituisce una generalizzazione del fattoriale ai numeri reali positivi.
 \end{remark}
 \newpage

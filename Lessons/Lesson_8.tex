@@ -1,867 +1,502 @@
 \section{Lezione 8}
-\subsection{Ripasso e approfondimento: teoria dell'integrazione secondo Riemann}
+\subsection{Ripasso: massimi e minimi locali, punti stazionari}
 \begin{definition}
-    \label{def:8.1}
-    Sia $f\colon[a,b]\to\amsbb{R}$ una funzione \textbf{limitata definita su} $\mathbf{[a,b]}$. Una \emph{partizione} $\mathscr{P}$ di $[a,b]$ è una collezione di punti $\{x_0, \dots, x_n\}\subset [a,b]$ tale che
+    \label{def:7.1}
+    Sia $f\colon[a,b]\to\amsbb{R}$; $x\in[a,b]$ è un punto di \emph{minimo locale} per $f$ se esiste $\delta>0$ tale che
     \[
-    a=x_0 < x_1 < \dots < x_{n-1}<x_n= b
+    f(x)\le f(t) \ \text{per ogni} \ t\in(x-\delta, x+\delta)\cap [a,b]
     \]
-    Data una partizione $\mathscr{P}$ di $[a,b]$ e la funzione $f$, definiamo le quantità
-    \begin{equation}
-        \label{eq:8.1}
-        \Delta_i = x_i - x_{i-1} \qquad M_i = \sup_{x\in[x_i, x_{i-1}]} f(x) \qquad m_i = \inf_{x\in[x_i, x_{i-1}]} f(x)
-    \end{equation}
-    con cui definiamo la somma di Darboux superiore $U(\mathscr{P}, f)$ e inferiore $L(\mathscr{P},f)$
+    Analogamente, diremo che $x$ è un punto di \emph{massimo locale} per $f$ se esiste $\delta>0$ tale che
     \[
-    \underbrace{U(\mathscr{P},f) = \sum_{i=1}^n M_i \Delta_i}_{\stepcounter{equation}\mbox{(\theequation)}} \qquad \underbrace{L(\mathscr{P},f) = \sum_{i=1}^n m_i \Delta_i}_{\stepcounter{equation}\mbox{(\theequation)}}
+    f(x)\ge f(t) \ \text{per ogni} \ t\in(x-\delta, x+\delta)\cap [a,b]
     \]
-    \addtocounter{equation}{-2}\refstepcounter{equation}\label{eq:8.2}
-    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:8.3}
 \end{definition}
+\begin{theorem}[di Fermat]
+    \label{th:7.1}
+    Se $f\colon [a,b]\to\amsbb{R}$ ha un punto di minimo o massimo locale in $x$ e $f$ è derivabile in $x$, allora $x$ è un \emph{punto stazionario}, ossia $f'(x) = 0$.
+\end{theorem}
 \begin{remark}
-    Notiamo che somma superiore ed inferiore ammettono un'interessante interpretazione grafica. Nei grafici successivi riportiamo, data una generica funzione $f$ e una partizione $\mathscr{P}= \{x_0, \dots, x_6\}$ di $[a,b]$, la somma superiore $U(\mathscr{P},f)$ e inferiore $L(\mathscr{P},f)$:  
-    \begin{center}
-    \begin{minipage}{.45\linewidth}
-        \centering
-        \begin{tikzpicture}[scale=1.4, font=\footnotesize]
-            \tzaxes(-1.2,-0.5)(3.3,2.7){$x$}[b]
-            \tzticks{-.5/$a$, 0.6/$x_2$, 1.4/$x_4$, 2.6/$b$}[b]
-            \tzticks*{-.5/$a$, 0.2/$x_1$, 0.6/$x_2$, 1.2/$x_3$, 1.4/$x_4$, 2.1/$x_5$, 2.6/$b$}
-            \tzticks{0.2/$x_1$, 1.2/$x_3$, 2.1/$x_5$}[a]
-            \tzfn[black]"curve"{cos(3*deg(\x))+sin(.9*deg(\x))+0.5}[-.5:2.6]{$f(x)$}[br]
-            \tzpolygon*[blue,auto,dashed,text=black]
-             (-0.5,0)(0.2,0)(0.2,1.5452)(-0.5,1.5452);
-            \tzpolygon*[blue,auto,dashed,text=black]
-             (0.2,0)(0.6,0)(0.6,1.5043)(0.2,1.5043);
-            \tzpolygon*[blue,auto,dashed,text=black]
-             (0.6,0)(1.2,0)(1.2,0.7869)(0.6,0.7869);
-            \tzpolygon*[blue,auto,dashed,text=black]
-             (1.2,0)(1.4,0)(1.4,0.9618)(1.2,0.9618);
-            \tzpolygon*[blue,auto,dashed,text=black]
-             (1.4,0)(2.1,0)(2.1,2.455)(1.4,2.455);
-            \tzpolygon*[blue,auto,dashed,text=black]
-             (2.1,0)(2.6,0)(2.6,2.4493)(2.1,2.4493);
-        \end{tikzpicture}
-    \end{minipage}
-    \hspace{1pt}
-    \begin{minipage}{.45\linewidth}
-        \centering
-        \begin{tikzpicture}[scale=1.4, font=\footnotesize]
-            \tzaxes(-1.2,-0.5)(3.3,2.7){$x$}[b]
-            \tzticks{-.5/$a$, 0.6/$x_2$, 1.4/$x_4$, 2.6/$b$}[b]
-            \tzticks*{-.5/$a$, 0.2/$x_1$, 0.6/$x_2$, 1.2/$x_3$, 1.4/$x_4$, 2.1/$x_5$, 2.6/$b$}
-            \tzticks{0.2/$x_1$, 1.2/$x_3$, 2.1/$x_5$}[a]
-            \tzfn[black]"curve"{cos(3*deg(\x))+sin(.9*deg(\x))+0.5}[-.5:2.6]{$f(x)$}[br]
-            \tzpolygon*[red,auto,dashed,text=black]
-             (-0.5,0)(0.2,0)(0.2,0.1358)(-0.5,0.1358);
-            \tzpolygon*[red,auto,dashed,text=black]
-             (0.2,0)(0.6,0)(0.6,0.7869)(0.2,0.7869);
-            \tzpolygon*[red,auto,dashed,text=black]
-             (0.6,0)(1.2,0)(1.2,0.2922)(0.6,0.2922);
-            \tzpolygon*[red,auto,dashed,text=black]
-             (1.2,0)(1.4,0)(1.4,0.4852)(1.2,0.4852);
-            \tzpolygon*[red,auto,dashed,text=black]
-             (1.4,0)(2.1,0)(2.1,0.9618)(1.4,0.9618);
-            \tzpolygon*[red,auto,dashed,text=black]
-             (2.1,0)(2.6,0)(2.6,1.2724)(2.1,1.2724);
-        \end{tikzpicture}
-    \end{minipage}
-\end{center}
-Come si può osservare, $U(\mathscr{P}, f)$ approssima l'area sottesa dal grafico di $f$ dall'alto, mentre $L(\mathscr{P}, f)$ la approssima dal basso. Notiamo inoltre come queste due quantità dipendano sia dalla funzione $f$ considerata, sia dalla scelta della partizione $\mathscr{P}$, e che
-\begin{equation}
-    \label{eq:8.4}
-    \left(\sup_{x\in[a,b]}f(x)\right)(b-a)\ge U(\mathscr{P}, f) \ge L(\mathscr{P},f) \ge \left(\inf_{x\in[a,b]}f(x)\right)(b-a) \ \text{per ogni} \ \mathscr{P}
-\end{equation}
-\end{remark}
-\begin{definition}
-    \label{def:8.2}
-    Chiamiamo \emph{integrale inferiore} di $f$ su $[a,b]$ la quantità
-    \[
-    \bint_a^b f = \sup_{\mathscr{P}} L(\mathscr{P},f)
-    \]
-    ossia l'estremo superiore, preso su tutte le possibili partizioni $\mathscr{P}$ di $[a,b]$, dell'insieme delle somme inferiori. Analogamente, chiamiamo \emph{integrale superiore} di $f$ su $[a,b]$ la quantità
-    \[
-    \aint_a^b f = \inf_{\mathscr{P}} U(\mathscr{P},f)
-    \]
-    ossia l'estremo inferiore, preso su tutte le possibili partizioni $\mathscr{P}$ di $[a,b]$, dell'insieme delle somme superiori. Notiamo che queste due quantità sono sempre ben definite per una funzione limitata, in quanto vale la (\ref{eq:8.4}) (e ci ricordiamo il teorema \ref{th:2.1} e il corollario \ref{cor:2.1}). Diremo che $f$ è \emph{Riemann-integrabile} su $[a,b]$ ($f\in\mathscr{R}([a,b])$) se
-    \[
-    \bint_a^b f = \aint_a^b f
-    \]
-    è in tal caso il valore comune verrà denotato con
-    \[
-    \int_a^b f = \int_a^b f(x)\, dx 
-    \]
-    e verrà detto \emph{integrale di $f$ su $[a,b]$}.
-\end{definition}
-\begin{remark}
-    Notiamo che in generale vale che
-    \[
-    \bint_a^b f \le \aint_a^b f
-    \]
-    Per mostrare la validità della disuguaglianza, procediamo come di seguito:
+    Osserviamo che l'enunciato del teorema è il seguente:
+    \begin{tcolorbox}
+        $x$ punto di minimo o massimo per $f$ e $f$ derivabile in $x$ $\implies$ $f'(x) = 0$
+    \end{tcolorbox}
+    che è equivalente a
+    \begin{tcolorbox}
+        $f$ derivabile in $x$ e $f'(x)\ne 0$ $\implies$ $x$ non è punto di minimo o massimo locale per $f$
+    \end{tcolorbox}
+    Questo significa che
     \begin{enumerate}[(i)]
-        \item Data una partizione $\mathscr{P}$ di $[a,b]$, un suo \emph{raffinamento} $\mathscr{Q}$ è una partizione tale che $\mathscr{P}\subseteq \mathscr{Q}$. Date due partizioni $\mathscr{P}_1$ e $\mathscr{P}_2$, il loro raffinamento comune sarà dato da $\mathscr{P}_1 \cup \mathscr{P}_2$.
-        \item Se $\mathscr{Q}$ è un raffinamento di $\mathscr{P}$, allora vale che
+        \item \emph{se $f$ non è derivabile in $x$ allora $f$ potrebbe avere un minimo o massimo locale in $x$}: consideriamo ad esempio la funzione $\amsbb{R}\ni x\mapsto \abs{x}$, che possiamo scrivere come
         \[
-        L(\mathscr{P}, f) \le L(\mathscr{Q},f) \qquad U(\mathscr{Q},f)\le U(\mathscr{P},f)
+        f({x}) = \begin{dcases}
+            x\, & x\ge 0\\
+            -x\, & x<0
+        \end{dcases}
         \]
-        Per mostrare che valgono queste due disuguaglianze, consideriamo il caso base in cui $\mathscr{Q} = \mathscr{P} \cup \{\overline{x}\}$, $x_{i-1} < \overline{x}<x_i$ per qualche $i$. Definiamo
+        Osserviamo che $f$ è continua su $\amsbb{R}$ e derivabile in $\amsbb{R}\setminus\{0\}$, con 
         \[
-        \overline{m}_1 = \inf_{x\in[x_{i-1}, \overline{x}]}f(x) \qquad \overline{m}_2 = \inf_{x\in[\overline{x}, x_i]}f(x)
+        f'({x}) = \begin{dcases}
+            1\, & x> 0\\
+            -1\, & x<0
+        \end{dcases}
         \]
-        e notiamo che
+        Per il teorema \ref{th:7.1} vale dunque che nessun punto di $\amsbb{R}\setminus\{0\}$ può essere un punto di minimo/massimo locale. Consideriamo quindi $x=0$: sappiamo che
         \[
-        \overline{m}_1 \ge m_i \qquad \overline{m}_2 \ge m_i
+        f(x) = \abs{x}\ge 0=\abs{0}=f(0) \ \text{per ogni} \ x\in\amsbb{R}
         \]
-        A questo punto vale che
+        ossia $f(x)\ge f(0)$ per ogni $x\in\amsbb{R}$. $0$ è quindi un punto di minimo \emph{globale} per $f$ (e di conseguenza locale).
+        \item \emph{Se $f$ è derivabile in $x$, $f'(x)=0$ è condizione necessaria ma non sufficiente affinché $x$ sia un punto di massimo/minimo globale}: consideriamo ad esempio $f(x) = x^3$; vale che $f$ è derivabile in tutto $\amsbb{R}$, e che $f'(x) = 3x^2$. Di conseguenza $f'(x)\ge 0$ per ogni $x\in\amsbb{R}$, con l'uguaglianza verificata se e solo se $x=0$. Di conseguenza l'unico punto che può essere massimo o minimo locale è $x=0$. Consideriamo quindi un generico $\delta>0$, e consideriamo l'intervallo $(-\delta, \delta)$: esistono due punti, $-\frac{\delta}{2}$ e $\frac{\delta}{2}$, tali che
         \[
-        \begin{split}
-            L(\mathscr{Q}, f)-L(\mathscr{P},f) &= \sum_{k=1}^{i-1}m_k \Delta_k + \overline{m}_1 (\overline{x}-x_{i-1}) + \overline{m}_2 (x_i - \overline{x}) + \sum_{k=i+1}^n m_k \Delta_k - \\
-            & -\sum_{k=1}^n m_k \Delta_k = \overline{m}_1 (\overline{x}-x_{i-1}) + \overline{m}_2 (x_i - \overline{x})-m_i(x_{i}-x_{i-1})\ge \\
-            & \ge m_i(\overline{x}-x_{i-1}) + m_i (x_i -\overline{x})-m_i(x_i-x_{i-1}) = 0
-        \end{split}
+        f\left(-\frac{\delta}{2}\right)=-\left(\frac{\delta}{2}\right)^3<f(0) \qquad f\left(\frac{\delta}{2}\right)=\left(\frac{\delta}{2}\right)^3>f(0)
         \]
-        Il risultato si dimostra analogamente per $U(\mathscr{Q}, f) \le U(\mathscr{P},f)$.
-        \item Per il punto precedente vale che, date due generiche partizioni $\mathscr{P}_1$ e $\mathscr{P_2}$ e indicando con $\mathscr{Q}$ il loro raffinamento comune,
-        \[
-        L(\mathscr{P}_1, f)\le L(\mathscr{Q}, f) \le U(\mathscr{Q}, f)\le U(\mathscr{P_2}, f)
-        \]
-        ossia
-       \begin{equation}
-           \label{eq:8.5}
-           L(\mathscr{P}_1, f)\le U(\mathscr{P}_2, f) \ \text{per ogni} \ \mathscr{P}_1, \mathscr{P}_2
-       \end{equation}
-       Fissiamo a questo punto $\mathscr{P}_1$; vale che
-       \[
-       L(\mathscr{P}_1, f)\le U(\mathscr{P}_2, f) \ \forall \mathscr{P}_2 \implies L(\mathscr{P}_1, f)\le \aint_a^b f
-       \]
-       Poiché la partizione $\mathscr{P}_1$ che avevamo fissato era generica, allo stesso modo vale che
-       \[
-       L(\mathscr{P}_1, f)\le \aint_a^b f \ \forall \mathscr{P}_1 \implies \bint_a^b f \le \aint_a^b f
-       \]
+        Di conseguenza $x$ non è né un punto di minimo, né un punto di massimo locale.
     \end{enumerate}
 \end{remark}
-\begin{theorem}[Criterio di Riemann]
-    \label{th:8.1}
-    Una funzione $f\colon [a,b]\to \amsbb{R}$ limitata su $[a,b]$ è Riemann-integrabile se e solo se per ogni $\varepsilon>0$ esiste una partizione $\mathscr{P}_\varepsilon$ di $[a,b]$ tale che
+\begin{theorem}[di Lagrange]
+    \label{th:7.2}
+    Sia $f\colon[a,b]\to\amsbb{R}$ una funzione continua in $[a,b]$ e differenziabile in $(a,b)$; allora esiste $\xi\in(a,b)$ tale che
     \[
-    U(\mathscr{P}_\varepsilon, f) - L(\mathscr{P}_\varepsilon, f)< \varepsilon
+    f(b)-f(a) = f'(\xi)(b-a)
     \]
 \end{theorem}
+\begin{corollary}
+    \label{cor:7.1}
+    Sia $f\colon [a,b]\to \amsbb{R}$ continua in $[a,b]$ e differenziabile in $(a,b)$, tale che $f'(x) = 0$ per ogni $x\in(a,b)$. Allora $f$ è costante su $[a,b]$.
+\end{corollary}
 \begin{proof}
-    Mostriamo le due implicazioni.
-    \begin{enumerate}[(i)]
-        \item Supponiamo che $f\in\mathscr{R}([a,b])$. Notiamo che per ogni partizione $\mathscr{P}$ di $[a,b]$ vale che
-        \[
-        L(\mathscr{P},f) \le \bint_a^b f \le \aint_a^b f \le U(\mathscr{P}, f)
-        \]
-        Per definizione (cfr. definizione \ref{def:2.2}) di estremo superiore, per ogni $\varepsilon>0$ esiste una partizione $\mathscr{P}_1$ tale che
-        \[
-        L(\mathscr{P}_1, f) > \bint_a^b f -\frac{\varepsilon}{2} \iff L(\mathscr{P}_1, f) + \frac{\varepsilon}{2}> \bint_a^b f
-        \]
-        e allo stesso modo per definizione di estremo inferiore per ogni $\varepsilon>0$ esiste una partizione $\mathscr{P}_2$ tale che
-        \[
-        U(\mathscr{P}_2, f) < \aint_a^b f +\frac{\varepsilon}{2} \iff U(\mathscr{P}_2, f) - \frac{\varepsilon}{2}<\aint_a^b f
-        \]
-        Definiamo $\mathscr{P}_\varepsilon = \mathscr{P_1}\cup \mathscr{P}_2$; vale che
-        \[
-        U(\mathscr{P}_\varepsilon, f) \le U(\mathscr{P}_2, f) < \underbrace{\bint_a^bf +\frac{\varepsilon}{2} = \aint_a^b f -\frac{\varepsilon}{2}+\varepsilon}_{\text{Definizione \ref{def:8.2}}} < L(\mathscr{P}_1, f)+\varepsilon \le L(\mathscr{P}_\varepsilon, f) + \varepsilon
-        \]
-        ossia abbiamo trovato, per ogni $\varepsilon>0$, una partizione $\mathscr{P}_\varepsilon$ tale che
-        \[
-        U(\mathscr{P}_\varepsilon, f) < L(\mathscr{P}_\varepsilon, f) + \varepsilon \iff U(\mathscr{P}_\varepsilon, f) - L(\mathscr{P}_\varepsilon, f) <  \varepsilon
-        \]
-        \item Supponiamo che per ogni $\varepsilon>0$ esista una partizione $\mathscr{P}_\varepsilon$ tale che
-        \[
-        U(\mathscr{P}_\varepsilon, f) - L(\mathscr{P}_\varepsilon, f)< \varepsilon
-        \]
-        Sappiamo che $U(\mathscr{P}_\varepsilon, f)\ge \aint_a^b f$ e che $L(\mathscr{P}_\varepsilon, f)\le \bint_a^b f$; quindi
-        \[
-        \varepsilon>U(\mathscr{P}_\varepsilon, f) - L(\mathscr{P}_\varepsilon, f) \ge \aint_a^b f - L(\mathscr{P}_\varepsilon, f) \ge \underbrace{\aint_a^b f - \bint_a^b f\ge 0}_{\text{Osservazione precedente}}
-        \]
-        ossia per ogni $\varepsilon>0$,
-        \[
-        0\le \aint_a^b f - \bint_a^b <\varepsilon
-        \]
-        Ma questo significa che
-        \[
-        0\le \aint_a^b f - \bint_a^b \le 0 \iff \aint_a^b f = \bint_a^b
-        \]
-        e quindi $f$ soddisfa la definizione \ref{def:8.2}.\qedhere
-    \end{enumerate}
+    Consideriamo $x\in(a,b]$, e consideriamo la restrizione della funzione $f$ all'intervallo $[a,x]$:
+    \[
+    f|_{[a,x]} \colon [a,x]\to \amsbb{R}
+    \]
+    Dato che $f$ è continua in $[a,b]$ allora $f|_{[a,x]}$ è continua in $[a,x]$, e dato che $f$ è differenziabile in $(a,b)$ allora $f|_{[a,x]}$ è differenziabile in $(a,x)$. Possiamo quindi applicare il teorema di Lagrange \ref{th:7.2}: esiste $\xi\in(a,x)$ tale che
+    \[
+    f(x)-f(a) = f'(\xi)(x-a)
+    \]
+    Ma per ipotesi $f'(\xi) = 0$ per ogni $\xi\in(a,b)$; quindi in conclusione abbiamo che
+    \[
+    f(x)-f(a) = 0 \iff f(x)=f(a)
+    \]
+    Poiché $x\in(a,b]$ è generico, vale che $f(x)=f(a)$ per ogni $x\in[a,b]$, ossia $f$ è costante su $[a,b]$.
 \end{proof}
-\begin{corollary}
-    \label{cor:8.1}
-    Data una funzione $f\colon[a,b]\to \amsbb{R}$, $f\in\mathscr{R}([a,b])$ se soddisfa una delle seguenti proprietà:
-    \begin{enumerate}[(i)]
-        \item $f$ è continua su $[a,b]$;
-        \item $f$ è monotona su $[a,b]$;
-        \item $f$ è limitata su $[a,b]$ ed ha al più un numero finito di discontinuità.
-    \end{enumerate}
-    Inoltre, se $f,g\in\mathscr{R}([a,b])$ vale che
-    \begin{enumerate}[(i)]
-        \item $f+g\in\mathscr{R}([a,b])$ e 
-        \[
-        \int_a^b f+g = \int_a^b f + \int_a^b g
-        \]
-        \item $\lambda f\in\mathscr{R}([a,b])$ per ogni $\lambda\in\amsbb{R}$, e
-        \[
-        \int_a^b \lambda f = \lambda \int_a^b f
-        \]
-        \item $fg\in\mathscr{R}([a,b])$;
-        \item $\abs{f}\in\mathscr{R}([a,b])$ e
-        \[
-        \abs{\int_a^b f} \le \int_a^b \abs{f}
-        \]
-        \item Se $a<c<b$, allora $f\in\mathscr{R}([a,c])$ e $f\in\mathscr{R}([c,b])$ e
-        \[
-        \int_a^b f = \int_a^c f + \int_c^b f
-        \]
-    \end{enumerate}
-\end{corollary}
-\begin{corollary}
-    \label{cor:8.2}
-    Sia $f\colon [a,b]\to \amsbb{R}$ una funzione Riemann-integrabile su $[a,b]$, e sia $\widehat{f}\colon[a,b]\to \amsbb{R}$ definita da
+\begin{remark}
+    Attenzione alle ipotesi del teorema: chiediamo che $f$ sia definita su di un intervallo, ossia un insieme connesso. Infatti, in generale se $f'\equiv 0$ diremo che $f$ è localmente costante.\\
+    Consideriamo ad esempio la funzione $f(x)=\arctan(x)-\arctan\left(\frac{x-1}{x+1}\right)$ definita su $\amsbb{R}\setminus\{-1\}$; vogliamo capire se $f$ sia o meno costante.\\
+    Notiamo che $f$ è derivabile in $\amsbb{R}\setminus\{-1\}$, con
     \[
-    \widehat{f}(x) = \begin{dcases}
-        f(x)\, & x\ne \overline{x}\\
-        k\ne f(\overline{x})\, & x=\overline{x}
-    \end{dcases}
+    \begin{split}
+        f'(x) &= \frac{1}{1+x^2}-\frac{1}{1+\left(\frac{x-1}{x+1}\right)^2}\left(\frac{1}{x+1}-\frac{x-1}{(x+1)^2}\right) = \\
+        & = \frac{1}{1+x^2}-\frac{(x+1)^2}{(x+1)^2+(x-1)^2}\left(\frac{x+1-(x-1)}{(x+1)^2}\right) = \\
+        & = \frac{1}{1+x^2}-\frac{2}{2x^2+2} = 0
+    \end{split}
     \]
-    per qualche $\overline{x}\in[a,b]$. Allora $\widehat{f}\in \mathscr{R}([a,b])$ e 
+    Quindi $f'(x)=0$ per ogni $x\in\amsbb{R}\setminus\{-1\}$. Possiamo concludere che $f$ è costante? No, perché l'insieme di definizione di $f$ non è un intervallo! Il suo dominio è dato da $(-\infty, -1)\cup(-1, +\infty)$, ossia è l'unione di due intervalli aperti (connessi).\\
+    Infatti, se consideriamo 
     \[
-    \int_a^b f = \int_a^b \widehat{f}
+    \lim_{x\to -1^-} f(x) \qquad \lim_{x\to -1^+} f(x) 
     \]
-\end{corollary}
-\begin{proof}
-    Consideriamo come primo caso $f\equiv 0$ su $[a,b]$, e quindi
+    e teniamo a mente che
     \[
-    \widehat{f}(x) = \begin{dcases}
-        0\, & x\ne \overline{x}\\
-        M\, & x=\overline{x}
-    \end{dcases}
-    \]
-    con $M>0$ per semplicità. Data la forma di $f$, sappiamo che se consideriamo la partizione $\mathscr{P}=\{x_0 = a, x_1 = b\}$ vale che
-    \[
-    U(\mathscr{P}, f) -L(\mathscr{P}, f) <\varepsilon
-    \]
-    per ogni possibile scelta di $\varepsilon>0$. \\
-    Consideriamo ora un $\varepsilon>0$ fissato; vogliamo utilizzare il criterio di Riemann \ref{th:8.1} per dimostrare che $\widehat{f}\in\mathscr{R}([a,b])$. A questo scopo, definiamo la partizione
-    \[
-    \mathscr{P}_\varepsilon = \left\{x_0, \overline{x}-\frac{\varepsilon}{4M}, \overline{x}+\frac{\varepsilon}{4M}, x_1\right\}
-    \]
-    e calcoliamo $U(\mathscr{P}_\varepsilon, \widehat{f})$ e $L(\mathscr{P}_\varepsilon, \widehat{f})$: vale che
-    \[
-    U(\mathscr{P}_\varepsilon, \widehat{f}) = \sup_{x\in \left[\overline{x}-\frac{\varepsilon}{4M}, \overline{x}+\frac{\varepsilon}{4M}\right]} \widehat{f}(x) = M \frac{\varepsilon}{2M} = \frac{\varepsilon}{2}<\varepsilon
+    \lim_{x\to-1^-} \arctan\left(\frac{x-1}{x+1}\right) \overset{t=x+1}{=} \lim_{t\to 0^-} \arctan\left(\frac{-2+t}{t}\right) = \lim_{t\to 0^-}\arctan\left(1-\frac{2}{t}\right) = \frac{\pi}{2}
     \]
     e che
     \[
-    L(\mathscr{P}_\varepsilon, \widehat{f}) = 0 
+    \lim_{x\to-1^+} \arctan\left(\frac{x-1}{x+1}\right) \overset{t=x+1}{=} \lim_{t\to 0^+} \arctan\left(\frac{-2+t}{t}\right) = \lim_{t\to 0^+}\arctan\left(1-\frac{2}{t}\right) = -\frac{\pi}{2}
     \]
-    Di conseguenza 
+    otteniamo che i due limiti precedenti valgono
     \[
-    U(\mathscr{P}_\varepsilon, \widehat{f}) - L(\mathscr{P}_\varepsilon, \widehat{f})<\varepsilon 
+    \lim_{x\to -1^-} f(x) = \lim_{x\to -1^-} \arctan(x)-\arctan\left(\frac{x-1}{x+1}\right) \overset{\text{Th.} \ \ref{th:4.2}}{=} -\frac{\pi}{4}-\frac{\pi}{2} = -\frac{3}{4}\pi
     \]
-    e quindi $\widehat{f}\in\mathscr{R}([a,b])$. Per dimostrare che
     \[
-    \int_a^b \widehat{f} = \int_a^b f = 0
+    \lim_{x\to -1^+} f(x) = \lim_{x\to -1^+} \arctan(x)-\arctan\left(\frac{x-1}{x+1}\right) \overset{\text{Th.} \ \ref{th:4.2}}{=} -\frac{\pi}{4}+\frac{\pi}{2} = \frac{\pi}{4}
     \]
-    notiamo che, seguendo il ragionamento visto prima, per ogni $\varepsilon>0$ riusciamo a trovare una partizione $\mathscr{P}_\varepsilon$ tale che 
+    A questo punto, se definiamo la funzione
     \[
-    U(\mathscr{P}_\varepsilon, \widehat{f})<\varepsilon
+    \widehat{f}(x)=\begin{cases}
+        \arctan(x)-\arctan\left(\frac{x-1}{x+1}\right)\, & x>-1\\
+        \frac{\pi}{4}\, & x=-1
+    \end{cases}
     \]
-    Di conseguenza, poiché
+    otteniamo una funzione definita su $[-1,+\infty)$ che è continua in $[-1, +\infty)$ e differenziabile in $(1, +\infty)$. Se consideriamo un qualsiasi $x\in(1,+\infty)$ e consideriamo la restrizione $\widehat{f}\colon [-1, x]\to \amsbb{R}$ abbiamo che questa funzione soddisfa le ipotesi del corollario \ref{cor:7.1}; pertanto $\widehat{f}$ è costante su $[-1, x]$, e quindi $f(x) = \widehat{f}(x) = \frac{\pi}{4}$. Poiché $x\in(-1, +\infty)$ è generico vale che $f(x) = \frac{\pi}{4}$ per ogni $x>-1$. Allo stesso modo, se consideriamo l'estensione
     \[
-    0= L(\mathscr{P}_\varepsilon, \widehat{f}) \le \bint_a^b \widehat{f} = \aint_a^b \widehat{f} \le U(\mathscr{P}_\varepsilon, \widehat{f})<\varepsilon
-    \]
-    possiamo dire che
-    \[
-    0\le \int_a^b \widehat{f} < \varepsilon \ \text{per ogni} \ \varepsilon>0
-    \]
-    ossia $\int_a^b \widehat{f} = 0$. Analogo risultato vale se $\widehat{f}(\overline{x})<0$.\\
-    Per quanto riguarda invece il nostro asserto originario, notiamo che data una generica funzione $f\in\mathscr{R}([a,b])$ possiamo scrivere
-    \[
-    \widehat{f} = f + \underbrace{\widehat{f}-f}_{g}
-    \]
-    $g(x)$ è una funzione con le proprietà sopra descritte; pertanto $g\in\mathscr{R}([a,b])$ e $\int_a^b g = 0$. Usando il corollario \ref{cor:8.1} abbiamo quindi che $f+g = \widehat{f}\in\mathscr{R}([a,b])$ e che
-    \[
-    \int_a^b f = \int_a^b f + \int_a^b g = \int_a^b(f+g) = \int_a^b \widehat{f}
-    \]
-\end{proof}
-\begin{remark}
-    Il corollario \ref{cor:8.2} ci dice che l'integrazione secondo Riemann non dipende dal valore di una funzione in un numero $n$ arbitrario (ma finito!) di punti.
-\end{remark}
-\begin{theorem}
-    \label{th:8.2}
-    Sia $f\colon\mathscr{R}([a,b])$, e $x\in[a,b]$; se definiamo
-    \begin{equation}
-        \label{eq:8.6}
-        F(x) = \int_a^xf(t)\, dt
-    \end{equation}
-    $F$ è continua in $[a,b]$; inoltre, se $f$ è continua in $x_0\in[a,b]$ allora $F$ è differenziabile in $x_0$ e $F'(x_0) = f(x_0)$.
-\end{theorem}
-\begin{proof}
-    Notiamo che $F$ è ben definita per il corollario \ref{cor:8.1}, punto (v).\\
-    Fissiamo $x\in[a,b]$; vogliamo mostrare che per ogni $\varepsilon>0$ esiste $\delta_\varepsilon>0$ tale che
-    \[
-    \abs{F(x)-F(y)}<\varepsilon \ \text{se} \ \abs{x-y}<\delta_\varepsilon
-    \]
-    Possiamo supporre $y<x$; allora per il corollario \ref{cor:8.1} vale che
-    \[
-    \abs{F(x)-F(y)} = \abs{\int_a^x f - \int_a^y f} \overset{\text{(v)}}{=} \abs{\int_x^y f} \overset{\text{(iv)}}{\le }\int_x^y \abs{f}
-    \]
-    Ricordiamo che $f$ è una funzione limitata, ossia
-    \[
-    \abs{f(x)} \le M \ \text{per ogni} \ x\in[a,b]
-    \]
-    Quindi
-    \[
-    \abs{F(x)-F(y)} {\le }\int_x^y \abs{f} \le M (x-y)
-    \]
-    Quindi se prendiamo $\delta_\varepsilon = \frac{\varepsilon}{2M}$ abbiamo che
-    \[
-    \abs{F(x)-F(y)}<\varepsilon \ \text{se} \ \abs{x-y}<\delta_\varepsilon
-    \]
-    E di conseguenza $F$ è continua in $x$; poiché $x\in[a,b]$ è generico, $F$ è continua in $[a,b]$.\\
-    Supponiamo ora che $f$ sia continua in $x_0\in[a,b]$; allora per ogni $\varepsilon>0$ esiste $\delta_\varepsilon>0$ tale che
-    \begin{equation}
-        \label{eq:8.7}
-        \abs{f(x_0)-f(t)}<\varepsilon \ \text{se} \ \abs{x_0-t}<\delta_\varepsilon
-    \end{equation}
-    Vogliamo mostrare che $F$ è differenziabile in $x_0$, ossia (cfr. definizione \ref{def:6.1}) che 
-    \[
-    \lim_{t\to x_0} \frac{F(t)-F(x_0)}{t-x_0} = f(x_0)
-    \]
-    Fissiamo quindi $\varepsilon>0$, e consideriamo
-    \[
-    \begin{split}
-        & \abs{\frac{F(t)-F(x_0)}{t-x_0}-f(x_0)} = \abs{\frac{1}{t-x_0}\int_{x_0}^tf -\frac{t-x_0}{t-x_0}f(x_0)} = \abs{\frac{1}{t-x_0} \int_{x_0}^t f - \frac{f(x_0)}{t-x_0}\int_{x_0}^t} = \\
-        & = \abs{\frac{1}{t-x_0}\int_{x_0}^t (f-f(x_0))}\le \frac{1}{\abs{t-x_0}}\int_{x_0}^t\abs{f(u)-f(x_0)}\, du \overset{(\ref{eq:8.6})}{<}\frac{1}{\abs{t-x_0}}\int_{x_0}^t \varepsilon = \varepsilon
-    \end{split}
-    \]
-    se $\abs{t-x_0}<\delta_\varepsilon$, in quanto in questo caso $\abs{u-x_0}<\delta_\varepsilon$ per ogni $u\in[x_0,t]$. Quindi dato $\varepsilon>0$ abbiamo trovato $\delta_\varepsilon$ tale che
-    \[
-    \abs{\frac{F(t)-F(x_0)}{t-x_0}-f(x_0)}<\varepsilon \ \text{se} \ \abs{t-x_0}<\delta_\varepsilon
-    \]
-    ossia vale, come richiesto, 
-    \[
-    \lim_{t\to x_0} \frac{F(t)-F(x_0)}{t-x_0} = f(x_0)
-    \]
-\end{proof}
-\begin{remark}
-    La funzione $F$ definita nell'equazione (\ref{eq:8.6}) è detta \emph{funzione integrale} di $f$.
-\end{remark}
-\begin{theorem}[Teorema fondamentale del calcolo]
-    \label{th:8.3}
-    Sia $f\in\mathscr{R}([a,b])$; se esiste una funzione $F\colon[a,b]\to \amsbb{R}$ tale che $F'=f$, allora
-    \[
-    \int_a^b f(x)\, dx = F(b)-F(a)
-    \]
-\end{theorem}
-\begin{proof}
-    Per il criterio di Riemann \ref{th:8.1} sappiamo che per ogni $\varepsilon>0$ esiste una partizione $\mathscr{P}_\varepsilon$ tale che 
-    \[
-    U(\mathscr{P}_\varepsilon, f) - L(\mathscr{P}_\varepsilon, f)<\varepsilon
-    \]
-    Tale partizione è data da $\mathscr{P}_\varepsilon = \{x_0, x_1, \dots, x_i, \dots, x_n\}$. Consideriamo ora $F\Big|_{[x_{i-1}, x_i]}$; poiché $F$ è differenziabile su (un aperto contenente) $[a,b]$, lo è in $(x_{i-1}, x_i)$, ed è inoltre continua in $[x_{i-1}, x_i]$. Pertanto possiamo applicare il teorema di Lagrange \ref{th:7.2}: esiste $t_i\in(x_{i-1}, x_i)$ tale che
-    \[
-    F(x_i) -F(x_{i-1}) = f(t_i) (x_i - x_{i-1})
-    \]
-    Notiamo quindi che
-    \[
-    \sum_{i=1}^n F(x_i) -F(x_{i-1}) = F(b)-F(a)
-    \]
-    Consideriamo
-    \[
-    \sum_{i=1}^nf(t_i) \Delta_i
-    \]
-    Notiamo che $m_i \le f(t_i) \le M_i $, e di conseguenza
-    \[
-    L(\mathscr{P}_\varepsilon, f) \le F(b)-F(a) \le U(\mathscr{P}_\varepsilon, f)
-    \]
-    Ricordando che 
-    \[
-    L(\mathscr{P}, f) \le \int_a^b f \le U(\mathscr{P}, f) \ \text{per ogni partizione}\ \mathscr{P}
-    \]
-    possiamo scrivere
-    \[
-    \left(F(b)-F(a)\right)-\int_a^bf \le \left(F(b)-F(a)\right)-L(\mathscr{P}_\varepsilon, f) \le U(\mathscr{P}_\varepsilon, f)-L(\mathscr{P}_\varepsilon, f) < \varepsilon
-    \]
-    e
-    \[
-    \int_a^b f -\left(F(b)-F(a)\right)\le U(\mathscr{P}_\varepsilon, f) - \left(F(b)-F(a)\right) \le U(\mathscr{P}_\varepsilon, f) - L(\mathscr{P}_\varepsilon, f) <\varepsilon
-    \]
-    ossia
-    \[
-    \abs{\left(F(b)-F(a)\right)-\int_a^bf}<\varepsilon
-    \]
-    per ogni $\varepsilon>0$; ciò implica che
-    \[
-    \abs{\left(F(b)-F(a)\right)-\int_a^bf} = 0 \iff F(b)-F(a)=\int_a^bf
-    \]
-\end{proof}
-\begin{remark}
-    Una funzione $F$ avente le proprietà descritte dall'enunciato del teorema \ref{th:8.3} è detta \emph{primitiva} di $f$. Chiaramente, se $f$ ammette una primitiva ne ammette in realtà infinite, in quanto $(F+c)' = f$ per ogni $c\in\amsbb{R}$. Notiamo che il teorema \ref{th:8.2} dice che ogni funzione continua ammette una primitiva; questa non è però necessariamente scrivibile in termini di funzioni elementari.\\ 
-    Il teorema fondamentale del calcolo \ref{th:8.3} è la ragione per cui si ricercano le primitive delle funzioni per calcolare gli integrali.
-\end{remark}
-\subsection{Esercizi: ricerca delle primitive}
-\begin{exercise}
-    \label{ex:8.1}
-    Data la funzione $\amsbb{R}\setminus\{0\}\ni x \mapsto \frac{1}{x}$, determinarne una primitiva.
-\end{exercise}
-\begin{proof}[Soluzione]
-    Ricordiamo che una primitiva di $f$ è una funzione $F\colon \amsbb{R}\setminus\{0\}\to \amsbb{R}$ tale che $F'(x) = f(x)$ per ogni $x\in\amsbb{R}\setminus\{0\}$.\\
-    Sappiamo che se consideriamo $\log(\cdot)\colon (0, +\infty)\to \amsbb{R}$, questa è tale per cui
-    \[
-    \frac{d}{dx}\log(x) = \frac{1}{x}
-    \]
-    Tuttavia, questa non è una primitiva di $f$, poiché è definita su di un dominio diverso. Possiamo però considerare la funzione
-    \[
-    \log(-\cdot)\colon (-\infty, 0) \to \amsbb{R}
-    \]
-    che è tale che
-    \[
-    \frac{d}{dx}\log(-x) \overset{(\ref{eq:6.4})}{=} \frac{1}{-x}\frac{d}{dx}(-x) = -\frac{1}{-x} = \frac{1}{x}
-    \]
-    Pertanto abbiamo che la funzione $\log\abs{\cdot}\colon \amsbb{R}\setminus\{0\}\to \amsbb{R}$ è una primitiva di $f$.
-\end{proof}
-\begin{remark}
-    In generale, trovare delle primitive non è facile; possiamo aiutarci scrivendo una primitiva \emph{formalmente} come
-    \[
-    \int f(x)\, dx
-    \]
-    e usando formalmente i teoremi validi nella teoria dell'integrazione.
-\end{remark}
-\begin{exercise}
-    \label{ex:8.2}
-    Data la funzione $f\colon(-\infty, 1] \to \amsbb{R}$, $f(x) = x\sqrt{1-x}$, determinarne una primitiva.
-\end{exercise}
-\begin{proof}[Soluzione]
-    Scriviamo la primitiva di $f$ come
-    \[
-    \int x\sqrt{1-x}\, dx
-    \]
-    e ricordiamo il seguente risultato:
-    \begin{tcolorbox}
-        \begin{theorem}[Cambiamento di variabile]
-            \label{th:8.4}
-            Sia $f\colon[a,b]\to\amsbb{R}$ una funzione integrabile su $[a,b]$, e sia $\varphi\colon [c,d]\to [a,b]$ una funzione differenziabile su $[c,d]$ con $\varphi'\in\mathscr{R}([c,d])$ e tale che $\varphi([c,d])\subseteq [a,b]$; allora $f\circ \varphi\in\mathscr{R}([c,d])$ e
-            \[
-            \int_c^d (f\circ \varphi)(y) \varphi'(y)\, dy = \int_{\varphi(c)}^{\varphi(d)} f(x)\, dx
-            \]
-        \end{theorem}
-    \end{tcolorbox}
-    Vorremmo quindi applicarlo formalmente alla scrittura precedente. Per farlo, dobbiamo scegliere in maniera oculata la funzione $\varphi$, in modo tale che ci aiuti effettivamente a trovare una primitiva.\\
-    Ricordiamo che
-    \[
-    \cos^2\theta + \sin^2 \theta = 1 \ \text{per ogni} \ \theta\in\amsbb{R}
-    \]
-    e notiamo che $\sin^2(\cdot)\colon \left[0, \frac{\pi}{2}\right]\to [0,1]$ è una funzione differenziabile e con derivata continua; inoltre è e biiettiva, e quindi se $x\in[0,1]$ lo possiamo scrivere come $\sin^2(\theta_x)$ per qualche $\theta_x\in\left[0, \frac{\pi}{2}\right]$. 
-    Come nel caso precedente, restringiamo quindi $f$ all'intervallo $[0,1]$ e verifichiamo poi se riusciamo a ricondurre la primitiva trovata ad una funzione definita su tutto $(-\infty, 1]$.
-    Per il teorema \ref{th:8.4}, applicato formalmente, abbiamo che
-    \[
-    \begin{split}
-        \int x\sqrt{1-x}\, dx & = \int f(x)\, dx = \int (f\circ \sin^2)(\theta) \frac{d}{d\theta}\sin^2(\theta)\, d\theta = \\
-        & = \int 2\sin^3(\theta)\cos(\theta)\sqrt{1-\sin^2(\theta)}\, d\theta = \int 2\sin^3(\theta)\cos^2(\theta)\, d\theta
-    \end{split}
-    \]
-    ove $\sqrt{\cos^2(\theta)} = \cos(\theta)$ poiché su $\left[0, \frac{\pi}{2}\right]$ il coseno assume valori positivi.\\
-    In generale, trovare le primitive di funzioni del tipo $\sin^n(\theta)\cos^m(\theta)$ sfruttando il fatto che
-    \[
-    \frac{d}{d\theta}\sin^n(\theta) = n\sin^{n-1}(\theta)\cos(\theta) \quad \frac{d}{d\theta}\cos^n(\theta) = -n\cos^{n-1}(\theta)\sin(\theta) \quad \sin^2(\theta) + \cos^2(\theta) = 1
-    \]
-    Nel nostro caso, abbiamo 
-    \[
-    \begin{split}
-        & \int 2\sin^3(\theta)\cos^2(\theta)\, d\theta = 2\int \sin(\theta)(1-\cos^2(\theta))\cos^2(\theta)\, d\theta = \\
-        & = 2\int \sin(\theta)\cos^2(\theta)\, d\theta - 2\int \sin(\theta)\cos^4(\theta)\, d\theta = \\
-        & = -\frac{2}{3}\int \frac{d}{d\theta}(\cos^3(\theta))\, d\theta +\frac{2}{5} \int \frac{d}{d\theta}(\cos^5(\theta)) = -\frac{2}{3}\cos^3(\theta) + \frac{2}{5}\cos^5(\theta)
-    \end{split}
-    \]
-    Per trovare una primitiva di $f(x)$, è ora necessario scrivere $\theta$ in funzione di $x$, sapendo che vale la biiezione
-    \[
-    [0,1]\ni x \mapsto \sin^2(\theta), \ \theta\in\left[0,\frac{\pi}{2}\right] 
-    \]
-    Possiamo quindi scrivere $\theta=\arcsin(\sqrt{x})$; a questo punto
-    \[
-    \begin{split}
-        \int x\sqrt{1-x}\, dx & = -\frac{2}{3}\cos^3(\arcsin(\sqrt{x}))+\frac{2}{5}\cos^5(\arcsin{\sqrt{x}}) = \\
-        & = -\frac{2}{3}(1-x)^{\frac{3}{2}}+\frac{2}{5}(1-x)^{\frac{5}{2}} = F(x)
-    \end{split}
-    \]
-    Ricordiamo che abbiamo trovato la primitiva restringendo il dominio della funzione a $[0,1]$; quindi a priori la funzione $F$ ottenuta è definita su $[0,1]$. Tuttavia, notiamo che $F$ è in realtà la restrizione a $[0,1]$ di una funzione definita su $(-\infty, 1]$, e inoltre
-    \[
-    \frac{d}{dx}F(x) = -\sqrt{1-x}(-1)+(\sqrt{1-x})^3(-1) = \sqrt{1-x}\left(1-(\sqrt{1-x})^2\right) = x\sqrt{1-x}
-    \]
-    Di conseguenza la funzione $F$ che abbiamo trovato è definita su tutto $(-\infty, 1]$ e soddisfa $F'(x) = f(x)$ per ogni $x\in(-\infty, 1]$.
-\end{proof}
-\begin{exercise}
-    \label{ex:8.3}
-    Data la funzione $\amsbb{R}\ni x \mapsto \frac{1}{\sqrt{x^2+a^2}}$, $a\ne 0$, determinarne una primitiva.
-\end{exercise}
-\begin{proof}[Soluzione]
-    Anche in questo caso, scriviamo la sua primitiva come
-    \[
-    \int \frac{1}{\sqrt{x^2+a^2}}\, dx = \int \frac{1}{\sqrt{a^2\left(1+\frac{x^2}{a^2}\right)}}\, dx = \int \frac{1}{\abs{a}\sqrt{1+\frac{x^2}{a^2}}}\, dx = \frac{a}{\abs{a}}\int \frac{1}{\sqrt{1+\frac{x^2}{a^2}}}\frac{1}{a}\, dx 
-    \]
-    Possiamo considerare la funzione $x\mapsto \frac{1}{\sqrt{1+\frac{x^2}{a^2}}}$ come la composizione di due funzioni,
-    \[
-    \frac{1}{\sqrt{1+(\cdot)^2}} \circ \frac{1}{a} \colon \amsbb{R}\to \amsbb{R}
-    \]
-    e di conseguenza possiamo applicare il teorema \ref{th:8.4}, notando che 
-    \[
-    \frac{d}{dx}\left(\frac{1}{a}x\right) = \frac{1}{a}
-    \]
-    Quindi
-    \[
-    \int \frac{1}{\sqrt{x^2+a^2}}\, dx = \frac{a}{\abs{a}}\int \frac{1}{\sqrt{1+\frac{x^2}{a^2}}}\frac{1}{a}\, dx = \frac{a}{\abs{a}}\int \frac{1}{\sqrt{1+y^2}}\, dy
-    \]
-    Vogliamo riapplicare il teorema \ref{th:8.4}, come fatto nell'esercizio \ref{ex:8.2}. Dobbiamo quindi trovare una funzione $\varphi$ che ci aiuti a trovare una primitiva. A questo scopo, ricordiamo che
-    \[
-    \cosh^2(x)-\sinh^2(x) = 1 \ \text{per ogni} \ x\in\amsbb{R}
-    \]
-    e che $\sinh(\cdot)\colon \amsbb{R} \to \amsbb{R}$ è una funzione biiettiva, differenziabile e con derivata continua. Applichiamo quindi il teorema \ref{th:8.4}:
-    \[
-    \frac{a}{\abs{a}}\int \frac{1}{\sqrt{1+y^2}}\, dy = \frac{a}{\abs{a}}\int \frac{1}{\sqrt{1+\sinh^2(\xi)}}\cosh(\xi)\, d\xi = \frac{a}{\abs{a}}\int \frac{\cosh(\xi)}{\cosh(\xi)}\, d\xi = \frac{a}{\abs{a}}\xi
-    \]
-    dove abbiamo usato il fatto che il coseno iperbolico assume sempre valori positivi.\\
-    Come nell'esercizio precedente, per trovare l'effettiva primitiva di $f(x)$, è necessario esprimere $\xi$ in funzione di $x$, sapendo che vale la biiezione
-    \[
-    \amsbb{R}\ni y \mapsto \sinh(\xi)\in\amsbb{R}
-    \]
-    Vale che
-    \[
-    y = \sinh(\xi) = \frac{1}{2}(e^{\xi}-e^{-\xi}) \iff 2y = e^\xi - e^{-\xi} \iff (e^\xi)^2 -2y e^{\xi}-1 = 0
-    \]
-    Sostituendo $t=e^\xi$ abbiamo
-    \[
-    t^2 -2yt -1 = 0 \iff t =y\pm\sqrt{y^2+1}
-    \]
-    Poiché $t=e^\xi>0$, vale che $t = y+\sqrt{y^2+1}$; di conseguenza
-    \[
-    e^\xi = y+\sqrt{y^2+1} \iff \xi = \log(y+\sqrt{y^2+1})
-    \]
-    Ricordando che $y=\frac{x}{a}$ abbiamo infine che
-    \[
-    \int \frac{1}{\sqrt{x^2+a^2}}\, dx = \frac{a}{\abs{a}}\xi = \frac{a}{\abs{a}}\log(y+\sqrt{y^2+1}) = \frac{a}{\abs{a}}\log\left(\frac{x}{a}+\sqrt{\frac{x^2}{a^2}+1}\right) = F(x)
-    \]
-    Notiamo che $F$ è definita su tutto $\amsbb{R}$, e che
-    \[
-    \begin{split}
-        \frac{d}{dx}F(x) & = \frac{a}{\abs{a}}\frac{1}{\frac{x}{a}+\sqrt{\frac{x^2}{a^2}+1}}\left(\frac{1}{a}+\frac{x}{a^2\sqrt{\frac{x^2}{a^2}+1}}\right) = \frac{1}{\abs{a}}\frac{1}{\frac{x}{a}+\sqrt{\frac{x^2}{a^2}+1}}\frac{\sqrt{\frac{x^2}{a^2}+1}+\frac{x}{a}}{\sqrt{\frac{x^2}{a^2}+1}}\\
-        & = \frac{1}{\abs{a}}\frac{1}{\sqrt{\frac{x^2}{a^2}+1}} = \frac{1}{\sqrt{x^2+a^2}}
-    \end{split}
-    \]
-\end{proof}
-\begin{exercise}
-    \label{ex:8.4}
-    Data la funzione $f\colon \amsbb{R}^+\ni x \mapsto \sqrt{x}\log(x)$ determinarne una primitiva.
-\end{exercise}
-\begin{proof}[Soluzione]
-    Ricordiamo il seguente risultato:
-    \begin{tcolorbox}
-        \begin{theorem}[Integrazione per parti]
-            \label{th:8.5}
-            Siano $F,G\colon [a,b]\to \amsbb{R}$ due funzioni differenziabili in $[a,b]$ con $F'=f$ e $G' = g$, $f,g\in\mathscr{R}([a,b])$. Allora
-            \[
-            \int_a^b Fg\,dx = \left(F(b)G(b)-F(a)G(a)\right)-\int_a^b fG\, dx
-            \]
-        \end{theorem}
-    \end{tcolorbox}
-    In generale quando si ha a che fare con il logaritmo l'integrazione per parti torna molto utile perché sappiamo che
-    \[
-    \frac{d}{dx}\log(x) = \frac{1}{x}
-    \]
-    Quindi in questo caso $F(x) = \log(x)$ e $g(x)=\sqrt{x}$, e sappiamo che
-    \[
-    f(x) = \frac{1}{x} \qquad G(x) = \frac{2}{3}x^{\frac{3}{2}}
-    \]
-    Quindi applicando il teorema \ref{th:8.5} abbiamo che
-    \[
-    \begin{split}
-        \int \sqrt{x}\log(x)\, dx & = \int F(x)g(x)\, dx = F(x)G(x)-\int f(x)G(x)\, dx = \\
-        & = \frac{2}{3}\log(x)x^{\frac{3}{2}}-\int \frac{1}{x}\frac{2}{3}x^{\frac{3}{2}}\, dx = \frac{2}{3}x^{\frac{3}{2}}\log(x)-\frac{4}{9}x^{\frac{3}{2}} = F(x)
-    \end{split}
-    \]
-    Notiamo che $F$ è definita su $\amsbb{R}^+$ come $f$, e che
-    \[
-    \frac{d}{dx}F(x) \overset{(\ref{eq:6.3})}{=} \sqrt{x}\log(x)+\frac{2}{3}\sqrt{x} -\frac{2}{3}\sqrt{x} = \sqrt{x}\log(x) 
-    \]
-\end{proof}
-\begin{exercise}
-    \label{ex:8.5}
-    Data $f\colon \amsbb{R}\setminus\{-a, a\}\to \amsbb{R}$, $f(x) = \frac{1}{x^2-a^2}$, determinarne una primitiva.
-\end{exercise}
-\begin{proof}[Soluzione]
-    Sappiamo trovare agilmente le primitive di funzioni del tipo $x\mapsto \frac{1}{x+a}$, 
-    \[
-    \int \frac{1}{x+a}\, dx = \int \frac{1}{y}\, dy = \log\abs{y} = \log\abs{x+a}
-    \]
-    Notiamo che possiamo scrivere
-    \[
-    f(x) = \frac{1}{x^-a^2} = \frac{1}{(x+a)(x-a)}
-    \]
-    e quindi ci chiediamo se esistano due coefficienti $k_1, k_2\in\amsbb{R}$ tali che
-    \[
-    f(x) = \frac{1}{(x-a)(x+a)} = \frac{k_1}{x+a} + \frac{k_2}{x-a}
-    \]
-    Effettuando esplicitamente la somma di frazioni otteniamo
-    \[
-    \frac{k_1}{x+a} + \frac{k_2}{x-a} = \frac{k_1(x-a)+k_2(x+a)}{x^2-a^2} = \frac{(k_1+k_2)x+(k_2-k_1)a}{x^2-a^2}
-    \]
-    e affinché valga l'uguaglianza
-    \[
-    f(x) = \frac{k_1}{x+a}+\frac{k_2}{x-a}
-    \]
-    per l'indipendenza lineare dei polinomi di diverso grado i coefficienti $k_1, k_2$ devono soddisfare il sistema
-    \[
-    \begin{dcases}
-        k_1 +k_2 = 0\\
-        (k_2-k_1)a=1
-    \end{dcases} \iff \begin{dcases}
-        k_1 =- k_2\\
-        (k_2-k_1)a=1
-    \end{dcases} \iff k_2 = \frac{1}{2a}
-    \]
-    Quindi
-    \[
-    \begin{split}
-        \int \frac{1}{x^2-a^2}\, dx & = \int \frac{1}{2a}\frac{1}{x-a}-\frac{1}{2a}\frac{1}{x+a}\, dx = \frac{1}{2a}\int \frac{1}{x-a}\, dx - \frac{1}{2a}\int \frac{1}{x+a}\, dx = \\
-        & = \frac{1}{2a}\log\abs{\frac{x-a}{x+a}}=F(x)
-    \end{split}
-    \]
-    Notiamo che $F$ è definita su tutto $\amsbb{R}\setminus\{-a,a\}$ e che 
-    \[
-    \frac{d}{dx}F(x) = \frac{1}{2a} \frac{1}{x-a}-\frac{1}{2a}\frac{1}{x+a} = \frac{1}{2a}\frac{x+a-x+a}{x^2-a^2} = \frac{1}{x^2-a^2}
-    \]
-\end{proof}
-\begin{exercise}
-    \label{ex:8.6}
-    Data $f\colon \amsbb{R}\to\amsbb{R}$, $f(x)=\frac{2x-1}{x^2+2x+2}$, determinarne una primitiva.
-\end{exercise}
-\begin{proof}[Soluzione]
-    $f$ è definita su tutto $\amsbb{R}$, infatti il discriminante del denominatore è $\Delta = 4-8 <0$ e di conseguenza è sempre positivo. Non possiamo quindi agire come nell'esercizio \ref{ex:8.5}; notiamo però che
-    \[
-    x^2+2x+2 = x^2 +2x+1 +1 = (x+1)^2+1
-    \]
-    e che 
-    \[
-    \frac{d}{dx}(x+1)^2 = 2x+2 = 2x-1+3
-    \]
-    Quindi possiamo scrivere
-    \[
-    \begin{split}
-        \int \frac{2x-1}{x^2+2x+2}\, dx & = \int \frac{2x-1}{(x+1)^2+1}\, dx = \int \frac{\frac{d}{dx}(x+1)^2-3}{(x+1)^2+1}\, dx = \\
-        & = \int \frac{1}{(x+1)^2+1}\frac{d}{dx}(x+1)^2\, dx -3\int \frac{1}{(x+1)^2+1}\, dx \overset{\text{Teorema \ref{th:8.4}}}{=} \\
-        & = \int \frac{1}{y+1}\, dy -3\int \frac{1}{(x+1)^2+1} \frac{d}{dx}(x+1)\, dx \overset{\text{Teorema \ref{th:8.4}}}{=} \\
-        & = \log\abs{y+1} -3 \int \frac{1}{z^2+1}\, dz = \log\abs{y+1}-3\arctan(z) = \\
-        & = \log\abs{(x+1)^2+1} -3\arctan(x+1) = F(x)
-    \end{split}
-    \]
-    Notiamo che $F$ è definita su tutto $\amsbb{R}$ come $f$, e che
-    \[
-    \frac{d}{dx}F(x) = \frac{2(x+1)}{(x+1)^2+1}-3\frac{1}{(x+1)^2+1} = \frac{2x-1}{x^2+2x+2}
-    \]
-\end{proof}
-\begin{exercise}
-    \label{ex:8.7}
-    Data $f\colon \amsbb{R}\to \amsbb{R}$, $f(x) = \frac{1}{\cos(x)+2}$, determinarne una primitiva.
-\end{exercise}
-\begin{proof}[Soluzione]
-    In questo caso conviene usare le formule parametriche per scrivere
-    \[
-    \cos(x)=\frac{1-t^2}{1+t^2} \qquad t = \tan\left(\frac{x}{2}\right)\iff x = 2\arctan(t)
-    \]
-    Notiamo però che se scriviamo effettuiamo la sostituzione sopra descritta, $f$ non sarà più definita su $\amsbb{R}$, bensì su un $\amsbb{R}\setminus\{\pi+2k\pi, k\in\amsbb{Z}\}$. Poiché conviene restringersi ad intervalli connessi, scegliamo $(-\pi, \pi)$ come intervallo di definizione di $f$. Usando il teorema \ref{th:8.4} abbiamo che
-    \[
-    \begin{split}
-        \int \frac{1}{\cos(x)+2}\, dx & = \int \frac{1+t^2}{1-t^2+2+2t^2}\frac{d}{dt}(2\arctan(t))\, dt = \\
-        & = \int \frac{1+t^2}{t^2+3}\frac{2}{1+t^2}\, dt = \int \frac{2}{t^2+3}\, dt  =\\
-        & = \frac{2}{3}\int \frac{1}{1+\left(\frac{t}{\sqrt{3}}\right)^2}\frac{\sqrt{3}}{\sqrt{3}}\, dt \overset{\text{Teorema \ref{th:8.4}}}{=} \frac{2}{\sqrt{3}}\int \frac{1}{1+y^2}\, dy = \frac{2}{\sqrt{3}}\arctan(y) =\\
-        & = \frac{2}{\sqrt{3}}\arctan\left(\frac{t}{\sqrt{3}}\right) = \frac{2}{\sqrt{3}}\arctan\left(\frac{1}{\sqrt{3}}\tan\left(\frac{x}{2}\right)\right) = F(x)
-    \end{split}
-    \]
-    Notiamo che in questo caso $F$ è definita in $\amsbb{R}\setminus\{\pi+2k\pi, k\in\amsbb{Z}\}$, e di conseguenza non è una primitiva di $f$, che è invece definita su tutto $\amsbb{R}$. Come possiamo fare a determinare un'effettiva primitiva di $f$?\\
-    Innanzitutto, notiamo che $F$ ammette limite destro e sinistro finiti per $x\to \pi+2k\pi$: infatti,
-    \[
-    \begin{split}
-        \lim_{x\to (\pi+2k\pi)^-} F(x) & = \lim_{x\to (\pi+2k\pi)^-}\frac{2}{\sqrt{3}}\arctan\left(\frac{1}{\sqrt{3}}\tan\left(\frac{x}{2}\right)\right) \overset{y=\frac{1}{\sqrt{3}}\tan\left(\frac{x}{2}\right)}{=} \\
-        & = \lim_{y\to +\infty} \frac{2}{\sqrt{3}}\arctan(y) = \frac{\pi}{\sqrt{3}}
-    \end{split}
-    \]
-    e
-    \[
-    \begin{split}
-        \lim_{x\to (\pi+2k\pi)^+} F(x) & = \lim_{x\to (\pi+2k\pi)^+}\frac{2}{\sqrt{3}}\arctan\left(\frac{1}{\sqrt{3}}\tan\left(\frac{x}{2}\right)\right) \overset{y=\frac{1}{\sqrt{3}}\tan\left(\frac{x}{2}\right)}{=} \\
-        & = \lim_{y\to -\infty} \frac{2}{\sqrt{3}}\arctan(y) = -\frac{\pi}{\sqrt{3}}
-    \end{split}
-    \]
-    \begin{center}
-        \begin{tikzpicture}[xscale=.6, yscale = 1, font=\tiny]
-            \tzaxes(-9.7, -2.3)(9.7,2.3){$x$}[b]{$y$}[l]
-            \tzticks{3.1415/$\pi$}[b]
-            \tzticks{6.2832/$2\pi$}[b]
-            \tzticks{9.4248/$3\pi$}[b]
-            \tzticks{-3.1415/$-\pi$}[b]
-            \tzticks{-6.2832/$-2\pi$}[b]
-            \tzticks{-9.4248/$-3\pi$}[b]
-            \tzfn[blue, thick, samples = 401]"curve"{2/1.7321*rad(atan(1/1.7321*tan(deg(\x/2))))}[-3.1413:3.1413]
-            \tzfn[blue, thick, samples = 401]"curve"{2/1.7321*rad(atan(1/1.7321*tan(deg(\x/2))))}[3.1418:9.4246]{$F(x)$}[r]
-            \tzfn[blue, thick, samples = 401]"curve"{2/1.7321*rad(atan(1/1.7321*tan(deg(\x/2))))}[-9.4246:-3.1418]
-            \tzhfnat[dashed]{1.8138}[-9.4248:9.4248]{$\frac{\pi}{\sqrt{3}}$}[a]
-            \tzhfnat[dashed]{-1.8138}[-9.4248:9.4248]{$-\frac{\pi}{\sqrt{3}}$}[b]
-            %\tzdot*[red](0.2122, 0)
-            %\tznode[red](0.2122, 0){$2k\pi + \frac{3}{2}\pi$}[below, red]
-        \end{tikzpicture}
-    \end{center}
-    Poiché sono distinti, il limite
-    \[
-    \lim_{x\to (\pi +2k\pi)} F(x)
-    \]
-    non esiste, e quindi non è possibile estendere $F$ per continuità a tutto $\amsbb{R}$. Possiamo però agire nel modo seguente: innanzitutto definiamo
-    \[
-    \widehat{F}(x) = \begin{dcases}
-        \frac{2}{\sqrt{3}}\arctan\left(\frac{1}{\sqrt{3}}\tan\left(\frac{x}{2}\right)\right)\, x\in(-\pi, \pi) \\
-        \frac{\pi}{\sqrt{3}}\, & x=\pi
+    \widehat{f}(x) = \begin{dcases}
+        \arctan(x)-\arctan\left(\frac{x-1}{x+1}\right)\, & x<-1\\
+        -\frac{3}{4}\pi\, & x=-1
     \end{dcases}
     \]
-    In questo modo abbiamo esteso $F$ a $(-\pi, \pi]$ preservando la continuità da sinistra. Notiamo poi che per ogni $x\in\amsbb{R}$, esiste un unico $k\in\amsbb{Z}$ tale che
-    \[
-    x\in(-\pi + 2k\pi, \pi + 2k\pi]
-    \]
-    in quanto
-    \[
-    \bigcup_{k\in\amsbb{Z}} (-\pi + 2k\pi, \pi +2k\pi] = \amsbb{R} \quad (-\pi+2k\pi, \pi+2k\pi]\cap (-\pi+2i\pi, \pi+2i\pi]=\varnothing \ \text{se} \ k\ne i
-    \]
-    Ci ricordiamo, poi, come scritto nell'osservazione successiva al teorema \ref{th:8.3}, che le primitive di una funzione non sono uniche, bensì sono definite a meno di una costante additiva. In questo caso, possiamo sfruttare questa proprietà a nostro vantaggio per definire un'ulteriore estensione di $F$ nel modo seguente:
-    \[
-    \tilde{F}(x) = \widehat{F}(x-2k\pi)+k\frac{2\pi}{\sqrt{3}}, \ k \ \text{tale che} \ x\in(-\pi +2k\pi, \pi+2k\pi]
-    \]
-    In questo modo $\tilde{F}$ è continua su tutto $\amsbb{R}$: infatti, $\tilde{F}$ è chiaramente continua su $\amsbb{R}\setminus\{\pi + 2k\pi, k\in\amsbb{Z}\}$, e vale che
-    \[
-    \lim_{x\to (\pi+2k\pi)^-}\tilde{F}(x) = \lim_{x\to (\pi +2k\pi)^-} \widehat{F}(x-2k\pi) + k\frac{2\pi}{\sqrt{3}} = \frac{(2k+1)\pi}{\sqrt{3}}
-    \]
-    e
-    \[
-    \begin{split}
-        \lim_{x\to (\pi+2k\pi)^+}\tilde{F}(x) & = \lim_{x\to (\pi +2k\pi)^+} \widehat{F}(x-2(k+1)\pi) + (k+1)\frac{2\pi}{\sqrt{3}} = -\frac{\pi}{\sqrt{3}} +  (k+1)\frac{2\pi}{\sqrt{3}}= \\
-        & = (2k+1)\frac{\pi}{\sqrt{3}}
-    \end{split}
-    \]
-    Inoltre, $\tilde{F}$ è differenziabile su tutto $\amsbb{R}$: anche in questo caso $\tilde{F}$ è chiaramente differenziabile su $\amsbb{R}\setminus\{\pi +2k\pi, k\in\amsbb{Z}\}$, e vale che
-    \[
-    \begin{split}
-        &\lim_{x\to (\pi+2k\pi)^+}\frac{\tilde{F}(x)-\tilde{F}(\pi+2k\pi)}{x-\pi -2k\pi}= \lim_{x\to (\pi+2k\pi)^+}\frac{\widehat{F}(x-2(k+1)\pi)+(k+1)\frac{2\pi}{\sqrt{3}}-\frac{\pi}{\sqrt{3}}-k\frac{2\pi}{\sqrt{3}}}{x-\pi -2k\pi} = \\
-        & \overset{t=x-2(k+1)\pi}{=} \lim_{t\to-\pi^+}\frac{\widehat{F}(t)+\frac{\pi}{\sqrt{3}}}{t+\pi}
-    \end{split}
-    \]
-    Per calcolare
-    \[
-    \lim_{t\to-\pi^+}\frac{\widehat{F}(t)+\frac{\pi}{\sqrt{3}}}{t+\pi}
-    \]
-    proviamo ad usare il teorema di de l'H{\^o}pital \ref{th:6.4}: sappiamo che $\widehat{F}+\frac{\pi}{\sqrt{3}}$ e $t+\pi$ sono differenziabili in $(-\pi, \pi]$, e che $(t+\pi)' = 1$ è diverso da $0$ per ogni $t\in(-\pi, \pi]$; inoltre $(\widehat{F}+\frac{\pi}{\sqrt{3}})'(t) = \frac{1}{\cos(t)+2}$ per ogni $t\in (-\pi, \pi)$, e 
-    \[
-    \lim_{t\to -\pi^+} \frac{1}{\cos(t)+2} \overset{\text{continuità}}{=} 1
-    \]
-    e quindi per il teorema di de l'H{\^o}pital vale che
-    \[
-    \lim_{x\to (\pi+2k\pi)^+}\frac{\tilde{F}(x)-\tilde{F}(\pi+2k\pi)}{x-\pi -2k\pi}=1
-    \]
-    Allo stesso modo si dimostra che
-    \[
-    \begin{split}
-        &\lim_{x\to (\pi+2k\pi)^-}\frac{\tilde{F}(x)-\tilde{F}(\pi+2k\pi)}{x-\pi -2k\pi}= \lim_{x\to (\pi+2k\pi)^-}\frac{\widehat{F}(x-2k\pi)+k\frac{2\pi}{\sqrt{3}}-\frac{\pi}{\sqrt{3}}-k\frac{2\pi}{\sqrt{3}}}{x-\pi -2k\pi} = \\
-        & \overset{t=x-2k\pi}{=} \lim_{t\to\pi^-}\frac{\widehat{F}(t)-\frac{\pi}{\sqrt{3}}}{t-\pi} = 1
-    \end{split}
-    \]
-    Di conseguenza $\tilde{F}$ è derivabile anche in $\{\pi+2k\pi, k\in\amsbb{Z}\}$; quindi $\tilde{F}$ è definita su tutto $\amsbb{R}$, è differenziabile su tutto $\amsbb{R}$ e vale che $F'(x) = f(x)$ per ogni $x\in\amsbb{R}$.
-    \begin{center}
-        \begin{tikzpicture}[xscale=.6, yscale = 0.5, font=\tiny]
-            \tzaxes(-9.7, -5.7)(9.7,5.7){$x$}[b]{$y$}[l]
-            \tzticks{3.1415/$\pi$}[b]
-            \tzticks{6.2832/$2\pi$}[b]
-            \tzticks{9.4248/$3\pi$}[b]
-            \tzticks{-3.1415/$-\pi$}[b]
-            \tzticks{-6.2832/$-2\pi$}[b]
-            \tzticks{-9.4248/$-3\pi$}[b]
-            \tzfn[blue, thick, samples = 401]"curve"{2/1.7321*rad(atan(1/1.7321*tan(deg(\x/2))))}[-3.1413:3.1413]
-            \tzfn[blue, thick, samples = 401]"curve"{2/1.7321*rad(atan(1/1.7321*tan(deg(\x/2))))+1.8138*2}[3.1418:9.4246]{$\tilde{F}(x)$}[r]
-            \tzfn[blue, thick, samples = 401]"curve"{2/1.7321*rad(atan(1/1.7321*tan(deg(\x/2))))-2*1.8138}[-9.4246:-3.1418]
-            %\tzhfnat[dashed]{1.8138}[-9.4248:9.4248]{$\frac{\pi}{\sqrt{3}}$}[a]
-            %\tzhfnat[dashed]{-1.8138}[-9.4248:9.4248]{$-\frac{\pi}{\sqrt{3}}$}[b]
-            \tzdot*[blue](3.115, 1.8138)
-            \tzdot*[blue](-3.115, -1.8138)
-            \tzdot*[blue](9.4248, 5.4414)
-            \tzdot*[blue](-9.424, -5.4414)
-            \tzprojy(-3.115, -1.8138){$-\frac{\pi}{\sqrt{3}}$}[r]
-            \tzprojy(3.115, 1.8138){$\frac{\pi}{\sqrt{3}}$}[l]
-            \tzprojy(-9.424, -5.4414){$-3\frac{\pi}{\sqrt{3}}$}[r]
-            \tzprojy(9.4248, 5.4414){$3\frac{\pi}{\sqrt{3}}$}[bl]
-            %\tznode[red](0.2122, 0){$2k\pi + \frac{3}{2}\pi$}[below, red]
-        \end{tikzpicture}
-    \end{center}
-\end{proof}
+    otteniamo che $f(x)=-\frac{3}{4}\pi$ per ogni $x<-1$. Quindi $f$ è separatamente costante su $(-\infty, -1)$ e $(-1, +\infty)$.
+\end{remark}
+\subsection{Ripasso: teorema di \texorpdfstring{Weierstra{\ss}}{Weierstraß}}
+\begin{theorem}
+    \label{th:7.3}
+    Data $f\colon[a,b]\to \amsbb{R}$ continua in $[a,b]$, allora $f$ ammette massimo e minimo globali in $[a,b]$.
+\end{theorem}
+\begin{remark}
+    \`E fondamentale che l'insieme di definizione della funzione sia un intervallo chiuso oppure un unione finita di intervalli chiusi.
+\end{remark}
+\subsection{Esercizi: teoremi di \texorpdfstring{Weierstra{\ss}}{Weierstraß} e di Lagrange}
 \begin{exercise}
-    \label{ex:8.8}
-    Calcolare
-    \[
-    \int_{-\pi}^\pi \frac{\sin(x)}{\cos^4(x)+\cos^2(x)+2}\, dx
-    \]
+    \label{ex:7.1}
+    Sia $F\colon [-1, 1]\to \amsbb{R}$ una funzione continua in $\{-1, 1\}$ e tale che
+    \begin{equation}
+        \label{eq:7.1}
+        F'(x) = \frac{1}{\sqrt{1+x^2}}\left(-\frac{1}{\sqrt{1-x^2}}\right)
+    \end{equation}
+    Determinare il comportamento di $F$ su $[-1, 1]$ (i.e. trovare, se esistono, massimi e minimi, locali o globali).
 \end{exercise}
 \begin{proof}[Soluzione]
-    In questo caso possiamo procedere in due modi: 
-    \begin{enumerate}[(i)]
-        \item possiamo provare a risolvere direttamente l'integrale: notiamo che la funzione integranda
-        \[
-        f(x) = \frac{\sin(x)}{\cos^4(x)+\cos^2(x)+2}
-        \]
-        può essere scritta come
-        \[
-        f(x) = -\frac{1}{\cos^4(x)+\cos^2(x)+2}\frac{d}{dx}(\cos(x)) = (g \circ \cos(x))\frac{d}{dx}(\cos(x))
-        \]
-        ove $g\colon x \mapsto -\frac{1}{x^4+x^2+2}$. Possiamo quindi applicare il teorema \ref{th:8.4}, e scrivere
-        \[
-        \begin{split}
-            &\int_{-\pi}^\pi  \frac{\sin(x)}{\cos^4(x)+\cos^2(x)+2}\, dx = \int_{-\pi}^\pi (g\circ \cos)(x) \frac{d}{dx}\sin(x)\, dx = \\
-            & = \int_{\cos(-\pi)}^{\cos(\pi)}-\frac{1}{y^4+y^2+2}\, dy = -\int_{-1}^{-1} \frac{1}{y^4+y^2+2}\, dy = 0
-        \end{split}
-        \]   
-        \item Oppure possiamo usare il seguente risultato:
-        \begin{tcolorbox}
-            \begin{proposition}
-                \label{prop:8.1}
-                Sia $f\colon\amsbb{R}\to \amsbb{R}$ una funzione dispari tale che $f\in\mathscr{R}([-a,a])$, $a>0$; allora
-                \[
-                \int_{-a}^a f(x)\, dx = 0
-                \]
-            \end{proposition}
-            \begin{proof}
-                Sappiamo, per il corollario \ref{cor:8.1} (v), che $f\in\mathscr{R}([-a,0])$ e $f\in\mathscr{R}([0,a])$, e che
-                \[
-                \int_{-a}^a f(x)\, dx = \int_{-a}^0 f(x)\, dx + \int_0^a f(x)\, dx
-                \]
-                Possiamo quindi considerare la funzione $\varphi\colon [-a,0]\ni x \mapsto -x\in[0,a]$, che è differenziabile e ammette derivata continua in $[-a,0]$, e applicare il teorema \ref{th:8.4} al primo integrale: avremo
-                \[
-                \int_{0}^a f(x)\, dx = \int_{\varphi(0)}^{\varphi(-a)}f(x)\, dx =  \int_{0}^{-a} (f \circ \varphi)(x) \varphi'(x)\, dx = -\int_{0}^{-a} f(-x)\, dx
-                \]
-                Poiché $f$ è dispari su $\amsbb{R}$ vale che $f(-x) = -f(x)$; di conseguenza
-                \[
-                \int_{0}^a f(x)\, dx = -\int_0^{-a} f(-x)\, dx = \int_0^{-a} f(x)\, dx = -\int_{-a}^0 f(x)\, dx
-                \]
-                Quindi
-                \[
-                \int_{-a}^a f(x)\, dx = \int_{-a}^0 f(x)\, dx - \int_{-a}^0 f(x)\, dx = 0
-                \]
-            \end{proof}
-        \end{tcolorbox}
-        Verifichiamo che la funzione integranda sia dispari:
-        \[
-        \frac{\sin(-x)}{\cos^4(-x)+\cos^2(-x)+2} = \frac{-\sin(x)}{\cos^4(x)+\cos^2(x)+2} = -\frac{\sin(x)}{\cos^4(x)+\cos^2(x)+2}
-        \]
-        Possiamo quindi applicare la proposizione \ref{prop:8.1}, e concludere che
-        \[
-        \int_{-\pi}^\pi  \frac{\sin(x)}{\cos^4(x)+\cos^2(x)+2}\, dx =0
-        \]
-    \end{enumerate}
+    Osserviamo innanzitutto che le ipotesi implicano che $F$ sia continua in $[-1, 1]$: infatti $F$ è derivabile in $(-1, 1)$, come si evince dalla (\ref{eq:7.1}), e per il teorema \ref{th:6.3} vale quindi che $F$ è continua in $(-1, 1)$. Dato che per ipotesi $F$ è anche continua in $\{-1, 1\}$ allora $F$ è continua in $[-1, 1]$. Per il teorema di Weierstra{\ss} $F$ ammette quindi massimo e minimo globali in $[-1, 1]$. Per capire quali punti siano massimo e minimo globali, dobbiamo studiare la derivata prima (\ref{eq:7.1}). Notiamo che $F'(x)<0$ per ogni $x\in(-1,1)$; pertanto per il teorema di Fermat \ref{th:7.1} abbiamo che nessun punto in $(-1,1)$ può essere un punto di minimo/massimo locale (e quindi globale), e di conseguenza questi sono da cercarsi fra gli estremi $\{-1, 1\}$. Per capire quale dei due sia il massimo e quale sia il minimo, notiamo che $F'(x)<0$ in $(-1, 1)$, e quindi $F$ è monotona decrescente in $(-1,1)$; la nostra ipotesi è quindi che $-1$ sia punto di massimo globale e $1$ sia punto di minimo globale. \\
+    Per dimostrarlo, operiamo nel modo seguente: consideriamo un generico $x\in(-1,1]$, e consideriamo la restrizione
+    \[
+    F|_{[-1,x]}\colon [-1,x]\to \amsbb{R}
+    \]
+    Poiché $F$ è continua in $[-1, 1]$ e differenziabile in $(-1, 1)$, $F|_{[-1, x]}$ è continua in $[-1, x]$ e differenziabile in $(-1, x)$: vale pertanto il teorema di Lagrange \ref{th:7.2}, ossia esiste $\xi\in(-1, x)$ tale che
+    \[
+    F(x)-F(-1) = \overbrace{F'(\xi)}^{<0 \ \text{per} \ (\ref{eq:7.1})}\underbrace{(x+1)}_{x\in(-1, 1] \implies x>-1 \iff x+1>0 }
+    \]
+    Come indicato, $F'(\xi)<0$, dato che dall'espressione della derivata prima (\ref{eq:7.1}) vediamo che $F'(x)<0$ per ogni $x\in(-1,1)$, e $x+1>0$ dato che $x\in(-1, 1]$. Di conseguenza
+    \[
+    F(x)-F(-1)<0 \iff F(x)<F(-1)
+    \]
+    Poiché $x\in(-1,1]$ è generico vale che $F(x)\le F(-1)$ per ogni $x\in[-1,1]$, ossia $-1$ è punto di massimo globale per $F$. Quindi $1$ è invece punto di minimo globale per $F$.
+\end{proof}
+\begin{exercise}
+    \label{ex:7.2}
+    Data $f(x) = 3x-1-\cos(x)$, determinare il numero di zeri di $f$.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Notiamo innanzitutto che $f$ ammette almeno uno zero: infatti $f$ è somma di funzioni continue, ed è pertanto continua; inoltre,
+    \[
+    \lim_{x\to+\infty}f(x) = \lim_{x\to +\infty}(3x-1-\cos(x)) = +\infty 
+    \]
+    in quanto $3x-1-\cos(x)\ge 3x-2$ per ogni $x\in \amsbb{R}$ e dato che $3x-2\to +\infty$ allora $3x-1-\cos(x)\to+\infty$ per il teorema del confronto, e
+    \[
+    \lim_{x\to-\infty}f(x) = \lim_{x\to -\infty}(3x-1-\cos(x)) = -\infty 
+    \]
+    per un ragionamento analogo. Per il teorema dei valori intermedi \ref{th:5.3} vale quindi che esiste almeno un $x_0\in\amsbb{R}$ tale che $f(x_0) = 0$. Dimostriamo che è unico.\\
+    Supponiamo per assurdo che esista $x_1\in\amsbb{R}$, $x_1 \ne x_0$ tale che $f(x_1)=0$. Possiamo supporre che $x_0<x_1$; se consideriamo $f|_{[x_0, x_1]}\colon [x_0, x_1]\to\amsbb{R}$, questa è una funzione continua in $[x_0, x_1]$, essendo restrizione di una funzione continua su tutto $\amsbb{R}$, e differenziabile in $(x_0, x_1)$, essendo restrizione di una funzione differenziabile su tutto $\amsbb{R}$. Possiamo quindi applicare il teorema di Lagrange \ref{th:7.2}: esiste $\xi\in(x_0, x_1)$ tale che
+    \[
+    f'(\xi)(x_1 - x_0) = f(x_1)-f(x_0) = 0
+    \]
+    Notiamo che $x_1-x_0\ne0$ visto che abbiamo supposto $x_1 \ne x_0$; di conseguenza abbiamo concluso che esiste $\xi\in(x_0, x_1)$ tale che $f'(\xi) = 0$. Calcoliamo quindi $f'$:
+    \[
+    f'(x) = 3+\sin(x) \ge 2 \ \text{per ogni} \ x\in\amsbb{R}
+    \]
+    Di conseguenza abbiamo un assurdo: concludiamo quindi che l'ipotesi iniziale, ovvero l'esistenza di $x_1\ne x_0$ tale che $f(x_1)=0$, è errata, e quindi $f$ ammette un unico zero.
+\end{proof}
+
+\subsection{Applicazione: regressione lineare}
+La ricerca di minimi e massimi globali o locali di funzioni (un processo detto \emph{ottimizzazione}) ha numerose applicazioni in scienze più applicative, come ad esempio l'ingegneria, la chimica, e anche l'informatica: ad esempio in machine learning i parametri delle reti neurali sono ottenuti minimizzando delle funzioni, dette \emph{loss functions}.\\
+Come esempio di un processo di ottimizzazione, presentiamo la cosiddetta \emph{regressione lineare}.\\
+Supponiamo di fare un qualche esperimento, per esempio di voler misurare una grandezza fisica $y$ che dipende da un'altra grandezza fisica $x$; noi variamo $x$ in un insieme finito e discreto di valori $\{x_1, \dots, x_i, \dots, x_n\}$ e misuriamo i valori $\{y_1, \dots, y_i, \dots, y_n\}$ della grandezza fisica $y$. Possiamo costruire delle coppie $(x_i, y_i)$ che associano ad ogni valore della grandezza $x$ su cui abbiamo controllo il corrispettivo valore della grandezza $y$, e possiamo poi rappresentare le coppie ottenute nel piano cartesiano, ottenendo il grafico seguente:
+\begin{center}
+    \begin{tikzpicture}
+    \pgfplotsset{
+    scale only axis,
+    			compat = newest,
+    			axis lines=middle,
+    			height=7cm,
+    			width=0.85\textwidth,
+    			scaled x ticks=false
+             }
+\begin{axis}[
+    xtick={-2,0, 2,...,12},
+  ytick={-5,0,5,...,45},
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={below},
+  ylabel style={left},
+  xmax=13, ymax=47, legend cell align=left,
+    legend style={at={(axis cs: 1,40)},anchor=west}
+]
+\addplot+[
+    only marks,
+    mark size=.5pt, blue, mark options={solid}]
+table
+{Data/datafile_lin_reg.txt};
+\addlegendentry{$(x_i, y_i)$}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+Sembrerebbe che i punti siano disposti, modulo fluttuazioni, linearmente; possiamo quindi ipotizzare che la grandezza $y$ dipenda linearmente dalla grandezza $x$, ossia $y=ax$ per qualche $a\in\amsbb{R}$. Come facciamo a trovare, dati i nostri punti sperimentali $\{(x_i, y_i)\}_{1\le i\le n}$ il valore di $a$ ``ottimale''? \\
+Possiamo agire nel modo seguente: se supponiamo che la relazione lineare sia vera, allora il valore predetto per un valore $x_i$ risulta essere $ax_i$, e il valore che invece noi abbiamo misurato è $y_i$. Possiamo quindi considerare la ``distanza'' fra il valore misurato e il valore predetto
+\[
+y_i - ax_i
+\]
+e sommare tutte queste distanze, ottenendo una funzione del parametro che cerchiamo:
+\[
+f(a) = \sum_{i=1}^n (y_i-ax_i)
+\]
+Il problema di questa funzione però è che tiene conto del segno della distanza, e quindi ci potrebbero essere cancellazioni di varia natura che alterano il comportamento di $f$ desiderato. Per mantenere la differenziabilità consideriamo quindi
+\[
+f(a) = \sum_{i=1}^n(y_i-a x_i)^2
+\]
+Questa funzione risolve il problema delle cancellazioni, è differenziabile su tutto $\amsbb{R}$ ed inoltre ha il beneficio di ``pesare'' in modo diverso le distanze.\\
+Vogliamo ora trovare il valore di $a$ che minimizza questa funzione, ossia che minimizza la somma degli scarti quadratici fra i valori misurati e i valori predetti da un dato modello. Poiché $f$ è differenziabile su tutto $\amsbb{R}$ possiamo applicare il teorema di Fermat \ref{th:7.1}: sappiamo che affinché un punto sia un minimo è necessario che questo sia un punto stazionario di $f$: consideriamo quindi
+\[
+f'(a) = \sum_{i=1}^n 2(y_i-ax_i)x_i = -2\left(\sum_{i=1}^n y_i x_i -a\sum_{i=1}^n x_i^2\right)
+\]
+e vediamo che l'unico zero della derivata prima è dato da
+\[
+a = \frac{\sum_{i=1}^n y_i x_i}{\sum_{i=1}^n x_i^2}
+\]
+\`E facile verificare che $a$ è effettivamente un punto di minimo; nel caso della point cloud nella figura precedente la retta di regressione ottenuta è la seguente:
+\begin{center}
+    \begin{tikzpicture}
+    \pgfplotsset{
+        scale only axis,
+    			compat = newest,
+    			axis lines=middle,
+    			height=7cm,
+    			width=0.85\textwidth,
+    			scaled x ticks=false
+             }
+\begin{axis}[
+    xtick={-2,0, 2,...,12},
+  ytick={-5,0,5,...,45},
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={below},
+  ylabel style={left},
+   xmax=13, ymax=47, legend cell align=left,
+    legend style={at={(axis cs: 1,40)},anchor=west}
+]
+\addplot+[
+    only marks,
+    mark size=.5pt, blue]
+table
+{Data/datafile_lin_reg.txt};
+\addlegendentry{$(x_i, y_i)$}
+\addplot[domain=-.5:10, color=red]{4.0179*x};
+\addlegendentry{\(y=4.0179x\)}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\begin{remark}
+    Stimolato da una domanda di un vostro collega, riporto la seguente osservazione: dati i punti sperimentali $\{(x_i, y_i)\}_{1\le i \le n}$, questo possono essere pensati come due vettori in $\mathbb{R}^n$, 
+\[
+ \mathbf{x}=(x_1, \dots, x_n)^T \qquad \mathbf{y} = (y_1, \dots, y_n)^T
+\]
+Vogliamo cercare il vettore nel sottospazio generato da $\mathbf{x}$ che minimizza la distanza (al quadrato) fra tale vettore e $\mathbf{y}$. Ricordiamo che 
+\[
+\mathrm{Span}(\mathbf{x}) = \left\{a\mathbf{x}, \ a\in\mathbb{R}\right\}
+\]
+Quindi cerchiamo il vettore $a\mathbf{x}\in\mathrm{Span}(\mathbf{x})$ che minimizza
+\[
+\norm{\mathbf{y}-a\mathbf{x}}^2 = (\mathbf{y}, \mathbf{y})-2a(\mathbf{x}, \mathbf{y}) + a^2(\mathbf{x}, \mathbf{x})
+\]
+ove $( \cdot, \cdot)\colon \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}$ è il prodotto scalare standard su $\mathbb{R}^n$. Minimizzando come visto a lezione otteniamo che il valore $a_0$ che minimizza $\norm{\mathbf{y}-a\mathbf{x}}^2$ soddisfa
+\[
+-2(\mathbf{x}, \mathbf{y}) + 2a_0(\mathbf{x}, \mathbf{x}) = 0 \iff a_0 = \frac{(\mathbf{x}, \mathbf{y})}{(\mathbf{x}, \mathbf{x})} = \frac{(\mathbf{x}, \mathbf{y})}{\norm{\mathbf{x}}^2}
+\]
+Notiamo due cose:
+\begin{enumerate}[(i)]
+    \item l'espressione che abbiamo ottenuto a lezione è la stessa che abbiamo ottenuto ora: infatti,
+    \[
+    (\mathbf{x}, \mathbf{y}) = \sum_{i=1}^n x_i y_i \qquad \norm{\mathbf{x}}^2 = \sum_{i=1}^n x_i^2
+    \]
+    e quindi
+    \[
+    a_0 = \frac{(\mathbf{x}, \mathbf{y})}{(\mathbf{x}, \mathbf{y})} = \frac{\sum_{i=1}^n x_iy_i}{\sum_{i=1}^n x_i^2}
+    \]
+    \item L'$a_0$ così ottenuto ha un'interpretazione geometrica: infatti è il coefficiente di $\mathbf{x}$ quando effettiamo la proiezione ortogonale di $\mathbf{y}$ lungo $\mathbf{x}$. Dato $W = \mathrm{Span}(\mathbf{x})$, sappiamo che $\mathbb{R}^n = W \oplus W^\perp$, e quindi possiamo decomporre
+    \[
+    \mathbf{y} = \mathbf{y}^\perp + k\mathbf{x}
+    \]
+    Poiché $\mathbf{y}^\perp\in W^\perp$, abbiamo che $(\mathbf{y}^\perp, \mathbf{x})=0$, e quindi
+    \[
+    k= \frac{(\mathbf{y}, \mathbf{x})}{\norm{\mathbf{x}^2}}
+    \]
+    Denotando con $P_{\mathbf{x}}\colon \mathbb{R}^n\to W$ l'operatore (lineare) di proiezione abbiamo
+    \[
+    P_{\mathbf{x}}(\mathbf{y}) = \frac{(\mathbf{y}, \mathbf{x})}{\norm{\mathbf{x}}^2}\mathbf{x}
+    \]
+\end{enumerate}
+Quindi la regressione lineare coincide con il coefficiente del vettore in $\mathrm{Span}(\mathbf{x})$ dato dal proiettore ortogonale $P_{\mathbf{x}}$; tale vettore è il vettore di $\mathrm{Span}(\mathbf{x})$ che minimizza la distanza tra $\mathbf{y}$ e $\mathrm{Span}(\mathbf{x})$ come visto prima.\\
+Si può dare anche una dimostrazione prettamente geometrica di questo fatto: se esistesse $\widehat{\mathbf{x}}\in \mathrm{Span}(\mathbf{x})$ diverso da $P_{\mathbf{x}}(\mathbf{y})$ tale che
+\[
+\norm{\mathbf{y}-\widehat{\mathbf{x}}} \le \norm{\mathbf{y}-P_{\mathbf{x}}(\mathbf{y})}
+\]
+allora avremmo 
+\[
+\begin{split}
+    \norm{\mathbf{y}-\widehat{\mathbf{x}}}^2 & = \lVert{\underbrace{\mathbf{y}-P_{\mathbf{x}}(\mathbf{y})}_{\text{ortogonale a $\mathrm{Span}(\mathbf{x})$}}+P_{\mathbf{x}}(\mathbf{y}) - \widehat{\mathbf{x}}}\rVert^2 = \norm{\mathbf{y}-P_{\mathrm{x}}(\mathbf{y})}^2 + \norm{P_{\mathbf{x}}(\mathbf{y})-\widehat{\mathbf{x}}}^2 > \\
+    & > \norm{\mathbf{y}-P_{\mathbf{x}}(\mathbf{y})} ^2
+\end{split}
+\]
+ove l'ultima disuguaglianza segue dal fatto che
+\[
+\widehat{\mathbf{x}}-P_{\mathbf{x}}(\mathbf{y})\ne \mathbf{0} \implies \norm{\widehat{\mathbf{x}}-P_{\mathbf{x}}(\mathbf{y})}\ne 0
+\]
+Quindi effettivamente $P_{\mathbf{x}}(\mathbf{y})$ minimizza la distanza fra $\mathbf{y}$ e $\mathrm{Span}(\mathbf{x})$.
+\end{remark}
+\subsection{Ripasso: funzioni Lipschitz continue}
+\begin{definition}
+    \label{def:7.2}
+    Data $f\colon[a,b]\to \amsbb{R}$, diremo che $f$ è \emph{Lipschitz (continua)} se esiste una costante $L>0$ tale che
+    \[
+    \abs{f(x)-f(y)}\le L \abs{x-y} \ \text{per ogni} \ x,y\in[a,b]
+    \]
+\end{definition}
+\begin{remark}
+    Notiamo che se una funzione è Lipschitz continua, allora è continua: infatti fissiamo $x_0\in[a,b]$ e consideriamo il limite 
+    \[
+    \lim_{x\to x_0} f(x)
+    \]
+    Fissiamo $\varepsilon>0$, e consideriamo
+    \[
+    \abs{f(x)-f(x_0)}\overset{\text{Def.} \ \ref{def:7.2}}{\le}  L\abs{x-x_0}
+    \]
+    Se consideriamo quindi $\delta_\varepsilon = \frac{\varepsilon}{L}$ abbiamo che
+    \[
+    \abs{f(x)-f(x_0)}\le L \abs{x-x_0}<\varepsilon
+    \]
+    se $\abs{x-x_0}<\delta_\varepsilon$, ossia 
+    \[
+    \lim_{x\to x_0} f(x) = f(x_0)
+    \]
+    Poiché $x_0\in[a,b]$ è generico vale che $f$ è continua in $[a,b]$.
+\end{remark}
+\begin{theorem}
+    \label{th:7.4}
+    Se $f\colon[a,b]\to \amsbb{R}$ è differenziabile in $(a,b)$ e se esiste $M> 0$ tale che $\abs{f'(x)}\le M$ per ogni $x\in(a,b)$, allora $f$ è Lipschitz continua.
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+\begin{remark}
+    Notiamo che vale anche l'implicazione seguente: se $f\colon[a,b]\to \amsbb{R}$ è differenziabile in $(a,b)$ ed è Lipschitz continua, allora esiste $L>0$ tale che $\abs{f'(x)}\le L$ per ogni $x\in(a,b)$: infatti fissato $x\in(a,b)$ sappiamo che
+    \[
+    0\le \abs{\phi_x(t)} = \abs{\frac{f(t)-f(x)}{t-x}} \overset{\text{Def.} \ \ref{def:7.2}}{\le } L \frac{\abs{t-x}}{\abs{t-x}} = L
+    \]
+    Per il teorema del confronto \ref{th:4.5} vale quindi che
+    \[
+    \abs{f'(x)}\le L
+    \]
+    Poiché $x\in(a,b)$ è generico l'asserto vale.
+\end{remark}
+\subsection{Esercizi: funzioni Lipschitz continue}
+\begin{exercise}
+    \label{ex:7.3}
+    Dimostrare che la funzione
+    \[
+    f(x) = \begin{dcases}
+        x^2\sin\left(\frac{1}{x}\right)\, & x\ne 0\\
+        0\, & x=0
+    \end{dcases}
+    \]
+    è Lipschitz continua. 
+\end{exercise}
+\begin{proof}
+    Dall'esempio successivo al teorema \ref{th:6.2} sappiamo che $f$ è derivabile su tutto $\amsbb{R}$, e che 
+    \[
+    f'(x) = \begin{dcases}
+        2x\sin\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right)\, & x\ne 0\\
+        0\, & x=0
+    \end{dcases}
+    \]
+    Per provare che $f$ è Lipschitz possiamo quindi sfruttare il teorema \ref{th:7.4}, e mostrare che 
+    \[
+    \abs{f'(x)}\le M \ \text{per ogni} \ x\in\amsbb{R}
+    \]
+    Concentriamoci sul caso $x\ne 0$. Dobbiamo mostrare che esiste $M\in\amsbb{R}$ tale che
+    \[
+    \abs{2x\sin\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right)}\le M \ \text{per ogni} \ x\in \amsbb{R}
+    \]
+    A questo scopo, consideriamo l'espressione a sinistra del segno di disuguaglianza: vale che
+    \[
+    \abs{2x\sin\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right)}\le 2\abs{x\sin\left(\frac{1}{x}\right)}+\abs{\cos\left(\frac{1}{x}\right)}\le 2\underbrace{\abs{x\sin\left(\frac{1}{x}\right)}}_{g(x)}+1
+    \]
+    Concentriamoci sulla funzione $g(x)$: notiamo innanzitutto che è pari, e di conseguenza possiamo restringerci allo studio del suo comportamento in $\amsbb{R}^+$. Vale che
+    \[
+    0\le \abs{x\sin\left(\frac{1}{x}\right)}\le \abs{x}
+    \]
+    e per il teoremi \ref{th:4.6} e \ref{th:4.5} abbiamo che
+    \begin{equation}
+        \label{eq:7.2}
+        \lim_{x\to 0^+} g(x) = \lim_{x\to 0^+} x\sin\left(\frac{1}{x}\right) = 0
+    \end{equation}
+    Per quanto riguarda invece il comportamento asintotico, vale che
+    \begin{equation}
+        \label{eq:7.3}
+        \lim_{x\to +\infty} g(x) = \lim_{x\to +\infty} x \sin\left(\frac{1}{x}\right) = \lim_{x\to +\infty} \frac{\sin\left(\frac{1}{x}\right)}{\frac{1}{x}} \overset{t=\frac{1}{x}}{=}\lim_{t\to 0^+} \frac{\sin(t)}{t} = 1
+    \end{equation}
+    Consideriamo la definizione di limite \ref{def:5.1} per (\ref{eq:7.2}): vale che per ogni $\varepsilon>0$ esiste $\delta_\varepsilon>0$ tale che
+    \[
+    \abs{x\sin\left(\frac{1}{x}\right)}<\epsilon \ \text{se} \ \abs{x}<\delta_\varepsilon
+    \]
+    Allo stesso modo, se consideriamo (\ref{eq:7.3}) vale che per ogni $\varepsilon>0$ esiste $N_\varepsilon\in\amsbb{N}$ tale che
+    \[
+    \abs{x\sin\left(\frac{1}{x}\right)}<1-\varepsilon \ \text{se} \ x>N_\varepsilon
+    \]
+    Fissiamo quindi $\varepsilon>0$, ad esempio $\varepsilon=\frac{1}{2}$ e consideriamo l'intervallo chiuso $[\delta_\varepsilon, N_\varepsilon]$; poiché $g$ è continua su $\amsbb{R}\setminus\{0\}$, allora la restrizione di $g$ a tale intervallo sarà continua, e per il teorema di Weierstra{\ss} $g$ ammette massimo $M$ e minimo $m$ globali in $[\delta_\varepsilon, N_\varepsilon]$. Quindi abbiamo che
+    \[
+    \abs{x\sin\left(\frac{1}{x}\right)}\le \begin{dcases}
+        \frac{1}{2}\, & x\in(0, \delta_\varepsilon)\\
+        \max\left\{\abs{M}, \abs{m}\right\}\, & x\in[\delta_\varepsilon, N_\varepsilon]\\
+        \frac{1}{2}\, & x>N_\varepsilon
+    \end{dcases}
+    \]
+    Di conseguenza se scegliamo
+    \[
+    L = \max\left\{\frac{1}{2}, \abs{M}, \abs{m}\right\}
+    \]
+    abbiamo che
+    \[
+    \abs{x\sin\left(\frac{1}{x}\right)}\le L \ \text{per ogni} \ x\in\amsbb{R}^+
+    \]
+    e per parità la maggiorazione vale per ogni $x\in\amsbb{R}\setminus\{0\}$. Quindi
+    \[
+    \abs{f'(x)}=\abs{2x\sin\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right)}\le 2 L +1
+    \]
+    per ogni $x\in\amsbb{R}$, e per il teorema \ref{th:7.4} possiamo concludere che $f$ è Lipschitz.
+\end{proof}
+\begin{exercise}
+    \label{ex:7.4}
+    Dimostrare che la funzione 
+    \[
+    f(x) = \begin{dcases}
+        x^2 \sin\left(\frac{1}{x^2}\right)\, & x\ne 0\\
+        0\, & x=0
+    \end{dcases}
+    \]
+    non è Lipschitz continua.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Innanzitutto mostriamo che $f$ è derivabile su $\amsbb{R}$. Chiaramente $f$ è derivabile in $\amsbb{R}\setminus\{0\}$, essendo prodotto e composizione di funzioni differenziabili, e la sua derivata prima in $\amsbb{R}\setminus\{0\}$ è data da
+    \[
+    f'(x) = 2x\sin\left(\frac{1}{x^2}\right)-2\cos\left(\frac{1}{x^2}\right)\frac{1}{x}
+    \]
+    Per quanto riguarda la differenziabilità in $0$, come nel caso della funzione dell'esercizio \ref{ex:7.3} consideriamo il rapporto incrementale
+    \[
+    \phi_0(t) = \frac{t^2\sin\left(\frac{1}{t^2}\right)}{t} = t\sin\left(\frac{1}{t^2}\right)
+    \]
+    e osserviamo che
+    \[
+    0\le \abs{t\sin\left(\frac{1}{t^2}\right)}\le \abs{t}  \ \text{per ogni}\ t\in\amsbb{R}\setminus\{0\}
+    \]
+    e di conseguenza per i teoremi \ref{th:4.6} e \ref{th:4.5} vale che
+    \[
+    \lim_{t\to 0} \phi_0(t) = 0
+    \]
+    Di conseguenza $f$ è differenziabile su $\amsbb{R}$ e
+    \[
+    f'(x) = \begin{dcases}
+        2x\sin\left(\frac{1}{x^2}\right)-2\cos\left(\frac{1}{x^2}\right)\frac{1}{x}\, & x\ne 0\\
+        0\, & x=0
+    \end{dcases}
+    \]
+    Vogliamo ora capire il comportamento di $f'(x)$ in prossimità di $0$. Notiamo che se consideriamo la successione
+    \[
+    a_n = \sqrt{\frac{1}{(2k+1)\pi}}
+    \]
+    e valutiamo $f'(a_n)$ otteniamo
+    \[
+    f'(a_n) = 2\sqrt{\frac{1}{(2k+1)\pi}}\sin((2k+1)\pi)-2\cos((2k+1)\pi)\sqrt{(2k+1)\pi} = 2\sqrt{(2k+1)\pi}
+    \]
+    Ciò significa che avvicinandoci all'origine riusciamo a trovare dei punti in cui $f$ è derivabile e in cui la sua derivata prima assume valori arbitrariamente grandi; di conseguenza non esiste $M\in\amsbb{R}$ tale che
+    \[
+    \abs{f'(x)}\le M \ \text{per ogni} \ x\in\amsbb{R}
+    \]
+    Di conseguenza per l'osservazione in seguito al teorema \ref{th:7.4} $f$ non è Lipschitz continua.
 \end{proof}
 \newpage

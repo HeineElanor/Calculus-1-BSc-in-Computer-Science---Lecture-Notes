@@ -1,4 +1,128 @@
 \section{Lezione 6}
+\subsection{Ripasso: simboli di Landau (\texorpdfstring{$o$}{o}-piccolo)}
+\begin{definition}
+    \label{def:5.4}
+    Date $f\colon I \to \amsbb{R}$ e $g\colon I \to \amsbb{R}$ e $x_0\in\amsbb{R}$ un punto di accumulazione per $I$ (o eventualmente $+\infty$), diremo che $f$ \emph{è un $o$-piccolo di $g$ per $x\to x_0$}, scritto $f=o(g)$, se
+    \[
+    \lim_{x\to x_0} \frac{f(x)}{g(x)} = 0
+    \]
+\end{definition}
+\subsection{Esercizi: limiti con i simboli di Landau}
+\begin{exercise}
+    \label{ex:5.4}
+    Calcolare, se esiste,
+    \[
+    \lim_{x\to +\infty} \left(\sqrt[4]{1+   \arctan\left(\frac{5}{x^2}\right)}-\cos\left(\frac{3}{x}\right)\right)x^2
+    \]
+\end{exercise}
+\begin{proof}[Soluzione]
+    Notiamo che se definiamo $y = \frac{5}{x^2}$, abbiamo che $y\to 0$ in quanto $x\to +\infty$; di conseguenza, ricordando che, per $\xi\to 0$,
+    \begin{tcolorbox}
+    \[
+    \underbrace{\arctan(\xi) = \xi+o(\xi)}_{\stepcounter{equation}\mbox{(\theequation)}} \qquad \underbrace{\sqrt[4]{1+\xi} = 1+\frac{\xi}{4}+o(\xi)}_{\stepcounter{equation}\mbox{(\theequation)}} \qquad \underbrace{\cos(\xi) = 1-\frac{\xi^2}{2}+o(\xi^2)}_{\stepcounter{equation}\mbox{(\theequation)}}
+    \]
+    \addtocounter{equation}{-3}\refstepcounter{equation}\label{eq:5.10}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:5.11}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:5.12}
+    \end{tcolorbox}
+    possiamo scrivere
+    \[
+    \begin{split}
+        \sqrt[4]{1+\arctan\left(\frac{5}{x^2}\right)} & = \sqrt[4]{1+\arctan(y)} \overset{(\ref{eq:5.11})}{=} 1+\frac{\arctan(y)}{4}+o(\arctan(y)) \overset{(\ref{eq:5.10})}{=} \\
+        & = 1 + \frac{y+o(y)}{4} + o(y+o(y)) = 1 + \frac{y}{4}+o(y)
+    \end{split} 
+    \]
+    ove abbiamo usato il fatto che $\arctan(y)\to 0$ per $y\to 0$ e le proprietà dei simboli di Landau
+    \[
+    o(y+o(y)) = o(y) \qquad o(y)+o(y) = o(y)
+    \]
+    Riscrivendo in funzione di $x$ abbiamo che per $x\to +\infty$
+    \[
+    \sqrt[4]{1+\arctan\left(\frac{5}{x^2}\right)} = 1 + \frac{5}{4}\frac{1}{x^2} + o\left(\frac{1}{x^2}\right)
+    \]
+    Allo stesso modo, definendo $y=\frac{3}{y}$ abbiamo
+    \[
+    \cos\left(\frac{3}{x}\right) = \cos(y) \overset{(\ref{eq:5.12})}{=} 1-\frac{y^2}{2} + o(y^2)
+    \]
+    che riscritta in funzione di $x$ diventa
+    \[
+    \cos\left(\frac{3}{x}\right) = 1-\frac{9}{2}\frac{1}{x^2} + o\left(\frac{1}{x^2}\right) \ \text{per} \ x\to+\infty 
+    \]
+    Il limite diventa quindi
+    \[
+    \begin{split}
+        & \lim_{x\to+\infty} \left(\sqrt[4]{1+   \arctan\left(\frac{5}{x^2}\right)}-\cos\left(\frac{3}{x}\right)\right)x^2 = \\
+        & =  \lim_{x\to+\infty}\left(1+\frac{5}{4}\frac{1}{x^2} + o\left(\frac{1}{x^2}\right)-1+\frac{9}{2}\frac{1}{x^2}+o\left(\frac{1}{x^2}\right)\right)x^2 = \\
+        & = \lim_{x\to+\infty}\left(\frac{5}{4}\frac{1}{x^2}+\frac{9}{2}\frac{1}{x^2} + o\left(\frac{1}{x^2}\right)\right)x^2 = \lim_{x\to+\infty} \frac{23}{4}+o\left(\frac{1}{x^2}\right)x^2
+    \end{split}
+    \]
+    Ricordiamo che, per la definizione \ref{def:5.4}, una funzione $f$ è $o\left(\frac{1}{x^2}\right)$ per $x\to+\infty$ se
+    \[
+    \lim_{x\to+\infty}\frac{f(x)}{\frac{1}{x^2}} = \lim_{x\to+\infty}x^2 f(x) = 0
+    \]
+    Quindi 
+    \[
+    \lim_{x\to+\infty} o\left(\frac{1}{x^2}\right)x^2 = 0
+    \]
+    e di conseguenza
+    \[
+    \lim_{x\to +\infty} \left(\sqrt[4]{1+   \arctan\left(\frac{5}{x^2}\right)}-\cos\left(\frac{3}{x}\right)\right)x^2 = \frac{23}{4}
+    \]
+\end{proof}
+\begin{exercise}
+    \label{ex:5.5}
+    Calcolare, se esiste,
+    \[
+    \lim_{x\to 0} \frac{1-e^{\cos(x)-1}}{\sqrt{\cos(\log(1+\sin(x)))}-1}
+    \]
+\end{exercise}
+\begin{proof}[Soluzione]
+    Per svolgere l'esercizio, consideriamo i seguenti sviluppi in termini di simboli di Landau per $\xi \to 0$: 
+    \begin{tcolorbox}
+    \[
+    \!\!\!
+    \underbrace{e^\xi= 1+\xi+o(\xi)}_{\stepcounter{equation}\mbox{(\theequation)}} \quad \underbrace{\log(1+\xi) = \xi + o(\xi)}_{\stepcounter{equation}\mbox{(\theequation)}} \quad \underbrace{\sin(\xi) = \xi + o(\xi)}_{\stepcounter{equation}\mbox{(\theequation)}} \quad \underbrace{\sqrt{1+\xi} = 1 + \frac{\xi}{2}+o(\xi)}_{\stepcounter{equation}\mbox{(\theequation)}}
+    \]
+    \addtocounter{equation}{-4}\refstepcounter{equation}\label{eq:5.13}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:5.14}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:5.15}
+    \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:5.16}
+    \end{tcolorbox}
+    Consideriamo separatamente numeratore e denominatore:
+    \begin{enumerate}[(i)]
+        \item Per il numeratore, notiamo che se definiamo $y= \cos(x)-1$ vale che $y\to 0$ per $x\to 0$; quindi
+        \[
+        \begin{split}
+            e^{\cos(x)-1} & = e^y \overset{(\ref{eq:5.13})}{=} 1+y+o(y) = 1 + (\cos(x)-1) + o(\cos(x)-1) = \\
+            & = \cos(x)+o(\cos(x)-1) \overset{(\ref{eq:5.12})}{=} 1-\frac{x^2}{2}+o(x^2) + o\left(1-\frac{x^2}{2}-1\right) = \\
+            & = 1-\frac{x^2}{2}+o(x^2)
+        \end{split}
+        \]
+        e di conseguenza per $x\to 0$ il numeratore è
+        \[
+        1-e^{\cos(x)-1} = 1-\left(1-\frac{x^2}{2}+o(x^2)\right) = \frac{x^2}{2} + o(x^2)
+        \]
+        \item Notiamo che $y=\sin(x)\to0$ per $x\to 0$, che $z = \log(1+y)\to 0$ per $y\to 0$ e che $\xi = \cos(z)-1\to 0$ per $z\to 0$; quindi
+        \[
+        \begin{split}
+            & \sqrt{\cos(\log(1+\sin(x)))}-1 = \sqrt{1+(\cos(z)-1)}-1 = \sqrt{1+\xi} -1\overset{(\ref{eq:5.16})}{=}\\
+            & = 1+\frac{\xi}{2} + o(\xi) -1 = \frac{\cos(z)-1}{2} + o(\cos(z)-1) \overset{(\ref{eq:5.12})}{=} \\
+            & = \frac{1}{2}\left(1-\frac{z^2}{2}+o(z^2)-1\right)+o\left(\frac{z^2}{2}+o(z^2)\right) = -\frac{z^2}{4}+o(z^2) =\\
+            & = -\frac{\log^2(1+y)}{4}+o(\log^2(1+y)) \overset{(\ref{eq:5.14})}{=} -\frac{(y+o(y))^2}{4} +o((y+o(y))^2) =  \\
+            & = -\frac{y^2 +2yo(y)+o(y)^2}{4}+o(y^2 +2yo(y)+o(y)^2) = -\frac{y^2}{4}+o(y^2) = \\
+            & = -\frac{\sin^2(x)}{4}+o(\sin^2(x)) \overset{(\ref{eq:5.15})}{=} -\frac{(x+o(x))^2}{4} + o((x+o(x))^2) = -\frac{x^2}{4}+o(x^2)
+        \end{split}
+        \]
+    \end{enumerate}
+    Quindi per $x\to 0$
+    \[
+    \frac{1-e^{\cos(x)-1}}{\sqrt{\cos(\log(1+\sin(x)))}-1} = \frac{\frac{x^2}{2}+o(x^2)}{-\frac{x^2}{4}+o(x^2)} = -\frac{\frac{x^2}{2}}{\frac{x^2}{4}}\frac{\left(1+2\frac{o(x^2)}{x^2}\right)}{\left(1-4\frac{o(x^2)}{x^2}\right)} = -2\frac{\left(1+2\frac{o(x^2)}{x^2}\right)}{\left(1-4\frac{o(x^2)}{x^2}\right)}
+    \]
+    Come prima, per definizione di $o$-piccolo, $\lim_{x\to 0} \frac{o(x^2)}{x^2} = 0$; di conseguenza, sfruttando i teoremi \ref{th:4.2}, \ref{th:4.3} e \ref{th:4.4} vale che
+    \[
+    \lim_{x\to 0} \frac{1-e^{\cos(x)-1}}{\sqrt{\cos(\log(1+\sin(x)))}-1} = \lim_{x\to 0}-2\frac{\left(1+2\frac{o(x^2)}{x^2}\right)}{\left(1-4\frac{o(x^2)}{x^2}\right)} = -2
+    \]
+\end{proof}
 \subsection{Ripasso: derivabilità e differenziabilità, interpretazione geometrica della derivata}
 \begin{definition}
     \label{def:6.1}
@@ -176,7 +300,7 @@ ossia $h\mapsto f'(x_0)h$ è l'applicazione lineare che meglio approssima $F$ in
         \end{tikzpicture}
     \end{minipage}
 \end{center}
-Notiamo che il grafico, riportato a sinistra, di $F$, altro non è se non il grafico di $f(x)$ traslato di $(-x_0, -f(x_0))$: infatti, se consideriamo la coppia $(h, F(h))$ e la trasliamo di $(x_0, f(x_0))$ otteniamo
+Notiamo che il grafico, riportato a destra, di $F$, altro non è se non il grafico di $f(x)$ traslato di $(-x_0, -f(x_0))$: infatti, se consideriamo la coppia $(h, F(h))$ e la trasliamo di $(x_0, f(x_0))$ otteniamo
 \[
 (h, F(h)) \longrightarrow (h+x_0, F(h)+f(x_0)) = (h+x_0, f(h+x_0))
 \]
@@ -367,7 +491,7 @@ ossia per calcolare $f'(x_0)$ stiamo considerando il coefficiente angolare della
     \[
     \lim_{x\to e^+} f(x) = \lim_{x\to e^-} f(x) = f(e) = \beta
     \]
-    Poiché $f\colon (-\infty, e]\to \amsbb{R}$ è data dalla restrizione di $\alpha\in(\pi e^{\beta(x-e)})+\beta$, che è composizione di funzioni continue su tutto $\amsbb{R}$, vale che
+    Poiché $f\colon (-\infty, e]\to \amsbb{R}$ è data dalla restrizione di $\alpha\sin(\pi e^{\beta(x-e)})+\beta$, che è composizione di funzioni continue su tutto $\amsbb{R}$, vale che
     \[
     \lim_{x\to e^-}f(x) = f(e) = \beta
     \]
@@ -453,280 +577,5 @@ ossia per calcolare $f'(x_0)$ stiamo considerando il coefficiente angolare della
         \end{dcases} \iff \alpha=\beta = 0
         \]
     \end{enumerate}
-\end{proof}
-\subsection{Ripasso: teorema di de \texorpdfstring{l'H{\^o}pital}{l'Hôpital}}
-\begin{theorem}
-    \label{th:6.4}
-    Siano $f,g\colon(a,b)\to\amsbb{R}$ due funzioni definite sull'intervallo $(a,b)$ con $-\infty \le a < b \le +\infty$ tali che
-    \begin{enumerate}[(i)]
-        \item $f,g$ siano differenziabili su $(a,b)$;
-        \item $g'(x)\ne 0$ per ogni $x\in(a,b)$;
-        \item $f, g \to 0$ o $f,g\to \pm \infty$ per $x\to a$ o per $x\to b$. 
-    \end{enumerate}
-    Allora se
-    \[
-    \lim_{x\to a} \frac{f'(x)}{g'(x)} = l \ \text{o} \ \lim_{x\to b} \frac{f'(b)}{g'(b)} = l
-    \]
-    con $l$ che può essere anche $\pm \infty$, allora
-    \[
-    \lim_{x\to a} \frac{f(x)}{g(x)} = l \ \text{o} \ \lim_{x\to b}\frac{f(x)}{g(x)} = l
-    \]
-\end{theorem}
-\subsection{Esercizi: teorema di de \texorpdfstring{l'H{\^o}pital}{l'Hôpital}}
-\begin{exercise}
-    \label{ex:6.3}
-    Calcolare, se esiste,
-    \[
-    \lim_{x\to +\infty} x\left(\arctan(\log(x))-\arctan(x)\right)
-    \]
-\end{exercise}
-\begin{proof}[Soluzione]
-    Notiamo che per continuità vale che
-    \[
-    \lim_{x\to+\infty} \arctan(\log(x))-\arctan(x)) = 0
-    \]
-    e di conseguenza 
-    \[
-    \lim_{x\to +\infty} x\left(\arctan(\log(x))-\arctan(x)\right) = [0\cdot \infty] \ \text{F.I.}
-    \]
-    Notiamo che possiamo ricondurci ad una forma indeterminata $[\frac{0}{0}]$ scrivendo
-    \[
-    x\left(\arctan(\log(x))-\arctan(x)\right)  = \frac{\arctan(\log(x))-\arctan(x)}{\frac{1}{x}}
-    \]
-    Possiamo quindi provare ad applicare il teorema di de l'H{\^o}pital \ref{th:6.4}, verificando le altre ipotesi:
-    \begin{enumerate}[(i)]
-        \item sia $f=\arctan(\log(x))-\arctan(x)$, sia $g=\frac{1}{x}$ sono differenziabili su $(0, +\infty)$;
-        \item la derivata prima di $g$ è
-        \[
-        g'(x) = -\frac{1}{x^2}\ne 0 \ \text{per ogni} \ x\in(0,+\infty)
-        \]
-    \end{enumerate}
-    Se calcoliamo 
-    \[
-    \begin{split}
-        \lim_{x\to +\infty} \frac{f'(x)}{g'(x)} & = \lim_{x\to +\infty}\left(\frac{1}{1+\log^2(x)}\frac{1}{x}-\frac{1}{1+x^2}\right)\frac{1}{-\frac{1}{x^2}} = \\
-        & = \lim_{x\to+\infty} \left(\frac{x^2}{1+x^2}-\frac{x}{1+\log^2(x)}\right)
-    \end{split}
-    \]
-    Notiamo che
-    \[
-    \lim_{x\to +\infty} \frac{x}{1+\log^2(x)} = \left[\frac{\infty}{\infty}\right] \ \text{F.I.}
-    \]
-    e quindi possiamo provare ad applicare nuovamente il teorema di de l'H{\^o}pital: 
-    \begin{enumerate}[(i)]
-        \item $u=x$ e $v=1+\log^2(x)$ sono differenziabili in $(0,+\infty)$;
-        \item $v'(x) = \frac{2\log(x)}{x}= 0$ se $x=1$; possiamo però risolvere il problema restringendoci all'intervallo $(1+\infty)$, in quanto stiamo considerando il limite per $x\to+\infty$. Poiché $u$ e $v$ sono differenziabili in $(0,+\infty)$ lo sono anche in $(1, +\infty)$, e quindi tutti i requisiti del teorema \ref{th:6.4} sono soddisfatti.
-    \end{enumerate}
-    Calcoliamo quindi
-    \[
-    \lim_{x\to+\infty} \frac{u'(x)}{v'(x)} = \lim_{x\to +\infty} \frac{x}{2\log(x)}
-    \]
-    A questo punto possiamo di nuovo applicare il teorema di de l'H{\^o}pital, oppure possiamo appellarci alle gerarchie degli infiniti, per concludere che
-    \[
-    \lim_{x\to+\infty}\frac{u'(x)}{v'(x)} = +\infty \overset{\text{d.H.}}{\implies} \lim_{x\to+\infty} \frac{u(x)}{v(x)} = \lim_{x\to+\infty} \frac{x}{1+\log^2(x)} = +\infty
-    \]
-    Di conseguenza, poiché
-    \[
-    \lim_{x\to+\infty}\frac{x^2}{1+x^2} = 1
-    \]
-    abbiamo che
-    \[
-    -\infty = \lim_{x\to +\infty} \left(\frac{x^2}{1+x^2}-\frac{x}{1+\log^2(x)}\right) = \lim_{x\to+\infty} \frac{f'(x)}{g'(x)} \overset{\text{d.H.}}{\implies} \lim_{x\to+\infty} \frac{f(x)}{g(x)} = -\infty
-    \]
-    Concludiamo quindi che
-    \[
-    \lim_{x\to +\infty} x\left(\arctan(\log(x))-\arctan(x)\right) = -\infty
-    \]
-\end{proof}
-\begin{remark}
-    Mostriamo che date due funzioni $f$, $g$ tali che 
-    \[
-    \lim_{x\to+\infty} f(x) = l \qquad \lim_{x\to+\infty} g(x) = +\infty
-    \]
-    allora $f-g\to -\infty$ per $x\to+\infty$.
-    \begin{enumerate}[(i)]
-        \item Supponiamo che $g(x)\to +\infty$ per $x\to+\infty$; allora per ogni $M\in\amsbb{N}$ esiste $x_M\in\amsbb{R}$ tale che $g(x)>M$ se $x>x_M$. Se moltiplichiamo ambo i membri della disuguaglianza $g(x)>M$ per $-1$ otteniamo che, fissato $M\in\amsbb{N}$, esiste $x_M$ tale che
-        \[
-        -g(x)<-M \ \text{per ogni} \ x>x_M
-        \]
-        ossia $-g(x)\to-\infty$ per $x\to+\infty$.
-        \item Se $f(x)\to l$ per $x\to+\infty$, vuol dire che per ogni $\varepsilon>0$ esiste $x_1\in\amsbb{R}$ tale che
-        \[
-        l-\varepsilon < f(x) <l+\varepsilon \ \text{per ogni} \ x> x_\varepsilon
-        \]
-        Fissiamo ora $M\in\amsbb{N}$, e consideriamo il numero reale $M+l+\varepsilon$; per la proprietà archimedea dei numeri reali esiste $N\in\amsbb{N}$ tale che $N>M+l+\varepsilon$. A questo punto per il punto (i) sappiamo che esiste $x_2\in\amsbb{R}$ tale che
-        \[
-        -g(x)<-N\ \text{per ogni} \ x>x_2
-        \]
-        Se consideriamo $x_M = \max\{x_1, x_2\}$ vale che
-        \[
-        f(x)<l+\varepsilon \ \text{e} \ -g(x)<-N \ \text{per ogni} \ x> x_M
-        \]
-        quindi
-        \[
-        f(x)-g(x)<l+\varepsilon -N < -M-l-\varepsilon+l+\varepsilon
-        \]
-        Ossia fissato $M\in\amsbb{N}$ abbiamo trovato $x_M$ tale che
-        \[
-        f(x)-g(x)<-M \ \text{per ogni} \ x>x_M
-        \]
-    \end{enumerate}
-\end{remark}
-\subsection{Ripasso: sviluppo di Taylor}
-\begin{theorem}
-    \label{th:6.5}
-    Data $f\colon (a,b)\to \amsbb{R}$ una funzione differenziabile $n$ volte in $x_0\in(a,b)$, esiste un polinomio $P(x)$ di grado $n$ tale che
-    \[
-    f(x) = P(x)+o\left((x-x_0)^n\right)
-    \]
-    Tale polinomio viene detto \emph{polinomio di Taylor} ed è dato da
-    \begin{equation}
-        \label{eq:6.7}
-        P(x) = \sum_{k=0}^n \frac{1}{k!} f^{(k)}(x_0) (x- x_0)^k \quad f^{(k)}(x_0) = \frac{d^k}{dx^k}f(x)\bigg|_{x=x_0} \quad f^{(0)}(x_0) = f(x_0)
-    \end{equation}
-\end{theorem}
-\subsection{Esercizi: sviluppi di Taylor}
-\begin{exercise}
-    \label{ex:6.4}
-    Calcolare lo sviluppo di Taylor centrato in $0$ di 
-    \[
-    f(x) = \sinh(x)
-    \]
-    fino al quarto ordine.
-\end{exercise}
-\begin{proof}[Soluzione]
-    Dall'equazione (\ref{eq:6.7}) sappiamo che nel caso di $\sinh(x)$ il polinomio di Taylor centrato in $0$ è dato da
-    \[
-    P(x) = \sum_{k=0}^n \frac{1}{k!} \sinh^{(k)}(0)x^k + o(x^k)
-    \]
-    Dobbiamo quindi calcolare $\sinh^{(k)}(0)$ per $k=0, \dots, 4$. Ricordiamo che 
-    \[
-    \sinh(x) = \frac{e^x-e^{-x}}{2}
-    \]
-    e quindi
-    \[
-    \sinh(0) = 0 \quad \frac{d}{dx}\sinh(x)\bigg|_{x=0} = \frac{d}{dx}\left(\frac{e^x-e^{-x}}{2}\right)\bigg|_{x=0} = \frac{e^x+e^{-x}}{2}\bigg|_{x=0} = \cosh(0) = 1
-    \]
-    Notiamo che
-    \[
-    \frac{d}{dx}\sinh(x) = \cosh(x) \qquad \frac{d}{dx}\cosh(x) = \sinh(x)
-    \]
-    Di conseguenza
-    \[
-    \sinh(0) = 0 \quad \sinh'(0) = 1 \quad \sinh^{(2)}(0) = 0 \quad \sinh^{(3)}(0) = 1 \quad \sinh^{(4)}(0) = 0
-    \]
-    e il polinomio di Taylor di $\sinh(x)$ di ordine 4 è dato da
-    \[
-    P(x) = 0+x+0\frac{1}{2}x^2 + \frac{1}{6}x^3 + 0\frac{1}{24}x^4
-    \]
-    Concludiamo che
-    \[
-    \sinh(x) = x+\frac{x^3}{6} + o(x^4)
-    \]
-\end{proof}
-\begin{exercise}
-    \label{ex:6.5}
-    Calcolare lo sviluppo di Taylor centrato in $0$ di 
-    \[
-    f(x) = \log(1+\sinh(x))-x
-    \]
-    fino al quarto ordine.
-\end{exercise}
-\begin{proof}[Soluzione]
-    Notiamo che $\sinh(0) = 0$; di conseguenza, se effettuiamo la sostituzione $\xi = \sinh(x)$, la funzione $f$ sarà data da
-    \[
-    f(\xi) = \log(1+\xi)-x(\xi)
-    \]
-    Possiamo quindi considerare lo sviluppo di Taylor di $\log(1+\xi)$ centrato in $0$: questo sarà dato fino al quarto ordine da
-    \[
-    \begin{split}
-        P(\xi) & = \log(1+0) + (\log(1+\xi))'\Big|_{\xi=0} \xi + (\log(1+\xi))^{(2)}\Big|_{\xi=0}\frac{\xi^2}{2} + (\log(1+\xi))^{(3)}\Big|_{\xi=0}\frac{\xi^3}{6} + \\
-        & + (\log(1+\xi))^{(4)}\Big|_{\xi=0}\frac{\xi^4}{24} + o(\xi^4) = 0 + \frac{1}{1+\xi}\bigg|_{\xi=0} \xi - \frac{1}{(1+\xi)^2}\bigg|_{\xi=0}\frac{\xi^2}{2} + \\
-        & + \frac{2}{(1+\xi)^3}\bigg|_{\xi=0}\frac{\xi^3}{6}-\frac{6}{(1+\xi)^4}\bigg|_{\xi=0}\frac{\xi^4}{24} +o(\xi^4) = \\
-        & = \xi -\frac{\xi^2}{2} + \frac{\xi^3}{3}-\frac{\xi^4}{4}+o(\xi^4)
-    \end{split}
-    \]
-    Quindi
-    \[
-    \log(1+\sinh(x))= \sinh(x)-\frac{\sinh^2(x)}{2}+\frac{\sinh^3(x)}{3}-\frac{\sinh^4(x)}{4}+o(\sinh^4(x))
-    \]
-    Possiamo ora usare l'esercizio \ref{ex:6.4} per sviluppare $\sinh(x)$ fino al quarto ordine all'interno dell'espressione precedente
-    \[
-    \begin{split}
-        \log(1+\sinh(x)) & = x + \frac{x^3}{6}+o(x^4)-\frac{1}{2}\left(x+\frac{x^3}{6}+o(x^4)\right)^2 + \frac{1}{3}\left(x+\frac{x^3}{6}+o(x^4)\right)^3-\\
-        & -\frac{1}{4}\left(x+\frac{x^3}{6}+o(x^4)\right)^4 + o\left(\left(x+\frac{x^3}{6}+o(x^4)\right)^4\right)
-    \end{split}
-    \]
-    Espandendo le potenze di trinomio otteniamo, sfruttando le proprietà dei simboli di Landau,
-    \[
-    \left(x+\frac{x^3}{6}+o(x^4)\right)^2 = x^2 + \frac{x^6}{36}+o(x^8) + \frac{x^4}{3} + o(x^5) + o(x^7) = x^2 + \frac{x^4}{3} + o(x^4)
-    \]
-    \[
-    \begin{split}
-        \left(x+\frac{x^3}{6}+o(x^4)\right)^3 & = (x+o(x^4))^3 + \frac{x^9}{6^3} + \frac{x^6}{12}(x+o(x^4))+\frac{x^3}{2}(x+o(x^4))^2 = \\
-        & = x^3 + o(x^{12}) + o(x^9)+o(x^6) + \frac{x^9}{6^3} +o(x^7) +o(x^{10}) + \frac{x^5}{2} + \\
-        & + o(x^{11}) + o(x^8) = x^3 + o(x^4)
-    \end{split}
-    \]
-    e infine 
-    \[
-        \left(x+\frac{x^3}{6}+o(x^4)\right)^4= x^4 +o(x^4)
-    \]
-    Quindi
-    \[
-    \begin{split}
-        \log(1+\sinh(x))& = x +\frac{x^3}{6}+o(x^4) -\frac{x^2}{2}-\frac{x^4}{6} +o(x^4)+\frac{x^3}{3}+o(x^4)-\frac{x^4}{4}+o(x^4) = \\
-        & = x -\frac{x^2}{2} +\frac{x^3}{2}-\frac{5}{12}x^4 +o(x^4)
-    \end{split} 
-    \]
-    Quindi
-    \[
-    \begin{split}
-        f(x) & = \log(1+\sinh(x))-x = x -\frac{x^2}{2} +\frac{x^3}{2}-\frac{5}{12}x^4 +o(x^4) -x = \\
-        & = -\frac{x^2}{2} +\frac{x^3}{2}-\frac{5}{12}x^4 +o(x^4)
-    \end{split}
-    \]
-\end{proof}
-\begin{exercise}
-    \label{ex:6.6}
-    Calcolare il limite
-    \[
-    \lim_{x\to 0}\frac{e^x\arctan(x)-x\sqrt[3]{1+3x}}{x^3}
-    \]
-\end{exercise}
-\begin{proof}[Soluzione]
-    In questo caso utilizziamo lo sviluppo di Taylor per calcolare il limite, in quanto ci consentono di stimare il comportamento di una funzione in un intorno di un punto (in questo caso di 0) con polinomi, che sono semplici da maneggiare.\\
-    Poiché a denominatore abbiamo il monomio $x^3$, a numeratore andremo a sviluppare con Taylor fino al terzo ordine: infatti, gli ordini superiori a 3 una volta divisi per $x^3$ tenderanno a $0$ per $x\to 0$, e quindi non influiranno sul limite. Ci ricordiamo quindi che 
-    \[
-    e^x = 1 + x + \frac{x^2}{2}+\frac{x^3}{6}+o(x^3)
-    \]
-    e calcoliamo gli altri sviluppi:
-    \[
-    \begin{split}
-        \arctan(x) & = \arctan(0)+\frac{1}{1+x^2}\bigg|_{x=0}x -\frac{2x}{(1+x^2)^2}\bigg|_{x=0}\frac{x^2}{2}-\\
-        & - \left(\frac{2}{(1+x^2)^2}-2\frac{(2x)^2}{(1+x^2)^3}\right)\bigg|_{x=0}\frac{x^3}{6}+o(x^3) = \\
-        & = x-\frac{x^3}{3}+o(x^3)
-    \end{split}
-    \]
-    \[
-    \begin{split}
-        \sqrt[3]{1+3x} & = \sqrt[3]{1+0}+\frac{1}{3}3(1+3x)^{-\frac{2}{3}}\bigg|_{x=0}x -\frac{2}{3}3(1+3x)^{-\frac{5}{3}}\bigg|_{x=0}\frac{x^2}{2}+\\
-        & + 2\frac{5}{3}3(1+3x)^{-\frac{8}{3}}\frac{x^3}{6}+o(x^3) = \\
-        & = 1 + x-x^2 + \frac{5}{3}x^3+o(x^3)
-    \end{split}
-    \]
-    A questo punto possiamo calcolare lo sviluppo di Taylor del numeratore semplicemente effettuando i prodotti:
-    \[
-    \begin{split}
-        e^x\arctan(x)-x\sqrt[3]{1+3x} & = \left(1+x+\frac{x^2}{2}+\frac{x^3}{6}+o(x^3)\right)\left(x-\frac{x^3}{3}+o(x^3)\right)-\\
-        & - x\left(1+x-x^2+\frac{5}{3}x^3+o(x^3)\right) = \\
-        & = x-\frac{x^3}{3}+x^2 + \frac{x^3}{2} + o(x^3)-x-x^2+x^3+o(x^3) =\\
-        & = \frac{7}{6}x^3+o(x^3)
-    \end{split}
-    \]
-    Di conseguenza
-    \[
-    \lim_{x\to 0} \frac{e^x\arctan(x)-x\sqrt[3]{1+3x}}{x^3} = \lim_{x\to 0} \frac{1}{x^3}\left(\frac{7}{6}x^3 +o(x^3)\right) = \frac{7}{6} +\lim_{x\to 0}\frac{o(x^3)}{x^3} = \frac{7}{6}
-    \]
 \end{proof}
 \newpage

@@ -1,473 +1,452 @@
 \section{Lezione 12}
-\subsection{Ripasso ed esercizi: equazioni differenziali ordinarie del secondo ordine lineari a coefficienti costanti}
+\subsection{Ripasso: equazioni differenziali ordinarie}
 \begin{definition}
-    \label{def:12.1}
-    Un'equazione differenziale ordinaria del secondo ordine lineare a coefficienti costanti omogenea è un'equazione del tipo
+    \label{def:11.1}
+    Un'\emph{equazione differenziale ordinaria} di ordine $n$ è un'equazione del tipo
     \[
-    au''(t)+bu'(t)+cu(t) = 0 \qquad a,b,c\in\amsbb{R}
+    F(t, u(t), u'(t), \dots, u^{(n)}(t)) = 0
+    \]
+    con $F\colon D_F\subseteq \amsbb{R}^{n+2}\to \amsbb{R}$ una data funzione, definita su di un certo dominio $D_F$.\\
+    Diremo che un'equazione differenziale ordinaria di ordine $n$ è scritta \emph{in forma normale} se è scritta come
+    \[
+    u^{(n)}(t) = f(t, u(t), \dots, u^{(n-1)}(t))
     \]
 \end{definition}
-Per risolvere un'equazione differenziale del tipo presentato nella definizione \ref{def:12.1}, operiamo nel modo seguente: consideriamo il \emph{polinomio caratteristico} associato all'equazione differenziale:
-\[
-P(\lambda) = a \lambda^2 +b\lambda^1 + c \lambda^0 = a\lambda^2 +b\lambda + c
-\]
-Poiché $P(\lambda)$ è un polinomio di grado due a coefficienti reali, abbiamo le seguenti casistiche:
-\begin{enumerate}[(i)]
-    \item $\Delta = b^2-4ac>0$: in questo caso $P(\lambda)$ ammette due radici reali distinte, $\lambda_1, \lambda_2\in\amsbb{R}$. In questo caso la soluzione generale dell'equazione differenziale è data da
-    \[
-    u(t) = c_1 e^{\lambda_1 t} + c_2 e^{i\lambda_2 t} \qquad c_1, c_2\in\amsbb{R}
-    \]
-    \item $\Delta = b^2-4ac = 0$: in questo caso $P(\lambda)$ ammette un'unica radice reale $\lambda_1\in\amsbb{R}$ con molteplicità algebrica 2. La soluzione è data da
-    \[
-    u(t) = (c_1 +c_2 t)e^{\lambda_1 t} \qquad c_1, c_2\in\amsbb{R}
-    \]
-    \item $\Delta= b^2-4ac<0$: in questo caso $P(\lambda)$ ammette due radici complesse $\omega_1, \omega_2\in\amsbb{C}$ tali che $\omega_2 = \overline{\omega_1}$, ossia
-    \[
-    \text{Re}(\omega_1) = \text{Re}(\omega_2) \qquad \text{Im}(\omega_1) = -\text{Im}(\omega_2)
-    \]
-    In questo caso la soluzione sarà data da
-    \[
-    u(t) = c_1 e^{\omega_1 t} + c_2 e^{\omega_2 t} = e^{\text{Re}(\omega_1)t}\left(c_1 e^{i\text{Im}(\omega_1)t} + c_2 e^{-i \text{Im}(\omega_1)t}\right) \qquad c_1, c_2\in\amsbb{C}
-    \]
-\end{enumerate}
 \begin{remark}
-    Le costanti $c_1$ e $c_2$ sono fissate tramite le condizioni iniziali del problema di Cauchy. Notiamo che nell'ultimo caso, l'equazione differenziale ha come soluzione una funzione $u(t)\colon I \to \amsbb{R}$; pertanto le due costanti $c_1, c_2\in\amsbb{C}$ devono essere tali per cui la soluzione avrà valori reali (in particolare sarà una combinazione lineare di $\sin(\text{Im}(\omega_1)t)$ e $\cos(\text{Im}(\omega_1)t)$).
+    In generale, data un'equazione differenziale di ordine $n$
+    \[
+    F(t, u(t), u'(t), \dots, u^{(n)}(t))=0
+    \]
+    non è sempre possibile ricondursi ad un'equazione in forma normale: ci sono però delle condizioni sufficienti che la funzione $F$ deve soddisfare affinché ciò sia possibile (teorema della funzione implicita per funzioni scalari, in particolare $\partial_{n+2}F \ne 0$).
 \end{remark}
+\begin{definition}
+    \label{def:11.2}
+    Data un'equazione differenziale ordinaria di ordine $n$, diremo che la funzione $\phi\colon I \to \amsbb{R}$, definita sull'intervallo $I\subseteq \amsbb{R}$, è una \emph{soluzione} se:
+    \begin{enumerate}[(i)]
+        \item $\phi\colon I \to \amsbb{R}$ è differenziabile $n$ volte in $I$;
+        \item $(t, \phi(t), \dots, \phi^{(n)}(t))\in D_F$ per ogni $t\in I$;
+        \item $F(t, \phi(t), \dots, \phi^{(n)}(t))=0$ per ogni $t\in I$.
+    \end{enumerate}
+\end{definition}
+\begin{remark}
+    In generale, la proprietà di essere soluzione di un'equazione differenziale è una proprietà locale: ad esempio, consideriamo l'equazione differenziale
+    \[
+    u'(t) = \frac{1}{\cos(t)+2}
+    \]
+    La funzione $F\colon \amsbb{R^3}\to \amsbb{R}$ è definita su tutto $\amsbb{R}^3$; tuttavia sappiamo che la soluzione che è possibile trovare (cfr. esercizio \ref{ex:8.7}) è data da
+    \[
+    u(t) = \frac{2}{\sqrt{3}}\arctan\left(\frac{1}{\sqrt{3}}\tan\left(\frac{x}{2}\right)\right)+c, \quad c\in\amsbb{R}
+    \]
+    e di conseguenza $u(t)$ è definita su $\amsbb{R}\setminus\{\pi + 2k\pi, \ k\in\amsbb{Z}\}$. Poiché vogliamo che la soluzione sia definita su di un intervallo, $u$ sarà definita su di un intervallo del tipo $(\pi + 2k\pi, \pi + 2(k+1)\pi)$ per qualche $k\in\amsbb{Z}$. La scelta di $k\in\amsbb{Z}$ e del valore di $c\in\amsbb{R}$ dipendono dalle \emph{condizioni iniziali}.
+\end{remark}
+\begin{definition}
+    \label{def:11.3}
+    Data un'equazione differenziale ordinaria scritta in forma normale
+    \[
+    u^{(n)}(t) = f(t, u(t), \dots, u^{(n-1)}(t))
+    \]
+    un \emph{problema di Cauchy} ad essa associato è un sistema
+    \[
+    \begin{dcases}
+        u^{(n)}(t) = f(t, u(t), \dots, u^{(n-1)}(t))\\
+        u(t_0) = u_0\\
+        u'(t_0) = u_1\\
+        \dots\\
+        u^{(n-1)}(t_0) = u_{n-1}
+    \end{dcases}
+    \]
+    ove $(u(t_0), u'(t_0), \dots, u^{(n-1)}(t_0)) = (u_0, u_1, \dots, u_{n-1})$ è detta \emph{condizione iniziale}.
+\end{definition}
+\begin{remark}
+    La soluzione $\phi\colon I \to \amsbb{R}$ deve chiaramente essere compatibile con la condizione iniziale: deve valere che $t_0\in I$ e che $(t_0, \phi(t_0), \dots, \phi^{(n)}(t_0))\in D_F$. Ad esempio, consideriamo il problema di Cauchy
+    \[
+    \begin{dcases}
+        u'(t) = \frac{1}{\cos(t)+2}\\
+        u(0) = 0
+    \end{dcases}
+    \]
+    Sappiamo che la soluzione generale dell'equazione differenziale è data da
+    \[
+    u(t) = \frac{2}{\sqrt{3}}\arctan\left(\frac{1}{\sqrt{3}}\tan\left(\frac{x}{2}\right)\right)+c
+    \]
+    definita su $(\pi +2k\pi, \pi + 2(k+1)\pi)$. Poiché in questo caso l'istante iniziale $t_0=0$, l'intervallo del tipo precedente che contiene $0$ è quello per $k=-1$, ossia $(-\pi, \pi)$; pertanto $u$ sarà definita su $(-\pi, \pi)$. Inoltre, poiché $u(0) = 0$, vale che
+    \[
+    0=u(0) = \frac{2}{\sqrt{3}}\arctan\left(\frac{1}{\sqrt{3}}\tan\left(\frac{0}{2}\right)\right)+c = c
+    \]
+    Quindi la soluzione sarà data da
+    \[
+    u\colon (-\pi, \pi)\ni t \mapsto \frac{2}{\sqrt{3}}\arctan\left(\frac{1}{\sqrt{3}}\tan\left(\frac{t}{2}\right)\right)
+    \]
+    In generale, questo è il massimo che possiamo fare: possiamo cioè trovare una soluzione di un problema di Cauchy solo localmente, ossia in un intorno aperto della condizione iniziale. Talvolta però possiamo ``incollare'' soluzioni locali ed ottenere una soluzione globale: è il caso dello svolgimento dell'esercizio \ref{ex:8.7}.
+\end{remark}
+\subsection{Diverse tipologie di equazioni differenziali ordinarie di ordine 1}
+\begin{definition}
+    \label{def:11.4}
+    Un'equazione differenziale lineare non-omogenea a coefficienti non-costanti è un'equazione differenziale del tipo
+    \[
+    u'(t) = P(t)u(t) + Q(t)
+    \]
+    con $P, Q\in\mathscr{C}(I)$. La soluzione generale è una funzione $u\colon I \to \amsbb{R}$ data da
+    \begin{equation}
+        \label{eq:11.1}
+        u(t) = e^{\int P(t)\, dt}\left(c+\int Q(t) e^{-\int P(t)\, dt}\, dt\right)
+    \end{equation}
+    ove con $\int P(t)\, dt$ denotiamo una generica primitiva di $P$.
+\end{definition}
 \begin{example}
     Consideriamo il problema di Cauchy
     \[
     \begin{dcases}
-        u''(t)-4u'(t)+13u(t) = 0\\
-        u(0) = 0\\
-        u'(0)=3
+        u'(t) = \frac{1}{t}u(t) + 3t^3\\
+        u(-1) = 2
     \end{dcases}
     \]
-    Vogliamo determinarne la soluzione. \\
-    Come suggerito, consideriamo il polinomio caratteristico 
+    In questo caso $P(t) = \frac{1}{t}$ e $Q(t) = 3t^3$. Notiamo che $P$ non è definita in $0$; pertanto, dato che vogliamo che $P$ e $Q$ siano continue sull'intervallo $I$ di definizione, dobbiamo restringerci a $(-\infty, 0)$ o $(0, +\infty)$. Dato che l'istante iniziale $t_0=-1$ appartiene al primo insieme, ci restringiamo a $(-\infty, 0)$. In questo caso, le primitive saranno
     \[
-    P(\lambda) = \lambda^2-4\lambda +3
+    \int P(t)\, dt = \int \frac{1}{t}\, dt = \log\abs{t} = \log(-t)
     \]
-    e calcoliamone il discriminante $\Delta = 16-4\times 13 <0$. Pertanto ci troviamo nel caso (iii): le sue radici saranno due numeri complessi $\omega_1, \omega_2$ dati da
+    e
     \[
-    \omega_{1,2} = {2\pm \sqrt{4-13}} = 2\pm i3
+    \int Q(t) e^{-\int P(t)\, dt}\, dt = \int 3t^3 e^{-\log(-t)}\, dt = -\int 3t^2\, dt = -t^3
     \]
-    Di conseguenza la soluzione generale dell'equazione differenziale è data da
+    Inserendo i risultati in (\ref{eq:11.1}) otteniamo che la soluzione generale dell'equazione differenziale nell'intervallo $(-\infty, 0)$ è 
     \[
-    u(t) = e^{2t}\left(c_1 e^{i3t} +c_2 e^{-i3t}\right)
+    u(t) = e^{\log(-t)}(c-t^3) = t(t^3-c)
     \]
-    Per determinare le costanti $c_1, c_2\in\amsbb{C}$ dobbiamo imporre le condizioni iniziali:
+    Fissiamo ora la costante $c\in\amsbb{R}$ imponendo le condizioni iniziali:
     \[
-    \begin{dcases}
-        \begin{aligned}
-            0 = u(0)&= e^0\left(c_1 e^0 +c_2 e^0\right) = c_1+c_2\\
-            3 = u'(0)&= \left(2e^{2t}\left(c_1 e^{i3t}+c_2e^{-i3t}\right)+e^{2t}\left(i3c_1 e^{i3t} -i3c_2 e^{-i3t}\right)\right)\bigg|_{t=0} = \\
-            & = 2(c_1+c_2)+i3(c_1-c_2)
-        \end{aligned}
-    \end{dcases}
+    2 = u(-1) = (-1)((-1)^3-c) = (c+1) \iff c = 1
     \]
-    Dalla prima equazione sappiamo che $c_1+c_2 =0$, e quindi la seconda equazione si riduce a
+    La soluzione del problema di Cauchy sarà quindi
     \[
-    3 = i3(c_1-c_2) \iff 1=i(c_1-c_2) \iff (c_1-c_2) = -i
-    \]
-    e possiamo quindi riscrivere il sistema come
-    \[
-    \begin{dcases}
-        c_1 + c_2 = 0\\
-        c_1 - c_2 = -i 
-    \end{dcases} \iff c_1 = -\frac{i}{2} \quad c_2 = \frac{i}{2}
-    \]
-    La soluzione sarà quindi
-    \[
-    u(t) = e^{2t}\left(\frac{i}{2}e^{-i3t} -\frac{i}{2}e^{i3t}\right) = e^{2t}\sin(3t)
+    u\colon (-\infty, 0)\ni t \mapsto t(t^3-1)
     \]
 \end{example}
 \begin{definition}
-    \label{def:12.2}
-    Un'equazione differenziale ordinaria del secondo ordine lineare a coefficienti costanti non omogenea è un'equazione del tipo
+    \label{def:11.5}
+    Un'equazione differenziale non-lineare esatta è un'equazione differenziale del tipo
     \[
-    au''(t)+bu'(t)+cu(t) = f(t) \qquad a,b,c\in\amsbb{R}, \ f(t)\in\mathscr{C}(I)
+    u'(t) = -\frac{P(t,u)}{Q(t,u)}
     \]
+    con $P, Q \colon A\subseteq\amsbb{R}^2 \to \amsbb{R}$ dove $A$ è un sottoinsieme semplicemente connesso\footnote{Vuol dire ``senza buchi''.} di $\amsbb{R}^2$, $Q\ne 0$ su $A$, $P,Q$ sono sufficientemente regolari su $A$ e sono tali\footnote{Le notazioni $\partial_t$ e $\partial_u$ denotano le derivate parziali rispetto a $t$ e $u$; all'atto pratico dovete derivare nel primo caso rispetto a $t$ trattando i termini in $u$ come costanti, e nel secondo caso i termini in $u$ trattando come costanti i termini dipendenti da $t$.} che
+    \[
+    \partial_u P(t,u) = \partial_t Q(t,u)
+    \]
+     Dato un punto $(\tau, \varepsilon)\in A$ esiste una funzione definita su di un intorno aperto $U$ di $(\tau, \varepsilon)$, $F\colon U\to\amsbb{R}$, data da
+     \begin{equation}
+         \label{eq:11.2}
+         F(t,u) = \int_\tau^t P(s,u)\, ds + \int_\varepsilon^u Q(\tau, s)\, ds
+     \end{equation}
+     tale che una soluzione generica dell'equazione differenziale esatta è data in forma \emph{implicita} da $F(t,u)=c$.\\
+     Se stiamo considerando un problema di Cauchy
+     \[
+     \begin{dcases}
+         u'(t) = -\frac{P(t,u)}{Q(t,u)} \\
+         u(t_0) = u_0
+     \end{dcases}
+     \]
+     allora è possibile scegliere $(\tau, \varepsilon) = (t_0, u_0)$, e in quel caso le soluzioni saranno date in forma implicita da $F(t,u) = 0$.
 \end{definition}
-In questo caso, la soluzione di un'equazione differenziale del tipo indicato dalla definizione \ref{def:12.2} sarà 
-\[
-u(t) = u_0(t) + u_p(t)
-\]
-ove $u_0(t)$ è una soluzione dell'equazione differenziale omogenea (cfr. definizione \ref{def:12.1})
-\[
-au''(t)+bu'(t)+cu(t) = 0
-\]
-mentre $u_p(t)$ è una soluzione (detta \emph{soluzione particolare}) dell'equazione differenziale non omogenea.
-\begin{remark}
-    Possiamo trovare un'analogia con l'algebra lineare: sappiamo che dato un operatore lineare $A\colon V \to W$ che agisce sullo spazio vettoriale $V$ a valori nello spazio vettoriale $W$, se $w\in A(V)$ esiste un elemento $v_w\in\ V$ tale che
-    \[
-    A v_w = w
-    \]
-    Se $A$ non è iniettivo (ossia se $\ker A \ne \{0\}$) questo elemento $v_w$ non è unico: infatti
-    \[
-    A(v_w + v_0) = w 
-    \]
-    per ogni $v_0\in\ker A$.
-\end{remark}
 \begin{example}
-    Dato il problema di Cauchy
+    Consideriamo il problema di Cauchy
     \[
     \begin{dcases}
-        u''(t)-2u'(t)-3u(t) = \sin(t)\\
-        u(0) = -\frac{1}{2}\\
-        u'(0) = \frac{1}{5}
+        u'(t) = -\frac{t+u}{t-3u}\\
+        u(0) = 1
     \end{dcases}
     \]
-    determinarne la soluzione sapendo che la soluzione particolare dell'equazione differenziale ha forma
+    Notiamo innanzitutto che la funzione a denominatore si annulla se $t=3u$; dobbiamo pertanto considerare uno dei due insiemi
     \[
-    u_p(t) = a e^{it}+be^{-it}
+    \left\{(t,u)\in\amsbb{R}^2\colon t<3u\right\} \qquad \left\{(t,u)\in\amsbb{R}^2\colon t>3u\right\}
     \]
-    Dalla discussione successiva alla definizione \ref{def:12.2}, sappiamo che la soluzione $u(t)$ sarà data da
+    Poiché la condizione iniziale $(t_0, u_0) = (0, 1)$ appartiene al primo insieme, scegliamo quello come dominio $A$ (che è semplicemente connesso). Notiamo inoltre che se definiamo
     \[
-    u(t) = u_0(t) + u_p(t)
+    P(t) = t+u \qquad Q(t) = t-3u
     \]
+    abbiamo che
+    \[
+    \partial_u P(t,u) = \partial_u(t+u) = 1 \qquad \partial_t Q(t,u) = \partial_t(t-3u) = 1
+    \]
+    L'equazione differenziale è quindi un'equazione differenziale esatta (cfr. \ref{def:11.5}), e la soluzione è data in forma implicita da $F(t,u) = 0$, con $F(t,u)$ data dalla (\ref{eq:11.2}):
+    \[
+    F(t,u) = \int_0^t (s+u)\, ds -\int_1^{u}3s\, ds = \frac{t^2}{2} + ut +\frac{3}{2}u^2-\frac{3}{2}
+    \]
+    ossia l'equazione implicita è
+    \[
+    \frac{t^2}{2} +ut-\frac{3}{2}u^2 +\frac{3}{2}=0\iff t^2 +2ut -3u^2+3=0
+    \]
+    In questo caso è possibile esplicitare la soluzione $u(t)$: consideriamo infatti
+    \[
+    u(t) = \frac{-t\pm \sqrt{t^2+3t^2+9}}{-3} = \frac{t\pm \sqrt{4t^2+9}}{3}
+    \]
+    Per capire quale fra i due segni prima della radice è opportuno tenere, consideriamo la condizione iniziale: abbiamo che
+    \[
+    1 = u(0) = \frac{\pm\sqrt{9}}{3}
+    \]
+    La soluzione corretta dell'equazione è quella con il segno positivo; pertanto la soluzione dell'equazione differenziale è data da
+    \[
+    u(t) = \frac{t+\sqrt{4t^2+9}}{3}
+    \]
+\end{example}
+\begin{definition}
+    \label{def:11.6}
+    Un'equazione differenziale a variabili separabili è un'equazione del tipo 
+    \[
+    u'(t) = f(t)g(u)
+    \]
+    con $f\colon I\to \amsbb{R}$ e $g\colon J \to \amsbb{R}$ sufficientemente regolari, e $g\ne 0$ su $J$. Poiché $g(u)\ne 0$ per ogni $u\in J$, possiamo definire
+    \[
+    P(t,u) = f(t) \qquad Q(t,u) = -\frac{1}{g(u)}
+    \]
+    con $P, Q \colon I \times J \to \amsbb{R}$. Notiamo che
     \begin{enumerate}[(i)]
-        \item Determiniamo per prima cosa la soluzione particolare $u_p(t)$ andando ad inserire la forma proposta nell'equazione differenziale: abbiamo
+        \item $P$ e $Q$ sono definite sul rettangolo $I \times J$ che è semplicemente connesso;
+        \item $\partial_u P(t,u) = \partial_u f(t) = 0$ e $\partial_t Q(t,u) = \partial_t g(u)^{-1}=0$;
+        \item $u'(t) = f(t)g(u) = -\frac{P(t,u)}{Q(t,u)}$.
+    \end{enumerate}
+    Di conseguenza, possiamo dire che le equazioni differenziali a variabili separabili sono un sottocaso di quelle esatte; pertanto dato un punto $(t_0, u_0)\in I\times J$ la soluzione generale è data in forma implicita da $F(t,u)=c$, con $F(t,u)$ definita dalla (\ref{eq:11.2}) come
+    \begin{equation}
+        \label{eq:11.3}
+        F(t,u) = \int_{t_0}^t P(s,u)\, ds + \int_{u_0}^u Q(t_0, s)\, ds = \int_{t_0}^t f(s) - \int_{u_0}^u \frac{1}{g(s)}\, ds
+    \end{equation}
+\end{definition}
+\begin{example}
+    Consideriamo il problema di Cauchy
+    \[
+    \begin{dcases}
+        u'(t)=2t\sqrt{1-u^2}\\
+        u(0) = \frac{1}{2}
+    \end{dcases}
+    \]
+    Notiamo che in questo caso abbiamo
+    \[
+    f(t) = 2t \qquad g(u) = \sqrt{1-u^2}
+    \]
+    con $g\colon[-1,1]\to \amsbb{R}^+$. Chiaramente $g(u)\ge 0$ per ogni $u\in[-1,1]$, e $g(u)=0$ se e solo se $u=\pm 1$. Poiché dobbiamo necessariamente avere $g(u)\ne 0$, dobbiamo restringerci all'intervallo aperto $(-1,1)$. $f$ è invece definita su tutto $\amsbb{R}$; pertanto il dominio di definizione dell'equazione a variabili separabili, intesa come equazione differenziale esatta, è $\amsbb{R}\times (-1,1)$, e la soluzione è data da (\ref{eq:11.3}):
+    \[
+    0=F(t,u) = \int_{0}^t 2s\, ds -\int_{\frac{1}{2}}^u\frac{1}{\sqrt{1-s^2}}\, ds = t^2 - \arcsin(u)+ \arcsin\left(\frac{1}{2}\right) = t^2-\arcsin(u)+\frac{\pi}{6}
+    \]
+    L'equazione che da la soluzione del problema in forma implicita è quindi
+    \[
+    t^2+\frac{\pi}{6}=\arcsin(u)
+    \]
+    Dato che l'immagine di $\arcsin(u)$ per $u\in(-1,1)$ è $\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$, anche $t^2+\frac{\pi}{6}$ appartiene a questo insieme; pertanto dobbiamo restringere il dominio di $t$ a $\left(-\sqrt{\frac{\pi}{3}}, \sqrt{\frac{\pi}{3}}\right)$. \\
+    Anche in questo caso possiamo esprimere $u$ in forma esplicita come
+    \[
+    u(t)=\sin\left(t^2+\frac{\pi}{6}\right), \quad t\in\left(-\sqrt{\frac{\pi}{3}}, \sqrt{\frac{\pi}{3}}\right)
+    \]
+\end{example}
+\begin{remark}
+    Per risolvere le equazioni differenziali a variabili separabili, è possibile effettuare delle manipolazioni algebriche informali per facilitarne la risoluzione. Innanzitutto, possiamo scrivere
+    \[
+    u'(t) = \frac{du}{dt}
+    \]
+    L'equazione differenziale a questo punto può essere scritta come
+    \[
+    \frac{du}{dt} = 2t\sqrt{1-u^2} 
+    \]
+    Se immaginiamo di trattare $\frac{du}{dt}$ come una frazione otteniamo, supponendo $u\ne \pm1$,
+    \[
+    \frac{du}{dt} = 2t\sqrt{1-u^2} \iff \frac{1}{\sqrt{1-u^2}}du = (2t) dt
+    \]
+    A questo punto possiamo immaginare di poter scrivere
+    \[
+    \int \frac{1}{\sqrt{1-u^2}}\, du = \int 2t\, dt
+    \]
+    ossia
+    \[
+    \arcsin(u) = t^2+c
+    \]
+    La soluzione a cui siamo giunti è quindi fondamentalmente la stessa di prima.
+\end{remark}
+\begin{definition}
+    \label{def:11.7}
+    Un'equazione differenziale ordinaria è un'equazione di Bernoulli se è un'equazione del tipo
+    \[
+    u'(t) = P(t)u(t)+Q(t)(u(t))^\alpha
+    \]
+    con $\alpha\in \amsbb{R}\setminus\{0,1\}$ un parametro reale e $P,Q$ continue su $I$. Notiamo che se $\alpha\notin \amsbb{Z}$, allora necessariamente $u(t)\ge 0$ sul proprio dominio di definizione.\\
+    In questo caso, chiaramente $u(t) \equiv 0$ è una soluzione banale dell'equazione. Supponiamo ora $u(t)\ne 0$ nel dominio di definizione della soluzione; possiamo moltiplicare ambo i membri per $u(t)^{-\alpha}$, ottenendo
+    \[
+    u(t)^{-\alpha} u'(t) = P(t) u(t)^{1-\alpha} + Q(t)
+    \]
+    Notiamo inoltre che 
+    \[
+    \frac{d}{dt}(u(t))^{1-\alpha} \overset{(\ref{eq:6.4})}{=} (1-\alpha) u(t)^{-\alpha} u'(t)
+    \]
+    Quindi
+    \[
+    \frac{1}{1-\alpha} \frac{d}{dt}(u(t)^{1-\alpha}) = P(t) u(t)^{1-\alpha} + Q(t)
+    \]
+    Se definiamo $\varphi(t) = u(t)^{1-\alpha}$ abbiamo quindi che l'equazione differenziale risulta essere
+    \[
+    \varphi'(t) = (1-\alpha)P(t)\varphi(t) + (1-\alpha)Q(t)
+    \]
+    L'equazione che abbiamo ottenuto è descritta dalla definizione \ref{def:11.4}, e la soluzione è data da (\ref{eq:11.1}):
+    \[
+    \varphi(t) = e^{\int (1-\alpha)P(t)\, dt} \left(c+\int (1-\alpha)Q(t) e^{-\int(1-\alpha)P(t)\, dt}\right)
+    \]
+    Una volta trovata $\varphi(t)$, è possibile ricondursi a $u(t)$ considerando 
+    \[
+    u(t) = \varphi(t)^{\frac{1}{1-\alpha}}
+    \]
+    ove ben definita.
+\end{definition}
+\begin{example}
+    Consideriamo il problema di Cauchy
+    \[
+    \begin{dcases}
+        u'(t) = -t u(t) + t^3u(t)^2\\
+        u(1) = 1
+    \end{dcases}
+    \]
+    Questa è un'equazione di Bernoulli in cui l'esponente $\alpha$ è $2$, con $P(t) = -t$ e $Q(t) = t^3$ definite e continue su tutto $\amsbb{R}$. Di conseguenza, consideriamo $\varphi(t) = u(t)^{1-\alpha} = u(t)^{-1}$; l'equazione differenziale diventa quindi
+    \[
+    \varphi'(t) = t\varphi(t)-t^3
+    \]
+    La soluzione è data dalla (\ref{eq:11.1}): consideriamo quindi
+    \[
+    \int t\, dt = \frac{t^2}{2} \quad -\int t^3 e^{-\frac{t^2}{2}}\, dt = \int t^2 \frac{d}{dt}e^{-\frac{t^2}{2}}\, dt \overset{\text{Teorema \ref{th:8.5}}}{=} t^2e^{-\frac{t^2}{2}}-2\int e^{-\frac{t^2}{2}} t\, dt = t^2e^{-\frac{t^2}{2}}+2e^{-\frac{t^2}{2}}
+    \]
+    Di conseguenza
+    \[
+    \varphi(t) = e^{\frac{t^2}{2}}\left(c+t^2 e^{-\frac{t^2}{2}}+2e^{-\frac{t^2}{2}}\right) = ce^{\frac{t^2}{2}}+t^2+2
+    \] 
+    Poiché $u(t)= \varphi(t)^{-1}$ abbiamo che la soluzione generale dell'equazione differenziale è
+    \[
+    u(t) = \frac{1}{t^2+2+ce^{\frac{t^2}{2}}}
+    \]
+    Imponendo la condizione iniziale abbiamo
+    \[
+    1 = u(1) = \frac{1}{1+2+ce^{\frac{1}{2}}} \iff c = -2e^{-\frac{1}{2}}
+    \]
+    e quindi la soluzione del problema di Cauchy è data da
+    \[
+    u(t) = \frac{1}{t^2+2-2e^{\frac{t^2}{2}-\frac{1}{2}}}
+    \]
+    Notiamo che in questo caso abbiamo che il denominatore è
+    \[
+    q(t) = t^2+2-2e^{\frac{t^2}{2}-\frac{1}{2}}
+    \]
+    e questa funzione è tale per cui $q(0)>0$ e $\lim_{t\to\pm\infty}q(t) = -\infty$. Pertanto esistono almeno due punti $t_0, t_1\in\amsbb{R}$ tali che $t_0<0$, $t_1>0$ e $q(t_0) = q(t_1) = 0$. Studiando la derivata di $q$ è possibile mostrare che $t_1>1$; di conseguenza $u(t)$ sarà definita su $(t_0, t_1)$.
+\end{example}
+\subsection{Esercizi: equazioni differenziali ordinarie e problemi di Cauchy}
+\begin{exercise}
+    \label{ex:11.1}
+    Sia $u\colon I \to\amsbb{R}$ la soluzione del seguente problema di Cauchy:
+    \begin{equation}
+        \label{eq:11.4}
+        \begin{dcases}
+            u'(t)e^t +\sin(t)u(t) = \cos(u(t))\\
+            u(0) = 0
+        \end{dcases}
+    \end{equation}
+    Determinare il comportamento locale della soluzione $u$ in un intorno di $t_0=0$.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Ricordiamo che per determinare il comportamento locale di $u$ dobbiamo capire se è crescente o decrescente e concava o convessa in un intorno di $t_0=0$. Dobbiamo quindi determinare $u'(0)$ e $u''(0)$. Poiché $u'(t)$ è determinato dall'equazione differenziale in (\ref{eq:11.4}), possiamo valutare ambo i membri dell'equazione in $t_0=0$ ottenendo
+    \[
+    u'(0)e^0 +\sin(0)u(0)=\cos(u(0)) \iff u'(0) = \cos(0) \iff u'(0) = 1
+    \]
+    Di conseguenza $u'(0)>0$, e quindi la funzione $u$ è crescente in un intorno di $t_0=0$.\\
+    Per calcolare $u''(0)$, possiamo sfruttare l'equazione differenziale in (\ref{eq:11.4}) nel modo seguente: possiamo derivare ambo i membri dell'equazione ottenendo così
+    \[
+    u''(t)e^t + u'(t)e^t + \cos(t)u(t) + \sin(t)u'(t) = -\sin(u(t))u'(t)
+    \]
+    Se valutiamo l'equazione precedente in $t_0=0$ otteniamo
+    \[
+    u''(0) e^0 +u'(0)e^0 +\cos(0)u(0)+\sin(0)u'(0) = -\sin(u(0))u'(0) 
+    \]
+    ossia
+    \[
+    u''(0) + 1 = 0 \iff u''(0)=-1
+    \]
+    Quindi $u''(0)<0$, e di conseguenza $u$ è concava in un intorno di $t_0=0$.
+\end{proof}
+\begin{exercise}
+    \label{ex:11.2}
+    Dato il problema di Cauchy
+    \begin{equation}
+        \label{eq:11.5}
+        \begin{dcases}
+            n'(t) = r n(t)\left(1-\frac{n(t)}{k}\right)\\
+            n(0) = n_0
+    \end{dcases}
+    \end{equation}
+    determinarne la soluzione $n(t)$ in funzione dei parametri $r>0$ e $k>0$ e della condizione iniziale $n_0\ge 0$.
+\end{exercise}
+\begin{proof}[Soluzione]
+    Notiamo che possiamo scrivere l'equazione differenziale come
+    \[
+    n'(t) = \frac{r}{k}n(t)(k-n(t))
+    \]
+    Notiamo che la funzione $n(t)\equiv 0$ è una soluzione del problema di Cauhcy se $n_0=0$; supponiamo quindi $n_0>0$. L'equazione differenziale scritta come prima è un'equazione differenziale a variabili separabili (cfr. definizione \ref{def:11.6}), con
+    \[
+    f(t) = \frac{r}{k} \qquad g(n) = n(k-n)
+    \]
+    Notiamo che $g(n)\ne 0$ se $n\ne k$ e $n\ne 0$; quindi dobbiamo restringerci ad uno degli insiemi
+    \[
+    \{n\in\amsbb{R}\colon n>k\} \qquad \{n\in\amsbb{R}\colon 0<n<k\} \qquad \{n\in\amsbb{R}\colon n<0\}
+    \]
+    a seconda della condizione iniziale $n_0$. Chiaramente escludiamo l'ultimo insieme, visto che $n_0>0$. 
+    \begin{enumerate}[(i)]
+        \item Caso $n_0>k$: allora l'insieme a cui dobbiamo restringerci è $\{n\in\amsbb{R}\colon n>k\}$; il dominio in cui cerchiamo soluzioni è quindi $\amsbb{R}\times \{n\in\amsbb{R} \colon n>k\}$; applicando la formula risolutiva (\ref{eq:11.3}) otteniamo che la soluzione è data in forma implicita da
         \[
-        u_p'(t) = iae^{it}-ibe^{-it} \qquad u_p''(t) = -ae^{it} - be^{-it}
+        \begin{split}
+            F(t,n) &= \int_{0}^t \frac{r}{k}\, ds -\int_{n_0}^n \frac{1}{s(k-s)}\, ds = \frac{r}{k}t-\int_{n_0}^n \frac{1}{k}\frac{1}{s} +\frac{1}{k}\frac{1}{k-s}\, ds = \\
+            & = \frac{r}{k}t-\frac{1}{k}\left(\log\abs{n}-\log\abs{n_0}-\log\abs{k-n}+\log\abs{k-n_0}\right) = \\
+            & = \frac{r}{k}t -\frac{1}{k}\log\abs{\frac{n}{k-n}}-\frac{1}{k}\log\abs{\frac{k-n_0}{n_0}} = \\
+            & = \frac{r}{k}t+\frac{1}{k}\log\left(\frac{n-k}{n}\right)-\frac{1}{k}\log\left(\frac{n_0-k}{n_0}\right) =0
+        \end{split}
+        \]
+        Possiamo esplicitare la soluzione scrivendo
+        \[
+        -rt = \log\left(\frac{n-k}{n}\frac{n_0}{n_0-k}\right)
         \]
         e quindi
         \[
-        \begin{split}
-            \sin(t) & = u_p''(t) - 2u'(t)-3u(t) = -ae^{it}-be^{-it} -2(iae^{it}-ibe^{-it})-3ae^{it}-3be^{-it} = \\
-            & = e^{it}(-4a-2ia)+e^{-it}(-4b+2ib)
-        \end{split}
+        n(t) = \frac{k}{1-\frac{n_0-k}{n_0}e^{-rt}}
         \]
-        Ricordiamo che $\sin(t) = \frac{1}{2i}e^{it}-\frac{1}{2i}e^{-it}$, e dato che $e^{it}$ e $e^{-it}$ sono linearmente indipendenti su $I$ vale che la precedente equazione è equivalente al sistema
+        Notiamo che $n(t)$ è definita per $t\ne -\frac{1}{r}\log\left(\frac{n_0}{n_0-k}\right)<0$; dato che $t_0=0$, l'intervallo di esistenza della soluzione è $\left(-\frac{1}{r}\log\left(\frac{n_0}{n_0-k}\right), +\infty\right)$.
+        \item Caso $n_0<k$: in questo caso dobbiamo restringerci a $\{n\in\amsbb{R}\colon 0<n<k\}$, e quindi il dominio in cui cerchiamo soluzioni è $\amsbb{R}\times \{n\in\amsbb{R}\colon 0<n<k\}$. La funzione $F(t,n)$ si ottiene allo stesso modo, ma in questo caso abbiamo
         \[
-        \begin{dcases}
-            -4a-2ia = \frac{1}{2i}\\
-            -4b+2ib = -\frac{1}{2i}
-        \end{dcases}  \iff a = \frac{1}{2i}\frac{1}{-4-2i} = \frac{1}{20}+\frac{i}{10}, \ b= -\frac{1}{2i}\frac{1}{-4+2i} = \frac{1}{20}-\frac{i}{10}
+        F(t,n) = \frac{r}{k}t+\frac{1}{k}\log\left(\frac{k-n}{n}\right)-\frac{1}{k}\log\left(\frac{k-n_0}{n_0}\right) = 0
         \]
-        La soluzione particolare è quindi data da
+        ossia, esplicitando $n(t)$,
         \[
-        u_p(t) = \frac{1}{20}\left(e^{it}+e^{-it}\right) + \frac{i}{10}\left(e^{it}-e^{-it}\right) = \frac{1}{10}\cos(t) -\frac{1}{5}\sin(t)
+        n(t) = \frac{k}{1+\frac{k-n_0}{n_0}e^{-rt}}
         \]
-        \item Determiniamo ora la soluzione dell'equazione omogenea
-        \[
-        u''(t)-2u'(t)-3u(t) = 0
-        \]
-        Il polinomio caratteristico in questo caso è dato da
-        \[
-        P(\lambda) = \lambda^2 -2\lambda-3 = (\lambda-3)(\lambda+1)
-        \]
-        le cui radici sono $\lambda_1 = 3$ e $\lambda_2 = -1$. La soluzione sarà quindi data da
-        \[
-        u_0(t) = c_1 e^{3t}+c_2 e^{-t}
-        \]
+        \item Infine, notiamo che per $n_0=k$ l'equazione differenziale ammette una soluzione: infatti se $n(t)\equiv k$ allora $n$ soddisfa il problema di Cauchy.
     \end{enumerate}
-    Di conseguenza la soluzione dell'equazione differenziale è data da
+    In tutti i casi, notiamo che 
     \[
-    u(t) = c_1 e^{3t}+c_2 e^{-t} +\frac{1}{10}\cos(t)-\frac{1}{5}\sin(t)
+    \lim_{t\to+\infty} n(t) = k
     \]
-    Per determinare la soluzione del problema di Cauchy, dobbiamo imporre le condizioni iniziali:
-    \[
-    \begin{dcases}
-        -\frac{1}{2} = u(0) = c_1 +c_2 +\frac{1}{10}\\
-        \frac{1}{5} = u'(0) = 3c_1 -c_2 -\frac{1}{5}
-    \end{dcases} \iff \begin{dcases}
-        c_1 + c_2 = -\frac{3}{5}\\
-        3c_1 -c_2 = \frac{2}{5}
-    \end{dcases}
-    \]
-    le cui soluzioni sono $c_1 = -\frac{1}{20}$ e $c_2 = -\frac{11}{20}$. Quindi la soluzione del problema di Cauchy è
-    \[
-    u(t) = -\frac{1}{20}e^{3t} -\frac{11}{20}e^{-t}+\frac{1}{10}\cos(t)-\frac{1}{5}\sin(t)
-    \]
-\end{example}
-\subsection{Approfondimento: introduzione all'analisi numerica}
-In generale, data un'equazione differenziale del tipo
-\[
-u'(t) = f(t,u(t))
-\]
-non è sempre detto sia possibile trovare esplicitamene una soluzione $u\colon I \to \amsbb{R}$ (anzi, in generale è normale \emph{non} avere una soluzione scrivibile in termini di funzioni matematiche elementari). Si è quindi inevitabilmente portati a considerare soluzioni approssimate della soluzione, attraverso i metodi studiati dall'\emph{analisi numerica}. \\
-Supponiamo di considerare un problema di Cauchy
-\[
-\begin{dcases}
-    u'(t) = f(t,u(t))\\
-    u(t_0) = u_0
-\end{dcases}
-\]
-con $f\colon I \times J \to \amsbb{R}$, $u(I)\subseteq J$ e $I=[t_0, t_f]$. Per approssimare la soluzione dell'equazione differenziale, consideriamo una partizione $\mathscr{P} = \{t_0, \dots, t_n = t_f\}$ di $I$ e definiamo $u_i = u(t_i)$. A questo punto, consideriamo, dato un tempo $t_i$, lo sviluppo di Taylor di $u(t_i+h)$, ove $h$ va inteso come una variabile che assume valori molto piccoli, in un intorno di $h=0$:
-\[
-u(t_i+h) = u(t_i) + u'(t_i)h + o(h)
-\]
-Sappiamo che vale l'equazione differenziale
-\[
-u'(t) = f(t,u(t))
-\]
-e di conseguenza possiamo scrivere
-\[
-u(t_i+h) = u(t_i)+ h f(t_i, u(t_i)) +o(h) = u_i +hf(t_i, u_i)+o(h)
-\]
-Abbiamo quindi trovato un modo di scrivere $u$ in prossimità di $t_i$ in funzione della distanza da $t_i$, del valore di $u_i$ e di $f$ calcolata in $t_i$ e $u_i$, modulo un errore $o(h)$ che viene detto \emph{errore di troncamento locale}. In particolare, se scegliamo una partizione uniforme
-\[
-\mathscr{P} = \left\{t_0, \dots, t_n\right\} \qquad t_i = t_0+idt, \ dt =\frac{t_f-t_0}{n}
-\]
-e se consideriamo $h=dt$ abbiamo che
-\[
-u_i + dt f(t_i, u_i) +o(dt) = u(t_i+dt) = u(t_{i+1}) = u_{i+1}
-\]
-Di conseguenza possiamo determinare il valore di $u$ al tempo $t_{i+1}$ conoscendo il valore di $u$ al tempo $t_i$, calcolando
-\begin{equation}
-    \label{eq:12.1}
-    u_{i+1} = u_i + dtf(t_i, u_i)
-\end{equation}
-Il metodo iterativo descritto prende il nome di \emph{metodo di Eulero esplicito} (\emph{forward Euler method}), perché $u_{i+1}$ è descritto in forma esplicita utilizzando quantità note.
-\begin{example}
-    Consideriamo il problema di Cauchy
-    \[
-    \begin{dcases}
-        u'(t) = -au(t)\\
-        u(0) = 1
-    \end{dcases}
-    \]
-    con $a>0$. La sua soluzione esatta è data da $u_e(t) = e^{-at}$. Se consideriamo un intervallo $[0, t_f]$ partizionato in modo uniforme in $\{t_0, \dots, t_n\}$ secondo il passo $dt$ e applichiamo il metodo di Eulero esplicito (\ref{eq:12.1}) per ottenere una soluzione approssimata otteniamo
-    \[
-    u_{i+1} = u_i-dt(au_i) = u_i(1-adt) = u_{i-1}(1-adt)^2 = \dots = u_0(1-adt)^{i+1} = (1-adt)^{i+1}
-    \]
-    Di seguito riportiamo per diversi valori di $dt$ la soluzione approssimata per $a=100$.
     \begin{center}
         \begin{tikzpicture}
-            \pgfplotsset{
-                scale only axis,
-                compat = newest,
-                axis lines=middle,
-                height=7cm,
-                width=0.85\textwidth,
-                scaled x ticks=false
-            }
-            \begin{axis}[
-                xmax = 0.23,
-                ymax = 1.05,
-                xtick={0, 0.02,...,0.2},
-                ytick={0, 0.1, ..., 1},
-                xlabel={$t$},
-                ylabel={$u(t)$},
-                xlabel style={below},
-                ylabel style={left},
-                legend cell align=left,
-                legend style={at={(axis cs:0.12, 0.7)},anchor=west}, xticklabel style={/pgf/number format/fixed, /pgf/number format/precision=2}]
-                \addplot[domain=0:0.2, color=red, samples = 401]{exp(-100*x)};
-                \addlegendentry{\(y=e^{-100t}\)}
-                \addplot+[
-                    mark=square*,
-                    mark size=2pt, dashed, black, mark options={solid}]table{Data/f_e_m004000.txt};
-                \addlegendentry{$dt = 0.004$}
-                \addplot+[
-                    mark=triangle*,
-                    mark size=2pt, dashed, blue, mark options={solid}]table{Data/f_e_m008000.txt};
-                \addlegendentry{$dt = 0.008$}
+        \pgfplotsset{
+            axis lines=middle,
+            xlabel style=below,
+            ylabel style=left
+        }
+            \begin{axis}[y=7mm, ymin=-.2, ymax = 21, xmin = -.2, xmax = 11, xscale =1.5, yscale = .5, samples=201, xlabel={$t$}, ylabel = {$n$}, xtick={1, 2, ..., 10}, ytick ={2, 4, ..., 20}, legend style={at={(axis cs: 8,15)},anchor=west}, legend cell align=left]
+            \addplot [name path=A, domain=0:10, black] {10};
+            \addlegendentry{$n_0=k$}
+            \addplot[domain=0:10, red]{10/(1+(10-8)/8*exp(-0.5*x))};
+            \addlegendentry{$n_0=0.8k$}
+            \addplot[domain=0:10, teal]{10/(1+(10-2)/2*exp(-0.5*x))};
+            \addlegendentry{$n_0=0.2k$}
+            \addplot[domain=0:10, blue]{10/(1+(10-0.2)/0.2*exp(-0.5*x))};
+            \addlegendentry{$n_0=0.02k$}
+            \addplot[domain=0:10, violet]{10/(1-(20-10)/20*exp(-0.5*x))};
+            \addlegendentry{$n_0=2k$}
+            \addplot[domain=0:10, orange]{10/(1-(12-10)/12*exp(-0.5*x))};
+            \addlegendentry{$n_0=1.2k$}
             \end{axis}
         \end{tikzpicture}
     \end{center}
-    Notiamo che otteniamo un buon accordo; in un'ottica di efficienza computazionale possiamo provare a ridurre un po' il passo $dt$, e vedere se l'approssimazione è comunque soddisfacente.
-    \begin{center}
-        \begin{tikzpicture}
-            \pgfplotsset{
-                scale only axis,
-                compat = newest,
-                axis lines=middle,
-                height=7cm,
-                width=0.85\textwidth,
-                scaled y ticks=false,
-                scaled x ticks=false
-            }
-            \begin{axis}[
-                xmax = 0.23,
-                ymax = 1.05,
-                xtick={0, 0.02,...,0.2},
-                ytick={-0.6, -0.4, ..., 1},
-                xlabel={$t$},
-                ylabel={$u(t)$},
-                xlabel style={below},
-                ylabel style={left},
-                legend cell align=left,
-                legend style={at={(axis cs:0.12, 0.6)},anchor=west}, yticklabel style={
-        /pgf/number format/fixed, /pgf/number format/precision=2}, xticklabel style={
-        /pgf/number format/fixed, /pgf/number format/precision=2}]
-                \addplot[domain=0:0.2, color=red, samples = 401]{exp(-100*x)};
-                \addlegendentry{\(y=e^{-100t}\)}
-                \addplot+[
-                    mark=square*,
-                    mark size=2pt, dashed, black, mark options={solid}]table{Data/f_e_m015000.txt};
-                \addlegendentry{$dt = 0.015$}
-            \end{axis}
-        \end{tikzpicture}
-    \end{center}
-    Il risultato è ancora più catastrofico se consideriamo $dt$ ancora più grandi:
-    \begin{center}
-        \begin{tikzpicture}
-            \pgfplotsset{
-                scale only axis,
-                compat = newest,
-                axis lines=middle,
-                height=7cm,
-                width=0.85\textwidth,
-                scaled y ticks=false,
-                scaled x ticks=false
-            }
-            \begin{axis}[
-                xmax = 0.23,
-                ymax = 1.3,
-                xtick={0, 0.02,...,0.2},
-                ytick={-1.2, -0.9, ..., 1.2},
-                xlabel={$t$},
-                ylabel={$u(t)$},
-                xlabel style={below},
-                ylabel style={left},
-                legend cell align=left,
-                legend style={at={(axis cs:0.18, 0.5)},anchor=west}, yticklabel style={
-        /pgf/number format/fixed, /pgf/number format/precision=2}, xticklabel style={
-        /pgf/number format/fixed, /pgf/number format/precision=2}]
-                \addplot[domain=0:0.2, color=red, samples = 401]{exp(-100*x)};
-                \addlegendentry{\(y=e^{-100t}\)}
-                \addplot+[
-                    mark=square*,
-                    mark size=2pt, dashed, black, mark options={solid}]table{Data/f_e_m020100.txt};
-                \addlegendentry{$dt = 0.0201$}
-            \end{axis}
-        \end{tikzpicture}
-    \end{center}
-    Perché succede? Notiamo che (\ref{eq:12.1}) restituisce
-    \[
-    u_i = (1-a dt)^i 
-    \]
-    e di conseguenza, se $(1-adt)<0$, ossia se $dt>\frac{1}{a}$, vale che
-    \[
-    u_i = (1-adt)^i = (-1)^i(adt-1)^i \ \text{con} \ adt-1>0
-    \]
-    Quindi vediamo che il comportamento oscillatorio nel primo dei due grafici problematici è dovuto alla particolare scelta di $dt$ operata. \\
-    Nel secondo caso, notiamo che dato $dt=0.0201$ abbiamo che
-    \[
-    (1-adt)<-1
-    \]
-    In questo caso il problema è quindi duplice:
-    \begin{enumerate}[(i)]
-        \item il comportamento oscillatorio rimane, dato che $(1-adt)<0$;
-        \item abbiamo inoltre un fenomeno di amplificazione degli errori: infatti,
-        \[
-        u_i = (1-adt)^{i-1}u_1 = (1-adt)^{i-1}\left( 1-adt +o(dt)\right) = (1-adt)^{i} + (1-adt)^{i-1}o(dt)
-        \]
-        e vediamo quindi che dato che $\abs{1-adt}>1$ l'errore $o(dt)$ viene amplificato ad ogni step.
-    \end{enumerate}
-    Capiamo quindi che per prevenire il comportamento oscillatorio dobbiamo richiedere
-    \[
-    (1-adt)>0 \iff dt<\frac{1}{a}
-    \]
-    e per prevenire l'amplificazione degli errori dobbiamo avere
-    \[
-    \abs{1-adt}<1  \iff dt<\frac{2}{a}
-    \]
-    Queste condizioni dicono che il metodo di Eulero esplicito è \emph{condizionatamente stabile}: abbiamo dei requisiti nella discretizzazione del problema che dobbiamo tenere a mente se vogliamo che l'approssimazione sia soddisfacente. Questa è una caratteristica generale dei metodi espliciti.
-\end{example}
-Esiste un'altra classe di metodi numerici che non presenta questi problemi, i metodi \emph{impliciti}. Consideriamo, come prima, il problema di Cauchy
-\[
-\begin{dcases}
-    u'(t) = f(t,u(t))\\
-    u(t_0) = u_0
-\end{dcases}
-\]
-con $f\colon I \times J \to \amsbb{R}$, $u(I)\subseteq J$ e $I=[t_0, t_f]$. Per approssimare la soluzione dell'equazione differenziale, consideriamo al pari del caso precedente una partizione $\mathscr{P} = \{t_0, \dots, t_n = t_f\}$ di $I$ e definiamo $u_i = u(t_i)$. A questo punto, consideriamo i passaggi seguenti:
-\[
-u(t_i) = u(t_{i+1} - \underbrace{(t_{i+1}-t_{i})}_{h})
-\]
-e se $h$ è sufficientemente piccolo possiamo scrivere, sviluppando $u(t_{i+1}-h)$ in un intorno di $h=0$,
-\[
-u(t_i) = u(t_{i+1}-h) = u(t_{i+1})-u'(t_{i+1})h +o(h) = u(t_{i+1})-f(t_{i+1}, u_{i+1})h+o(h)
-\]
-Quindi anche in questo caso se la partizione è una partizione uniforme
-\[
-\mathscr{P} = \left\{t_0, \dots, t_n\right\} \qquad t_i = t_0+idt, \ dt =\frac{t_f-t_0}{n}
-\]
-abbiamo che $h=t_{i+1}-t_i = dt$ e 
-\[
-u(t_i) = u(t_i+1)-f(t_{i+1}, u_{i+1})dt +o(dt)
-\]
-e trascurando l'errore abbiamo
-\begin{equation}
-    \label{eq:12.2}
-    u_i = u_{i+1}-f(t_{i+1}, u_{i+1})dt
-\end{equation}
-Questo metodo viene detto \emph{metodo di Eulero implicito}, poiché $u_{i+1}$ è descritto implicitamente (non conosciamo $u_{i+1}$, e quindi non conosciamo $f(t_{i+1}, u_{i+1})$!) dall'equazione
-\[
-u_i = u_{i+1}-f(t_{i+1}, u_{i+1})dt
-\]
-\begin{example}
-    Consideriamo il problema di Cauchy dell'esempio precedente,
-    \[
-    \begin{dcases}
-        u'(t) = -au(t)\\
-        u(0) = 1
-    \end{dcases}
-    \]
-    con $a>0$. Se consideriamo il medesimo intervallo $[0, t_f]$ partizionato in modo uniforme in $\{t_0, \dots, t_n\}$ secondo il passo $dt$ e applichiamo il metodo di Eulero implicito (\ref{eq:12.1}) otteniamo
-    \[
-    u_{i} = u_{i+1}-(-au_{i+1})dt = u_{i+1}\left(1+adt\right) \iff u_{i+1} = \frac{u_i}{(1+adt)} = \dots = \frac{1}{(1+adt)^{i+1}} 
-    \]
-    Riportiamo ora le approssimazioni della soluzione $u(t)$ per diverse scelte di $dt$.
-    \begin{center}
-    	\begin{tikzpicture}
-    		\pgfplotsset{
-    			scale only axis,
-    			compat = newest,
-    			axis lines=middle,
-    			height=7cm,
-    			width=0.85\textwidth,
-    			scaled x ticks=false
-    		}
-    		\begin{axis}[
-    			xmax = 0.23,
-    			ymax = 1.05,
-    			xtick={0, 0.02,...,0.2},
-    			ytick={0, 0.1, ..., 1},
-    			xlabel={$t$},
-    			ylabel={$u(t)$},
-    			xlabel style={below},
-    			ylabel style={left},
-    			legend cell align=left,
-    			legend style={at={(axis cs:0.12, 0.7)},anchor=west}, xticklabel style={
-    				/pgf/number format/fixed, /pgf/number format/precision=2}]
-    			\addplot[domain=0:0.2, color=red, samples = 401]{exp(-100*x)};
-    			\addlegendentry{\(y=e^{-100t}\)}
-    			\addplot+[
-    			mark=square*,
-    			mark size=2pt, dashed, black, mark options={solid}]table{Data/b_e_m004000.txt};
-    			\addlegendentry{$dt = 0.004$}
-    			\addplot+[
-    			mark=triangle*,
-    			mark size=2pt, dashed, blue, mark options={solid}]table{Data/b_e_m008000.txt};
-    			\addlegendentry{$dt = 0.008$}
-    			\addplot+[
-    			mark=diamond*,
-    			mark size=2pt, dashed, teal, mark options={solid}]table{Data/b_e_m015000.txt};
-    			\addlegendentry{$dt = 0.015$}
-    			\addplot+[
-    			mark=pentagon*,
-    			mark size=2pt, dashed, violet, mark options={solid}]table{Data/b_e_m020100.txt};
-    			\addlegendentry{$dt = 0.0201$}
-    		\end{axis}
-    	\end{tikzpicture}
-    \end{center}
-    Notiamo che in questo caso gli step $dt$ che ci avevano dato problemi nel caso del metodo di Eulero esplicito si comportano bene: infatti,
-    \begin{enumerate}[(i)]
-        \item non abbiamo più il problema delle oscillazioni: infatti, dato che $dt>0$ e $a>0$, abbiamo che
-        \[
-        (1+adt)>0 \ \text{per ogni scelta di} \ dt \implies \frac{1}{(1+adt)^i}>0 \ \text{per ogni scelta di} \ dt
-        \]
-        \item non abbiamo più il problema dell'amplificazione dell'errore: infatti,
-        \[
-        (1+adt)>1 \ \text{per ogni scelta di} \ dt>0 \implies \frac{1}{1+adt}<1 
-        \]
-        e di conseguenza non abbiamo più il fenomeno di amplificazione degli errori.
-    \end{enumerate}
-\end{example}
+\end{proof}
 \begin{remark}
-    Osserviamo che in questo caso siamo stati fortunati, poiché siamo riusciti ad ottenere un'espressione esplicita di $u_{i+1}$ a partire dalla (\ref{eq:12.2}). In generale, questo non è possibile, ed è quindi necessario utilizzare un metodo numerico (ad esempio il metodo di Newton) anche per determinare $u_{i+1}$. Per questo i metodo impliciti sono generalmente computazionalmente più intensi; si guadagna però la stabilità incondizionata del metodo.  
+    L'equazione differenziale dell'esercizio \ref{ex:11.2} descrive una popolazione di individui che compete per un delle risorse limitate e che si riproduce ad un certo tasso $r$. $k$ rappresenta il numero di individui che il dato insieme di risorse può sostenere stabilmente. Le sue soluzioni sono dette \emph{curve logistiche}. 
 \end{remark}
 \newpage
