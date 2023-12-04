@@ -1,4 +1,4 @@
-\section{Lezione 10}
+\section{Lezione 11}
 \subsection{Esercizi: funzioni integrali}
 \begin{exercise}
     \label{ex:9.1}
@@ -15,7 +15,7 @@
         \]
     \end{enumerate}
 \end{exercise}
-\begin{proof}
+\begin{proof}[Soluzione]
     Notiamo che $f$ è continua su tutto $\amsbb{R}$; pertanto la sua restrizione ad un intervallo del tipo $[0,x]$ per $x\ge 0$ o $[x,0]$ per $x<0$ è continua e, per il corollario \ref{cor:8.1}, integrabile su $[0,x]$ o $[x,0]$ per ogni scelta di $x\in\amsbb{R}$. Quindi $F$ è ben definita su tutto $\amsbb{R}$. Consideriamo ora i due punti:
     \begin{enumerate}[(i)]
         \item vogliamo mostrare che $F(-x) = F(x)$ per ogni $x\in\amsbb{R}$. Consideriamo per semplicità $x\ge 0$ (il caso $x<0$ è analogo) e
@@ -198,7 +198,13 @@
     \]
     calcolare i primi due termini dello sviluppo di Taylor di $F$ centrato in $x_0=1$.
 \end{exercise}
-\begin{proof}
+\begin{proof}[Soluzione]
+    Notiamo che la funzione $F$ è ben definita su tutto $\mathbb{R}^+$: infatti, la funzione integranda $\mathbb{R}^+\ni t \mapsto \frac{1}{1+t\log(t)}$ è continua e ben definita su tutto $\mathbb{R}^+$. Per mostrarlo, possiamo considerare il seguente fatto: notiamo che $\mathbb{R}^+\ni t\mapsto 1+t\log(t)$ è sempre positiva, infatti abbiamo che
+    \begin{enumerate}[(i)]
+        \item $\lim_{t\to 0^+} 1+t\log(t)=1$;
+        \item $1+t\log(t)$ è derivabile su tutto $\mathbb{R}^+$, e la sua derivata prima è $1+\log(t)$. Questa si annulla solamente in $\frac{1}{e}$, ed è negativa in $\left(0, \frac{1}{e}\right)$ e positiva in $\left(\frac{1}{e}, +\infty\right)$; di conseguenza $\frac{1}{e}$ è un punto di minimo globale della funzione, e $1+\frac{1}{e}\log\left(\frac{1}{e}\right)=\frac{e-1}{e}>0$.
+    \end{enumerate}
+    Di conseguenza $(1+t\log(t))^{-1}$ è ben definita su tutto $\mathbb{R}^+$ ed è continua, essendo composizione di funzioni continue.\\
     Dall'esercizio \ref{ex:9.2} sappiamo calcolare le derivate di oggetti del tipo
     \[
     \int_{a}^{f(x)} g(t)\, dt
@@ -306,7 +312,7 @@
     \[
     \begin{split}
         a_1 & = \int_0^{\frac{\pi}{4}}\tan(x)\, dx =\int_0^{\frac{\pi}{4}}\frac{\sin(x)}{\cos(x)}\, dx  = -\int_0^{\frac{\pi}{4}} \frac{1}{\cos(x)}\frac{d}{dx}(\cos(x))\, dx \overset{\text{Teorema \ref{th:8.4}}}{=}\\
-        & =  -\int_1^{\frac{\sqrt{2}}{2}} \frac{1}{t}\, dt = \log{\abs{t}}\bigg|_1^{\frac{\sqrt{2}}{2}} = -\log\left(\frac{1}{\sqrt{2}}\right) = \frac{1}{2}\log(2)
+        & =  -\int_1^{\frac{\sqrt{2}}{2}} \frac{1}{t}\, dt = -\log{\abs{t}}\bigg|_1^{\frac{\sqrt{2}}{2}} = -\log\left(\frac{1}{\sqrt{2}}\right) = \frac{1}{2}\log(2)
     \end{split}
     \]
     Supponiamo ora che $n\ge 2$: possiamo scrivere
@@ -339,7 +345,7 @@
     \]
     determinare
     \[
-    \lim_{t\to 0^+} f(x)
+    \lim_{x\to 0^+} f(x)
     \]
 \end{exercise}
 \begin{proof}[Soluzione]
@@ -368,7 +374,7 @@
         \[
         f(x) = \int_0^1 \frac{t^4}{(t+x^2)^3}\, dt = \int_0^1 \frac{t^4}{t^3\left(1+\frac{x^2}{t}\right)^3}\, dt = \int_0^1 \frac{t}{\left(1+\frac{x^2}{t}\right)^3}
         \]
-        A questo punto, possiamo considerare lo sviluppo di Taylor di $\left(1+\frac{x^2}{t}\right)^{-1}$ in un intorno di 0:
+        A questo punto, possiamo considerare lo sviluppo di Taylor di $\left(1+\frac{x^2}{t}\right)^{-3}$ in un intorno di 0:
         \[
         \left(1+\frac{x^2}{t}\right)^{-3} = 1 -3\frac{x^2}{t} + o(x^2)
         \]
@@ -385,4 +391,27 @@
         \]
     \end{enumerate} 
 \end{proof}
+\begin{remark}
+    Come abbiamo visto in precedenza, in generale lo scambio dell'operazione di limite con l'operazione di integrazione non è consentito. Quindi ci chiediamo se la procedura risolutiva che abbiamo adottato nel punto (ii) sia o meno legittima.\\
+    In generale, i teoremi che regolano questa procedura sono tre: il teorema della convergenza monotona, il teorema della convergenza uniforme e il teorema della convergenza dominata\footnote{Ne esistono diverse versioni: quella applicabile all'integrazione di Riemann è dovuta ad Arzelà, mentre la versione per l'integrazione di Lebesgue è detta convergenza dominata di Lebesgue. I due teoremi differiscono per un'ipotesi fondamentale: il primo assume che la successione di funzioni converga puntualmente ad una funzione integrabile secondo Riemann, mentre per il secondo è sufficiente che la successione converga puntualmente.}. Nel caso in esame, le richieste del teorema della convergenza dominata di Arzelà \cite{Arzelà_1885} sono soddisfatte: infatti,
+    \begin{enumerate}[(i)]
+        \item data una qualsiasi successione $(x_n)_n\subseteq \mathbb{R}^+$ che converge a $0$, abbiamo che la successione di funzioni $[0,1]\ni t \mapsto i_n(t) = t^4(t+x_n^2)^{-3}$ converge puntualmente a
+        \[
+        \lim_{n\to \infty} i_n(t) =  \lim_{n\to\infty} t^4(t+x_n^2)^{-3} = t
+        \]
+        Chiaramente $t\in\mathscr{R}([0,1])$. 
+        \item data una qualsiasi successione $(x_n)_n$ con $x_n \to 0^+$, abbiamo che
+        \[
+        \abs{i_n(t)} = \abs{t^4(t+x_n^2)^{-3}} \le \abs{t} \le 1
+        \]
+        ossia $\abs{i_n(t)}\le 1$ per ogni $t\in[0,1]$, per ogni $n\in\mathbb{N}$.
+    \end{enumerate}
+         Quindi in questo caso la procedura di scambio è consentita, e abbiamo
+        \[
+        \lim_{x\to 0^+} \int_0^1 \frac{t^4}{(t+x^2)^3}\, dt = \int_0^1 \lim_{x\to 0^+} \frac{t^4}{(t+x^2)^3}\, dt
+        \]
+        L'espansione di Taylor della funzione integranda è quindi giustificata.
+        \emph{Ai fini dell'esame, se vi troverete davanti un caso simile all'esercizio \ref{ex:9.6}, le ipotesi del teorema della convergenza dominata di Arzelà saranno soddisfatte.}\\
+         
+\end{remark}
 \newpage

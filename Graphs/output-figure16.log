@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.9.18)  7 OCT 2023 15:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.9.18)  4 DEC 2023 10:39
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1837,249 +1837,255 @@ LaTeX Warning: Reference `th:5.1' on page 43 undefined on input line 49.
 LaTeX Warning: Reference `th:5.1' on page 44 undefined on input line 66.
 
 
-LaTeX Warning: Reference `th:5.1' on page 44 undefined on input line 94.
+LaTeX Warning: Reference `eq:5.1' on page 44 undefined on input line 90.
 
 
-LaTeX Warning: Reference `th:4.2' on page 44 undefined on input line 94.
+LaTeX Warning: Reference `eq:5.2' on page 45 undefined on input line 105.
 
 
-LaTeX Warning: Reference `th:4.3' on page 44 undefined on input line 94.
+LaTeX Warning: Reference `eq:5.3' on page 45 undefined on input line 116.
 
 
-LaTeX Warning: Reference `th:4.4' on page 44 undefined on input line 94.
+LaTeX Warning: Reference `th:5.1' on page 45 undefined on input line 136.
 
 
-LaTeX Warning: Reference `eq:5.1' on page 45 undefined on input line 103.
+LaTeX Warning: Reference `th:4.2' on page 45 undefined on input line 136.
 
 
-LaTeX Warning: Reference `eq:5.2' on page 45 undefined on input line 103.
+LaTeX Warning: Reference `th:4.3' on page 45 undefined on input line 136.
 
 
-Overfull \hbox (17.71176pt too wide) detected at line 110
+LaTeX Warning: Reference `th:4.4' on page 45 undefined on input line 136.
+
+
+LaTeX Warning: Reference `eq:5.1' on page 46 undefined on input line 169.
+
+
+LaTeX Warning: Reference `eq:5.2' on page 46 undefined on input line 169.
+
+
+Overfull \hbox (17.71176pt too wide) detected at line 176
 [] \OT1/cmr/m/n/10.95 + [] = [] + []
  []
 
 
-LaTeX Warning: Reference `eq:5.3' on page 45 undefined on input line 127.
+LaTeX Warning: Reference `eq:5.3' on page 47 undefined on input line 193.
 
 
-LaTeX Warning: Reference `eq:5.1' on page 45 undefined on input line 131.
+LaTeX Warning: Reference `eq:5.1' on page 47 undefined on input line 197.
 
 
-LaTeX Warning: Reference `eq:5.2' on page 45 undefined on input line 134.
+LaTeX Warning: Reference `eq:5.2' on page 47 undefined on input line 200.
 
 
-LaTeX Warning: Reference `eq:5.4' on page 45 undefined on input line 137.
+LaTeX Warning: Reference `eq:5.4' on page 47 undefined on input line 203.
 
 
-Overfull \hbox (1.89412pt too wide) detected at line 145
+Overfull \hbox (1.89412pt too wide) detected at line 211
 []
  []
 
 
-Overfull \hbox (25.74338pt too wide) detected at line 145
+Overfull \hbox (25.74338pt too wide) detected at line 211
 []
  []
 
 
-LaTeX Warning: Reference `th:4.3' on page 46 undefined on input line 146.
+LaTeX Warning: Reference `th:4.3' on page 47 undefined on input line 212.
 
 
-LaTeX Warning: Reference `th:4.3' on page 46 undefined on input line 150.
+LaTeX Warning: Reference `th:4.3' on page 47 undefined on input line 216.
 
 
-LaTeX Warning: Reference `th:4.2' on page 46 undefined on input line 150.
+LaTeX Warning: Reference `th:4.2' on page 47 undefined on input line 216.
 
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 
-LaTeX Warning: Reference `th:4.5' on page 49 undefined on input line 277.
+LaTeX Warning: Reference `th:4.5' on page 50 undefined on input line 343.
 
 
-LaTeX Warning: Reference `def:5.2' on page 49 undefined on input line 281.
+LaTeX Warning: Reference `def:5.2' on page 50 undefined on input line 347.
 
 
-LaTeX Warning: Reference `th:5.2' on page 49 undefined on input line 285.
+LaTeX Warning: Reference `th:5.2' on page 50 undefined on input line 351.
 
 
-LaTeX Warning: Reference `th:5.1' on page 49 undefined on input line 305.
+LaTeX Warning: Reference `th:5.1' on page 51 undefined on input line 371.
 
 
-LaTeX Warning: Reference `th:5.1' on page 49 undefined on input line 309.
+LaTeX Warning: Reference `th:5.1' on page 51 undefined on input line 375.
 
 
-LaTeX Warning: Reference `def:4.2' on page 49 undefined on input line 309.
+LaTeX Warning: Reference `def:4.2' on page 51 undefined on input line 375.
 
 
-LaTeX Warning: Reference `eq:5.6' on page 50 undefined on input line 331.
+LaTeX Warning: Reference `eq:5.6' on page 51 undefined on input line 397.
 
 
-LaTeX Warning: Reference `eq:5.7' on page 50 undefined on input line 331.
+LaTeX Warning: Reference `eq:5.7' on page 51 undefined on input line 397.
 
 
-LaTeX Warning: Reference `def:5.3' on page 50 undefined on input line 354.
+LaTeX Warning: Reference `def:5.3' on page 52 undefined on input line 420.
 
 
-LaTeX Warning: Reference `th:5.2' on page 50 undefined on input line 354.
+LaTeX Warning: Reference `th:5.2' on page 52 undefined on input line 420.
 
 
-LaTeX Warning: Reference `th:4.3' on page 50 undefined on input line 360.
+LaTeX Warning: Reference `th:4.3' on page 52 undefined on input line 426.
 
 
-LaTeX Warning: Reference `eq:5.8' on page 50 undefined on input line 362.
+LaTeX Warning: Reference `eq:5.8' on page 52 undefined on input line 428.
 
 
-LaTeX Warning: Reference `eq:5.9' on page 51 undefined on input line 370.
+LaTeX Warning: Reference `eq:5.9' on page 52 undefined on input line 436.
+
+) (Lessons/Lesson_6.tex
+
+LaTeX Warning: Reference `eq:5.11' on page 53 undefined on input line 33.
 
 
-LaTeX Warning: Reference `eq:5.11' on page 51 undefined on input line 412.
+LaTeX Warning: Reference `eq:5.10' on page 53 undefined on input line 33.
 
 
-LaTeX Warning: Reference `eq:5.10' on page 51 undefined on input line 412.
+LaTeX Warning: Reference `eq:5.11' on page 53 undefined on input line 33.
 
 
-LaTeX Warning: Reference `eq:5.11' on page 51 undefined on input line 412.
+LaTeX Warning: Reference `eq:5.10' on page 53 undefined on input line 33.
 
 
-LaTeX Warning: Reference `eq:5.10' on page 51 undefined on input line 412.
+LaTeX Warning: Reference `eq:5.12' on page 53 undefined on input line 45.
 
 
-LaTeX Warning: Reference `eq:5.12' on page 52 undefined on input line 424.
+LaTeX Warning: Reference `def:5.4' on page 54 undefined on input line 59.
 
 
-LaTeX Warning: Reference `def:5.4' on page 52 undefined on input line 438.
-
-
-Overfull \hbox (8.60234pt too wide) detected at line 464
+Overfull \hbox (8.60234pt too wide) detected at line 85
    []  []  []  []
  []
 
 
-LaTeX Warning: Reference `eq:5.13' on page 53 undefined on input line 478.
+LaTeX Warning: Reference `eq:5.13' on page 54 undefined on input line 99.
 
 
-LaTeX Warning: Reference `eq:5.12' on page 53 undefined on input line 478.
+LaTeX Warning: Reference `eq:5.12' on page 54 undefined on input line 99.
 
 
-LaTeX Warning: Reference `eq:5.13' on page 53 undefined on input line 478.
+LaTeX Warning: Reference `eq:5.13' on page 54 undefined on input line 99.
 
 
-LaTeX Warning: Reference `eq:5.12' on page 53 undefined on input line 478.
+LaTeX Warning: Reference `eq:5.12' on page 54 undefined on input line 99.
 
 
-LaTeX Warning: Reference `eq:5.16' on page 53 undefined on input line 493.
+LaTeX Warning: Reference `eq:5.16' on page 55 undefined on input line 114.
 
 
-LaTeX Warning: Reference `eq:5.12' on page 53 undefined on input line 493.
+LaTeX Warning: Reference `eq:5.12' on page 55 undefined on input line 114.
 
 
-LaTeX Warning: Reference `eq:5.14' on page 53 undefined on input line 493.
+LaTeX Warning: Reference `eq:5.14' on page 55 undefined on input line 114.
 
 
-LaTeX Warning: Reference `eq:5.15' on page 53 undefined on input line 493.
+LaTeX Warning: Reference `eq:5.15' on page 55 undefined on input line 114.
 
 
-LaTeX Warning: Reference `eq:5.16' on page 53 undefined on input line 493.
+LaTeX Warning: Reference `eq:5.16' on page 55 undefined on input line 114.
 
 
-LaTeX Warning: Reference `eq:5.12' on page 53 undefined on input line 493.
+LaTeX Warning: Reference `eq:5.12' on page 55 undefined on input line 114.
 
 
-LaTeX Warning: Reference `eq:5.14' on page 53 undefined on input line 493.
+LaTeX Warning: Reference `eq:5.14' on page 55 undefined on input line 114.
 
 
-LaTeX Warning: Reference `eq:5.15' on page 53 undefined on input line 493.
+LaTeX Warning: Reference `eq:5.15' on page 55 undefined on input line 114.
 
 
-Underfull \vbox (badness 1755) has occurred while \output is active []
+LaTeX Warning: Reference `th:4.2' on page 55 undefined on input line 121.
 
 
-LaTeX Warning: Reference `th:4.2' on page 54 undefined on input line 500.
+LaTeX Warning: Reference `th:4.3' on page 55 undefined on input line 121.
 
 
-LaTeX Warning: Reference `th:4.3' on page 54 undefined on input line 500.
+LaTeX Warning: Reference `th:4.4' on page 55 undefined on input line 121.
 
 
-LaTeX Warning: Reference `th:4.4' on page 54 undefined on input line 500.
-
-) (Lessons/Lesson_6.tex
-
-LaTeX Warning: Reference `th:4.6' on page 55 undefined on input line 27.
+LaTeX Warning: Reference `th:4.6' on page 56 undefined on input line 151.
 
 
-LaTeX Warning: Reference `eq:6.1' on page 55 undefined on input line 27.
+LaTeX Warning: Reference `eq:6.1' on page 56 undefined on input line 151.
 
 
-LaTeX Warning: Reference `def:5.4' on page 55 undefined on input line 31.
+LaTeX Warning: Reference `def:5.4' on page 56 undefined on input line 155.
 
 
-LaTeX Warning: Reference `eq:6.1' on page 56 undefined on input line 58.
+LaTeX Warning: Reference `eq:6.1' on page 56 undefined on input line 182.
 
 
-LaTeX Warning: Reference `eq:6.1' on page 56 undefined on input line 62.
+LaTeX Warning: Reference `eq:6.1' on page 57 undefined on input line 186.
 
 
-LaTeX Warning: Reference `th:4.6' on page 56 undefined on input line 75.
+LaTeX Warning: Reference `th:4.6' on page 57 undefined on input line 199.
 
 
-LaTeX Warning: Reference `def:6.2' on page 56 undefined on input line 79.
+LaTeX Warning: Reference `def:6.2' on page 57 undefined on input line 203.
 
 
-LaTeX Warning: Reference `th:6.2' on page 57 undefined on input line 111.
+LaTeX Warning: Reference `th:6.2' on page 58 undefined on input line 235.
 
 
-LaTeX Warning: Reference `eq:6.3' on page 57 undefined on input line 116.
+LaTeX Warning: Reference `eq:6.3' on page 58 undefined on input line 240.
 
 
-LaTeX Warning: Reference `eq:6.4' on page 57 undefined on input line 116.
+LaTeX Warning: Reference `eq:6.4' on page 58 undefined on input line 240.
 
 
-LaTeX Warning: Reference `eq:6.3' on page 57 undefined on input line 116.
+LaTeX Warning: Reference `eq:6.3' on page 58 undefined on input line 240.
 
 
-LaTeX Warning: Reference `eq:6.4' on page 57 undefined on input line 116.
+LaTeX Warning: Reference `eq:6.4' on page 58 undefined on input line 240.
 
 
-LaTeX Warning: Reference `eq:6.1' on page 57 undefined on input line 118.
+LaTeX Warning: Reference `eq:6.1' on page 58 undefined on input line 242.
 
 
-LaTeX Warning: Reference `th:4.5' on page 57 undefined on input line 126.
+LaTeX Warning: Reference `th:4.5' on page 58 undefined on input line 250.
 
 
-LaTeX Warning: Reference `th:4.6' on page 57 undefined on input line 126.
+LaTeX Warning: Reference `th:4.6' on page 58 undefined on input line 250.
 
 
-LaTeX Warning: Reference `th:5.1' on page 58 undefined on input line 149.
+LaTeX Warning: Reference `th:5.1' on page 59 undefined on input line 273.
 
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 \openout4 = `Graphs/output-figure16.dpth'.
 
-[58
+[59
 
 {C:/Users/angel/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 
-LaTeX Warning: Reference `def:6.1' on page 58 undefined on input line 199.
+LaTeX Warning: Reference `def:6.1' on page 59 undefined on input line 323.
 
 
-LaTeX Warning: Reference `eq:6.1' on page 58 undefined on input line 199.
+LaTeX Warning: Reference `eq:6.1' on page 59 undefined on input line 323.
 
 
-LaTeX Warning: Reference `eq:6.4' on page 59 undefined on input line 217.
+LaTeX Warning: Reference `eq:6.4' on page 60 undefined on input line 341.
 
 
-LaTeX Warning: Reference `eq:6.4' on page 59 undefined on input line 217.
+LaTeX Warning: Reference `eq:6.4' on page 60 undefined on input line 341.
 
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 
-LaTeX Warning: Reference `th:5.3' on page 60 undefined on input line 241.
+LaTeX Warning: Reference `th:5.3' on page 61 undefined on input line 365.
 
 
-LaTeX Warning: Reference `eq:6.4' on page 60 undefined on input line 248.
+LaTeX Warning: Reference `eq:6.4' on page 61 undefined on input line 372.
 
 
-Overfull \hbox (8.30885pt too wide) in paragraph at lines 251--253
+Overfull \hbox (8.30885pt too wide) in paragraph at lines 375--377
 \T1/cmr/m/n/10.95 Notiamo che se $\OML/cmm/m/it/10.95 f[]\OT1/cmr/m/n/10.95 (\O
 ML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) = 0$ \T1/cmr/m/n/10.95 non pos-sia-mo u
 sa-re que-sto me-to-do per cal-co-la-re $\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.9
@@ -2088,326 +2094,484 @@ sa-re que-sto me-to-do per cal-co-la-re $\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.9
  []
 
 
-LaTeX Warning: Reference `th:5.2' on page 62 undefined on input line 333.
+LaTeX Warning: Reference `th:5.2' on page 63 undefined on input line 457.
 
 
-LaTeX Warning: Reference `th:6.3' on page 62 undefined on input line 352.
+LaTeX Warning: Reference `th:6.3' on page 63 undefined on input line 476.
 
 
-LaTeX Warning: Citation 'rudin1976principles' on page 62 undefined on input lin
-e 352.
+LaTeX Warning: Citation 'rudin1976principles' on page 63 undefined on input lin
+e 476.
 
 
-LaTeX Warning: Reference `th:6.3' on page 63 undefined on input line 366.
+LaTeX Warning: Reference `th:6.3' on page 64 undefined on input line 490.
 
 
-LaTeX Warning: Reference `th:5.2' on page 63 undefined on input line 366.
+LaTeX Warning: Reference `th:5.2' on page 64 undefined on input line 490.
 
 
-LaTeX Warning: Reference `def:6.1' on page 63 undefined on input line 381.
+LaTeX Warning: Reference `def:6.1' on page 64 undefined on input line 505.
 
 
-LaTeX Warning: Reference `eq:6.1' on page 63 undefined on input line 381.
+LaTeX Warning: Reference `eq:6.1' on page 64 undefined on input line 505.
 
 
-LaTeX Warning: Reference `th:5.2' on page 63 undefined on input line 381.
+LaTeX Warning: Reference `th:5.2' on page 64 undefined on input line 505.
 
 
-LaTeX Warning: Reference `eq:6.5' on page 63 undefined on input line 387.
+LaTeX Warning: Reference `eq:6.5' on page 64 undefined on input line 511.
 
 
-LaTeX Warning: Reference `eq:5.13' on page 63 undefined on input line 393.
+LaTeX Warning: Reference `eq:5.13' on page 64 undefined on input line 517.
 
 
-LaTeX Warning: Reference `eq:5.13' on page 63 undefined on input line 393.
+LaTeX Warning: Reference `eq:5.13' on page 64 undefined on input line 517.
 
 
-LaTeX Warning: Reference `eq:6.6' on page 63 undefined on input line 395.
+LaTeX Warning: Reference `eq:6.6' on page 64 undefined on input line 519.
 
 
-LaTeX Warning: Reference `eq:5.15' on page 63 undefined on input line 401.
+LaTeX Warning: Reference `eq:5.15' on page 64 undefined on input line 525.
 
 
-LaTeX Warning: Reference `eq:5.14' on page 63 undefined on input line 401.
+LaTeX Warning: Reference `eq:5.14' on page 64 undefined on input line 525.
 
 
-LaTeX Warning: Reference `eq:5.15' on page 63 undefined on input line 401.
+LaTeX Warning: Reference `eq:5.15' on page 64 undefined on input line 525.
 
 
-LaTeX Warning: Reference `eq:5.14' on page 63 undefined on input line 401.
+LaTeX Warning: Reference `eq:5.14' on page 64 undefined on input line 525.
 
 
-Overfull \hbox (3.0469pt too wide) detected at line 402
+Overfull \hbox (3.0469pt too wide) detected at line 526
 []
  []
 
 
-Overfull \hbox (25.74338pt too wide) detected at line 402
+Overfull \hbox (25.74338pt too wide) detected at line 526
 []
  []
 
 
-LaTeX Warning: Reference `th:4.4' on page 64 undefined on input line 403.
+LaTeX Warning: Reference `th:4.4' on page 65 undefined on input line 527.
 
 
-LaTeX Warning: Reference `def:5.4' on page 64 undefined on input line 403.
-
-
-LaTeX Warning: Reference `th:6.4' on page 65 undefined on input line 496.
-
-
-LaTeX Warning: Reference `th:6.4' on page 66 undefined on input line 518.
-
-
-LaTeX Warning: Reference `eq:6.7' on page 68 undefined on input line 598.
-
-
-LaTeX Warning: Reference `ex:6.4' on page 69 undefined on input line 653.
+LaTeX Warning: Reference `def:5.4' on page 65 undefined on input line 527.
 
 ) (Lessons/Lesson_7.tex
 
-LaTeX Warning: Reference `th:7.1' on page 72 undefined on input line 43.
+LaTeX Warning: Reference `th:6.4' on page 67 undefined on input line 41.
 
 
-LaTeX Warning: Reference `th:7.2' on page 73 undefined on input line 71.
+LaTeX Warning: Reference `th:6.4' on page 68 undefined on input line 63.
 
 
-LaTeX Warning: Reference `th:4.2' on page 74 undefined on input line 107.
+LaTeX Warning: Reference `eq:6.7' on page 69 undefined on input line 143.
 
 
-LaTeX Warning: Reference `th:4.2' on page 74 undefined on input line 110.
+LaTeX Warning: Reference `ex:6.4' on page 71 undefined on input line 198.
 
 
-LaTeX Warning: Reference `cor:7.1' on page 74 undefined on input line 119.
+LaTeX Warning: Reference `def:4.3' on page 73 undefined on input line 289.
 
 
-LaTeX Warning: Reference `eq:7.1' on page 75 undefined on input line 147.
+LaTeX Warning: Reference `th:6.5' on page 74 undefined on input line 336.
 
 
-LaTeX Warning: Reference `th:6.3' on page 75 undefined on input line 147.
+LaTeX Warning: Reference `eq:6.8' on page 75 undefined on input line 352.
 
 
-LaTeX Warning: Reference `eq:7.1' on page 75 undefined on input line 147.
+LaTeX Warning: Reference `eq:6.9' on page 75 undefined on input line 352.
 
-
-LaTeX Warning: Reference `th:7.1' on page 75 undefined on input line 147.
-
-
-LaTeX Warning: Reference `th:7.2' on page 75 undefined on input line 152.
-
-
-LaTeX Warning: Reference `eq:7.1' on page 75 undefined on input line 154.
-
-
-LaTeX Warning: Reference `eq:7.1' on page 75 undefined on input line 156.
-
-
-LaTeX Warning: Reference `th:5.3' on page 75 undefined on input line 175.
-
-
-LaTeX Warning: Reference `th:7.2' on page 75 undefined on input line 176.
-
-
-LaTeX Warning: Reference `def:7.2' on page 76 undefined on input line 201.
-
-
-LaTeX Warning: Reference `def:7.2' on page 76 undefined on input line 220.
-
-
-LaTeX Warning: Reference `th:4.5' on page 77 undefined on input line 222.
-
-
-LaTeX Warning: Reference `th:6.2' on page 77 undefined on input line 241.
-
-
-LaTeX Warning: Reference `th:7.4' on page 77 undefined on input line 248.
-
-
-LaTeX Warning: Reference `th:4.6' on page 77 undefined on input line 264.
-
-
-LaTeX Warning: Reference `th:4.5' on page 77 undefined on input line 264.
-
-
-LaTeX Warning: Reference `def:5.1' on page 78 undefined on input line 274.
-
-
-LaTeX Warning: Reference `eq:7.2' on page 78 undefined on input line 274.
-
-
-LaTeX Warning: Reference `eq:7.3' on page 78 undefined on input line 278.
-
-
-LaTeX Warning: Reference `th:7.4' on page 78 undefined on input line 302.
-
-
-LaTeX Warning: Reference `ex:7.3' on page 79 undefined on input line 320.
-
-
-LaTeX Warning: Reference `th:4.6' on page 79 undefined on input line 328.
-
-
-LaTeX Warning: Reference `th:4.5' on page 79 undefined on input line 328.
-
-
-LaTeX Warning: Reference `th:7.4' on page 79 undefined on input line 351.
-
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
-
-LaTeX Warning: Reference `th:7.1' on page 80 undefined on input line 416.
-
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
 ) (Lessons/Lesson_8.tex
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
 
-LaTeX Warning: Reference `eq:8.4' on page 82 undefined on input line 86.
+LaTeX Warning: Reference `th:7.1' on page 76 undefined on input line 43.
 
 
-LaTeX Warning: Reference `th:2.1' on page 82 undefined on input line 86.
+LaTeX Warning: Reference `th:7.2' on page 77 undefined on input line 71.
 
 
-LaTeX Warning: Reference `cor:2.1' on page 82 undefined on input line 86.
+LaTeX Warning: Reference `th:4.2' on page 78 undefined on input line 107.
 
-Missing character: There is no 2 in font rsfs10!
-Missing character: There is no 2 in font rsfs10!
 
-LaTeX Warning: Reference `def:2.2' on page 84 undefined on input line 158.
+LaTeX Warning: Reference `th:4.2' on page 78 undefined on input line 110.
 
-Missing character: There is no 1 in font rsfs10!
 
-LaTeX Warning: Reference `def:8.2' on page 84 undefined on input line 168.
+LaTeX Warning: Reference `cor:7.1' on page 78 undefined on input line 119.
 
 
-LaTeX Warning: Reference `def:8.2' on page 85 undefined on input line 190.
+LaTeX Warning: Reference `eq:7.1' on page 79 undefined on input line 147.
 
 
-LaTeX Warning: Reference `th:8.1' on page 86 undefined on input line 249.
+LaTeX Warning: Reference `th:6.3' on page 79 undefined on input line 147.
 
 
-LaTeX Warning: Reference `cor:8.1' on page 87 undefined on input line 286.
+LaTeX Warning: Reference `eq:7.1' on page 79 undefined on input line 147.
 
 
-LaTeX Warning: Reference `cor:8.2' on page 87 undefined on input line 292.
+LaTeX Warning: Reference `th:7.1' on page 79 undefined on input line 147.
 
 
-LaTeX Warning: Reference `cor:8.1' on page 87 undefined on input line 304.
+LaTeX Warning: Reference `th:7.2' on page 79 undefined on input line 152.
 
 
-LaTeX Warning: Reference `cor:8.1' on page 87 undefined on input line 309.
+LaTeX Warning: Reference `eq:7.1' on page 79 undefined on input line 154.
 
 
-LaTeX Warning: Reference `def:6.1' on page 88 undefined on input line 331.
+LaTeX Warning: Reference `eq:7.1' on page 79 undefined on input line 156.
 
 
-LaTeX Warning: Reference `eq:8.6' on page 88 undefined on input line 340.
+LaTeX Warning: Reference `th:5.3' on page 79 undefined on input line 175.
 
 
-LaTeX Warning: Reference `eq:8.6' on page 88 undefined on input line 340.
-
-
-LaTeX Warning: Reference `eq:8.6' on page 88 undefined on input line 352.
-
-
-LaTeX Warning: Reference `th:8.1' on page 88 undefined on input line 362.
-
-
-LaTeX Warning: Reference `th:7.2' on page 88 undefined on input line 366.
-
-
-LaTeX Warning: Reference `th:8.3' on page 89 undefined on input line 404.
-
-
-LaTeX Warning: Reference `th:8.2' on page 89 undefined on input line 404.
-
-
-LaTeX Warning: Reference `th:8.3' on page 89 undefined on input line 405.
-
-
-LaTeX Warning: Reference `eq:6.4' on page 90 undefined on input line 424.
-
-
-LaTeX Warning: Reference `th:8.4' on page 91 undefined on input line 461.
-
-
-LaTeX Warning: Reference `th:8.4' on page 92 undefined on input line 511.
-
-
-LaTeX Warning: Reference `th:8.4' on page 92 undefined on input line 519.
-
-
-LaTeX Warning: Reference `ex:8.2' on page 92 undefined on input line 519.
-
-
-LaTeX Warning: Reference `th:8.4' on page 92 undefined on input line 523.
-
-
-LaTeX Warning: Reference `th:8.5' on page 93 undefined on input line 579.
-
-
-LaTeX Warning: Reference `eq:6.3' on page 94 undefined on input line 588.
-
-
-LaTeX Warning: Reference `ex:8.5' on page 95 undefined on input line 643.
-
-
-LaTeX Warning: Reference `th:8.4' on page 95 undefined on input line 659.
-
-
-LaTeX Warning: Reference `th:8.4' on page 95 undefined on input line 659.
-
-
-LaTeX Warning: Reference `th:8.4' on page 95 undefined on input line 659.
-
-
-LaTeX Warning: Reference `th:8.4' on page 95 undefined on input line 659.
-
-
-LaTeX Warning: Reference `th:8.4' on page 95 undefined on input line 675.
-
-
-LaTeX Warning: Reference `th:8.4' on page 95 undefined on input line 682.
-
-
-LaTeX Warning: Reference `th:8.4' on page 95 undefined on input line 682.
+LaTeX Warning: Reference `th:7.2' on page 79 undefined on input line 176.
 
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 
-LaTeX Warning: Reference `th:8.3' on page 97 undefined on input line 736.
+LaTeX Warning: Reference `th:7.1' on page 81 undefined on input line 235.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `def:7.2' on page 83 undefined on input line 348.
 
 
-Overfull \hbox (11.09872pt too wide) detected at line 757
+LaTeX Warning: Reference `th:7.2' on page 83 undefined on input line 365.
+
+
+LaTeX Warning: Reference `def:7.2' on page 83 undefined on input line 378.
+
+
+LaTeX Warning: Reference `th:4.5' on page 83 undefined on input line 380.
+
+
+LaTeX Warning: Reference `th:7.4' on page 84 undefined on input line 387.
+
+
+LaTeX Warning: Reference `th:2.1' on page 84 undefined on input line 403.
+
+
+Overfull \hbox (7.81995pt too wide) detected at line 418
 []
  []
 
 
-LaTeX Warning: Reference `th:6.4' on page 97 undefined on input line 762.
+LaTeX Warning: Reference `th:6.2' on page 85 undefined on input line 450.
+
+
+LaTeX Warning: Reference `th:7.4' on page 85 undefined on input line 457.
+
+
+LaTeX Warning: Reference `th:4.6' on page 86 undefined on input line 473.
+
+
+LaTeX Warning: Reference `th:4.5' on page 86 undefined on input line 473.
+
+
+LaTeX Warning: Reference `def:5.1' on page 86 undefined on input line 483.
+
+
+LaTeX Warning: Reference `eq:7.2' on page 86 undefined on input line 483.
+
+
+LaTeX Warning: Reference `eq:7.3' on page 86 undefined on input line 487.
+
+
+LaTeX Warning: Reference `th:7.4' on page 87 undefined on input line 511.
+
+
+LaTeX Warning: Reference `ex:7.3' on page 87 undefined on input line 529.
+
+
+LaTeX Warning: Reference `th:4.6' on page 87 undefined on input line 537.
+
+
+LaTeX Warning: Reference `th:4.5' on page 87 undefined on input line 537.
+
+
+LaTeX Warning: Reference `th:7.4' on page 88 undefined on input line 560.
+
+) (Lessons/Lesson_9_New.tex
+
+LaTeX Warning: Reference `eq:6.7' on page 89 undefined on input line 5.
+
+
+LaTeX Warning: Reference `eq:9n.2' on page 90 undefined on input line 68.
+
+
+LaTeX Warning: Reference `th:7.2' on page 90 undefined on input line 70.
+
+
+LaTeX Warning: Reference `th:9n.1' on page 90 undefined on input line 76.
+
+
+LaTeX Warning: Reference `th:9n.1' on page 90 undefined on input line 78.
+
+
+LaTeX Warning: Reference `eq:6.8' on page 90 undefined on input line 78.
+
+
+LaTeX Warning: Reference `th:9n.1' on page 91 undefined on input line 116.
+
+
+LaTeX Warning: Reference `th:9n.1' on page 92 undefined on input line 149.
+
+
+LaTeX Warning: Reference `def:7.1' on page 93 undefined on input line 202.
+
+
+LaTeX Warning: Reference `eq:9n.3' on page 94 undefined on input line 214.
+
+
+LaTeX Warning: Reference `sec:7.3' on page 95 undefined on input line 285.
+
+
+LaTeX Warning: Reference `th:9n.2' on page 96 undefined on input line 287.
+
+
+LaTeX Warning: Reference `th:9n.4' on page 96 undefined on input line 288.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `th:9n.4' on page 96 undefined on input line 338.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `def:7.2' on page 97 undefined on input line 391.
+
+
+LaTeX Warning: Reference `th:9n.2' on page 97 undefined on input line 395.
+
+
+LaTeX Warning: Reference `th:7.2' on page 98 undefined on input line 437.
+
+
+LaTeX Warning: Reference `eq:9n.5' on page 98 undefined on input line 441.
+
+
+LaTeX Warning: Reference `eq:9n.6' on page 98 undefined on input line 449.
+
+
+LaTeX Warning: Reference `eq:9n.6' on page 98 undefined on input line 456.
+
+
+LaTeX Warning: Reference `eq:9n.6' on page 98 undefined on input line 456.
+
+
+LaTeX Warning: Reference `eq:9n.4' on page 98 undefined on input line 467.
+
+
+LaTeX Warning: Reference `eq:9n.9' on page 98 undefined on input line 485.
+
+
+LaTeX Warning: Reference `eq:9n.4' on page 98 undefined on input line 490.
+
+
+LaTeX Warning: Reference `eq:9n.6' on page 98 undefined on input line 490.
+
+
+LaTeX Warning: Reference `eq:9n.4' on page 98 undefined on input line 490.
+
+
+LaTeX Warning: Reference `eq:9n.6' on page 98 undefined on input line 490.
+
+
+LaTeX Warning: Reference `th:7.1' on page 99 undefined on input line 492.
+
+
+Overfull \hbox (31.37262pt too wide) detected at line 503
+[]
+ []
+
+
+Overfull \hbox (25.74338pt too wide) detected at line 503
+[]
+ []
+
+
+LaTeX Warning: Reference `eq:9n.9' on page 99 undefined on input line 517.
+
+
+LaTeX Warning: Reference `th:7.1' on page 99 undefined on input line 517.
+
+
+LaTeX Warning: Reference `eq:9n.10' on page 99 undefined on input line 519.
+
+
+LaTeX Warning: Reference `eq:9n.11' on page 100 undefined on input line 537.
+
+
+LaTeX Warning: Reference `eq:9n.8' on page 100 undefined on input line 537.
+
+
+LaTeX Warning: Reference `eq:9n.12' on page 100 undefined on input line 545.
+
+
+LaTeX Warning: Reference `eq:9n.13' on page 100 undefined on input line 554.
+
+
+LaTeX Warning: Reference `eq:9n.13' on page 100 undefined on input line 558.
+
+) (Lessons/Lesson_9.tex
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `eq:8.4' on page 102 undefined on input line 86.
+
+
+LaTeX Warning: Reference `th:2.1' on page 102 undefined on input line 86.
+
+
+LaTeX Warning: Reference `cor:2.1' on page 102 undefined on input line 86.
+
+
+LaTeX Warning: Reference `def:2.2' on page 104 undefined on input line 158.
+
+
+LaTeX Warning: Reference `def:8.2' on page 104 undefined on input line 168.
+
+
+LaTeX Warning: Reference `def:8.2' on page 105 undefined on input line 190.
+
+
+LaTeX Warning: Reference `th:8.1' on page 106 undefined on input line 249.
+
+
+LaTeX Warning: Reference `cor:8.1' on page 107 undefined on input line 286.
+
+
+LaTeX Warning: Reference `cor:8.2' on page 107 undefined on input line 292.
+
+
+LaTeX Warning: Reference `cor:8.1' on page 107 undefined on input line 304.
+
+
+LaTeX Warning: Reference `cor:8.1' on page 107 undefined on input line 309.
+
+
+LaTeX Warning: Reference `def:6.1' on page 108 undefined on input line 331.
+
+
+LaTeX Warning: Reference `eq:8.7' on page 108 undefined on input line 340.
+
+
+LaTeX Warning: Reference `eq:8.7' on page 108 undefined on input line 340.
+
+
+LaTeX Warning: Reference `eq:8.6' on page 108 undefined on input line 352.
+
+
+LaTeX Warning: Reference `th:8.1' on page 108 undefined on input line 362.
+
+
+LaTeX Warning: Reference `th:7.2' on page 108 undefined on input line 366.
+
+
+LaTeX Warning: Reference `th:8.3' on page 109 undefined on input line 404.
+
+
+LaTeX Warning: Reference `th:8.2' on page 109 undefined on input line 404.
+
+
+LaTeX Warning: Reference `th:8.3' on page 109 undefined on input line 405.
+
+
+LaTeX Warning: Reference `eq:6.4' on page 110 undefined on input line 424.
+
+
+LaTeX Warning: Reference `th:8.4' on page 111 undefined on input line 461.
+
+
+LaTeX Warning: Reference `th:8.5' on page 112 undefined on input line 499.
+
+
+LaTeX Warning: Reference `th:8.4' on page 112 undefined on input line 527.
+
+
+LaTeX Warning: Reference `th:8.4' on page 113 undefined on input line 535.
+
+
+LaTeX Warning: Reference `ex:8.2' on page 113 undefined on input line 535.
+
+
+LaTeX Warning: Reference `th:8.4' on page 113 undefined on input line 539.
+
+
+LaTeX Warning: Reference `th:8.5' on page 114 undefined on input line 595.
+
+
+LaTeX Warning: Reference `eq:6.3' on page 114 undefined on input line 604.
+
+
+LaTeX Warning: Reference `ex:8.5' on page 115 undefined on input line 659.
+
+
+LaTeX Warning: Reference `th:8.4' on page 115 undefined on input line 675.
+
+
+LaTeX Warning: Reference `th:8.4' on page 115 undefined on input line 675.
+
+
+LaTeX Warning: Reference `th:8.4' on page 115 undefined on input line 675.
+
+
+LaTeX Warning: Reference `th:8.4' on page 115 undefined on input line 675.
+
+
+LaTeX Warning: Reference `th:8.4' on page 116 undefined on input line 695.
+
+
+LaTeX Warning: Reference `th:8.4' on page 116 undefined on input line 702.
+
+
+LaTeX Warning: Reference `th:8.4' on page 116 undefined on input line 702.
 
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 
-LaTeX Warning: Reference `th:8.4' on page 98 undefined on input line 822.
+LaTeX Warning: Reference `th:8.3' on page 118 undefined on input line 756.
 
 
-LaTeX Warning: Reference `cor:8.1' on page 98 undefined on input line 839.
+Overfull \hbox (11.09872pt too wide) detected at line 777
+[]
+ []
 
 
-LaTeX Warning: Reference `th:8.4' on page 98 undefined on input line 843.
+LaTeX Warning: Reference `th:6.4' on page 118 undefined on input line 782.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `th:8.4' on page 119 undefined on input line 845.
 
 
-LaTeX Warning: Reference `prop:8.1' on page 99 undefined on input line 861.
-
-) (Lessons/Lesson_9.tex
-
-LaTeX Warning: Reference `cor:8.1' on page 100 undefined on input line 19.
+LaTeX Warning: Reference `cor:8.1' on page 119 undefined on input line 862.
 
 
-LaTeX Warning: Reference `th:8.4' on page 100 undefined on input line 29.
+LaTeX Warning: Reference `th:8.4' on page 119 undefined on input line 868.
+
+
+Package amsthm Warning: The \qedhere command may not work correctly here on inp
+ut line 882.
+
+
+LaTeX Warning: Reference `prop:8.1' on page 120 undefined on input line 891.
+
+) (Lessons/Lesson_10.tex
+
+LaTeX Warning: Reference `cor:8.1' on page 121 undefined on input line 19.
+
+
+LaTeX Warning: Reference `th:8.4' on page 121 undefined on input line 29.
 
 
 Overfull \hbox (12.22566pt too wide) detected at line 35
@@ -2420,27 +2584,27 @@ Overfull \hbox (25.74338pt too wide) detected at line 35
  []
 
 
-LaTeX Warning: Reference `th:8.2' on page 100 undefined on input line 37.
+LaTeX Warning: Reference `th:8.2' on page 121 undefined on input line 37.
 
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 
-LaTeX Warning: Reference `eq:9.2' on page 101 undefined on input line 71.
+LaTeX Warning: Reference `eq:9.2' on page 122 undefined on input line 71.
 
 
-LaTeX Warning: Reference `th:8.4' on page 101 undefined on input line 76.
+LaTeX Warning: Reference `th:8.4' on page 122 undefined on input line 76.
 
 
-LaTeX Warning: Reference `th:8.4' on page 101 undefined on input line 76.
+LaTeX Warning: Reference `th:8.4' on page 122 undefined on input line 76.
 
 
-LaTeX Warning: Reference `th:6.4' on page 102 undefined on input line 98.
+LaTeX Warning: Reference `th:6.4' on page 123 undefined on input line 98.
 
 
-LaTeX Warning: Reference `ex:9.1' on page 102 undefined on input line 128.
+LaTeX Warning: Reference `ex:9.1' on page 123 undefined on input line 128.
 
 
-LaTeX Warning: Reference `eq:6.4' on page 102 undefined on input line 128.
+LaTeX Warning: Reference `eq:6.4' on page 123 undefined on input line 128.
 
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
@@ -2449,375 +2613,387 @@ isable this.
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 
-LaTeX Warning: Reference `th:6.4' on page 103 undefined on input line 181.
+LaTeX Warning: Reference `th:6.4' on page 124 undefined on input line 181.
 
 
-LaTeX Warning: Reference `eq:5.12' on page 103 undefined on input line 186.
+LaTeX Warning: Reference `eq:5.12' on page 124 undefined on input line 186.
 
 
-LaTeX Warning: Reference `eq:5.12' on page 103 undefined on input line 186.
+LaTeX Warning: Reference `eq:5.12' on page 124 undefined on input line 186.
 
 
-LaTeX Warning: Reference `ex:9.2' on page 104 undefined on input line 202.
+LaTeX Warning: Reference `ex:9.2' on page 125 undefined on input line 208.
 
 
-LaTeX Warning: Reference `th:8.2' on page 104 undefined on input line 213.
+LaTeX Warning: Reference `th:8.2' on page 125 undefined on input line 219.
 
 
-LaTeX Warning: Reference `eq:6.4' on page 104 undefined on input line 215.
+LaTeX Warning: Reference `eq:6.4' on page 125 undefined on input line 221.
 
 
-LaTeX Warning: Reference `eq:6.7' on page 104 undefined on input line 217.
+LaTeX Warning: Reference `eq:6.7' on page 125 undefined on input line 223.
 
 
-LaTeX Warning: Reference `cor:8.2' on page 105 undefined on input line 259.
+LaTeX Warning: Reference `cor:8.2' on page 126 undefined on input line 265.
 
 
-LaTeX Warning: Reference `th:8.4' on page 105 undefined on input line 265.
+LaTeX Warning: Reference `th:8.4' on page 126 undefined on input line 271.
 
 
-LaTeX Warning: Reference `ex:9.5' on page 106 undefined on input line 285.
+LaTeX Warning: Reference `ex:9.5' on page 127 undefined on input line 291.
 
 
-LaTeX Warning: Reference `ex:9.5' on page 106 undefined on input line 285.
+LaTeX Warning: Reference `ex:9.5' on page 127 undefined on input line 291.
 
 
-LaTeX Warning: Reference `th:4.7' on page 106 undefined on input line 301.
+LaTeX Warning: Reference `th:4.7' on page 127 undefined on input line 307.
 
 
-LaTeX Warning: Reference `th:8.4' on page 106 undefined on input line 310.
+LaTeX Warning: Reference `th:8.4' on page 127 undefined on input line 316.
 
 
-LaTeX Warning: Reference `th:8.4' on page 106 undefined on input line 310.
+LaTeX Warning: Reference `th:8.4' on page 127 undefined on input line 316.
 
 
-LaTeX Warning: Reference `th:8.4' on page 106 undefined on input line 319.
+LaTeX Warning: Reference `th:8.4' on page 128 undefined on input line 325.
 
 
-LaTeX Warning: Reference `th:8.4' on page 106 undefined on input line 319.
+LaTeX Warning: Reference `th:8.4' on page 128 undefined on input line 325.
 
 
-LaTeX Warning: Reference `ex:9.4' on page 107 undefined on input line 346.
+LaTeX Warning: Reference `ex:9.4' on page 128 undefined on input line 352.
 
 
-LaTeX Warning: Reference `ex:9.5' on page 107 undefined on input line 346.
+LaTeX Warning: Reference `ex:9.5' on page 128 undefined on input line 352.
 
 
-LaTeX Warning: Reference `th:8.4' on page 107 undefined on input line 358.
+LaTeX Warning: Reference `th:8.4' on page 129 undefined on input line 364.
 
 
-LaTeX Warning: Reference `th:8.5' on page 107 undefined on input line 358.
+LaTeX Warning: Reference `th:8.5' on page 129 undefined on input line 364.
 
 
-LaTeX Warning: Reference `th:8.5' on page 107 undefined on input line 358.
+LaTeX Warning: Reference `th:8.5' on page 129 undefined on input line 364.
 
 
-LaTeX Warning: Reference `th:8.4' on page 107 undefined on input line 358.
+LaTeX Warning: Reference `th:8.4' on page 129 undefined on input line 364.
 
 
-LaTeX Warning: Reference `th:8.5' on page 107 undefined on input line 358.
+LaTeX Warning: Reference `th:8.5' on page 129 undefined on input line 364.
 
 
-LaTeX Warning: Reference `th:8.5' on page 107 undefined on input line 358.
+LaTeX Warning: Reference `th:8.5' on page 129 undefined on input line 364.
 
 
-Overfull \hbox (1.74657pt too wide) detected at line 366
+Overfull \hbox (1.74657pt too wide) detected at line 372
 []
  []
 
 
-Overfull \hbox (25.74338pt too wide) detected at line 366
+Overfull \hbox (25.74338pt too wide) detected at line 372
 []
  []
 
 
-LaTeX Warning: Reference `cor:8.2' on page 108 undefined on input line 367.
+LaTeX Warning: Reference `cor:8.2' on page 129 undefined on input line 373.
 
-) (Lessons/Lesson_10.tex
 
-LaTeX Warning: Reference `cor:8.2' on page 110 undefined on input line 27.
+LaTeX Warning: Citation 'Arzelà_1885' on page 130 undefined on input line 396.
 
 
-LaTeX Warning: Reference `th:5.1' on page 110 undefined on input line 50.
 
+LaTeX Warning: Reference `ex:9.6' on page 130 undefined on input line 414.
 
-LaTeX Warning: Reference `th:5.1' on page 111 undefined on input line 58.
 
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
+Underfull \hbox (badness 10000) in paragraph at lines 412--415
 
-LaTeX Warning: Reference `def:10.2' on page 111 undefined on input line 120.
-
-
-LaTeX Warning: Reference `th:10.1' on page 112 undefined on input line 135.
-
-
-LaTeX Warning: Reference `th:10.2' on page 112 undefined on input line 135.
-
-
-LaTeX Warning: Reference `def:10.2' on page 112 undefined on input line 136.
-
-
-LaTeX Warning: Reference `th:8.4' on page 112 undefined on input line 142.
-
-
-LaTeX Warning: Reference `th:8.4' on page 112 undefined on input line 142.
-
-
-LaTeX Warning: Reference `th:6.5' on page 112 undefined on input line 144.
-
-
-LaTeX Warning: Reference `th:10.2' on page 112 undefined on input line 144.
-
-
-LaTeX Warning: Reference `th:10.2' on page 112 undefined on input line 159.
-
-
-LaTeX Warning: Reference `cor:8.1' on page 113 undefined on input line 182.
-
-
-LaTeX Warning: Reference `th:4.2' on page 113 undefined on input line 182.
-
-
-LaTeX Warning: Reference `th:4.2' on page 113 undefined on input line 186.
-
-
-LaTeX Warning: Reference `eq:10.1' on page 113 undefined on input line 194.
-
-
-LaTeX Warning: Reference `ex:10.1' on page 113 undefined on input line 194.
-
-
-LaTeX Warning: Reference `th:10.2' on page 113 undefined on input line 206.
-
-
-LaTeX Warning: Reference `eq:10.2' on page 114 undefined on input line 211.
-
-
-LaTeX Warning: Reference `th:10.2' on page 114 undefined on input line 227.
-
-
-LaTeX Warning: Reference `th:8.4' on page 114 undefined on input line 233.
-
-
-LaTeX Warning: Reference `eq:10.1' on page 114 undefined on input line 237.
-
-
-LaTeX Warning: Reference `eq:10.2' on page 114 undefined on input line 237.
-
-
-LaTeX Warning: Reference `def:10.1' on page 115 undefined on input line 251.
-
-
-LaTeX Warning: Reference `th:8.4' on page 115 undefined on input line 257.
-
-
-LaTeX Warning: Reference `ex:10.2' on page 115 undefined on input line 287.
-
-
-LaTeX Warning: Reference `eq:10.3' on page 115 undefined on input line 297.
-
-
-LaTeX Warning: Reference `eq:10.6' on page 115 undefined on input line 297.
-
-
-LaTeX Warning: Reference `th:8.4' on page 116 undefined on input line 306.
-
-
-LaTeX Warning: Reference `th:8.4' on page 116 undefined on input line 306.
-
-
-LaTeX Warning: Reference `eq:10.6' on page 116 undefined on input line 308.
-
-
-LaTeX Warning: Reference `eq:10.3' on page 116 undefined on input line 308.
-
-
-LaTeX Warning: Reference `eq:10.6' on page 116 undefined on input line 308.
-
-
-LaTeX Warning: Reference `eq:10.4' on page 116 undefined on input line 308.
-
-
-LaTeX Warning: Reference `eq:10.5' on page 116 undefined on input line 308.
-
-
-LaTeX Warning: Reference `eq:10.5' on page 116 undefined on input line 309.
-
-
-LaTeX Warning: Reference `eq:10.6' on page 116 undefined on input line 309.
-
-
-LaTeX Warning: Reference `eq:10.5' on page 116 undefined on input line 315.
-
-
-LaTeX Warning: Reference `eq:10.6' on page 116 undefined on input line 315.
-
-
-LaTeX Warning: Reference `eq:10.5' on page 116 undefined on input line 317.
-
-
-LaTeX Warning: Reference `ex:10.1' on page 116 undefined on input line 321.
-
-
-LaTeX Warning: Reference `ex:10.2' on page 116 undefined on input line 321.
-
-
-LaTeX Warning: Reference `th:10.2' on page 116 undefined on input line 321.
-
-
-LaTeX Warning: Reference `th:10.2' on page 116 undefined on input line 337.
-
-
-LaTeX Warning: Reference `eq:10.5' on page 116 undefined on input line 337.
-
-
-LaTeX Warning: Reference `eq:10.6' on page 116 undefined on input line 338.
-
-
-LaTeX Warning: Reference `th:10.2' on page 117 undefined on input line 366.
-
-
-LaTeX Warning: Reference `eq:10.6' on page 117 undefined on input line 370.
-
-
-LaTeX Warning: Reference `ex:10.4' on page 118 undefined on input line 383.
-
-
-LaTeX Warning: Reference `eq:10.7' on page 118 undefined on input line 394.
-
-
-LaTeX Warning: Reference `th:10.2' on page 118 undefined on input line 398.
-
-
-LaTeX Warning: Reference `th:10.2' on page 118 undefined on input line 417.
-
-
-LaTeX Warning: Reference `ex:10.2' on page 119 undefined on input line 421.
-
-
-LaTeX Warning: Reference `eq:10.7' on page 119 undefined on input line 421.
-
-
-LaTeX Warning: Reference `eq:10.8' on page 119 undefined on input line 422.
-
-
-LaTeX Warning: Reference `th:10.2' on page 119 undefined on input line 431.
-
-
-LaTeX Warning: Reference `th:10.1' on page 119 undefined on input line 443.
-
-
-LaTeX Warning: Reference `th:10.2' on page 119 undefined on input line 447.
-
-
-LaTeX Warning: Reference `th:10.1' on page 119 undefined on input line 451.
-
-
-LaTeX Warning: Reference `eq:10.9' on page 119 undefined on input line 451.
-
-
-LaTeX Warning: Reference `th:8.4' on page 120 undefined on input line 467.
-
-
-LaTeX Warning: Reference `th:8.4' on page 120 undefined on input line 467.
-
-
-LaTeX Warning: Reference `th:8.5' on page 120 undefined on input line 474.
-
-
-LaTeX Warning: Reference `th:8.5' on page 120 undefined on input line 474.
-
-
-LaTeX Warning: Reference `th:10.1' on page 120 undefined on input line 484.
-
-
-LaTeX Warning: Reference `th:4.2' on page 120 undefined on input line 484.
-
-
-LaTeX Warning: Reference `th:10.1' on page 120 undefined on input line 498.
-
-
-LaTeX Warning: Reference `th:10.1' on page 121 undefined on input line 506.
-
-
-LaTeX Warning: Reference `th:10.2' on page 121 undefined on input line 510.
-
-
-LaTeX Warning: Reference `eq:10.9' on page 121 undefined on input line 514.
-
-
-LaTeX Warning: Reference `th:10.2' on page 121 undefined on input line 514.
-
-
-LaTeX Warning: Reference `eq:10.7' on page 121 undefined on input line 520.
-
-
-LaTeX Warning: Reference `eq:10.8' on page 121 undefined on input line 520.
-
-
-LaTeX Warning: Reference `ex:10.5' on page 121 undefined on input line 535.
-
-
-LaTeX Warning: Reference `th:8.5' on page 121 undefined on input line 546.
-
-
-LaTeX Warning: Reference `th:8.5' on page 121 undefined on input line 546.
-
-
-LaTeX Warning: Reference `ex:10.5' on page 122 undefined on input line 565.
-
-
-LaTeX Warning: Reference `eq:10.11' on page 122 undefined on input line 565.
-
-
-LaTeX Warning: Reference `eq:10.10' on page 122 undefined on input line 565.
-
-
-LaTeX Warning: Reference `th:10.2' on page 122 undefined on input line 565.
-
-
-LaTeX Warning: Reference `th:10.2' on page 122 undefined on input line 577.
-
-
-LaTeX Warning: Reference `eq:10.10' on page 122 undefined on input line 581.
+ []
 
 ) (Lessons/Lesson_11.tex
 
-LaTeX Warning: Reference `ex:8.7' on page 123 undefined on input line 36.
+LaTeX Warning: Reference `cor:8.2' on page 131 undefined on input line 27.
 
 
-LaTeX Warning: Reference `ex:8.7' on page 124 undefined on input line 80.
+LaTeX Warning: Reference `th:5.1' on page 131 undefined on input line 50.
 
 
-LaTeX Warning: Reference `eq:11.1' on page 125 undefined on input line 112.
+LaTeX Warning: Reference `th:5.1' on page 132 undefined on input line 58.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `def:10.2' on page 132 undefined on input line 120.
 
 
-LaTeX Warning: Reference `def:11.5' on page 126 undefined on input line 170.
+LaTeX Warning: Reference `th:10.1' on page 133 undefined on input line 135.
 
 
-LaTeX Warning: Reference `eq:11.2' on page 126 undefined on input line 170.
+LaTeX Warning: Reference `th:10.2' on page 133 undefined on input line 135.
 
 
-LaTeX Warning: Reference `eq:11.2' on page 127 undefined on input line 207.
+LaTeX Warning: Reference `def:10.2' on page 133 undefined on input line 136.
 
 
-LaTeX Warning: Reference `eq:11.3' on page 127 undefined on input line 225.
+LaTeX Warning: Reference `th:8.4' on page 133 undefined on input line 142.
 
 
-LaTeX Warning: Reference `eq:6.4' on page 129 undefined on input line 275.
+LaTeX Warning: Reference `th:8.4' on page 133 undefined on input line 142.
 
 
-LaTeX Warning: Reference `def:11.4' on page 129 undefined on input line 285.
+LaTeX Warning: Reference `th:6.5' on page 133 undefined on input line 144.
 
 
-LaTeX Warning: Reference `eq:11.1' on page 129 undefined on input line 285.
+LaTeX Warning: Reference `th:10.2' on page 133 undefined on input line 144.
 
 
-LaTeX Warning: Reference `eq:11.1' on page 129 undefined on input line 307.
+LaTeX Warning: Reference `th:10.2' on page 133 undefined on input line 159.
 
 
-LaTeX Warning: Reference `th:8.5' on page 129 undefined on input line 309.
+LaTeX Warning: Reference `cor:8.1' on page 134 undefined on input line 182.
+
+
+LaTeX Warning: Reference `th:4.2' on page 134 undefined on input line 182.
+
+
+LaTeX Warning: Reference `th:4.2' on page 134 undefined on input line 186.
+
+
+LaTeX Warning: Reference `eq:10.1' on page 134 undefined on input line 194.
+
+
+LaTeX Warning: Reference `ex:10.1' on page 134 undefined on input line 194.
+
+
+LaTeX Warning: Reference `th:10.2' on page 134 undefined on input line 206.
+
+
+LaTeX Warning: Reference `eq:10.2' on page 135 undefined on input line 211.
+
+
+LaTeX Warning: Reference `th:10.2' on page 135 undefined on input line 227.
+
+
+LaTeX Warning: Reference `th:8.4' on page 135 undefined on input line 233.
+
+
+LaTeX Warning: Reference `eq:10.1' on page 135 undefined on input line 237.
+
+
+LaTeX Warning: Reference `eq:10.2' on page 135 undefined on input line 237.
+
+
+LaTeX Warning: Reference `def:10.1' on page 136 undefined on input line 251.
+
+
+LaTeX Warning: Reference `th:8.4' on page 136 undefined on input line 257.
+
+
+LaTeX Warning: Reference `ex:10.2' on page 136 undefined on input line 287.
+
+
+LaTeX Warning: Reference `eq:10.3' on page 136 undefined on input line 297.
+
+
+LaTeX Warning: Reference `eq:10.6' on page 136 undefined on input line 297.
+
+
+LaTeX Warning: Reference `th:8.4' on page 137 undefined on input line 306.
+
+
+LaTeX Warning: Reference `th:8.4' on page 137 undefined on input line 306.
+
+
+LaTeX Warning: Reference `eq:10.6' on page 137 undefined on input line 308.
+
+
+LaTeX Warning: Reference `eq:10.3' on page 137 undefined on input line 308.
+
+
+LaTeX Warning: Reference `eq:10.6' on page 137 undefined on input line 308.
+
+
+LaTeX Warning: Reference `eq:10.4' on page 137 undefined on input line 308.
+
+
+LaTeX Warning: Reference `eq:10.5' on page 137 undefined on input line 308.
+
+
+LaTeX Warning: Reference `eq:10.5' on page 137 undefined on input line 309.
+
+
+LaTeX Warning: Reference `eq:10.6' on page 137 undefined on input line 309.
+
+
+LaTeX Warning: Reference `eq:10.5' on page 137 undefined on input line 315.
+
+
+LaTeX Warning: Reference `eq:10.6' on page 137 undefined on input line 315.
+
+
+LaTeX Warning: Reference `eq:10.5' on page 137 undefined on input line 317.
+
+
+LaTeX Warning: Reference `ex:10.1' on page 137 undefined on input line 321.
+
+
+LaTeX Warning: Reference `ex:10.2' on page 137 undefined on input line 321.
+
+
+LaTeX Warning: Reference `th:10.2' on page 137 undefined on input line 321.
+
+
+LaTeX Warning: Reference `th:10.2' on page 137 undefined on input line 337.
+
+
+LaTeX Warning: Reference `eq:10.5' on page 137 undefined on input line 337.
+
+
+LaTeX Warning: Reference `eq:10.6' on page 137 undefined on input line 338.
+
+
+LaTeX Warning: Reference `th:10.2' on page 138 undefined on input line 366.
+
+
+LaTeX Warning: Reference `eq:10.6' on page 138 undefined on input line 370.
+
+
+LaTeX Warning: Reference `ex:10.4' on page 139 undefined on input line 383.
+
+
+LaTeX Warning: Reference `eq:10.7' on page 139 undefined on input line 394.
+
+
+LaTeX Warning: Reference `th:10.2' on page 139 undefined on input line 398.
+
+
+LaTeX Warning: Reference `th:10.2' on page 139 undefined on input line 417.
+
+
+LaTeX Warning: Reference `ex:10.2' on page 140 undefined on input line 421.
+
+
+LaTeX Warning: Reference `eq:10.7' on page 140 undefined on input line 421.
+
+
+LaTeX Warning: Reference `eq:10.8' on page 140 undefined on input line 422.
+
+
+LaTeX Warning: Reference `th:10.2' on page 140 undefined on input line 431.
+
+
+LaTeX Warning: Reference `th:10.1' on page 140 undefined on input line 443.
+
+
+LaTeX Warning: Reference `th:10.2' on page 140 undefined on input line 447.
+
+
+LaTeX Warning: Reference `th:10.1' on page 140 undefined on input line 451.
+
+
+LaTeX Warning: Reference `eq:10.9' on page 140 undefined on input line 451.
+
+
+LaTeX Warning: Reference `th:8.4' on page 141 undefined on input line 467.
+
+
+LaTeX Warning: Reference `th:8.4' on page 141 undefined on input line 467.
+
+
+LaTeX Warning: Reference `th:8.5' on page 141 undefined on input line 474.
+
+
+LaTeX Warning: Reference `th:8.5' on page 141 undefined on input line 474.
+
+
+LaTeX Warning: Reference `th:10.1' on page 141 undefined on input line 484.
+
+
+LaTeX Warning: Reference `th:4.2' on page 141 undefined on input line 484.
+
+
+LaTeX Warning: Reference `th:10.1' on page 141 undefined on input line 498.
+
+
+LaTeX Warning: Reference `th:10.1' on page 142 undefined on input line 506.
+
+
+LaTeX Warning: Reference `th:10.2' on page 142 undefined on input line 510.
+
+
+LaTeX Warning: Reference `eq:10.9' on page 142 undefined on input line 514.
+
+
+LaTeX Warning: Reference `th:10.2' on page 142 undefined on input line 514.
+
+
+LaTeX Warning: Reference `eq:10.7' on page 142 undefined on input line 520.
+
+
+LaTeX Warning: Reference `eq:10.8' on page 142 undefined on input line 520.
+
+
+LaTeX Warning: Reference `ex:10.5' on page 142 undefined on input line 535.
+
+
+LaTeX Warning: Reference `th:8.5' on page 142 undefined on input line 546.
+
+
+LaTeX Warning: Reference `th:8.5' on page 142 undefined on input line 546.
+
+
+LaTeX Warning: Reference `ex:10.5' on page 143 undefined on input line 565.
+
+
+LaTeX Warning: Reference `eq:10.11' on page 143 undefined on input line 565.
+
+
+LaTeX Warning: Reference `eq:10.10' on page 143 undefined on input line 565.
+
+
+LaTeX Warning: Reference `th:10.2' on page 143 undefined on input line 565.
+
+
+LaTeX Warning: Reference `th:10.2' on page 143 undefined on input line 577.
+
+
+LaTeX Warning: Reference `eq:10.10' on page 143 undefined on input line 581.
+
+) (Lessons/Lesson_12.tex
+
+LaTeX Warning: Reference `ex:8.7' on page 144 undefined on input line 36.
+
+
+LaTeX Warning: Reference `ex:8.7' on page 145 undefined on input line 80.
+
+
+LaTeX Warning: Reference `eq:11.1' on page 146 undefined on input line 112.
+
+
+LaTeX Warning: Reference `def:11.5' on page 147 undefined on input line 170.
+
+
+LaTeX Warning: Reference `eq:11.2' on page 147 undefined on input line 170.
+
+
+LaTeX Warning: Reference `eq:11.2' on page 148 undefined on input line 207.
+
+
+LaTeX Warning: Reference `eq:11.3' on page 148 undefined on input line 225.
+
+
+LaTeX Warning: Reference `eq:6.4' on page 150 undefined on input line 275.
+
+
+LaTeX Warning: Reference `def:11.4' on page 150 undefined on input line 285.
+
+
+LaTeX Warning: Reference `eq:11.1' on page 150 undefined on input line 285.
+
+
+LaTeX Warning: Reference `eq:11.1' on page 150 undefined on input line 307.
+
+
+LaTeX Warning: Reference `th:8.5' on page 150 undefined on input line 309.
 
 
 Overfull \hbox (11.71748pt too wide) detected at line 310
@@ -2829,70 +3005,70 @@ Overfull \hbox (11.71748pt too wide) detected at line 310
  []
 
 
-LaTeX Warning: Reference `eq:11.4' on page 130 undefined on input line 347.
+LaTeX Warning: Reference `eq:11.4' on page 151 undefined on input line 347.
 
 
-LaTeX Warning: Reference `eq:11.4' on page 130 undefined on input line 352.
+LaTeX Warning: Reference `eq:11.4' on page 151 undefined on input line 352.
 
 
-LaTeX Warning: Reference `def:11.6' on page 131 undefined on input line 383.
+LaTeX Warning: Reference `def:11.6' on page 152 undefined on input line 383.
 
 
-LaTeX Warning: Reference `eq:11.3' on page 131 undefined on input line 393.
-
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
-
-LaTeX Warning: Reference `ex:11.2' on page 132 undefined on input line 450.
-
-) (Lessons/Lesson_12.tex
-
-LaTeX Warning: Reference `def:12.1' on page 134 undefined on input line 10.
-
-
-LaTeX Warning: Reference `def:12.2' on page 135 undefined on input line 91.
-
-
-LaTeX Warning: Reference `def:12.1' on page 135 undefined on input line 95.
-
-
-LaTeX Warning: Reference `def:12.2' on page 136 undefined on input line 124.
-
-
-LaTeX Warning: Reference `eq:12.1' on page 138 undefined on input line 230.
-
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
-A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
-isable this.
-
-LaTeX Warning: Reference `eq:12.1' on page 138 undefined on input line 337.
-
-
-LaTeX Warning: Reference `eq:12.1' on page 140 undefined on input line 409.
+LaTeX Warning: Reference `eq:11.3' on page 152 undefined on input line 393.
 
 A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
 isable this.
 
-LaTeX Warning: Reference `eq:12.2' on page 141 undefined on input line 471.
+LaTeX Warning: Reference `ex:11.2' on page 153 undefined on input line 450.
+
+) (Lessons/Lesson_13.tex
+
+LaTeX Warning: Reference `def:12.1' on page 155 undefined on input line 10.
+
+
+LaTeX Warning: Reference `def:12.2' on page 156 undefined on input line 91.
+
+
+LaTeX Warning: Reference `def:12.1' on page 156 undefined on input line 95.
+
+
+LaTeX Warning: Reference `def:12.2' on page 157 undefined on input line 124.
+
+
+LaTeX Warning: Reference `eq:12.1' on page 159 undefined on input line 230.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `eq:12.1' on page 159 undefined on input line 337.
+
+
+LaTeX Warning: Reference `eq:12.1' on page 161 undefined on input line 409.
+
+A tikzpicture has been optimized away. Use '/tikz/external/optimize=false' to d
+isable this.
+
+LaTeX Warning: Reference `eq:12.2' on page 162 undefined on input line 471.
 
 )
 
-LaTeX Warning: Empty bibliography on input line 258.
+LaTeX Warning: Empty bibliography on input line 260.
 
 
-LaTeX Warning: Citation 'rudin1976principles' undefined on input line 259.
+LaTeX Warning: Citation 'rudin1976principles' undefined on input line 261.
 
 
-LaTeX Warning: Citation 'lang1999' undefined on input line 260.
+LaTeX Warning: Citation 'lang1999' undefined on input line 262.
 
 
-LaTeX Warning: Citation 'paganisauce' undefined on input line 261.
+LaTeX Warning: Citation 'paganisauce' undefined on input line 263.
 
 
-LaTeX Warning: Citation 'Quarteroni2008' undefined on input line 262.
+LaTeX Warning: Citation 'Quarteroni2008' undefined on input line 264.
 
 
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\se-pdfdoc.d
@@ -2901,7 +3077,7 @@ File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 )
 (C:\Users\angel\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\se-utf8.def
 File: se-utf8.def 2019/11/29 v1.12 stringenc: UTF-8
-) [142]
+) [163]
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2919,13 +3095,13 @@ Package logreq Info: Writing requests to 'Graphs/output-figure16.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53285 strings out of 475248
- 1227143 string characters out of 5757813
- 2023452 words of memory out of 5000000
- 73901 multiletter control sequences out of 15000+600000
+ 53328 strings out of 475248
+ 1227972 string characters out of 5757813
+ 2023451 words of memory out of 5000000
+ 73938 multiletter control sequences out of 15000+600000
  586750 words of font info for 112 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 105i,23n,110p,2870b,1416s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 105i,24n,110p,2870b,1416s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\angel\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm
 0800.pk> <C:\Users\angel\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ecrm1095.pk> <C:\Users\angel\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
@@ -2934,9 +3110,9 @@ ublic/amsfonts/cm/cmmi9.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/amsfonts/cm/cmr6.pfb><C:/Users/angel/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/angel/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
-Output written on Graphs/output-figure16.pdf (2 pages, 82625 bytes).
+Output written on Graphs/output-figure16.pdf (2 pages, 82691 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
+ 111 PDF objects out of 1000 (max. 8388607)
  1 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

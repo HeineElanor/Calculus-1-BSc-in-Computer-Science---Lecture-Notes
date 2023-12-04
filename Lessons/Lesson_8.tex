@@ -185,6 +185,7 @@
 \end{proof}
 
 \subsection{Applicazione: regressione lineare}
+\label{sec:7.3}
 La ricerca di minimi e massimi globali o locali di funzioni (un processo detto \emph{ottimizzazione}) ha numerose applicazioni in scienze più applicative, come ad esempio l'ingegneria, la chimica, e anche l'informatica: ad esempio in machine learning i parametri delle reti neurali sono ottenuti minimizzando delle funzioni, dette \emph{loss functions}.\\
 Come esempio di un processo di ottimizzazione, presentiamo la cosiddetta \emph{regressione lineare}.\\
 Supponiamo di fare un qualche esperimento, per esempio di voler misurare una grandezza fisica $y$ che dipende da un'altra grandezza fisica $x$; noi variamo $x$ in un insieme finito e discreto di valori $\{x_1, \dots, x_i, \dots, x_n\}$ e misuriamo i valori $\{y_1, \dots, y_i, \dots, y_n\}$ della grandezza fisica $y$. Possiamo costruire delle coppie $(x_i, y_i)$ che associano ad ogni valore della grandezza $x$ su cui abbiamo controllo il corrispettivo valore della grandezza $y$, e possiamo poi rappresentare le coppie ottenute nel piano cartesiano, ottenendo il grafico seguente:
@@ -272,7 +273,7 @@ table
 \end{tikzpicture}
 \end{center}
 \begin{remark}
-    Stimolato da una domanda di un vostro collega, riporto la seguente osservazione: dati i punti sperimentali $\{(x_i, y_i)\}_{1\le i \le n}$, questo possono essere pensati come due vettori in $\mathbb{R}^n$, 
+    Osserviamo che dati i punti sperimentali $\{(x_i, y_i)\}_{1\le i \le n}$, questo possono essere pensati come due vettori in $\mathbb{R}^n$, 
 \[
  \mathbf{x}=(x_1, \dots, x_n)^T \qquad \mathbf{y} = (y_1, \dots, y_n)^T
 \]
@@ -358,10 +359,18 @@ Quindi effettivamente $P_{\mathbf{x}}(\mathbf{y})$ minimizza la distanza fra $\m
 \end{remark}
 \begin{theorem}
     \label{th:7.4}
-    Se $f\colon[a,b]\to \amsbb{R}$ è differenziabile in $(a,b)$ e se esiste $M> 0$ tale che $\abs{f'(x)}\le M$ per ogni $x\in(a,b)$, allora $f$ è Lipschitz continua.
+    Se $f\colon(a,b)\to \amsbb{R}$ è differenziabile in $(a,b)$ e se esiste $M> 0$ tale che $\abs{f'(x)}\le M$ per ogni $x\in(a,b)$, allora $f$ è Lipschitz continua.
 \end{theorem}
 \begin{proof}
-    
+    Dati due punti qualsiasi $x,y\in (a,b)$, sappiamo che la restrizione $f|_{[x,y]}$ è continua in $[x,y]$, essendo $f$ differenziabile in $(a,b)$, ed è inoltre differenziabile in $(x,y)$; possiamo quindi applicare il teorema di Lagrange \ref{th:7.2} per dire che esiste $\xi\in(x,y)$ tale che
+    \[
+    f(y)-f(x) = f'(\xi)(y-x) \iff \frac{f(y)-f(x)}{y-x} = f'(\xi)
+    \]
+    Prendendo il modulo di ambo i membri otteniamo
+    \[
+    \frac{\abs{f(y)-f(x)}}{\abs{y-x}} = \abs{f'(\xi)}\le M \iff \abs{f(y)-f(x)}\le M \abs{y-x}
+    \]
+    Poiché questo vale per ogni $x,y\in (a,b)$ abbiamo l'asserto.
 \end{proof}
 \begin{remark}
     Notiamo che vale anche l'implicazione seguente: se $f\colon[a,b]\to \amsbb{R}$ è differenziabile in $(a,b)$ ed è Lipschitz continua, allora esiste $L>0$ tale che $\abs{f'(x)}\le L$ per ogni $x\in(a,b)$: infatti fissato $x\in(a,b)$ sappiamo che
@@ -373,6 +382,57 @@ Quindi effettivamente $P_{\mathbf{x}}(\mathbf{y})$ minimizza la distanza fra $\m
     \abs{f'(x)}\le L
     \]
     Poiché $x\in(a,b)$ è generico l'asserto vale.
+\end{remark}
+\begin{remark}
+    Nel caso in cui la funzione $f$ soddisfi le ipotesi del teorema \ref{th:7.4}, possiamo dire di più: vale che la costante di Lipschitz ottimale è data da
+    \[
+    L = \sup_{x\in(a,b)} \abs{f'(x)}
+    \]
+    Infatti, notiamo che per ogni $x\in(a,b)$ e per ogni $\varepsilon>0$ esiste $\delta_{\varepsilon, x}>0$ tale che
+    \[
+    \abs{f(t)-f(x)}< (L+\varepsilon) \abs{t-x} \ \text{se} \ \abs{t-x}<\delta_{\varepsilon, x}
+    \]
+    Consideriamo ora $x,y\in(a,b)$, e un generico $\varepsilon>0$; poiché l'insieme $(a,b)$ è convesso, l'elemento $x_t = (1-t)x+ty$ appartiene ad $(a,b)$. Consideriamo quindi l'insieme
+    \[
+    S_\varepsilon = \left\{t\in[0, 1] \colon \abs{f(x_s)-f(x)}\le(L+\varepsilon)\abs{x_s-x} \forall s\in[0,t]\right\}
+    \]
+    Notiamo che $S_\varepsilon\ne \varnothing$, dato che per quanto visto prima esiste sicuramente $\delta_{\varepsilon,x}>0$ tale per cui se 
+    \[
+    \abs{x_s-x}=s\abs{y-x}<\delta_{\varepsilon,x} \iff s<\frac{\delta_{\varepsilon,x}}{\abs{y-x}}
+    \]
+    la disuguaglianza è soddisfatta. Inoltre, $S_\varepsilon$ è limitato dall'alto da $1$; pertanto per il teorema \ref{th:2.1} $S_\varepsilon$ ammette un estremo superiore $\widehat{t} = \sup S_{\varepsilon}$. Notiamo che $\widehat{t}$ è in realtà $\max S_\varepsilon$, in quanto $S_\varepsilon$ è un insieme chiuso, e che $S_\varepsilon$ ha la forma $[0, \widehat{t}]$.\\
+    Chiaramente $x_{\widehat{t}}\in(a,b)$, e pertanto esiste $\delta_{\varepsilon,x_{\widehat{t}}}>0$ tale che
+    \[
+    \abs{f(y)-f(x_{\widehat{t}})}<(L+\varepsilon)\abs{y-x_{\widehat{t}}} \ \text{se} \ \abs{y-x_{\widehat{t}}}<\delta_{\varepsilon, x_{\widehat{t}}}
+    \]
+    Vogliamo mostrare che $\widehat{t}=1$; in questo modo infatti avremmo che la disuguaglianza che definisce $S_\varepsilon$ vale anche per $x,y$, i.e.
+    \[
+    \abs{f(y)-f(x)}\le (L+\varepsilon)\abs{y-x} \ \forall x,y\in(a,b), \ \forall \varepsilon>0
+    \]
+    Per mostrarlo, consideriamo $\widehat{t} + \frac{\delta_{\varepsilon, x_{\widehat{t}}}}{\abs{y-x}}\ge s\ge \widehat{t}$; vale che
+    \[
+    \begin{split}
+        \abs{f(x_s)-f(x)} & \le \abs{f(x_s) - f(x_{\widehat{t}})} + \abs{f(x_{\widehat{t}})-f(x)} < (L+\varepsilon) \abs{x_s-x_{\widehat{t}}} + (L+\varepsilon)\abs{x_{\widehat{t}}-x} = \\
+        & = (L+\varepsilon)(s-\widehat{t})\abs{y-x} + (L+\varepsilon)\widehat{t}\abs{y-x} = (L+\varepsilon)s\abs{y-x} = (L+\varepsilon)\abs{x_s-x}
+    \end{split}
+    \]
+    Quindi se supponiamo che $\widehat{t}<1$, seguendo il ragionamento sopra illustrato riusciamo a dimostrare che esiste $\tilde{t}>\widehat{t}$ tale che
+    \[
+    \abs{f(x_s)-f(x)}\le (L+\varepsilon)\abs{x_s-x} \ \forall s\in[0, \tilde{t}]
+    \]
+    Quindi in realtà $\widehat{t}$ non è l'estremo superiore di $S_\varepsilon$. Di conseguenza vale che $\sup S_\varepsilon = 1$. Abbiamo quindi concludo che per ogni $x,y\in(a,b)$ e per ogni $\varepsilon>0$ vale che
+    \[
+    \abs{f(y)-f(x)}\le (L+\varepsilon)\abs{y-x}
+    \]
+    Poiché questa disuguaglianza vale per ogni $\varepsilon>0$ possiamo concludere che
+    \[
+    \abs{f(y)-f(x)}\le L \abs{y-x} \ \forall{x,y}\in(a,b)
+    \]
+    ossia $L = \sup_{x\in(a,b)}\abs{f'(x)}$ è una costante di Lipschitz per $f$; il fatto che sia ottimale discende dal fatto che data una qualsiasi costante di Lipschitz $K$, per l'osservazione precedente vale che 
+    \[
+    \abs{f'(x)}\le K
+    \]
+    e di conseguenza $L\le K$
 \end{remark}
 \subsection{Esercizi: funzioni Lipschitz continue}
 \begin{exercise}

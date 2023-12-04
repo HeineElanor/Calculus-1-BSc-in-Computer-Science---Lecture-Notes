@@ -1,4 +1,4 @@
-\section{Lezione 9}
+\section{Lezione 10}
 \subsection{Ripasso e approfondimento: teoria dell'integrazione secondo Riemann}
 \begin{definition}
     \label{def:8.1}
@@ -122,9 +122,9 @@ Come si può osservare, $U(\mathscr{P}, f)$ approssima l'area sottesa dal grafic
         \end{split}
         \]
         Il risultato si dimostra analogamente per $U(\mathscr{Q}, f) \le U(\mathscr{P},f)$.
-        \item Per il punto precedente vale che, date due generiche partizioni $\mathscr{P}_1$ e $\mathscr{P_2}$ e indicando con $\mathscr{Q}$ il loro raffinamento comune,
+        \item Per il punto precedente vale che, date due generiche partizioni $\mathscr{P}_1$ e $\mathscr{P}_2$ e indicando con $\mathscr{Q}$ il loro raffinamento comune,
         \[
-        L(\mathscr{P}_1, f)\le L(\mathscr{Q}, f) \le U(\mathscr{Q}, f)\le U(\mathscr{P_2}, f)
+        L(\mathscr{P}_1, f)\le L(\mathscr{Q}, f) \le U(\mathscr{Q}, f)\le U(\mathscr{P}_2, f)
         \]
         ossia
        \begin{equation}
@@ -163,7 +163,7 @@ Come si può osservare, $U(\mathscr{P}, f)$ approssima l'area sottesa dal grafic
         \[
         U(\mathscr{P}_2, f) < \aint_a^b f +\frac{\varepsilon}{2} \iff U(\mathscr{P}_2, f) - \frac{\varepsilon}{2}<\aint_a^b f
         \]
-        Definiamo $\mathscr{P}_\varepsilon = \mathscr{P_1}\cup \mathscr{P}_2$; vale che
+        Definiamo $\mathscr{P}_\varepsilon = \mathscr{P}_1\cup \mathscr{P}_2$; vale che
         \[
         U(\mathscr{P}_\varepsilon, f) \le U(\mathscr{P}_2, f) < \underbrace{\bint_a^bf +\frac{\varepsilon}{2} = \aint_a^b f -\frac{\varepsilon}{2}+\varepsilon}_{\text{Definizione \ref{def:8.2}}} < L(\mathscr{P}_1, f)+\varepsilon \le L(\mathscr{P}_\varepsilon, f) + \varepsilon
         \]
@@ -181,11 +181,11 @@ Come si può osservare, $U(\mathscr{P}, f)$ approssima l'area sottesa dal grafic
         \]
         ossia per ogni $\varepsilon>0$,
         \[
-        0\le \aint_a^b f - \bint_a^b <\varepsilon
+        0\le \aint_a^b f - \bint_a^b f <\varepsilon
         \]
         Ma questo significa che
         \[
-        0\le \aint_a^b f - \bint_a^b \le 0 \iff \aint_a^b f = \bint_a^b
+        0\le \aint_a^b f - \bint_a^b f\le 0 \iff \aint_a^b f = \bint_a^b f
         \]
         e quindi $f$ soddisfa la definizione \ref{def:8.2}.\qedhere
     \end{enumerate}
@@ -336,7 +336,7 @@ Come si può osservare, $U(\mathscr{P}, f)$ approssima l'area sottesa dal grafic
     \[
     \begin{split}
         & \abs{\frac{F(t)-F(x_0)}{t-x_0}-f(x_0)} = \abs{\frac{1}{t-x_0}\int_{x_0}^tf -\frac{t-x_0}{t-x_0}f(x_0)} = \abs{\frac{1}{t-x_0} \int_{x_0}^t f - \frac{f(x_0)}{t-x_0}\int_{x_0}^t} = \\
-        & = \abs{\frac{1}{t-x_0}\int_{x_0}^t (f-f(x_0))}\le \frac{1}{\abs{t-x_0}}\int_{x_0}^t\abs{f(u)-f(x_0)}\, du \overset{(\ref{eq:8.6})}{<}\frac{1}{\abs{t-x_0}}\int_{x_0}^t \varepsilon = \varepsilon
+        & = \abs{\frac{1}{t-x_0}\int_{x_0}^t (f-f(x_0))}\le \frac{1}{\abs{t-x_0}}\int_{x_0}^t\abs{f(u)-f(x_0)}\, du \overset{(\ref{eq:8.7})}{<}\frac{1}{\abs{t-x_0}}\int_{x_0}^t \varepsilon = \varepsilon
     \end{split}
     \]
     se $\abs{t-x_0}<\delta_\varepsilon$, in quanto in questo caso $\abs{u-x_0}<\delta_\varepsilon$ per ogni $u\in[x_0,t]$. Quindi dato $\varepsilon>0$ abbiamo trovato $\delta_\varepsilon$ tale che
@@ -466,7 +466,7 @@ Come si può osservare, $U(\mathscr{P}, f)$ approssima l'area sottesa dal grafic
     \end{split}
     \]
     ove $\sqrt{\cos^2(\theta)} = \cos(\theta)$ poiché su $\left[0, \frac{\pi}{2}\right]$ il coseno assume valori positivi.\\
-    In generale, trovare le primitive di funzioni del tipo $\sin^n(\theta)\cos^m(\theta)$ sfruttando il fatto che
+    In generale, possiamo trovare le primitive di funzioni del tipo $\sin^n(\theta)\cos^m(\theta)$ sfruttando il fatto che
     \[
     \frac{d}{d\theta}\sin^n(\theta) = n\sin^{n-1}(\theta)\cos(\theta) \quad \frac{d}{d\theta}\cos^n(\theta) = -n\cos^{n-1}(\theta)\sin(\theta) \quad \sin^2(\theta) + \cos^2(\theta) = 1
     \]
@@ -495,6 +495,22 @@ Come si può osservare, $U(\mathscr{P}, f)$ approssima l'area sottesa dal grafic
     \]
     Di conseguenza la funzione $F$ che abbiamo trovato è definita su tutto $(-\infty, 1]$ e soddisfa $F'(x) = f(x)$ per ogni $x\in(-\infty, 1]$.
 \end{proof}
+\begin{remark}
+    In questo caso la primitiva poteva essere ottenuta anche tramite un'integrazione per parti (cfr. teorema \ref{th:8.5}): infatti scrivendo
+    \[
+    F(x)=x \qquad g(x)=\sqrt{1-x}
+    \]
+    e notando che $G(x)=-\frac{2}{3}(1-x)^{\frac{3}{2}}$ abbiamo che
+    \[
+    \begin{split}
+        &\int x\sqrt{1-x}\, dx = \int F(x)g(x)\, dx = F(x)G(x)-\int f(x)G(x)\, dx = -\frac{2}{3}(1-x)^{\frac{3}{2}}x+\\
+        & +\frac{2}{3}\int (1-x)^{\frac{3}{2}} = -\frac{2}{3}(1-x)^{\frac{3}{2}}x-\frac{4}{15}(1-x)^{\frac{5}{2}} = \frac{2}{3}(1-x)^{\frac{3}{2}}(1-x-1) -\frac{4}{15}(1-x)^{\frac{5}{2}} = \\
+        & = -\frac{2}{3}(1-x)^{\frac{3}{2}}  + \left(\frac{2}{3}-\frac{4}{15}\right)(1-x)^{\frac{5}{2}} = -\frac{2}{3}(1-x)^{\frac{3}{2}} + \frac{2}{5}(1-x)^{\frac{5}{2}}
+    \end{split} 
+    \]
+    In questo caso avremmo quindi potuto ottenere l'integrale con altri mezzi, senza passare per la procedura di restrizione e sostituzione con $\sin^2(\theta)$. Ci sono casi in cui questo non è possibile: ad esempio se volessimo trovare una primitiva di $\sqrt{1-x^2}$ o di $(1-x^2)^{-\frac{3}{2}}$ l'integrazione per parti non è uno strumento utile per trovare una primitiva. In questo caso la sostituzione $x=\sin(\theta)$ fornisce invece la primitiva.\\
+    La sostituzione fatta nell'esercizio precedente torna inoltre utile anche nel caso in cui l'integrazione per parti conduca ad un integrale, ma dopo molti passaggi, come ad esempio nel caso di $f(x)=x^5\sqrt{1-x}$.
+\end{remark}
 \begin{exercise}
     \label{ex:8.3}
     Data la funzione $\amsbb{R}\ni x \mapsto \frac{1}{\sqrt{x^2+a^2}}$, $a\ne 0$, determinarne una primitiva.
@@ -599,7 +615,7 @@ Come si può osservare, $U(\mathscr{P}, f)$ approssima l'area sottesa dal grafic
     \]
     Notiamo che possiamo scrivere
     \[
-    f(x) = \frac{1}{x^-a^2} = \frac{1}{(x+a)(x-a)}
+    f(x) = \frac{1}{x^2-a^2} = \frac{1}{(x+a)(x-a)}
     \]
     e quindi ci chiediamo se esistano due coefficienti $k_1, k_2\in\amsbb{R}$ tali che
     \[
@@ -670,9 +686,13 @@ Come si può osservare, $U(\mathscr{P}, f)$ approssima l'area sottesa dal grafic
 \begin{proof}[Soluzione]
     In questo caso conviene usare le formule parametriche per scrivere
     \[
-    \cos(x)=\frac{1-t^2}{1+t^2} \qquad t = \tan\left(\frac{x}{2}\right)\iff x = 2\arctan(t)
+    \cos(x)=\frac{1-t^2}{1+t^2} \qquad t = \tan\left(\frac{x}{2}\right)\iff x = 2\arctan(t) \ \text{per} \ x\in(-\pi, \pi)
     \]
-    Notiamo però che se scriviamo effettuiamo la sostituzione sopra descritta, $f$ non sarà più definita su $\amsbb{R}$, bensì su un $\amsbb{R}\setminus\{\pi+2k\pi, k\in\amsbb{Z}\}$. Poiché conviene restringersi ad intervalli connessi, scegliamo $(-\pi, \pi)$ come intervallo di definizione di $f$. Usando il teorema \ref{th:8.4} abbiamo che
+    Notiamo però che se scriviamo effettuiamo la sostituzione sopra descritta, $f$ non sarà più definita su $\amsbb{R}$, bensì su un $\amsbb{R}\setminus\{\pi+2k\pi, k\in\amsbb{Z}\}$. Poiché conviene restringersi ad intervalli connessi, scegliamo $(-\pi, \pi)$ come intervallo di definizione di $f$. Notando che se consideriamo $\cos\colon (-\pi, \pi)\to \mathbb{R}$ vale che 
+    \[
+    \cos \circ (2\arctan(t)) = \frac{1-t^2}{1+t^2}
+    \]
+    come dalle formule parametriche e usando il teorema \ref{th:8.4} abbiamo che
     \[
     \begin{split}
         \int \frac{1}{\cos(x)+2}\, dx & = \int \frac{1+t^2}{1-t^2+2+2t^2}\frac{d}{dt}(2\arctan(t))\, dt = \\
@@ -759,7 +779,7 @@ Come si può osservare, $U(\mathscr{P}, f)$ approssima l'area sottesa dal grafic
     \[
     \lim_{t\to-\pi^+}\frac{\widehat{F}(t)+\frac{\pi}{\sqrt{3}}}{t+\pi}
     \]
-    proviamo ad usare il teorema di de l'H{\^o}pital \ref{th:6.4}: sappiamo che $\widehat{F}+\frac{\pi}{\sqrt{3}}$ e $t+\pi$ sono differenziabili in $(-\pi, \pi]$, e che $(t+\pi)' = 1$ è diverso da $0$ per ogni $t\in(-\pi, \pi]$; inoltre $(\widehat{F}+\frac{\pi}{\sqrt{3}})'(t) = \frac{1}{\cos(t)+2}$ per ogni $t\in (-\pi, \pi)$, e 
+    proviamo ad usare il teorema di de l'H{\^o}pital \ref{th:6.4}: sappiamo che $\widehat{F}+\frac{\pi}{\sqrt{3}}$ e $t+\pi$ sono differenziabili in $(-\pi, \pi)$, e che $(t+\pi)' = 1$ è diverso da $0$ per ogni $t\in(-\pi, \pi)$; inoltre $(\widehat{F}+\frac{\pi}{\sqrt{3}})'(t) = \frac{1}{\cos(t)+2}$ per ogni $t\in (-\pi, \pi)$, e 
     \[
     \lim_{t\to -\pi^+} \frac{1}{\cos(t)+2} \overset{\text{continuità}}{=} 1
     \]
@@ -801,6 +821,9 @@ Come si può osservare, $U(\mathscr{P}, f)$ approssima l'area sottesa dal grafic
         \end{tikzpicture}
     \end{center}
 \end{proof}
+\begin{remark}
+    La primitiva $\tilde{F}$ trovata nel precedente esercizio è un esempio di primitiva non scrivibile in termini di funzioni elementari su tutto il dominio di definizione; ci sono molti altri esempi di questo tipo, come le primitive di $e^{-x^2}$ e di $\frac{\sin(x)}{x}$.
+\end{remark}
 \begin{exercise}
     \label{ex:8.8}
     Calcolare
@@ -837,21 +860,28 @@ Come si può osservare, $U(\mathscr{P}, f)$ approssima l'area sottesa dal grafic
             \end{proposition}
             \begin{proof}
                 Sappiamo, per il corollario \ref{cor:8.1} (v), che $f\in\mathscr{R}([-a,0])$ e $f\in\mathscr{R}([0,a])$, e che
+                \vspace{-0.2cm}
                 \[
                 \int_{-a}^a f(x)\, dx = \int_{-a}^0 f(x)\, dx + \int_0^a f(x)\, dx
+                \vspace{-0.2cm}
                 \]
                 Possiamo quindi considerare la funzione $\varphi\colon [-a,0]\ni x \mapsto -x\in[0,a]$, che è differenziabile e ammette derivata continua in $[-a,0]$, e applicare il teorema \ref{th:8.4} al primo integrale: avremo
+                \vspace{-0.2cm}
                 \[
                 \int_{0}^a f(x)\, dx = \int_{\varphi(0)}^{\varphi(-a)}f(x)\, dx =  \int_{0}^{-a} (f \circ \varphi)(x) \varphi'(x)\, dx = -\int_{0}^{-a} f(-x)\, dx
+                \vspace{-0.2cm}
                 \]
                 Poiché $f$ è dispari su $\amsbb{R}$ vale che $f(-x) = -f(x)$; di conseguenza
+                \vspace{-0.2cm}
                 \[
                 \int_{0}^a f(x)\, dx = -\int_0^{-a} f(-x)\, dx = \int_0^{-a} f(x)\, dx = -\int_{-a}^0 f(x)\, dx
+                 \vspace{-0.2cm}
                 \]
                 Quindi
                 \[
-                \int_{-a}^a f(x)\, dx = \int_{-a}^0 f(x)\, dx - \int_{-a}^0 f(x)\, dx = 0
+                \int_{-a}^a f(x)\, dx = \int_{-a}^0 f(x)\, dx - \int_{-a}^0 f(x)\, dx = 0\qedhere
                 \]
+                \vspace{-0.5cm}
             \end{proof}
         \end{tcolorbox}
         Verifichiamo che la funzione integranda sia dispari:
