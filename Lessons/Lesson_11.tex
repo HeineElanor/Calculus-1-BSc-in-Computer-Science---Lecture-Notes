@@ -137,15 +137,15 @@ Analoghi risultati valgono per nel caso di integrali impropri nel senso della de
     \[
     \begin{split}
         \int_0^1 \frac{1}{\sqrt{1-x^4}}\, dx &= \lim_{t\to1^-} \int_0^t \frac{1}{\sqrt{(1-x)(1+x)(1+x^2)}}\, dx \overset{\text{Teorema \ref{th:8.4}}}{=} \\
-        &=\lim_{y\to0^+} -\int_1^y \frac{1}{\sqrt{y}\sqrt{2+y}\sqrt{1+(1+y)^2}}\, dy = \\
-        & = \lim_{y\to 0^+}\int_y^1 \frac{1}{\sqrt{y}\sqrt{2+y}\sqrt{1+(1+y)^2}}\, dy
+        &=\lim_{u\to0^+} -\int_1^u \frac{1}{\sqrt{y}\sqrt{2+y}\sqrt{1+(1+y)^2}}\, dy = \\
+        & = \lim_{u\to 0^+}\int_u^1 \frac{1}{\sqrt{y}\sqrt{2+y}\sqrt{1+(1+y)^2}}\, dy
     \end{split}
     \]
     A questo punto possiamo provare a sviluppare con Taylor (cfr. teorema \ref{th:6.5}) parte del denominatore per provare a trovare una funzione $g(y)$ che soddisfi il teorema \ref{th:10.2}:
     \[
     \frac{1}{\sqrt{2+y}} = \frac{1}{\sqrt{2}}-\frac{1}{4\sqrt{2}}y +o(y) \qquad \frac{1}{\sqrt{1+(1+y)^2}} = \frac{1}{\sqrt{2}}-\frac{1}{2\sqrt{2}}y +o(y)
     \]
-    La funzione integranda può essere quindi sviluppata come
+    La funzione integranda può essere quindi sviluppata in un intorno di $y=0$ come
     \[
     \begin{split}
         & \frac{1}{\sqrt{y}}\left(\frac{1}{\sqrt{2}}-\frac{1}{4\sqrt{2}}y+o(y)\right)\left(\frac{1}{\sqrt{2}}-\frac{1}{2\sqrt{2}}y+o(y)\right) = \\
@@ -156,7 +156,7 @@ Analoghi risultati valgono per nel caso di integrali impropri nel senso della de
     \[
     \lim_{y\to 0^+} \frac{f(y)}{g(y)} = \lim_{y\to 0^+} (\frac{1}{2\sqrt{y}}-\frac{3}{8}\sqrt{y}+o(\sqrt{y}))2\sqrt{y} = \lim_{y\to 0^+} 1 -\frac{3}{4}y+o(y) = 1
     \]
-    Notiamo che $f(y)$ e $g(y)$ sono continue in $[0,1)$ e positive; quindi per il teorema \ref{th:10.2} vale che
+    Notiamo che $f(y)$ e $g(y)$ sono continue in $(0,1]$ e positive; quindi per il teorema \ref{th:10.2} vale che
     \[
     \int_0^1 \frac{1}{\sqrt{1-x^4}}\, dx \ \text{e} \ \int_0^1 \frac{1}{2\sqrt{y}}\, dy
     \]
@@ -175,17 +175,17 @@ Analoghi risultati valgono per nel caso di integrali impropri nel senso della de
     esiste.
 \end{exercise}
 \begin{proof}[Soluzione]
-    Notiamo che in questo caso i punti problematici sono due: infatti, per ogni scelta di $\alpha, \beta>0$ vale che
+    Innanzitutto, osserviamo che la funzione è continua su $(0,\pi)$, e di conseguenza è Riemann-integrabile su $[x_1, x_2]$ per ogni scelta di $0<x_1<x_2<\pi$. Notiamo inoltre che in questo caso i punti problematici sono due: infatti, per ogni scelta di $\alpha, \beta>0$ vale che
     \[
     \lim_{x\to 0^+}\frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)} = +\infty \qquad \lim_{x\to \pi^-} \frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)} = +\infty
     \]
-    Poiché sappiamo trattare funzioni con eventualmente un solo punto problematico, possiamo appellarci al punto (i) della seconda parte del corollario \ref{cor:8.1} e al teorema \ref{th:4.2} per scrivere
+    Poiché sappiamo trattare funzioni con eventualmente un solo punto problematico, possiamo appellarci al punto (i) della seconda parte del corollario \ref{cor:8.1} per scrivere
     \[
     \int_0^\pi \frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)}\, dx = \int_0^{\frac{\pi}{2}}\frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)}\, dx + \int_{\frac{\pi}{2}}^\pi \frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)}\, dx
     \]
-    Notiamo che, date le ipotesi del teorema \ref{th:4.2} questa scrittura è possibile solamente se esistono separatamente
+    Questa scrittura è possibile solamente se esistono separatamente
     \[
-    \underbrace{\lim_{y\to 0^+} \int_y^{\frac{\pi}{2}} \frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)}\, dx}_{\stepcounter{equation}\mbox{(\theequation)}} \qquad \underbrace{\lim_{z\to \pi^-}\int_{\frac{\pi}{2}}^0 \frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)}\, dx}_{\stepcounter{equation}\mbox{(\theequation)}}
+    \underbrace{\lim_{y\to 0^+} \int_y^{\frac{\pi}{2}} \frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)}\, dx}_{\stepcounter{equation}\mbox{(\theequation)}} \qquad \underbrace{\lim_{z\to \pi^-}\int_{\frac{\pi}{2}}^z \frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)}\, dx}_{\stepcounter{equation}\mbox{(\theequation)}}
     \]
     \addtocounter{equation}{-2}\refstepcounter{equation}\label{eq:10.1}
     \addtocounter{equation}{0}\refstepcounter{equation}\label{eq:10.2}
@@ -230,11 +230,11 @@ Analoghi risultati valgono per nel caso di integrali impropri nel senso della de
         \]
         hanno lo stesso comportamento. Notiamo che
         \[
-        \int_{\frac{\pi}{2}}^\pi \frac{1}{(\pi-x)^\beta}\, dx = \lim_{z\to \pi^-}\int_{\frac{\pi}{2}}^\pi \frac{1}{(\pi-x)^\beta}\, dx \overset{\text{Teorema \ref{th:8.4}}}{=} \lim_{y\to 0^+}\int_0^{\frac{\pi}{2}} \frac{1}{x^\beta}\, dx
+        \int_{\frac{\pi}{2}}^\pi \frac{1}{(\pi-x)^\beta}\, dx = \lim_{z\to \pi^-}\int_{\frac{\pi}{2}}^z \frac{1}{(\pi-x)^\beta}\, dx \overset{\text{Teorema \ref{th:8.4}}}{=} \lim_{u\to 0^+}\int_u^{\frac{\pi}{2}} \frac{1}{y^\beta}\, dy
         \]
         che esiste finito per $\beta<1$.
     \end{enumerate}
-    Quindi entrambi i limiti (\ref{eq:10.1}) e (\ref{eq:10.2}) esistono finiti se $0<\beta<1$ e per ogni $\alpha>0$; quindi l'integrale
+    Quindi entrambi i limiti (\ref{eq:10.1}) e (\ref{eq:10.2}) esistono finiti se $\beta<1$ e per ogni $\alpha$; quindi l'integrale
     \[
     \int_0^\pi \frac{\abs{\cos(x)}^{2\alpha}}{\sin^\beta(x)}\, dx
     \]
@@ -296,13 +296,13 @@ Analoghi risultati valgono per nel caso di integrali impropri nel senso della de
     \begin{enumerate}[(i)]
         \item se consideriamo gli integrali (\ref{eq:10.3}) e (\ref{eq:10.6}), che esplicitamente sono rispettivamente
         \[
-        \lim_{y\to-\infty} \int_y^1 f(x)\, dx \ \text{e} \ \lim_{y\to +\infty} \int_1^y f(x)\, dx
+        \lim_{y\to-\infty} \int_y^{-1} f(x)\, dx \ \text{e} \ \lim_{u\to +\infty} \int_1^u f(x)\, dx
         \]
         notiamo che
         \[
         \begin{split}
-            \lim_{y\to-\infty} \int_{y}^{-1} f(x)\, dx &= \lim_{y\to+\infty} \int_{-y}^{-(1)} f(x)\, dx \overset{\text{Teorema \ref{th:8.4}}}{=} \lim_{y\to +\infty} \int_y^{1} -f(-x)\, dx = \\
-            & = \lim_{y\to+\infty} \int_1^y f(-x)\, dx = -\lim_{y\to+\infty} \int_1^y f(x)\, dx
+            \lim_{y\to-\infty} \int_{y}^{-1} f(x)\, dx &= \lim_{u\to+\infty} \int_{-u}^{-(1)} f(x)\, dx \overset{\text{Teorema \ref{th:8.4}}}{=} \lim_{u\to +\infty} \int_u^{1} -f(-x)\, dx = \\
+            & = \lim_{u\to+\infty} \int_1^u f(-x)\, dx = -\lim_{u\to+\infty} \int_1^u f(x)\, dx
         \end{split}
         \]
         Quindi se esiste (\ref{eq:10.6}) automaticamente esiste (\ref{eq:10.3}). Possiamo quindi studiare unicamente il limite (\ref{eq:10.6}). Un analogo risultato vale per i limiti (\ref{eq:10.4}) e (\ref{eq:10.5}).
@@ -324,7 +324,7 @@ Analoghi risultati valgono per nel caso di integrali impropri nel senso della de
         \]
         quindi
         \[
-        f(x) = \abs{x}^{-\alpha} \arctan\left(\frac{x}{x^4+1}\right) = ({x})^{-\alpha} x \left(1+\frac{o(x)}{x}\right) = \frac{1}{x^{\alpha-1}} \left(1+\frac{o(x)}{x}\right) 
+        f(x) = \abs{x}^{-\alpha} \arctan\left(\frac{x}{x^4+1}\right) = {x}^{-\alpha} x \left(1+\frac{o(x)}{x}\right) = \frac{1}{x^{\alpha-1}} \left(1+\frac{o(x)}{x}\right) 
         \]
         Di conseguenza, se consideriamo $g(x) = \frac{1}{x^{\alpha-1}}$ abbiamo che
         \[
@@ -395,7 +395,7 @@ Analoghi risultati valgono per nel caso di integrali impropri nel senso della de
         \[
         \lim_{y\to 1^+} \int_y^e f(x)\, dx
         \]
-        Per poter applicare il teorema \ref{th:10.2} dobbiamo, come nei casi precedenti, determinare il comportamento in un intorno di $x_0=0$ di $f(x)$ sfruttando l'espansione in serie di Taylor:
+        Per poter applicare il teorema \ref{th:10.2} dobbiamo, come nei casi precedenti, determinare il comportamento in un intorno di $x_0=1$ di $f(x)$ sfruttando l'espansione in serie di Taylor:
         \[
         \log(x)=\log(1+(x-1))= (x-1)+o(x-1) \qquad e^{-x^2} = \frac{1}{e} -\frac{2}{e}(x-1) +o(x-1)
         \]
@@ -452,7 +452,7 @@ Analoghi risultati valgono per nel caso di integrali impropri nel senso della de
         \[
         \int_e^{+\infty}\frac{\log(x)e^{-x^2}}{(x+1)^\alpha(x-1)^\beta}\, dx
         \]
-        esiste finito, senza vincoli su $\alpha,\beta\in\amsbb{R}$.\\
+        esiste finito; quindi l'integrale improprio esiste se $\alpha+\beta\ge 1$.\\
         Se invece $1-\alpha-\beta>0$, bisogna operare diversamente. Vogliamo mostrare che
         \[
         \int_e^{+\infty}x^{1-\alpha-\beta} e^{-x^2}\, dx 
@@ -489,7 +489,7 @@ Analoghi risultati valgono per nel caso di integrali impropri nel senso della de
         \end{enumerate}
         Quindi 
         \[
-        \int_0^{+\infty} x^n e^{-x^2}\, dx 
+        \int_e^{+\infty} x^n e^{-x^2}\, dx 
         \]
         esiste finito per ogni $n\in\amsbb{N}$. Noi vogliamo mostrare che
         \[
@@ -532,30 +532,16 @@ Analoghi risultati valgono per nel caso di integrali impropri nel senso della de
     esiste finito.
 \end{exercise}
 \begin{proof}[Soluzione]
-    Concentriamoci, come fatto nell'esercizio \ref{ex:10.5}, sui naturali, procedendo per induzione:
-    \begin{enumerate}[(i)]
-        \item \emph{caso base $n=1$}: abbiamo che
-        \[
-        \Gamma(1) = \int_0^{+\infty} e^{-t}\, dt = \lim_{x\to +\infty} \int_0^x e^{-t}\, dt = 1-\lim_{x\to+\infty}e^{-x} = 1 
-        \]
-        \item \emph{passo induttivo}: supponiamo che $\Gamma(n)$ sia finito, e mostriamo che anche $\Gamma(n+1)$ lo è. Consideriamo
-        \[
-        \begin{split}
-            \Gamma(n+1) & = \int_0^{+\infty} t^n e^{-t}\, dt = \lim_{x\to +\infty} -\int_0^x t^{n}\frac{d}{dt}(e^{-t})\, dt \overset{\text{Teorema \ref{th:8.5}}}{=} \\
-            & = \lim_{x\to+\infty} n\int_0^x t^{n-1} e^{-t}\, dt = n \int_0^{+\infty} t^{n-1}e^{-t}\, dt = n\Gamma(n)
-        \end{split}
-        \]
-        Di conseguenza $\Gamma(n+1)$ esiste finito.
-    \end{enumerate}
-    Consideriamo ora un generico $x\in\amsbb{R}$, con $x>1$; possiamo scrivere
+    
+    Consideriamo un generico $x\in\amsbb{R}$, con $x\ge1$; possiamo scrivere
     \[
-    \lim_{y\to +\infty} \int_0^{y} t^{x-1} e^{-t}\, dt = \lim_{y\to+\infty} \int_{0^2}^{(\sqrt{y})^2} t^{x-1}e^{-t}\, dt = \lim_{y\to +\infty} 2\int_0^{\sqrt{y}} u^{2x-2} e^{-u^2} \, du 
+    \lim_{y\to +\infty} \int_0^{y} t^{x-1} e^{-t}\, dt = \lim_{y\to+\infty} \int_{0^2}^{(\sqrt{y})^2} t^{x-1}e^{-t}\, dt = \lim_{y\to +\infty} 2\int_0^{\sqrt{y}} u^{2x-1} e^{-u^2} \, du 
     \]
-    Nell'esercizio precedente avevamo già mostrato che, nel caso $x>1$, l'ultimo limite della catena di uguaglianze esiste; pertanto
+    Nell'esercizio precedente avevamo già mostrato che, nel caso $2x-1>0$, l'ultimo limite della catena di uguaglianze esiste; pertanto
     \[
     \Gamma(x) = \int_0^{+\infty} t^{x-1} e^{-t}\, dt
     \]
-    esiste per $x>1$.\\
+    esiste sicuramente per $x\ge 1$.\\
     Se $x<1$, abbiamo un potenziale problema in $x=0$; dobbiamo pertanto considerare
     \[
     \int_0^{+\infty} t^{x-1} e^{-t}\, dt = \underbrace{\int_0^1 t^{x-1}e^{-t}\, dt}_{\stepcounter{equation}\mbox{(\theequation)}} + \underbrace{\int_1^{+\infty}t^{x-1}e^{-t}\, dt}_{\stepcounter{equation}\mbox{(\theequation)}} 
@@ -581,6 +567,24 @@ Analoghi risultati valgono per nel caso di integrali impropri nel senso della de
     hanno lo stesso comportamento. Sappiamo che $\int_0^1 \frac{1}{t^{1-x}}\, dt$ esiste se $x>0$, e pertanto anche (\ref{eq:10.10}) esiste se $x>0$. Di conseguenza, $\Gamma(x)$ è definita per $x>0$.
 \end{proof}
 \begin{remark}
-    La funzione $\amsbb{R}^+\ni x \mapsto \Gamma(x)$ è la \emph{funzione Gamma di Eulero}, e come si può osservare da $\Gamma(n+1) = n \Gamma(n)$, questa costituisce una generalizzazione del fattoriale ai numeri reali positivi.
+    La funzione $\amsbb{R}^+\ni x \mapsto \Gamma(x)$ è la \emph{funzione Gamma di Eulero}, e ha un'interessante proprietà: infatti, valutandola sui naturali $\mathbb{N}$ e procedendo per induzione:
+    \begin{enumerate}[(i)]
+        \item \emph{caso base $n=1$}: abbiamo che
+        \[
+        \Gamma(1) = \int_0^{+\infty} e^{-t}\, dt = \lim_{x\to +\infty} \int_0^x e^{-t}\, dt = 1-\lim_{x\to+\infty}e^{-x} = 1 
+        \]
+        \item \emph{passo induttivo}: supponiamo che $\Gamma(n)$ sia finito, e mostriamo che anche $\Gamma(n+1)$ lo è. Consideriamo
+        \[
+        \begin{split}
+            \Gamma(n+1) & = \int_0^{+\infty} t^n e^{-t}\, dt = \lim_{x\to +\infty} -\int_0^x t^{n}\frac{d}{dt}(e^{-t})\, dt \overset{\text{Teorema \ref{th:8.5}}}{=} \\
+            & = -\lim_{x\to\infty}\left(x^ne^{-x}\right)+\lim_{x\to+\infty} n\int_0^x t^{n-1} e^{-t}\, dt = n \int_0^{+\infty} t^{n-1}e^{-t}\, dt = n\Gamma(n)
+        \end{split}
+        \]
+        Di conseguenza 
+        \[
+        \Gamma(n+1)=n\Gamma(n) \ \text{per ogni} \ n\in\mathbb{N}
+        \]
+    \end{enumerate}
+    ossia $\Gamma(n+1)=n!$. Quindi in quest'ottica la funzione Gamma di Eulero costituisce una generalizzazione del fattoriale ai numeri reali positivi.
 \end{remark}
 \newpage

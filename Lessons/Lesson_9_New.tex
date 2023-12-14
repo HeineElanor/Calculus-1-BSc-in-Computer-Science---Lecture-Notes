@@ -281,6 +281,64 @@ Le funzioni convesse hanno proprietà interessanti; ad esempio
     \sqrt[n]{a_1 \cdots a_n} \le \frac{a_1+\dots + a_n}{n}
     \]
     \end{example}
+    \begin{remark}
+        La dimostrazione della disuguaglianza media aritmetica-media geometrica può essere usata per provare una disuguaglianza più generale, detta \emph{disuguaglianza di Jensen}: questa dice che data una funzione convessa $\varphi \colon I \to \mathbb{R}$ e dati $n$ punti $\{x_1, \dots, x_n\}\subseteq I$ e $n$ pesi $\{a_1, \dots, a_n\}\subseteq \mathbb{R}^+$ tali che $\sum_{i=1}^n a_i = 1$, allora vale che
+        \[
+        \varphi\left(\sum_{i=1}^n a_i x_i\right)\le \sum_{i=1}^n a_i \varphi(x_i)
+        \]
+    \end{remark}
+    \begin{exercise}[Disuguaglianza di Young]
+        \label{ex:9n.2}
+        Dati due numeri $p,q\in(1,+\infty)$ tali che $\frac{1}{p}+\frac{1}{q}=1$ e due numeri $a,b\ge 0$ , dimostrare che
+        \[
+        ab \le \frac{a^p}{p} + \frac{a^q}{q}
+        \]
+    \end{exercise}
+    \begin{proof}[Soluzione]
+        Chiaramente la disuguaglianza è verificata se $a=0$ e/o $b=0$. Supponiamo quindi $a,b>0$. Come nell'esempio della disuguaglianza media aritmetica-media geometrica, sfruttiamo la funzione convessa e monotona decrescente $-\log(\cdot)\colon (0,+\infty) \to \mathbb{R}$: abbiamo che
+        \[
+        -\log(ab) = -\log(a) -\log(b) = -\frac{p}{p}\log(a) - \frac{q}{q}\log(b) = \frac{1}{p}(-\log(a^p)) + \frac{1}{q}(-\log(b^q))
+        \]
+        Dato che $\frac{1}{p} + \frac{1}{q}=1$, per la convessità di $-\log(\cdot)$ abbiamo quindi che
+        \[
+        -\log(ab) = \frac{1}{p}(-\log(a^p)) + \frac{1}{q}(-\log(b^q)) \ge -\log\left(\frac{a^p}{p} + \frac{a^q}{q}\right)
+        \]
+        e poiché $-\log(\cdot)$ è monotona decrescente, abbiamo che 
+        \[
+        ab \le \frac{a^p}{p} + \frac{a^q}{q}
+        \]
+        come da asserto.
+    \end{proof}
+    \begin{remark}
+        Dall'esercizio \ref{ex:9n.2} segue un'altra importante disuguaglianza, la disuguaglianza di H{\"o}lder: date le famiglie $\{a_i\}_{1\le i \le n}$ e $\{b_i\}_{1\le i \le n}$ di numeri non-negativi e due numeri $p,q\in(1,+\infty)$ tali che $\frac{1}{p}+\frac{1}{q}=1$, vale che
+        \[
+        \sum_{i=1}^n a_i b_i \le \left(\sum_{i=1}^n a_i^p\right)^{\frac{1}{p}}\left(\sum_{i=1}^n b_i^q\right)^{\frac{1}{q}}
+        \]
+        Per mostrarne la validità, \emph{fissiamo} un $i\in\{1, \dots, n\}$, e consideriamo
+        \[
+        x_i=\frac{a_i}{\left(\sum_{j=1}^n a_j^p\right)^{1/p}} \qquad y_i=\frac{b_i}{\left(\sum_{k=1}^n b_k^q\right)^{1/q}}
+        \]
+        $x_i$ e $y_i$ sono entrambi numeri non-negativi, e pertanto per la disuguaglianza di Young abbiamo che
+        \[
+        x_i y_i \le \frac{x_i^p}{p} + \frac{y_i^q}{q} =\frac{1}{p} \frac{a_i^p}{\sum_{j=1}^n a_j^p}+\frac{1}{q}\frac{b_i^q}{\sum_{k=1}^n b_k^q}
+        \]
+        Sommando al variare di $i\in\{1,\dots, n\}$ i membri della disuguaglianza, abbiamo
+        \[
+        \sum_{i=1}^n x_i y_i \le \frac{1}{p}\frac{\sum_{i=1}^n a_i^p}{\sum_{j=1}^n a_j^p} + \frac{1}{q}\frac{\sum_{i=1}^n b_i^q}{\sum_{k=1}^n b_j^q}  = \frac{1}{p}+\frac{1}{q}=1
+        \]
+        ossia, inserendo l'espressione esplicita di $x_i$ e $y_i$,
+        \[
+        \sum_{i=1}^n \frac{a_i b_i}{\left(\sum_{j=1}^n a_j^p\right)^{1/p}\left(\sum_{k=1}^n b_k^q\right)^{1/q}} \le 1 \iff \sum_{i=1}^n {a_i b_i}\le \left(\sum_{j=1}^n a_j^p\right)^{1/p}\left(\sum_{k=1}^n b_k^q\right)^{1/q}
+        \]
+        Nel caso $p=q=2$, la disuguaglianza è nota come disuguaglianza di Cauchy-Schwarz.
+    \end{remark}
+    \begin{remark}
+        \'E possibile provare una versione generalizzata della disuguaglianza di Young, che dice che dati $\{a_i\}_{1\le i\le n} $ non-negativi e $\{p_i\}_{1\le i \le n}\subseteq \mathbb{R}^+$ tali che $\sum_{i=1}^n \frac{1}{p_i} = 1$, allora
+        \[
+        \prod_{i=1}^n a_i \le \sum_{i=1}^n \frac{a_i^{p_i}}{p_i}
+        \]
+        Come nel caso della disuguaglianza media aritmetica-media geometrica, si procede per induzione sul numero $n$ di termini, usando, nel passo induttivo, la disuguaglianza di Young provata nell'esercizio \ref{ex:9n.2} scegliendo opportunamente i valori di $a, b, p$ e $q$.
+    \end{remark}
     \subsection{Introduzione all'ottimizzazione convessa}
     Abbiamo già visto nella sezione \ref{sec:7.3} che l'ottimizzazione di funzioni, ossia la ricerca dei minimi o dei massimi, specialmente globali, di una funzione, è una procedura che riveste una grande importanza in diverse discipline. In questo contesto, le funzioni convesse sono particolarmente apprezzate per due motivi:
     \begin{enumerate}[(i)]
