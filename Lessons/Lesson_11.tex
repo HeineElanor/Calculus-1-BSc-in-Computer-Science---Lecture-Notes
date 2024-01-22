@@ -137,24 +137,24 @@ Analoghi risultati valgono per nel caso di integrali impropri nel senso della de
     \[
     \begin{split}
         \int_0^1 \frac{1}{\sqrt{1-x^4}}\, dx &= \lim_{t\to1^-} \int_0^t \frac{1}{\sqrt{(1-x)(1+x)(1+x^2)}}\, dx \overset{\text{Teorema \ref{th:8.4}}}{=} \\
-        &=\lim_{u\to0^+} -\int_1^u \frac{1}{\sqrt{y}\sqrt{2+y}\sqrt{1+(1+y)^2}}\, dy = \\
-        & = \lim_{u\to 0^+}\int_u^1 \frac{1}{\sqrt{y}\sqrt{2+y}\sqrt{1+(1+y)^2}}\, dy
+        &=\lim_{u\to0^+} -\int_1^u \frac{1}{\sqrt{y}\sqrt{2-y}\sqrt{1+(1-y)^2}}\, dy = \\
+        & = \lim_{u\to 0^+}\int_u^1 \frac{1}{\sqrt{y}\sqrt{2-y}\sqrt{1+(1-y)^2}}\, dy
     \end{split}
     \]
     A questo punto possiamo provare a sviluppare con Taylor (cfr. teorema \ref{th:6.5}) parte del denominatore per provare a trovare una funzione $g(y)$ che soddisfi il teorema \ref{th:10.2}:
     \[
-    \frac{1}{\sqrt{2+y}} = \frac{1}{\sqrt{2}}-\frac{1}{4\sqrt{2}}y +o(y) \qquad \frac{1}{\sqrt{1+(1+y)^2}} = \frac{1}{\sqrt{2}}-\frac{1}{2\sqrt{2}}y +o(y)
+    \frac{1}{\sqrt{2-y}} = \frac{1}{\sqrt{2}}+\frac{1}{4\sqrt{2}}y +o(y) \qquad \frac{1}{\sqrt{1+(1-y)^2}} = \frac{1}{\sqrt{2}}+\frac{1}{2\sqrt{2}}y +o(y)
     \]
     La funzione integranda può essere quindi sviluppata in un intorno di $y=0$ come
     \[
     \begin{split}
-        & \frac{1}{\sqrt{y}}\left(\frac{1}{\sqrt{2}}-\frac{1}{4\sqrt{2}}y+o(y)\right)\left(\frac{1}{\sqrt{2}}-\frac{1}{2\sqrt{2}}y+o(y)\right) = \\
-        & = \frac{1}{\sqrt{y}}\left(\frac{1}{2}-\frac{3}{8}y+o(y)\right) = \frac{1}{2\sqrt{y}}-\frac{3}{8}\sqrt{y}+o(\sqrt{y})
+        & \frac{1}{\sqrt{y}}\left(\frac{1}{\sqrt{2}}+\frac{1}{4\sqrt{2}}y+o(y)\right)\left(\frac{1}{\sqrt{2}}+\frac{1}{2\sqrt{2}}y+o(y)\right) = \\
+        & = \frac{1}{\sqrt{y}}\left(\frac{1}{2}+\frac{3}{8}y+o(y)\right) = \frac{1}{2\sqrt{y}}+\frac{3}{8}\sqrt{y}+o(\sqrt{y})
     \end{split}
     \]
     Se consideriamo $g(y) = \frac{1}{2\sqrt{y}}$ abbiamo che
     \[
-    \lim_{y\to 0^+} \frac{f(y)}{g(y)} = \lim_{y\to 0^+} (\frac{1}{2\sqrt{y}}-\frac{3}{8}\sqrt{y}+o(\sqrt{y}))2\sqrt{y} = \lim_{y\to 0^+} 1 -\frac{3}{4}y+o(y) = 1
+    \lim_{y\to 0^+} \frac{f(y)}{g(y)} = \lim_{y\to 0^+} \left(\frac{1}{2\sqrt{y}}+\frac{3}{8}\sqrt{y}+o(\sqrt{y})\right)2\sqrt{y} = \lim_{y\to 0^+} 1 +\frac{3}{4}y+o(y) = 1
     \]
     Notiamo che $f(y)$ e $g(y)$ sono continue in $(0,1]$ e positive; quindi per il teorema \ref{th:10.2} vale che
     \[
